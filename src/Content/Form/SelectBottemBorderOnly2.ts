@@ -6,6 +6,7 @@ import {Element} from '../../Element';
 export type SelectOption = {
   key: string;
   value: string;
+  style?: string;
 };
 
 /**
@@ -49,7 +50,13 @@ export class SelectBottemBorderOnly2 extends Element {
      * @param option
      */
     public addValue(option: SelectOption): void {
-        jQuery(`<option value="${option.key}">${option.value}</option>`).appendTo(this._element);
+        let style = '';
+
+        if (option.style) {
+            style = `style="${option.style}"`;
+        }
+
+        jQuery(`<option ${style} value="${option.key}">${option.value}</option>`).appendTo(this._element);
     }
 
     /**

@@ -1,6 +1,14 @@
 import {Element} from '../../Element';
 
 /**
+ * NavTabElements
+ */
+export type NavTabElements = {
+    tab: any;
+    body: any;
+}
+
+/**
  * NavTab
  */
 export class NavTab extends Element {
@@ -42,7 +50,7 @@ export class NavTab extends Element {
      * @param title
      * @param id
      */
-    public addTab(title: string, id: string): any {
+    public addTab(title: string, id: string): NavTabElements {
         let activ = '';
         let show = '';
 
@@ -56,7 +64,12 @@ export class NavTab extends Element {
         const li = jQuery('<li class="nav-item" />').appendTo(this._nav);
         li.append(`<a class="nav-link ${activ}" id="${id}-tab" data-toggle="pill" href="#${id}-content" role="tab" aria-controls="${id}-content" aria-selected="true">${title}</a>`);
 
-        return jQuery(`<div class="tab-pane fade ${activ} ${show}" id="${id}-content" role="tabpanel" aria-labelledby="${id}-tab"/>`).appendTo(this._body);
+        const body = jQuery(`<div class="tab-pane fade ${activ} ${show}" id="${id}-content" role="tabpanel" aria-labelledby="${id}-tab"/>`).appendTo(this._body);
+
+        return {
+            tab: li,
+            body
+        };
     }
 
 }
