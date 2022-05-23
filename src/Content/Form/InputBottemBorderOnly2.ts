@@ -7,6 +7,7 @@ export enum InputType {
     text = 'text',
     number = 'number',
     range = 'range',
+    password = 'password'
 }
 
 /**
@@ -30,6 +31,14 @@ export class InputBottemBorderOnly2 extends Element {
         }
 
         this._element = jQuery(`<input type="${type}" class="form-control form-control-border border-width-2" id="${aid}" placeholder="">`).appendTo(element);
+    }
+
+    /**
+     * setPlaceholder
+     * @param placeholder
+     */
+    public setPlaceholder(placeholder: string): void {
+        this._element.attr("placeholder", placeholder);
     }
 
     /**

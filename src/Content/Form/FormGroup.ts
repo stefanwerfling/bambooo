@@ -5,6 +5,10 @@ import {Element} from '../../Element';
  */
 export class FormGroup extends Element {
 
+    /**
+     * label
+     * @protected
+     */
     protected _label: any;
 
     /**
