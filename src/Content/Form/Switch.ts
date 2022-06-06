@@ -1,12 +1,33 @@
 import {Element} from '../../Element';
 
+/**
+ * SwitchChangeFn
+ */
 export type SwitchChangeFn = (value: any) => void;
 
+/**
+ * Switch
+ */
 export class Switch extends Element {
 
+    /**
+     * input
+     * @protected
+     */
     protected _input: any;
+
+    /**
+     * label
+     * @protected
+     */
     protected _label: any;
 
+    /**
+     * constructor
+     * @param element
+     * @param id
+     * @param label
+     */
     public constructor(element: any, id: string, label: any = '') {
         super();
 
@@ -20,18 +41,33 @@ export class Switch extends Element {
         this.setLabel(label);
     }
 
+    /**
+     * setLabel
+     * @param label
+     */
     public setLabel(label: any): void {
         this._label.empty().append(label);
     }
 
+    /**
+     * setEnable
+     * @param enable
+     */
     public setEnable(enable: boolean): void {
         this._input.prop('checked', enable);
     }
 
+    /**
+     * isEnable
+     */
     public isEnable(): boolean {
         return this._input.is(':checked');
     }
 
+    /**
+     * setChangeFn
+     * @param onChangeFn
+     */
     public setChangeFn(onChangeFn: SwitchChangeFn): void {
         this._input.unbind().on('change', (): void => {
             onChangeFn(this.isEnable());
