@@ -1,6 +1,12 @@
-
+/**
+ * LeftNavbar
+ */
 export class LeftNavbar {
 
+    /**
+     * entries
+     * @private
+     */
     private _entries = [
         {
             title: 'Home',
@@ -8,8 +14,16 @@ export class LeftNavbar {
         }
     ];
 
+    /**
+     * element
+     * @private
+     */
     private _element: any;
 
+    /**
+     * constructor
+     * @param element
+     */
     public constructor(element?: any) {
         if (element) {
             this._element = jQuery('<ul class="navbar-nav" />').appendTo(element);
@@ -18,10 +32,16 @@ export class LeftNavbar {
         }
     }
 
+    /**
+     * getElement
+     */
     public getElement(): any {
         return this._element;
     }
 
+    /**
+     * load
+     */
     public load(): void {
         for (const entry of this._entries) {
             jQuery('#ccc_navbar').append(

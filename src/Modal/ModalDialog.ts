@@ -1,5 +1,8 @@
 import {Element} from '../Element';
 
+/**
+ * ModalDialogType
+ */
 export enum ModalDialogType {
     small = 'modal-sm',
     large = 'modal-lg',
@@ -11,16 +14,52 @@ export enum ModalDialogType {
  */
 export class ModalDialog extends Element {
 
+    /**
+     * main element
+     * @protected
+     */
     protected _mainElement: any;
+
+    /**
+     * inner element
+     * @protected
+     */
     protected _innerElement: any;
+
+    /**
+     * modal content
+     * @protected
+     */
     protected _modalContent: any;
 
+    /**
+     * header
+     * @protected
+     */
     protected _header: any;
+
+    /**
+     * header title
+     * @protected
+     */
     protected _header_title: any;
+
+    /**
+     * header button
+     * @protected
+     */
     protected _header_button: any;
 
+    /**
+     * body
+     * @protected
+     */
     protected _body: any;
 
+    /**
+     * footer
+     * @protected
+     */
     protected _footer: any;
 
     /**
@@ -29,10 +68,12 @@ export class ModalDialog extends Element {
      * @param idname
      * @param modalType
      */
-    public constructor(elementObject: Element, idname: string, modalType: ModalDialogType) {
+    public constructor(elementObject: Element|any, idname: string, modalType: ModalDialogType) {
         super();
 
-        this._mainElement = jQuery(`<div class="modal fade" id="${idname}" />`).appendTo(elementObject.getElement());
+        const aElement = this._getAnyElement(elementObject);
+
+        this._mainElement = jQuery(`<div class="modal fade" id="${idname}" />`).appendTo(aElement);
         this._innerElement = jQuery(`<div class="modal-dialog ${modalType}" />`).appendTo(this._mainElement);
         this._modalContent = jQuery('<div class="modal-content">').appendTo(this._innerElement);
 

@@ -5,17 +5,57 @@ import {MainSidebar} from './MainSidebar';
 import {Navbar} from './Navbar';
 import {Preloader} from './Preloader';
 
+/**
+ * Wrapper
+ */
 export class Wrapper {
 
+    /**
+     * element
+     * @private
+     */
     private readonly _element: any;
 
+    /**
+     * preloader
+     * @private
+     */
     private readonly _preloader: Preloader;
+
+    /**
+     * navbar
+     * @private
+     */
     private readonly _navbar: Navbar;
+
+    /**
+     * main sidebar
+     * @private
+     */
     private readonly _mainSidebar: MainSidebar;
+
+    /**
+     * content wrapper
+     * @private
+     */
     private readonly _contentWrapper: ContentWrapper;
+
+    /**
+     * footer
+     * @private
+     */
     private readonly _footer: Footer;
+
+    /**
+     * control sidebar
+     * @private
+     */
     private readonly _controlSidebar: ControlSidebar;
 
+    /**
+     * constructor
+     * @param element
+     */
     public constructor(element?: any) {
         if (element) {
             this._element = element;
@@ -48,30 +88,51 @@ export class Wrapper {
         this._controlSidebar = new ControlSidebar(cs);
     }
 
+    /**
+     * getElement
+     */
     public getElement(): any {
         return this._element;
     }
 
+    /**
+     * getMainSidebar
+     */
     public getMainSidebar(): MainSidebar {
         return this._mainSidebar;
     }
 
+    /**
+     * getContentWrapper
+     */
     public getContentWrapper(): ContentWrapper {
         return this._contentWrapper;
     }
 
+    /**
+     * getFooter
+     */
     public getFooter(): Footer {
         return this._footer;
     }
 
+    /**
+     * getCrontrolSidebar
+     */
     public getCrontrolSidebar(): ControlSidebar {
         return this._controlSidebar;
     }
 
+    /**
+     * getPreloader
+     */
     public getPreloader(): Preloader {
         return this._preloader;
     }
 
+    /**
+     * getNavbar
+     */
     public getNavbar(): Navbar {
         return this._navbar;
     }
