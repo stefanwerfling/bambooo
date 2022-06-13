@@ -4,7 +4,13 @@ import {Element} from '../../Element';
  * IconFa
  */
 export enum IconFa {
-    edit= 'fa-edit'
+    edit = 'fa fa-edit',
+    trash = 'fa fa-trash',
+
+    ban = 'icon fas fa-ban',
+    info = 'icon fas fa-info',
+    alert = 'icon fas fa-exclamation-triangle',
+    success = 'icon fas fa-check'
 }
 
 /**
