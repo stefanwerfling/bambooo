@@ -56,4 +56,16 @@ export class InputBottemBorderOnly2 extends Element {
         return this._element.val();
     }
 
+    /**
+     * setReadOnly
+     * @param readonly
+     */
+    public setReadOnly(readonly: boolean): void {
+        if (readonly) {
+            this._element.attr('disabled', 'disabled');
+        } else {
+            this._element.removeAttr('disabled');
+        }
+    }
+
 }

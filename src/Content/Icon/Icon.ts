@@ -5,6 +5,7 @@ import {Element} from '../../Element';
  */
 export enum IconFa {
     edit = 'fa fa-edit',
+    add = 'fa fa-plus',
     trash = 'fa fa-trash',
 
     ban = 'icon fas fa-ban',

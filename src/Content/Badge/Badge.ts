@@ -9,7 +9,15 @@ export enum BadgeType {
     danger = 'badge-danger',
     info = 'badge-info',
     primary = 'badge-primary',
-    secondary = 'badge-secondary'
+    secondary = 'badge-secondary',
+    color_cream_red = '#DE3163',
+    color_cream_rorange = '#FF7F50',
+    color_cream_orange = '#FFBF00',
+    color_cream_yellow = '#DFFF00',
+    color_cream_green = '#9FE2BF',
+    color_cream_bgreen = '#40E0D0',
+    color_cream_blue = '#6495ED',
+    color_cream_purpel = '#CCCCFF'
 }
 
 /**
@@ -26,7 +34,21 @@ export class Badge extends Element {
     public constructor(element: any, text: string, type: BadgeType = BadgeType.success) {
         super();
 
-        this._element = jQuery(`<span class="badge ${type}">${text}</span>`).appendTo(element);
+        let strType = '';
+        let isColor = true;
+
+        if (type.indexOf('#') === -1 ) {
+            strType = type;
+            isColor = false;
+        }
+
+        this._element = jQuery(`<span class="badge ${strType}">${text}</span>`).appendTo(element);
+
+        if (isColor) {
+            this._element.css({
+                background: type
+            });
+        }
     }
 
 }
