@@ -16,9 +16,13 @@ export enum ButtonClass {
     info = 'btn-info',
     danger = 'btn-danger',
     warning = 'btn-warning',
-    success = 'btn-success'
+    success = 'btn-success',
+    primary = 'btn-primary'
 }
 
+/**
+ * ButtonDefaultClickFn
+ */
 export type ButtonDefaultClickFn = () => void;
 
 /**

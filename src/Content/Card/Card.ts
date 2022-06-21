@@ -60,6 +60,13 @@ export class Card extends Element {
     }
 
     /**
+     * getTitleElement
+     */
+    public getTitleElement(): any {
+        return this._title;
+    }
+
+    /**
      * getToolsElement
      */
     public getToolsElement(): any {

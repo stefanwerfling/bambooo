@@ -1,5 +1,6 @@
 import {Element} from '../../Element';
 import {ModalDialog, ModalDialogType} from '../../Modal/ModalDialog';
+import {ButtonClass} from '../Button/ButtonDefault';
 
 /**
  * DialogConfirmClickFn
@@ -40,14 +41,15 @@ export class DialogConfirm extends ModalDialog {
      * @param elementObject
      * @param idname
      * @param modalType
+     * @param buttonType
      */
-    public constructor(elementObject: Element|any, idname: string, modalType: ModalDialogType) {
+    public constructor(elementObject: Element|any, idname: string, modalType: ModalDialogType, buttonType: ButtonClass = ButtonClass.primary) {
         super(elementObject, idname, modalType);
 
         this._bodyCard = jQuery('<div class="card-body"/>').appendTo(this._body);
 
         const btnCancel = jQuery('<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>').appendTo(this._footer);
-        this._btnOk = jQuery('<button type="button" class="btn btn-primary">Ok</button>').appendTo(this._footer);
+        this._btnOk = jQuery(`<button type="button" class="btn ${buttonType}">Ok</button>`).appendTo(this._footer);
 
         btnCancel.on('click', (event: any): void => {
             if (this._cancelFn) {
@@ -102,6 +104,8 @@ export class DialogConfirm extends ModalDialog {
      * @param message
      * @param clickOk
      * @param clickCancel
+     * @param buttonOktitle
+     * @param buttonType
      */
     public static confirm(
         id: string,
@@ -110,9 +114,10 @@ export class DialogConfirm extends ModalDialog {
         message: any,
         clickOk: DialogConfirmClickFn,
         clickCancel?: DialogConfirmClickFn,
-        buttonOktitle?: string
+        buttonOktitle?: string,
+        buttonType: ButtonClass = ButtonClass.primary
     ): void {
-        const modal = new DialogConfirm(jQuery('body'), id, modalType);
+        const modal = new DialogConfirm(jQuery('body'), id, modalType, buttonType);
 
         modal.setTitle(title);
         modal.setMessage(message);

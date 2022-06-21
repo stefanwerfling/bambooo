@@ -8,6 +8,8 @@ export enum IconFa {
     add = 'fa fa-plus',
     trash = 'fa fa-trash',
 
+    bars = 'fas fa-bars',
+    
     ban = 'icon fas fa-ban',
     info = 'icon fas fa-info',
     alert = 'icon fas fa-exclamation-triangle',
