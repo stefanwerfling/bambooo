@@ -1,17 +1,16 @@
 {
   "name": "bambooo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "AdminLTE Typescript Framework",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "files": [
-    "/dist"
+    "/dist",
+    "/src"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stefanwerfling/bambooo.git"
   },
-  "author": "",
+  "author": "Stefan Werfling",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/stefanwerfling/bambooo/issues"

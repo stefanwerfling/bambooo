@@ -1,27 +1,29 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.RightNavbar = void 0;
-/**
- * RightNavbar
- */
-class RightNavbar {
+define(["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
     /**
-     * constructor
-     * @param element
+     * RightNavbar
      */
-    constructor(element) {
-        if (element) {
-            this._element = jQuery('<ul class="navbar-nav ml-auto" />').appendTo(element);
+    class RightNavbar {
+        /**
+         * constructor
+         * @param element
+         */
+        constructor(element) {
+            if (element) {
+                this._element = jQuery('<ul class="navbar-nav ml-auto" />').appendTo(element);
+            }
+            else {
+                throw Error('right navbar element not found!');
+            }
         }
-        else {
-            throw Error('right navbar element not found!');
+        /**
+         * getElement
+         */
+        getElement() {
+            return this._element;
         }
     }
-    /**
-     * getElement
-     */
-    getElement() {
-        return this._element;
-    }
-}
-exports.RightNavbar = RightNavbar;
+    exports.RightNavbar = RightNavbar;
+});
+//# sourceMappingURL=RightNavbar.js.map

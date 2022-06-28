@@ -1,34 +1,35 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Td = void 0;
-const Element_1 = require("../../Element");
-/**
- * Td
- */
-class Td extends Element_1.Element {
+define(["require", "exports", "../../Element"], function (require, exports, Element_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
     /**
-     * constructor
-     * @param atr
-     * @param avalue
-     * @param colspan
+     * Td
      */
-    constructor(atr, avalue, colspan) {
-        super();
-        let params = '';
-        if (colspan) {
-            params = `${params} colspan="${colspan}"`;
+    class Td extends Element_1.Element {
+        /**
+         * constructor
+         * @param atr
+         * @param avalue
+         * @param colspan
+         */
+        constructor(atr, avalue, colspan) {
+            super();
+            let params = '';
+            if (colspan) {
+                params = `${params} colspan="${colspan}"`;
+            }
+            this._element = jQuery(`<td ${params}/>`).appendTo(atr.getElement());
+            if (avalue) {
+                this.addValue(avalue);
+            }
         }
-        this._element = jQuery(`<td ${params}/>`).appendTo(atr.getElement());
-        if (avalue) {
-            this.addValue(avalue);
+        /**
+         * addValue
+         * @param avalue
+         */
+        addValue(avalue) {
+            this._element.append(avalue);
         }
     }
-    /**
-     * addValue
-     * @param avalue
-     */
-    addValue(avalue) {
-        this._element.append(avalue);
-    }
-}
-exports.Td = Td;
+    exports.Td = Td;
+});
+//# sourceMappingURL=Td.js.map

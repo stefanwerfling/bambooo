@@ -1,39 +1,40 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Content = void 0;
-const Element_1 = require("./Element");
-/**
- * Content
- */
-class Content extends Element_1.Element {
+define(["require", "exports", "./Element"], function (require, exports, Element_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
     /**
-     * constructor
-     * @param element
+     * Content
      */
-    constructor(element) {
-        super();
-        if (element) {
-            this._element = element;
+    class Content extends Element_1.Element {
+        /**
+         * constructor
+         * @param element
+         */
+        constructor(element) {
+            super();
+            if (element) {
+                this._element = element;
+            }
+            else {
+                this._element = jQuery('.content-wrapper');
+            }
+            if (this._element.length === 0) {
+                throw Error('content element not found!');
+            }
+            this._contentFluidElement = jQuery('<div class="container-fluid"/>').appendTo(this._element);
         }
-        else {
-            this._element = jQuery('.content-wrapper');
+        /**
+         * getContentFluidElement
+         */
+        getContentFluidElement() {
+            return this._contentFluidElement;
         }
-        if (this._element.length === 0) {
-            throw Error('content element not found!');
+        /**
+         * empty
+         */
+        empty() {
+            this._contentFluidElement.empty();
         }
-        this._contentFluidElement = jQuery('<div class="container-fluid"/>').appendTo(this._element);
     }
-    /**
-     * getContentFluidElement
-     */
-    getContentFluidElement() {
-        return this._contentFluidElement;
-    }
-    /**
-     * empty
-     */
-    empty() {
-        this._contentFluidElement.empty();
-    }
-}
-exports.Content = Content;
+    exports.Content = Content;
+});
+//# sourceMappingURL=Content.js.map

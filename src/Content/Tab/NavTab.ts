@@ -72,4 +72,16 @@ export class NavTab extends Element {
         };
     }
 
+    /**
+     * setTabSelect
+     * @param index
+     */
+    public setTabSelect(index: number): void {
+        this._nav.find('a').each(( tindex: number, telement: any ) => {
+            if (index === tindex) {
+                // @ts-ignore
+                jQuery(telement).tab('show');
+            }
+        });
+    }
 }

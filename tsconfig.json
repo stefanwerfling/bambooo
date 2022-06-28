@@ -17,6 +17,6 @@
     "target": "ES2016",
   },
   "include": [
-    "build/**/*"
+    "src/**/*"
   ],
 }

@@ -17,7 +17,9 @@ export enum ButtonClass {
     danger = 'btn-danger',
     warning = 'btn-warning',
     success = 'btn-success',
-    primary = 'btn-primary'
+    primary = 'btn-primary',
+
+    tool = 'btn-tool',
 }
 
 /**

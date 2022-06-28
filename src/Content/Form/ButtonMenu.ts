@@ -10,13 +10,13 @@ export class ButtonMenu extends Button {
      * div group
      * @protected
      */
-    protected _divGrp;
+    protected _divGrp: any;
 
     /**
      * div drop down menu
      * @protected
      */
-    protected _divDropDownMenu;
+    protected _divDropDownMenu: any;
 
     /**
      * constructor

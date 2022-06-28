@@ -1,10 +1,11 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ButtonListAddress = void 0;
-const Element_1 = require("../../Element");
-/**
- * ButtonListAddress
- */
-class ButtonListAddress extends Element_1.Element {
-}
-exports.ButtonListAddress = ButtonListAddress;
+define(["require", "exports", "../../Element"], function (require, exports, Element_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    /**
+     * ButtonListAddress
+     */
+    class ButtonListAddress extends Element_1.Element {
+    }
+    exports.ButtonListAddress = ButtonListAddress;
+});
+//# sourceMappingURL=ButtonListAddress.js.map

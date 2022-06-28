@@ -8,11 +8,12 @@ export class FormRow extends Element {
     /**
      * constructor
      * @param element
+     * @param style
      */
-    public constructor(element: any) {
+    public constructor(element: any, style: string = '') {
         super();
 
-        this._element = jQuery('<div class="row" />').appendTo(element);
+        this._element = jQuery(`<div class="row ${style}" />`).appendTo(element);
     }
 
     /**
