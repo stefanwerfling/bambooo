@@ -21,4 +21,32 @@ npm i --save-dev @types/jquery
 
 ## First use over Express Server
 
-TODO
+Go to your project folder and install bambooo:
+```shell
+npm install git+https://github.com/stefanwerfling/bambooo.git
+```
+
+### Sample working with submodule in git
+
+After npm install go into the node modules direcotry and delete bambooo.
+```shell
+rm -R ./node_modules/bambooo
+```
+
+Now add to your git repository a submodule:
+```shell
+cd ./node_modules
+```
+
+```shell
+git submodule add -f https://github.com/stefanwerfling/bambooo.git
+```
+
+Now go to your source code direcotry and add a system link:
+```shell
+cd src/inc/
+```
+
+```shell
+ln -s ../../node_modules/bambooo/src/ Bambooo
+```
