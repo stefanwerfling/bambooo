@@ -32,7 +32,9 @@ export class SelectBottemBorderOnly2 extends Element {
     public constructor(element: any) {
         super();
 
-        this._element = jQuery('<select class="custom-select form-control-border border-width-2" />').appendTo(element);
+        const telement = this._getAnyElement(element);
+
+        this._element = jQuery('<select class="custom-select form-control-border border-width-2" />').appendTo(telement);
 
         // set empty function
         this.setChangeFn(() => {});

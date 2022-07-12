@@ -24,13 +24,15 @@ export class InputBottemBorderOnly2 extends Element {
     public constructor(element: any, id?: string, type: InputType = InputType.text) {
         super();
 
+        const telement = this._getAnyElement(element);
+
         let aid: string = '';
 
         if (!id) {
             aid = id!;
         }
 
-        this._element = jQuery(`<input type="${type}" class="form-control form-control-border border-width-2" id="${aid}" placeholder="">`).appendTo(element);
+        this._element = jQuery(`<input type="${type}" class="form-control form-control-border border-width-2" id="${aid}" placeholder="">`).appendTo(telement);
     }
 
     /**
