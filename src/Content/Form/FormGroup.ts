@@ -19,7 +19,9 @@ export class FormGroup extends Element {
     public constructor(element: any, label?: any) {
         super();
 
-        this._element = jQuery('<div class="form-group" />').appendTo(element);
+        const telement = this._getAnyElement(element);
+
+        this._element = jQuery('<div class="form-group" />').appendTo(telement);
         this._label = jQuery('<label/>').appendTo(this._element);
 
         if (label) {

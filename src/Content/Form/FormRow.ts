@@ -13,7 +13,8 @@ export class FormRow extends Element {
     public constructor(element: any, style: string = '') {
         super();
 
-        this._element = jQuery(`<div class="row ${style}" />`).appendTo(element);
+        const telement = this._getAnyElement(element);
+        this._element = jQuery(`<div class="row ${style}" />`).appendTo(telement);
     }
 
     /**

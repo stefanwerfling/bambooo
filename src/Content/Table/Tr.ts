@@ -1,11 +1,19 @@
 import {Element} from '../../Element';
 
+/**
+ * Tr
+ */
 export class Tr extends Element {
 
+    /**
+     * constructor
+     * @param element
+     */
     public constructor(element: any) {
         super();
 
-        this._element = jQuery('<tr />').appendTo(element);
+        const telement = this._getAnyElement(element);
+        this._element = jQuery('<tr />').appendTo(telement);
     }
 
 }

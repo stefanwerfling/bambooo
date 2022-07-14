@@ -9,6 +9,19 @@ export enum CardBodyType {
 }
 
 /**
+ * CardType
+ */
+export enum CardType {
+    none = '',
+    primary = 'card-primary',
+    success = 'card-success',
+    warning = 'card-warning',
+    danger = 'card-danger',
+    info = 'card-info',
+    secondary = 'card-secondary'
+}
+
+/**
  * Card
  */
 export class Card extends Element {
@@ -46,19 +59,28 @@ export class Card extends Element {
     /**
      * constructor
      * @param elementObject
+     * @param bodyType
+     * @param cardType
      */
-    public constructor(elementObject: Element, bodyType: CardBodyType = CardBodyType.table) {
+    public constructor(elementObject: Element, bodyType: CardBodyType = CardBodyType.table, cardType: CardType = CardType.none) {
         super();
 
         const telement = this._getAnyElement(elementObject);
 
-        this._element = jQuery('<div class="card" />').appendTo(telement);
+        this._element = jQuery(`<div class="card ${cardType}" />`).appendTo(telement);
         this._header = jQuery('<div class="card-header"/>').appendTo(this._element);
         this._title = jQuery('<h3 class="card-title"/>').appendTo(this._header);
         this._tools = jQuery('<div class="card-tools"/>').appendTo(this._header);
         this._body = jQuery(`<div class="card-body ${bodyType}" />`).appendTo(this._element);
         this._overload = jQuery('<div class="overlay"><i class="fas fa-2x fa-sync-alt fa-spin"></i></div>').appendTo(this._element);
         this.hideLoading();
+    }
+
+    /**
+     * getMainElement
+     */
+    public getMainElement(): any {
+        return this._element;
     }
 
     /**

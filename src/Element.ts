@@ -40,4 +40,19 @@ export class Element {
 
         return aelement;
     }
+
+    /**
+     * hide
+     */
+    public hide(): void {
+        this._element.hide();
+    }
+
+    /**
+     * show
+     */
+    public show(): void {
+        this._element.show();
+    }
+
 }

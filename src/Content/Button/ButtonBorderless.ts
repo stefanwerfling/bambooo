@@ -1,42 +1,10 @@
 import {Element} from '../../Element';
+import {ButtonClass, ButtonDefaultClickFn, ButtonDefaultType} from './ButtonDefault';
 
 /**
- * ButtonDefaultType
+ * ButtonBorderless
  */
-export enum ButtonDefaultType {
-    none = '',
-    small = 'btn-sm'
-}
-
-/**
- * ButtonClass
- */
-export enum ButtonClass {
-    default = 'btn-default',
-    info = 'btn-info',
-    danger = 'btn-danger',
-    warning = 'btn-warning',
-    success = 'btn-success',
-    primary = 'btn-primary',
-
-    tool = 'btn-tool',
-}
-
-/**
- * ButtonDefaultClickFn
- */
-export type ButtonDefaultClickFn = () => void;
-
-/**
- * ButtonDefault
- */
-export class ButtonDefault extends Element {
-
-    /**
-     * class
-     * @protected
-     */
-    protected _class = ButtonClass.default;
+export class ButtonBorderless extends Element {
 
     /**
      * title
@@ -67,16 +35,13 @@ export class ButtonDefault extends Element {
     public constructor(
         element: any,
         title?: string,
-        icon?: string,
-        bnClass: ButtonClass = ButtonClass.default,
-        bnType: ButtonDefaultType = ButtonDefaultType.small
+        icon?: string
     ) {
         super();
 
         const telement = this._getAnyElement(element);
 
-        this._class = bnClass;
-        this._element = jQuery(`<button type="button" class="btn ${bnClass} ${bnType}" />`).appendTo(telement);
+        this._element = jQuery(`<a href="#" class="text-muted"/>`).appendTo(telement);
 
         this.setValue(title, icon);
     }
@@ -123,20 +88,10 @@ export class ButtonDefault extends Element {
     }
 
     /**
-     * setClass
-     * @param bnClass
-     */
-    public setClass(bnClass: ButtonClass = ButtonClass.default): void {
-        this._element.removeClass(this._class).addClass(bnClass);
-        this._class = bnClass;
-    }
-
-    /**
      * setClickEnable
      * @param enable
      */
     public setClickEnable(enable: boolean): void {
         this._clickEnable = enable;
     }
-
 }

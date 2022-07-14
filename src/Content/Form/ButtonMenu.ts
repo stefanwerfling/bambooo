@@ -1,5 +1,5 @@
 import {Icon, IconFa} from '../Icon/Icon';
-import {Button, ButtonClickFn} from './Button';
+import {Button, ButtonClickFn, ButtonType} from './Button';
 
 /**
  * ButtonMenu
@@ -23,11 +23,15 @@ export class ButtonMenu extends Button {
      * @param element
      * @param icon
      * @param positonRight
+     * @param type
      */
-    public constructor(element: any, icon: IconFa|null = null, positonRight: boolean = false) {
-        const divGrp = jQuery('<div class="btn-group"/>').appendTo(element);
+    public constructor(element: any, icon: IconFa|null = null, positonRight: boolean = false, type: ButtonType = ButtonType.default) {
+        const divGrp = jQuery('<div class="btn-group"/>');
 
-        super(divGrp);
+        super(divGrp, type);
+
+        const telement = this._getAnyElement(element);
+        divGrp.appendTo(telement)
 
         if (icon !== null) {
             new Icon(this._element, icon);

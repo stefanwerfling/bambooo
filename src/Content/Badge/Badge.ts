@@ -42,7 +42,8 @@ export class Badge extends Element {
             isColor = false;
         }
 
-        this._element = jQuery(`<span class="badge ${strType}">${text}</span>`).appendTo(element);
+        const telement = this._getAnyElement(element);
+        this._element = jQuery(`<span class="badge ${strType}">${text}</span>`).appendTo(telement);
 
         if (isColor) {
             this._element.css({
