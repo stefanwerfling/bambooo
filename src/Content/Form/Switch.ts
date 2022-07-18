@@ -3,7 +3,7 @@ import {Element} from '../../Element';
 /**
  * SwitchChangeFn
  */
-export type SwitchChangeFn = (value: any) => void;
+export type SwitchChangeFn = (value: boolean) => void;
 
 /**
  * Switch
@@ -55,6 +55,7 @@ export class Switch extends Element {
      */
     public setEnable(enable: boolean): void {
         this._input.prop('checked', enable);
+        this._input.trigger('change');
     }
 
     /**
