@@ -5,6 +5,10 @@ import {Element} from './Element';
  */
 export class Content extends Element {
 
+    /**
+     * content fluid element
+     * @private
+     */
     private _contentFluidElement: any;
 
     /**

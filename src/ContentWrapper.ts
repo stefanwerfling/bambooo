@@ -6,12 +6,28 @@ import {ContentHeader} from './ContentHeader';
  */
 export class ContentWrapper {
 
+    /**
+     * element
+     * @private
+     */
     private _element: any;
 
+    /**
+     * content header
+     * @private
+     */
     private _contentHeader: ContentHeader;
+
+    /**
+     * content
+     * @private
+     */
     private _content: Content;
 
-
+    /**
+     * constructor
+     * @param element
+     */
     public constructor(element?: any) {
         if (element) {
             this._element = element;
@@ -30,14 +46,23 @@ export class ContentWrapper {
         this._content = new Content(c);
     }
 
+    /**
+     * getElement
+     */
     public getElement(): any {
         return this._element;
     }
 
+    /**
+     * getContentHeader
+     */
     public getContentHeader(): ContentHeader {
         return this._contentHeader;
     }
 
+    /**
+     * getContent
+     */
     public getContent(): Content {
         return this._content;
     }

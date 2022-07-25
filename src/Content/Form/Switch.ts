@@ -31,7 +31,8 @@ export class Switch extends Element {
     public constructor(element: any, id: string, label: any = '') {
         super();
 
-        this._element = jQuery('<div class="form-group" />').appendTo(element);
+        const telement = this._getAnyElement(element);
+        this._element = jQuery('<div class="form-group" />').appendTo(telement);
 
         const control = jQuery('<div class="custom-control custom-switch" />').appendTo(this._element)
 
