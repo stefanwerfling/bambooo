@@ -1,3 +1,4 @@
+import {LangText} from '../Lang/LangText';
 import {SidebarMenu} from './SidebarMenu';
 import {SidebarMenuTree} from './SidebarMenuTree';
 
@@ -65,8 +66,8 @@ export class SidebarMenuItem {
      * setTitle
      * @param title
      */
-    public setTitle(title: string): void {
-        this._pElement.empty().append(title);
+    public setTitle(title: string|LangText): void {
+        LangText.addLangText(this._pElement, title);
     }
 
     /**

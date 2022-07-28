@@ -1,3 +1,4 @@
+import {LangText} from '../Lang/LangText';
 import {LeftNavbar} from './LeftNavbar';
 
 /**
@@ -29,9 +30,11 @@ export class LeftNavbarLink {
      * @param onClickFn
      * @param linkClass
      */
-    public constructor(leftNavbar: LeftNavbar, title: string, onClickFn?: LeftNavbarLinkFn|null, linkClass: string = '') {
+    public constructor(leftNavbar: LeftNavbar, title: string|LangText, onClickFn?: LeftNavbarLinkFn|null, linkClass: string = '') {
         this._liElement = jQuery('<li class="nav-item d-none d-sm-inline-block" />').appendTo(leftNavbar.getElement());
-        this._aElement = jQuery(`<a href="#" class="nav-link ${linkClass}">${title}</a>`).appendTo(this._liElement);
+        this._aElement = jQuery(`<a href="#" class="nav-link ${linkClass}"></a>`).appendTo(this._liElement);
+
+        LangText.addLangText(this._aElement, title);
 
         if (onClickFn) {
             this._aElement.on('click', onClickFn);

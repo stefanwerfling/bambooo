@@ -1,5 +1,8 @@
 import {Element} from '../Element';
 
+/**
+ * NavbarLinkButtonFn
+ */
 export type NavbarLinkButtonFn = (event: any) => void;
 
 /**
@@ -14,7 +17,9 @@ export class NavbarLinkButton extends Element {
     public constructor(element: any, icon: string, click: NavbarLinkButtonFn) {
         super();
 
-        this._element = jQuery('<li class="nav-item" />').appendTo(element);
+        const telement = this._getAnyElement(element);
+
+        this._element = jQuery('<li class="nav-item" />').appendTo(telement);
         const a = jQuery('<a class="nav-link" href="#" role="button" />').appendTo(this._element);
         jQuery(`<i class="fas ${icon}" />`).appendTo(a);
 

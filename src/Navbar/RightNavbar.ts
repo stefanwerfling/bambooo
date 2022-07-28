@@ -1,27 +1,24 @@
+import {Element} from '../Element';
+
 /**
  * RightNavbar
  */
-export class RightNavbar {
-
-    private _element: any;
+export class RightNavbar extends Element {
 
     /**
      * constructor
      * @param element
      */
     public constructor(element?: any) {
-        if (element) {
-            this._element = jQuery('<ul class="navbar-nav ml-auto" />').appendTo(element);
+        super();
+
+        const telement = this._getAnyElement(element);
+
+        if (telement) {
+            this._element = jQuery('<ul class="navbar-nav ml-auto" />').appendTo(telement);
         } else {
             throw Error('right navbar element not found!');
         }
-    }
-
-    /**
-     * getElement
-     */
-    public getElement(): any {
-        return this._element;
     }
 
 }

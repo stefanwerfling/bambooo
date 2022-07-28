@@ -1,4 +1,5 @@
 import {Element} from '../../Element';
+import {LangText} from '../../Lang/LangText';
 
 /**
  * CardBodyType
@@ -87,8 +88,8 @@ export class Card extends Element {
      * setTitle
      * @param title
      */
-    public setTitle(title: string): void {
-        this._title.empty().append(title);
+    public setTitle(title: string|LangText): void {
+        LangText.addLangText(this._title, title);
     }
 
     /**

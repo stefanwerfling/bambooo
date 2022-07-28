@@ -1,4 +1,5 @@
 import {Element} from '../Element';
+import {LangText} from '../Lang/LangText';
 
 /**
  * ModalDialogType
@@ -94,8 +95,8 @@ export class ModalDialog extends Element {
      * setTitle
      * @param title
      */
-    public setTitle(title: string): void {
-        this._header_title.empty().append(title);
+    public setTitle(title: string|LangText): void {
+        LangText.addLangText(this._header_title, title);
     }
 
     /**

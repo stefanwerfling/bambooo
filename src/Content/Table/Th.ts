@@ -32,7 +32,8 @@ export class Th extends Element {
      * @param avalue
      */
     public addValue(avalue: any): void {
-        this._element.append(avalue);
+        const telement = Element.getAnyElement(avalue);
+        this._element.append(telement);
     }
 
 }

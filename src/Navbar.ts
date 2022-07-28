@@ -1,14 +1,22 @@
+import {Element} from './Element';
 import {LeftNavbar} from './Navbar/LeftNavbar';
 import {RightNavbar} from './Navbar/RightNavbar';
 
 /**
  * Navbar
  */
-export class Navbar {
+export class Navbar extends Element {
 
-    private _element: any;
-
+    /**
+     * left navbar
+     * @private
+     */
     private _leftNavbar: LeftNavbar;
+
+    /**
+     * right navbar
+     * @private
+     */
     private _rightNavbar: RightNavbar|null = null;
 
     /**
@@ -16,8 +24,12 @@ export class Navbar {
      * @param element
      */
     public constructor(element?: any) {
-        if (element) {
-            this._element = element;
+        super();
+
+        const telement = this._getAnyElement(element);
+
+        if (telement) {
+            this._element = telement;
         } else {
             throw Error('navbar element not found!');
         }

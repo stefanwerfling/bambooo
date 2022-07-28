@@ -28,17 +28,35 @@ export class Element {
     }
 
     /**
+     * getAnyElement
+     * helper for giving a element as any (by jquery)
+     * @param aelement
+     * @protected
+     */
+    public static getAnyElement(aelement?: any): any {
+        if (aelement instanceof Element) {
+            return aelement.getElement();
+        }
+
+        return aelement;
+    }
+
+    /**
+     * isEmpty
+     * @param el
+     */
+    public static isEmpty(el: any) {
+        return !el.has('*').length;
+    }
+
+    /**
      * _getAnyElement
      * helper for giving a element as any (by jquery)
      * @param aelement
      * @protected
      */
     protected _getAnyElement(aelement?: any): any {
-        if (aelement instanceof Element) {
-            return aelement.getElement();
-        }
-
-        return aelement;
+        return Element.getAnyElement(aelement);
     }
 
     /**
