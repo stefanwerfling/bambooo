@@ -51,4 +51,20 @@ export class Multiple extends Element {
         this._element.empty();
         this._reload();
     }
+
+    /**
+     * setValue
+     * @param values
+     */
+    public setValue(values: any[]): void {
+        this._element.val(values);
+        this._element.trigger('change');
+    }
+
+    /**
+     * getValue
+     */
+    public getValue(): any[] {
+        return this._element.val();
+    }
 }
