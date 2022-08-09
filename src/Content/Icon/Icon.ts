@@ -13,7 +13,7 @@ export enum IconFa {
     ban = 'icon fas fa-ban',
     info = 'icon fas fa-info',
     alert = 'icon fas fa-exclamation-triangle',
-    success = 'icon fas fa-check'
+    success = 'icon fas fa-check',
 }
 
 /**

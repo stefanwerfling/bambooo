@@ -48,7 +48,7 @@ export class NavbarLinkLanguage extends Element {
         entry.append(` ${lang.getLangTitle()}`);
 
         entry.off('click').on('click', (): void => {
-            this.setActiv(lang.getCountryCode());
+            this.setActiv(lang.getCountryCode(), false);
             click(lang);
         });
     }
@@ -56,8 +56,9 @@ export class NavbarLinkLanguage extends Element {
     /**
      * setActiv
      * @param countryCode
+     * @param triggerClick
      */
-    public setActiv(countryCode: string): void {
+    public setActiv(countryCode: string, triggerClick: boolean): void {
         this._a.empty();
         this._menu.find('active').each((_index, element) => {
             jQuery(element).removeClass('active');
@@ -68,5 +69,14 @@ export class NavbarLinkLanguage extends Element {
         });
 
         jQuery(`<i class="flag-icon flag-icon-${countryCode} mr-2"></i>`).appendTo(this._a);
+
+        if (triggerClick) {
+            this._menu.find(`#lang-${countryCode}`).each((
+                _index,
+                element
+            ) => {
+                jQuery(element).trigger('click');
+            });
+        }
     }
 }
