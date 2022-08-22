@@ -46,7 +46,17 @@ export class Element {
      * @param el
      */
     public static isEmpty(el: any) {
-        return !el.has('*').length;
+        if (el.has('*').length > 0) {
+            return false;
+        }
+
+        const tmp = el.html();
+
+        if (tmp.length !== 0) {
+            return false;
+        }
+
+        return true;
     }
 
     /**

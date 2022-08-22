@@ -33,7 +33,9 @@ export class Td extends Element {
      * @param avalue
      */
     public addValue(avalue: any): void {
-        this._element.append(avalue);
+        const element = this._getAnyElement(avalue);
+
+        this._element.append(element);
     }
 
 }
