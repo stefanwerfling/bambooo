@@ -1,4 +1,5 @@
 import {Element} from '../../Element';
+import {TextAlignment} from './Text';
 
 export enum PTextType {
     success = 'text-success',
@@ -19,10 +20,13 @@ export class PText extends Element {
      * @param element
      * @param type
      */
-    public constructor(element: any, type: PTextType = PTextType.muted) {
+    public constructor(element: any, type: PTextType = PTextType.muted, align: TextAlignment = TextAlignment.none) {
         super();
 
-        this._element = jQuery(`<p class="${type}" />`).appendTo(element);
+        const telement = this._getAnyElement(element);
+
+        this._element = jQuery(`<p class="${type}" />`).appendTo(telement);
+        this._element.addClass(`${align}`);
     }
 
     /**

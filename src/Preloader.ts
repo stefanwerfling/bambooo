@@ -1,11 +1,30 @@
-
+/**
+ * Preloader
+ */
 export class Preloader {
 
+    /**
+     * element
+     * @private
+     */
     private _element: any;
 
+    /**
+     * title
+     * @private
+     */
     private _title: string = '';
+
+    /**
+     * imgeurl
+     * @private
+     */
     private _imageUrl: string = '';
 
+    /**
+     * constructor
+     * @param element
+     */
     public constructor(element?: any) {
         if (element) {
             this._element = element;

@@ -1,13 +1,33 @@
 import {Sidebar} from './Sidebar/Sidebar';
 import {SidebarLogo} from './Sidebar/SidebarLogo';
 
+/**
+ * MainSidebar
+ */
 export class MainSidebar {
 
+    /**
+     * element
+     * @private
+     */
     private _element: any;
 
+    /**
+     * logo
+     * @private
+     */
     private _logo: SidebarLogo;
+
+    /**
+     * sidebar
+     * @private
+     */
     private _sidebar: Sidebar;
 
+    /**
+     * constructor
+     * @param element
+     */
     public constructor(element?: any) {
         if (element) {
             this._element = element;
@@ -26,10 +46,16 @@ export class MainSidebar {
         this._sidebar = new Sidebar(s);
     }
 
+    /**
+     * getLogo
+     */
     public getLogo(): SidebarLogo {
         return this._logo;
     }
 
+    /**
+     * getSidebar
+     */
     public getSidebar(): Sidebar {
         return this._sidebar;
     }

@@ -1,8 +1,18 @@
-
+/**
+ * Footer
+ */
 export class Footer {
 
+    /**
+     * element
+     * @private
+     */
     private _element: any;
 
+    /**
+     * constructor
+     * @param element
+     */
     public constructor(element?: any) {
         if (element) {
             this._element = element;

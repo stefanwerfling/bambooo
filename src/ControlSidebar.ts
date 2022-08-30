@@ -1,7 +1,18 @@
+/**
+ * ControlSidebar
+ */
 export class ControlSidebar {
 
+    /**
+     * element
+     * @private
+     */
     private _element: any;
 
+    /**
+     * constructor
+     * @param element
+     */
     public constructor(element?: any) {
         if (element) {
             this._element = element;
@@ -14,6 +25,9 @@ export class ControlSidebar {
         }
     }
 
+    /**
+     * getElement
+     */
     public getElement(): any {
         return this._element;
     }

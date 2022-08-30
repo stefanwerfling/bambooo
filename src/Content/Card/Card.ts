@@ -5,8 +5,9 @@ import {LangText} from '../../Lang/LangText';
  * CardBodyType
  */
 export enum CardBodyType {
-    'none' = '',
-    'table' = 'table-responsive p-0'
+    none = '',
+    table = 'table-responsive p-0',
+    profile = 'box-profile'
 }
 
 /**
@@ -20,6 +21,14 @@ export enum CardType {
     danger = 'card-danger',
     info = 'card-info',
     secondary = 'card-secondary'
+}
+
+/**
+ * CardLine
+ */
+export enum CardLine {
+    none = '',
+    outline = 'card-outline',
 }
 
 /**
@@ -63,12 +72,17 @@ export class Card extends Element {
      * @param bodyType
      * @param cardType
      */
-    public constructor(elementObject: Element, bodyType: CardBodyType = CardBodyType.table, cardType: CardType = CardType.none) {
+    public constructor(
+        elementObject: Element,
+        bodyType: CardBodyType = CardBodyType.table,
+        cardType: CardType = CardType.none,
+        cardLine: CardLine = CardLine.none
+    ) {
         super();
 
         const telement = this._getAnyElement(elementObject);
 
-        this._element = jQuery(`<div class="card ${cardType}" />`).appendTo(telement);
+        this._element = jQuery(`<div class="card ${cardType} ${cardLine}" />`).appendTo(telement);
         this._header = jQuery('<div class="card-header"/>').appendTo(this._element);
         this._title = jQuery('<h3 class="card-title"/>').appendTo(this._header);
         this._tools = jQuery('<div class="card-tools"/>').appendTo(this._header);
@@ -127,4 +141,10 @@ export class Card extends Element {
         this._overload.hide();
     }
 
+    /**
+     * hideHeader
+     */
+    public hideHeader(): void {
+        this._header.hide();
+    }
 }

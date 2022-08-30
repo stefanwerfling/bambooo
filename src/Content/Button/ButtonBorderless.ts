@@ -1,5 +1,5 @@
 import {Element} from '../../Element';
-import {ButtonClass, ButtonDefaultClickFn, ButtonDefaultType} from './ButtonDefault';
+import {ButtonDefaultClickFn} from './ButtonDefault';
 
 /**
  * ButtonBorderless

@@ -83,4 +83,19 @@ export class Element {
         this._element.show();
     }
 
+    /**
+     * appendTo
+     * @param telement
+     */
+    public appendTo(telement: Element): void {
+        this._element.appendTo(telement.getElement());
+    }
+
+    /**
+     * append
+     * @param telement
+     */
+    public append(telement: Element): void {
+        this._element.append(telement.getElement());
+    }
 }
