@@ -127,4 +127,9 @@ export class ModalDialog extends Element {
         this._mainElement.modal('hide');
     }
 
+    /**
+     * resetValues
+     * ovverride for use
+     */
+    public resetValues(): void {}
 }

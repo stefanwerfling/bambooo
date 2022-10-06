@@ -1,4 +1,5 @@
 import {Element} from '../../Element';
+import {FormGroupButton} from './FormGroupButton';
 
 /**
  * InputType
@@ -32,7 +33,13 @@ export class InputBottemBorderOnly2 extends Element {
             aid = id!;
         }
 
-        this._element = jQuery(`<input type="${type}" class="form-control form-control-border border-width-2" id="${aid}" placeholder="">`).appendTo(telement);
+        this._element = jQuery(`<input type="${type}" class="form-control form-control-border border-width-2" id="${aid}" placeholder="">`);
+
+        if (element instanceof FormGroupButton) {
+            this._element.prependTo(telement);
+        } else {
+            this._element.appendTo(telement);
+        }
     }
 
     /**
@@ -70,4 +77,10 @@ export class InputBottemBorderOnly2 extends Element {
         }
     }
 
+    /**
+     * isReadOnly
+     */
+    public isReadOnly(): boolean {
+        return this._element.is('[disabled=disabled]');
+    }
 }

@@ -40,6 +40,13 @@ export class Content extends Element {
     }
 
     /**
+     * getElement
+     */
+    public getElement(): any {
+        return this._contentFluidElement;
+    }
+
+    /**
      * empty
      */
     public empty(): void {

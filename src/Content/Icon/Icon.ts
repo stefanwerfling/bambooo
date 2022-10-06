@@ -14,6 +14,9 @@ export enum IconFa {
     info = 'icon fas fa-info',
     alert = 'icon fas fa-exclamation-triangle',
     success = 'icon fas fa-check',
+
+    hockeypuck = 'fa fa-hockey-puck',
+    ethernet = 'fa fa-ethernet'
 }
 
 /**
@@ -28,6 +31,8 @@ export class Icon extends Element {
     public constructor(element: any, symbol: IconFa) {
         super();
 
-        jQuery(`<i class="fa ${symbol}"></i>`).appendTo(element);
+        const telement = this._getAnyElement(element);
+
+        jQuery(`<i class="fa ${symbol}"></i>`).appendTo(telement);
     }
 }
