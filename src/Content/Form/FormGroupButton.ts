@@ -23,6 +23,12 @@ export class FormGroupButton extends Element {
     protected _iconElement: any;
 
     /**
+     * _click
+     * @protected
+     */
+    protected _click?: FormGroupButtonClickFn;
+
+    /**
      * constructor
      * @param element
      */
@@ -37,11 +43,17 @@ export class FormGroupButton extends Element {
             'cursor': 'pointer'
         });
 
+        this._subElement.on('click', () => {
+            if (this._click) {
+                this._click();
+            }
+        });
+
         this._iconElement = jQuery('<div class="input-group-text"></div>').appendTo(this._subElement);
     }
 
     /**
-     * getElement
+     * getButtonElement
      */
     public getButtonElement(): any {
         return this._subElement;
@@ -59,8 +71,6 @@ export class FormGroupButton extends Element {
      * @param onClick
      */
     public setOnClickFn(onClick: FormGroupButtonClickFn): void {
-        this._subElement.unbind().on('click', (): void => {
-            onClick();
-        });
+        this._click = onClick;
     }
 }

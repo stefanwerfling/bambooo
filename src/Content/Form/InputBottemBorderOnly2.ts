@@ -29,7 +29,7 @@ export class InputBottemBorderOnly2 extends Element {
 
         let aid: string = '';
 
-        if (!id) {
+        if (id !== undefined && id !== null) {
             aid = id!;
         }
 

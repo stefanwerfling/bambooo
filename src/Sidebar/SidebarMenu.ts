@@ -35,4 +35,10 @@ export class SidebarMenu {
         return null;
     }
 
+    /**
+     * initTreeview
+     */
+    public initTreeview(): void {
+        this._ulElement.Treeview();
+    }
 }

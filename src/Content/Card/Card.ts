@@ -147,4 +147,11 @@ export class Card extends Element {
     public hideHeader(): void {
         this._header.hide();
     }
+
+    /**
+     * emptyBody
+     */
+    public emptyBody(): void {
+        this._body.empty();
+    }
 }

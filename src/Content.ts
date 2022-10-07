@@ -29,7 +29,6 @@ export class Content extends Element {
         }
 
         this._contentFluidElement = jQuery('<div class="container-fluid"/>').appendTo(this._element);
-
     }
 
     /**
@@ -40,17 +39,10 @@ export class Content extends Element {
     }
 
     /**
-     * getElement
-     */
-    public getElement(): any {
-        return this._contentFluidElement;
-    }
-
-    /**
      * empty
      */
     public empty(): void {
-        this._contentFluidElement.empty();
+        this._contentFluidElement = jQuery('<div class="container-fluid"/>').appendTo(this._element);
     }
 
 }
