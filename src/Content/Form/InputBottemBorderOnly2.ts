@@ -8,7 +8,8 @@ export enum InputType {
     text = 'text',
     number = 'number',
     range = 'range',
-    password = 'password'
+    password = 'password',
+    colorpicker = 'colorpicker'
 }
 
 /**
@@ -33,12 +34,26 @@ export class InputBottemBorderOnly2 extends Element {
             aid = id!;
         }
 
-        this._element = jQuery(`<input type="${type}" class="form-control form-control-border border-width-2" id="${aid}" placeholder="">`);
+        let ttype = `${type}`;
+
+        switch (type) {
+            case InputType.colorpicker:
+                ttype = `${InputType.text}`;
+                break;
+        }
+
+        this._element = jQuery(`<input type="${ttype}" class="form-control form-control-border border-width-2" id="${aid}" placeholder="">`);
 
         if (element instanceof FormGroupButton) {
             this._element.prependTo(telement);
         } else {
             this._element.appendTo(telement);
+        }
+
+        switch (type) {
+            case InputType.colorpicker:
+                this._element.colorpicker();
+                break;
         }
     }
 

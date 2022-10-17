@@ -31,7 +31,7 @@ export class Badge extends Element {
      * @param text
      * @param type
      */
-    public constructor(element: any, text: string, type: BadgeType = BadgeType.success) {
+    public constructor(element: any, text: string, type: BadgeType = BadgeType.success, aColor?: string) {
         super();
 
         let strType = '';
@@ -42,10 +42,18 @@ export class Badge extends Element {
             isColor = false;
         }
 
+        if (aColor !== undefined) {
+            strType = '';
+        }
+
         const telement = this._getAnyElement(element);
         this._element = jQuery(`<span class="badge ${strType}">${text}</span>`).appendTo(telement);
 
-        if (isColor) {
+        if (aColor !== undefined) {
+            this._element.css({
+                background: aColor
+            });
+        } else if (isColor) {
             this._element.css({
                 background: type
             });
