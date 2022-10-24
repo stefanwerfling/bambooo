@@ -73,7 +73,7 @@ export class Card extends Element {
      * @param cardType
      */
     public constructor(
-        elementObject: Element,
+        elementObject: any,
         bodyType: CardBodyType = CardBodyType.table,
         cardType: CardType = CardType.none,
         cardLine: CardLine = CardLine.none

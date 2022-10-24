@@ -16,7 +16,8 @@ export enum IconFa {
     success = 'icon fas fa-check',
 
     hockeypuck = 'fa fa-hockey-puck',
-    ethernet = 'fa fa-ethernet'
+    ethernet = 'fa fa-ethernet',
+    certificate = 'fa-file-certificate'
 }
 
 /**
