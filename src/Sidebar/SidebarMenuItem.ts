@@ -21,12 +21,18 @@ export class SidebarMenuItem {
      * constructor
      * @param sidebar
      */
-    public constructor(sidebar: SidebarMenu|SidebarMenuTree) {
+    public constructor(sidebar: SidebarMenu|SidebarMenuTree, isSubItem: boolean = false) {
         this._liElement = jQuery('<li class="nav-item" />').appendTo(sidebar.getUlElement());
         this._aElement = jQuery('<a href="#" class="nav-link" />').appendTo(this._liElement);
         this._iElement = jQuery('<i />').appendTo(this._aElement);
         this._iElement.addClass(`nav-icon fas ${this._iconClass}`);
         this._pElement = jQuery('<p />').appendTo(this._aElement);
+
+        if (isSubItem) {
+            this._aElement.css({
+                'padding-left': '2em'
+            });
+        }
 
         sidebar.addMenuItem(this);
     }
