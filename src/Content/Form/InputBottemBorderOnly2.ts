@@ -31,7 +31,7 @@ export class InputBottemBorderOnly2 extends Element {
         let aid: string = '';
 
         if (id !== undefined && id !== null) {
-            aid = id!;
+            aid = `id="${id}"`;
         }
 
         let ttype = `${type}`;
@@ -42,7 +42,7 @@ export class InputBottemBorderOnly2 extends Element {
                 break;
         }
 
-        this._element = jQuery(`<input type="${ttype}" class="form-control form-control-border border-width-2" id="${aid}" placeholder="">`);
+        this._element = jQuery(`<input type="${ttype}" class="form-control form-control-border border-width-2" ${aid} placeholder="">`);
 
         if (element instanceof FormGroupButton) {
             this._element.prependTo(telement);
