@@ -35,4 +35,10 @@ export class ContentCol extends Element {
         this._element.addClass(`${size}`);
     }
 
+    /**
+     * empty
+     */
+    public empty(): void {
+        this._element.empty();
+    }
 }
