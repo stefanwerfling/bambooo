@@ -17,7 +17,9 @@ export enum IconFa {
 
     hockeypuck = 'fa fa-hockey-puck',
     ethernet = 'fa fa-ethernet',
-    certificate = 'fa-file-certificate'
+    certificate = 'fa-file-certificate',
+
+    share = 'fa fa-share'
 }
 
 /**
