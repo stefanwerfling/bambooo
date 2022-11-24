@@ -19,7 +19,8 @@ export enum IconFa {
     ethernet = 'fa fa-ethernet',
     certificate = 'fa-file-certificate',
 
-    share = 'fa fa-share'
+    share = 'fa fa-share',
+    lock = 'fa fa-lock'
 }
 
 /**
