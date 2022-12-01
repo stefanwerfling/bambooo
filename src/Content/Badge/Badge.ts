@@ -10,6 +10,8 @@ export enum BadgeType {
     info = 'badge-info',
     primary = 'badge-primary',
     secondary = 'badge-secondary',
+    light = 'badge-light',
+    dark = 'badge-dark',
     color_cream_red = '#DE3163',
     color_cream_rorange = '#FF7F50',
     color_cream_orange = '#FFBF00',

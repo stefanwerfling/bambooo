@@ -29,7 +29,7 @@ export class Element {
 
     /**
      * getAnyElement
-     * helper for giving a element as any (by jquery)
+     * helper for giving an element as any (by jquery)
      * @param aelement
      * @protected
      */
@@ -52,16 +52,12 @@ export class Element {
 
         const tmp = el.html();
 
-        if (tmp.length !== 0) {
-            return false;
-        }
-
-        return true;
+        return tmp.length === 0;
     }
 
     /**
      * _getAnyElement
-     * helper for giving a element as any (by jquery)
+     * helper for giving an element as any (by jquery)
      * @param aelement
      * @protected
      */
@@ -87,15 +83,40 @@ export class Element {
      * appendTo
      * @param telement
      */
-    public appendTo(telement: Element): void {
-        this._element.appendTo(telement.getElement());
+    public appendTo(telement: Element|string): void {
+        if (telement instanceof Element) {
+            this._element.appendTo(telement.getElement());
+        } else {
+            this._element.appendTo(telement);
+        }
     }
 
     /**
      * append
      * @param telement
      */
-    public append(telement: Element): void {
-        this._element.append(telement.getElement());
+    public append(telement: Element|string): void {
+        if (telement instanceof Element) {
+            this._element.append(telement.getElement());
+        } else {
+            this._element.append(telement);
+        }
     }
+
+    /**
+     * addClass
+     * @param aclass
+     */
+    public addClass(aclass: string): void {
+        this._element.addClass(aclass);
+    }
+
+    /**
+     * setCss
+     * @param css
+     */
+    public setCss(css: object): void {
+        this._element.css(css);
+    }
+
 }
