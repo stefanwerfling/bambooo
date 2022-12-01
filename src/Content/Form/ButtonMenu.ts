@@ -1,3 +1,4 @@
+import {LangText} from '../../Lang/LangText';
 import {Icon, IconFa} from '../Icon/Icon';
 import {Button, ButtonClickFn, ButtonType} from './Button';
 
@@ -53,8 +54,9 @@ export class ButtonMenu extends Button {
      * addMenuItem
      * @param title
      * @param clickFn
+     * @param icon
      */
-    public addMenuItem(title: any, clickFn: ButtonClickFn, icon: IconFa|null = null): void {
+    public addMenuItem(title: any|LangText, clickFn: ButtonClickFn, icon: IconFa|null = null): void {
         const item = jQuery('<a class="dropdown-item" href="#"/>');
 
         item.appendTo(this._divDropDownMenu);
@@ -65,7 +67,9 @@ export class ButtonMenu extends Button {
             item.append('&nbsp;');
         }
 
-        item.append(title);
+        const textSpan = jQuery('<span></span>').appendTo(item);
+        LangText.addLangText(textSpan, title);
+
         item.on('click', (event: any): void => {
             clickFn();
             //event.stopPropagation();
