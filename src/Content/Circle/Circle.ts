@@ -9,7 +9,8 @@ export enum CircleColor {
     purple = 'text-purple',
     red = 'text-red',
     orange = 'text-orange',
-    yellow = 'text-yellow'
+    yellow = 'text-yellow',
+    gray = 'text-gray'
 };
 
 /**
@@ -22,7 +23,7 @@ export class Circle extends Element {
      * @param element
      * @param color
      */
-    public constructor(element: any, color: CircleColor) {
+    public constructor(element: any, color: CircleColor|string) {
         super();
 
         const telement = this._getAnyElement(element);
