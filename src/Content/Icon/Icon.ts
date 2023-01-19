@@ -7,6 +7,7 @@ export enum IconFa {
     edit = 'fa fa-edit',
     add = 'fa fa-plus',
     trash = 'fa fa-trash',
+    copy = 'fa fa-copy',
 
     bars = 'fas fa-bars',
     
@@ -20,7 +21,10 @@ export enum IconFa {
     certificate = 'fa-file-certificate',
 
     share = 'fa fa-share',
-    lock = 'fa fa-lock'
+    lock = 'fa fa-lock',
+    external_link = 'fa fa-external-link-alt',
+
+    redo = 'fa fa-redo-alt'
 }
 
 /**

@@ -1,3 +1,4 @@
+import {Icon, IconFa} from '../Content/Icon/Icon';
 import {LangText} from '../Lang/LangText';
 import {LeftNavbar} from './LeftNavbar';
 
@@ -29,12 +30,21 @@ export class LeftNavbarLink {
      * @param title
      * @param onClickFn
      * @param linkClass
+     * @param icon
      */
-    public constructor(leftNavbar: LeftNavbar, title: string|LangText, onClickFn?: LeftNavbarLinkFn|null, linkClass: string = '') {
+    public constructor(leftNavbar: LeftNavbar, title: string|LangText, onClickFn?: LeftNavbarLinkFn|null, linkClass: string = '', icon: IconFa|null = null) {
         this._liElement = jQuery('<li class="nav-item d-none d-sm-inline-block" />').appendTo(leftNavbar.getElement());
         this._aElement = jQuery(`<a href="#" class="nav-link ${linkClass}"></a>`).appendTo(this._liElement);
 
-        LangText.addLangText(this._aElement, title);
+        if (icon !== null) {
+            new Icon(this._aElement, icon);
+
+            this._aElement.append('&nbsp;');
+        }
+
+        const textDiv = jQuery('<span></span>').appendTo(this._aElement);
+
+        LangText.addLangText(textDiv, title);
 
         if (onClickFn) {
             this._aElement.on('click', onClickFn);
