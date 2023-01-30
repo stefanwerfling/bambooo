@@ -3,6 +3,14 @@ import {Icon, IconFa} from '../Icon/Icon';
 import {Button, ButtonClickFn, ButtonType} from './Button';
 
 /**
+ * ButtonMenuPosition
+ */
+export enum ButtonMenuPosition {
+    none = 'unset',
+    relative = 'relative'
+}
+
+/**
  * ButtonMenu
  */
 export class ButtonMenu extends Button {
@@ -25,9 +33,17 @@ export class ButtonMenu extends Button {
      * @param icon
      * @param positonRight
      * @param type
+     * @param position
      */
-    public constructor(element: any, icon: IconFa|null = null, positonRight: boolean = false, type: ButtonType = ButtonType.default) {
+    public constructor(
+        element: any,
+        icon: IconFa|null = null,
+        positonRight: boolean = false,
+        type: ButtonType = ButtonType.default,
+        position: ButtonMenuPosition = ButtonMenuPosition.relative
+    ) {
         const divGrp = jQuery('<div class="btn-group"/>');
+        divGrp.css('position', `${position}`);
 
         super(divGrp, type);
 
@@ -83,4 +99,5 @@ export class ButtonMenu extends Button {
     public addDivider(): void {
         jQuery('<div class="dropdown-divider"/>').appendTo(this._divDropDownMenu);
     }
+
 }

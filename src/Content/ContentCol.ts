@@ -16,7 +16,9 @@ export enum ContentColSize {
     colMd9 = 'col-md-9',
 
     colSm6 = 'col-sm-6',
-    colSm12 = 'col-sm-12'
+    colSm12 = 'col-sm-12',
+
+    col12ColSm6ColMd3 = 'col-12 col-sm-6 col-md-3',
 }
 
 /**

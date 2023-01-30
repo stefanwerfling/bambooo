@@ -30,4 +30,12 @@ export class Tooltip extends Element {
     public setTooltipText(tooltipText: string): void {
         this._element.attr('title', tooltipText);
     }
+
+    /**
+     * init
+     */
+    public static init(): void {
+        // @ts-ignore
+        jQuery('[data-toggle="tooltip"]').tooltip();
+    }
 }
