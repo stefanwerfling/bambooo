@@ -1,36 +1,35 @@
-define(["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class ContentHeader {
-        constructor(element) {
-            this._title = '';
-            if (element) {
-                this._element = element;
-            }
-            else {
-                this._element = jQuery('.content-header');
-            }
-            this._element.append('      <div class="container-fluid">\n' +
-                '        <div class="row mb-2">\n' +
-                '          <div class="col-sm-6" id="ccc_ch_title">\n' +
-                '          </div><!-- /.col -->\n' +
-                '          <div class="col-sm-6">\n' +
-                // todo
-                '          </div><!-- /.col -->\n' +
-                '        </div><!-- /.row -->\n' +
-                '      </div><!-- /.container-fluid -->');
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ContentHeader = void 0;
+class ContentHeader {
+    _element;
+    _title = '';
+    constructor(element) {
+        if (element) {
+            this._element = element;
         }
-        getElement() {
-            return this._element;
+        else {
+            this._element = jQuery('.content-header');
         }
-        setTitle(title) {
-            this._title = title;
-            this._element.find('#ccc_ch_title').append(`<h1 class="m-0">${title}</h1>`);
-        }
-        getTitle() {
-            return this._title;
-        }
+        this._element.append('      <div class="container-fluid">\n' +
+            '        <div class="row mb-2">\n' +
+            '          <div class="col-sm-6" id="ccc_ch_title">\n' +
+            '          </div><!-- /.col -->\n' +
+            '          <div class="col-sm-6">\n' +
+            // todo
+            '          </div><!-- /.col -->\n' +
+            '        </div><!-- /.row -->\n' +
+            '      </div><!-- /.container-fluid -->');
     }
-    exports.ContentHeader = ContentHeader;
-});
-//# sourceMappingURL=ContentHeader.js.map
+    getElement() {
+        return this._element;
+    }
+    setTitle(title) {
+        this._title = title;
+        this._element.find('#ccc_ch_title').append(`<h1 class="m-0">${title}</h1>`);
+    }
+    getTitle() {
+        return this._title;
+    }
+}
+exports.ContentHeader = ContentHeader;

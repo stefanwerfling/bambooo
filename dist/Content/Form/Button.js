@@ -1,28 +1,43 @@
-define(["require", "exports", "../../Element"], function (require, exports, Element_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Button = exports.ButtonType = void 0;
+const Element_1 = require("../../Element");
+/**
+ * ButtonType
+ */
+var ButtonType;
+(function (ButtonType) {
+    ButtonType["default"] = "default";
+    ButtonType["borderless"] = "borderless";
+})(ButtonType = exports.ButtonType || (exports.ButtonType = {}));
+/**
+ * Button
+ */
+class Button extends Element_1.Element {
     /**
-     * Button
+     * constructor
+     * @param element
+     * @param type
      */
-    class Button extends Element_1.Element {
-        /**
-         * constructor
-         * @param element
-         */
-        constructor(element) {
-            super();
-            this._element = jQuery(`<button type="button" class="btn btn-default"></button>`).appendTo(element);
-        }
-        /**
-         * setOnClickFn
-         * @param onClick
-         */
-        setOnClickFn(onClick) {
-            this._element.unbind().on('click', () => {
-                onClick();
-            });
+    constructor(element, type = ButtonType.default) {
+        super();
+        const telement = this._getAnyElement(element);
+        switch (type) {
+            case ButtonType.borderless:
+                this._element = jQuery(`<a href="#" class="text-muted"/>`).appendTo(telement);
+                break;
+            default:
+                this._element = jQuery(`<button type="button" class="btn btn-default"></button>`).appendTo(telement);
         }
     }
-    exports.Button = Button;
-});
-//# sourceMappingURL=Button.js.map
+    /**
+     * setOnClickFn
+     * @param onClick
+     */
+    setOnClickFn(onClick) {
+        this._element.unbind().on('click', () => {
+            onClick();
+        });
+    }
+}
+exports.Button = Button;

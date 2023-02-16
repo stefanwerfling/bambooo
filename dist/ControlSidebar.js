@@ -1,22 +1,35 @@
-define(["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class ControlSidebar {
-        constructor(element) {
-            if (element) {
-                this._element = element;
-            }
-            else {
-                this._element = jQuery('.control-sidebar');
-            }
-            if (this._element.length === 0) {
-                throw Error('control sidebar element not found!');
-            }
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ControlSidebar = void 0;
+/**
+ * ControlSidebar
+ */
+class ControlSidebar {
+    /**
+     * element
+     * @private
+     */
+    _element;
+    /**
+     * constructor
+     * @param element
+     */
+    constructor(element) {
+        if (element) {
+            this._element = element;
         }
-        getElement() {
-            return this._element;
+        else {
+            this._element = jQuery('.control-sidebar');
+        }
+        if (this._element.length === 0) {
+            throw Error('control sidebar element not found!');
         }
     }
-    exports.ControlSidebar = ControlSidebar;
-});
-//# sourceMappingURL=ControlSidebar.js.map
+    /**
+     * getElement
+     */
+    getElement() {
+        return this._element;
+    }
+}
+exports.ControlSidebar = ControlSidebar;

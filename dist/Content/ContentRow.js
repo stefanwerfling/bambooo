@@ -1,14 +1,41 @@
-define(["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class ContentRow {
-        constructor(content) {
-            this._element = jQuery('<div class="row" />').appendTo(content.getContentFluidElement());
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ContentRow = exports.ContentRowClass = void 0;
+const ContentWrapper_1 = require("../ContentWrapper");
+const Element_1 = require("../Element");
+const Wrapper_1 = require("../Wrapper");
+/**
+ * ContentRowClass
+ */
+var ContentRowClass;
+(function (ContentRowClass) {
+    ContentRowClass["none"] = "";
+    ContentRowClass["mb2"] = "mb-2";
+})(ContentRowClass = exports.ContentRowClass || (exports.ContentRowClass = {}));
+/**
+ * ContentRow
+ */
+class ContentRow extends Element_1.Element {
+    /**
+     * constructor
+     * @param content
+     */
+    constructor(content, rowclass) {
+        super();
+        let tcontent = null;
+        if (content instanceof Wrapper_1.Wrapper) {
+            tcontent = content.getContentWrapper().getContent();
         }
-        getElement() {
-            return this._element;
+        else if (content instanceof ContentWrapper_1.ContentWrapper) {
+            tcontent = content.getContent();
+        }
+        else {
+            tcontent = content;
+        }
+        this._element = jQuery('<div class="row" />').appendTo(tcontent.getContentFluidElement());
+        if (rowclass) {
+            this._element.addClass(`${rowclass}`);
         }
     }
-    exports.ContentRow = ContentRow;
-});
-//# sourceMappingURL=ContentRow.js.map
+}
+exports.ContentRow = ContentRow;
