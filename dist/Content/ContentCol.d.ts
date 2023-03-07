@@ -9,6 +9,7 @@ export declare enum ContentColSize {
     colLg7 = "col-lg-7",
     colLg3Col6 = "col-lg-3 col-6",
     colMd3 = "col-md-3",
+    colMd4 = "col-md-4",
     colMd8 = "col-md-8",
     colMd9 = "col-md-9",
     colSm6 = "col-sm-6",

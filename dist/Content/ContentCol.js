@@ -12,6 +12,7 @@ var ContentColSize;
     ContentColSize["colLg7"] = "col-lg-7";
     ContentColSize["colLg3Col6"] = "col-lg-3 col-6";
     ContentColSize["colMd3"] = "col-md-3";
+    ContentColSize["colMd4"] = "col-md-4";
     ContentColSize["colMd8"] = "col-md-8";
     ContentColSize["colMd9"] = "col-md-9";
     ContentColSize["colSm6"] = "col-sm-6";
