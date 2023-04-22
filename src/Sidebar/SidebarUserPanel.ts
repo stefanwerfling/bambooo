@@ -65,6 +65,12 @@ export class SidebarUserPanel {
         }
 
         this._divElement.append(`<div class="info"><a href="#" class="d-block">${this._username}</a></div>`);
+
+        const oscontent = this._divElement.parent().find('.os-content');
+
+        if (oscontent.length > 0) {
+            this._divElement.detach().appendTo(oscontent);
+        }
     }
 
     /**

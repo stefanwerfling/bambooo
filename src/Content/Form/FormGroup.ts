@@ -37,4 +37,10 @@ export class FormGroup extends Element {
         this._label.empty().append(label);
     }
 
+    /**
+     * getLabelElement
+     */
+    public getLabelElement(): any {
+        return this._label;
+    }
 }

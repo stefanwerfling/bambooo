@@ -76,4 +76,15 @@ export class Switch extends Element {
         });
     }
 
+    /**
+     * setInativ
+     * @param inactiv
+     */
+    public setInativ(inactiv: boolean) {
+        if (inactiv) {
+            this._input.attr('disabled', true);
+        } else {
+            this._input.removeAttr('disabled');
+        }
+    }
 }

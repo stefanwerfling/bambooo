@@ -27,11 +27,13 @@ export class SwitchTimer extends Switch {
 
     protected _startInterval(): void {
         if (this._intervalId) {
+            // @ts-ignore
             clearInterval(this._intervalId);
         }
 
         this._counter = this._timeoutSec;
 
+        // @ts-ignore
         this._intervalId = setInterval(() => {
             if (this._counter <= 0) {
                 this._counter = this._timeoutSec;
@@ -49,6 +51,7 @@ export class SwitchTimer extends Switch {
 
     protected _stopInterval(): void {
         if (this._intervalId) {
+            // @ts-ignore
             clearInterval(this._intervalId);
         }
     }

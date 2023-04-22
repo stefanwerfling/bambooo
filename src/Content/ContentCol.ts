@@ -13,10 +13,14 @@ export enum ContentColSize {
     colLg3Col6 = 'col-lg-3 col-6',
 
     colMd3 = 'col-md-3',
+    colMd4 = 'col-md-4',
+    colMd8 = 'col-md-8',
     colMd9 = 'col-md-9',
 
     colSm6 = 'col-sm-6',
-    colSm12 = 'col-sm-12'
+    colSm12 = 'col-sm-12',
+
+    col12ColSm6ColMd3 = 'col-12 col-sm-6 col-md-3',
 }
 
 /**
@@ -27,6 +31,7 @@ export class ContentCol extends Element {
     /**
      * constructor
      * @param contentRow
+     * @param size
      */
     public constructor(contentRow: ContentRow, size: ContentColSize) {
         super();

@@ -1,11 +1,12 @@
 {
   "name": "bambooo",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "version": "1.0.1",
   "description": "AdminLTE Typescript Framework",
-  "files": [
-    "/dist",
-    "/src"
-  ],
+  "scripts": {
+    "build": "tsc"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stefanwerfling/bambooo.git"
@@ -16,5 +17,11 @@
     "url": "https://github.com/stefanwerfling/bambooo/issues"
   },
   "homepage": "https://github.com/stefanwerfling/bambooo#readme",
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "@types/jquery": "^3.5.16"
+  }
 }

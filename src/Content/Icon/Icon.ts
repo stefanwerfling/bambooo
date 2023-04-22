@@ -7,6 +7,7 @@ export enum IconFa {
     edit = 'fa fa-edit',
     add = 'fa fa-plus',
     trash = 'fa fa-trash',
+    copy = 'fa fa-copy',
 
     bars = 'fas fa-bars',
     
@@ -23,7 +24,10 @@ export enum IconFa {
     lock = 'fa fa-lock',
 
     calendar = 'fa fa-calendar',
-    clock = 'far fa-clock'
+    clock = 'far fa-clock',
+    external_link = 'fa fa-external-link-alt',
+
+    redo = 'fa fa-redo-alt'
 }
 
 /**
