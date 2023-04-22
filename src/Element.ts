@@ -20,6 +20,15 @@ export class Element {
     }
 
     /**
+     * _uniqId
+     * @protected
+     */
+    protected _uniqId(): string {
+        const id = Math.round(new Date().getTime() + (Math.random() * 100));
+        return `${id}`;
+    }
+
+    /**
      * getElement
      * return the main enclosed element
      */

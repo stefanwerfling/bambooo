@@ -20,7 +20,10 @@ export enum IconFa {
     certificate = 'fa-file-certificate',
 
     share = 'fa fa-share',
-    lock = 'fa fa-lock'
+    lock = 'fa fa-lock',
+
+    calendar = 'fa fa-calendar',
+    clock = 'far fa-clock'
 }
 
 /**
@@ -31,6 +34,7 @@ export class Icon extends Element {
     /**
      * constructor
      * @param element
+     * @param symbol
      */
     public constructor(element: any, symbol: IconFa) {
         super();
