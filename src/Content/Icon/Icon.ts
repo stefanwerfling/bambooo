@@ -27,7 +27,9 @@ export enum IconFa {
     clock = 'far fa-clock',
     external_link = 'fa fa-external-link-alt',
 
-    redo = 'fa fa-redo-alt'
+    redo = 'fa fa-redo-alt',
+    paperclip = 'fas fa-paperclip',
+    camera = 'fas fa-camera'
 }
 
 /**
