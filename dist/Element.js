@@ -20,6 +20,14 @@ class Element {
         }
     }
     /**
+     * _uniqId
+     * @protected
+     */
+    _uniqId() {
+        const id = Math.round(new Date().getTime() + (Math.random() * 100));
+        return `${id}`;
+    }
+    /**
      * getElement
      * return the main enclosed element
      */

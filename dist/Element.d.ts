@@ -13,6 +13,11 @@ export declare class Element {
      */
     constructor(aelement?: any);
     /**
+     * _uniqId
+     * @protected
+     */
+    protected _uniqId(): string;
+    /**
      * getElement
      * return the main enclosed element
      */

@@ -21,8 +21,12 @@ var IconFa;
     IconFa["certificate"] = "fa-file-certificate";
     IconFa["share"] = "fa fa-share";
     IconFa["lock"] = "fa fa-lock";
+    IconFa["calendar"] = "fa fa-calendar";
+    IconFa["clock"] = "far fa-clock";
     IconFa["external_link"] = "fa fa-external-link-alt";
     IconFa["redo"] = "fa fa-redo-alt";
+    IconFa["paperclip"] = "fas fa-paperclip";
+    IconFa["camera"] = "fas fa-camera";
 })(IconFa = exports.IconFa || (exports.IconFa = {}));
 /**
  * Icon
@@ -31,6 +35,7 @@ class Icon extends Element_1.Element {
     /**
      * constructor
      * @param element
+     * @param symbol
      */
     constructor(element, symbol) {
         super();

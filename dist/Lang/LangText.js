@@ -7,15 +7,26 @@ const Element_1 = require("../Element");
  */
 class LangText extends Element_1.Element {
     /**
+     * class
+     * @protected
+     */
+    _class = '';
+    /**
      * constructor
      * @param text
      */
-    constructor(text) {
+    constructor(text, cssClass, onClick) {
         super();
         this._element = jQuery('<span />');
         this._element.attr('lang', '1');
         this._element.attr('lang-value', text);
         this._element.append(text);
+        if (cssClass) {
+            this.setClass(cssClass);
+        }
+        if (onClick) {
+            this.setOnClickFn(onClick);
+        }
     }
     /**
      * addLangText
@@ -30,6 +41,23 @@ class LangText extends Element_1.Element {
         else {
             telement.empty().append(atext);
         }
+    }
+    /**
+     * setOnClickFn
+     * @param onClick
+     */
+    setOnClickFn(onClick) {
+        this._element.unbind().on('click', () => {
+            onClick(this);
+        });
+    }
+    /**
+     * setClass
+     * @param bnClass
+     */
+    setClass(cssClass) {
+        this._element.removeClass(this._class).addClass(cssClass);
+        this._class = cssClass;
     }
 }
 exports.LangText = LangText;

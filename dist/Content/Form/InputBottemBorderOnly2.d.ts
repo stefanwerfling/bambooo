@@ -7,12 +7,25 @@ export declare enum InputType {
     number = "number",
     range = "range",
     password = "password",
-    colorpicker = "colorpicker"
+    colorpicker = "colorpicker",
+    date = "date",
+    datetime = "datetime",
+    time = "time"
 }
 /**
  * InputBottemBorderOnly2
  */
 export declare class InputBottemBorderOnly2 extends Element {
+    /**
+     * type
+     * @protected
+     */
+    protected _type: InputType;
+    /**
+     * input group
+     * @protected
+     */
+    protected _inputGroup: any | null;
     /**
      * constructor
      * @param element
