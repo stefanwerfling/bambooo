@@ -2,7 +2,7 @@ import { Element } from '../Element';
 /**
  * LangTextDefaultClickFn
  */
-export type LangTextDefaultClickFn = (langText: Element) => void;
+export type LangTextDefaultClickFn = (langText: LangText) => void;
 /**
  * LangText
  */

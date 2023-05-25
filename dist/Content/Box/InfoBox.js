@@ -49,7 +49,7 @@ class InfoBox extends Element_1.Element {
     constructor(element, bg = InfoBoxBg.light, mb = InfoBoxMb.none) {
         super();
         const telement = this._getAnyElement(element);
-        this._element = jQuery(`<div class="info-box ${bg}" ${mb}/>`).appendTo(telement);
+        this._element = jQuery(`<div class="info-box ${bg} ${mb}"></div>`).appendTo(telement);
     }
     /**
      * setIcon
