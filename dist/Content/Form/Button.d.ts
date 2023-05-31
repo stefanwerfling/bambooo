@@ -4,7 +4,8 @@ import { Element } from '../../Element';
  */
 export declare enum ButtonType {
     default = "default",
-    borderless = "borderless"
+    borderless = "borderless",
+    cardCollapse = "cardCollapse"
 }
 /**
  * ButtonClickFn

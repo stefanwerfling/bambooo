@@ -15,6 +15,7 @@ var BadgeType;
     BadgeType["secondary"] = "badge-secondary";
     BadgeType["light"] = "badge-light";
     BadgeType["dark"] = "badge-dark";
+    BadgeType["purple"] = "bg-purple";
     BadgeType["color_cream_red"] = "#DE3163";
     BadgeType["color_cream_rorange"] = "#FF7F50";
     BadgeType["color_cream_orange"] = "#FFBF00";
