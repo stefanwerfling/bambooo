@@ -73,6 +73,9 @@ class ModalDialog extends Element_1.Element {
         this._header_button = jQuery('<button type="button" class="close" data-dismiss="modal" aria-label="Close">' +
             '<span aria-hidden="true">×</span>' +
             '</button>').appendTo(this._header);
+        this._header_button.on('click', () => {
+            this.hide();
+        });
         this._body = jQuery('<div class="modal-body" />').appendTo(this._modalContent);
         this._footer = jQuery('<div class="modal-footer justify-content-between">').appendTo(this._modalContent);
     }
@@ -112,5 +115,21 @@ class ModalDialog extends Element_1.Element {
      * ovverride for use
      */
     resetValues() { }
+    /**
+     * addButtonClose
+     */
+    addButtonClose() {
+        const close = jQuery('<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>').appendTo(this._footer);
+        close.on('click', () => {
+            this.hide();
+        });
+        return close;
+    }
+    /**
+     * addButtonSave
+     */
+    addButtonSave() {
+        return jQuery('<button type="button" class="btn btn-primary">Save</button>').appendTo(this._footer);
+    }
 }
 exports.ModalDialog = ModalDialog;

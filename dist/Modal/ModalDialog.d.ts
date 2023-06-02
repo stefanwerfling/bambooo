@@ -85,4 +85,12 @@ export declare class ModalDialog extends Element {
      * ovverride for use
      */
     resetValues(): void;
+    /**
+     * addButtonClose
+     */
+    addButtonClose(): any;
+    /**
+     * addButtonSave
+     */
+    addButtonSave(): any;
 }
