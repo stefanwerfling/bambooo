@@ -85,7 +85,7 @@ export class InputBottemBorderOnly2 extends Element {
 
         switch (type) {
             case InputType.colorpicker:
-                //this._element.colorpicker();
+                this._element.colorpicker();
                 break;
 
             case InputType.date:

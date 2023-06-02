@@ -34,6 +34,12 @@ export class ModalDialog extends Element {
     protected _modalContent: any;
 
     /**
+     * overload
+     * @protected
+     */
+    protected _overload: any;
+
+    /**
      * header
      * @protected
      */
@@ -77,6 +83,7 @@ export class ModalDialog extends Element {
         this._mainElement = jQuery(`<div class="modal fade" id="${idname}" />`).appendTo(aElement);
         this._innerElement = jQuery(`<div class="modal-dialog ${modalType}" />`).appendTo(this._mainElement);
         this._modalContent = jQuery('<div class="modal-content">').appendTo(this._innerElement);
+        this._overload = jQuery('<div class="overlay"><i class="fas fa-2x fa-sync-alt fa-spin"></i></div>').appendTo(this._modalContent);
 
         this._header = jQuery('<div class="modal-header"/>').appendTo(this._modalContent);
         this._header_title = jQuery('<h4 class="modal-title" />').appendTo(this._header);
@@ -154,5 +161,19 @@ export class ModalDialog extends Element {
      */
     public addButtonSave(): any {
         return jQuery('<button type="button" class="btn btn-primary">Save</button>').appendTo(this._footer);
+    }
+
+    /**
+     * showLoading
+     */
+    public showLoading(): void {
+        this._overload.show();
+    }
+
+    /**
+     * hideLoading
+     */
+    public hideLoading(): void {
+        this._overload.hide();
     }
 }
