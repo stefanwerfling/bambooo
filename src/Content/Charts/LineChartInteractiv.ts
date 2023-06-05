@@ -1,4 +1,4 @@
-import {Element} from 'bambooo';
+import {Element} from '../../Element';
 
 /**
  * LineChartInteractiv

@@ -23,6 +23,7 @@ export { CalloutType, Callout } from './Content/Callout/Callout';
 export { CardBodyType, CardType, CardLine, Card } from './Content/Card/Card';
 export { CaretType, Caret } from './Content/Caret/Caret';
 export { LineChart } from './Content/Charts/LineChart';
+export { LineChartInteractiv } from './Content/Charts/LineChartInteractiv';
 export { PieChart } from './Content/Charts/PieChart';
 export { SparkLine } from './Content/Charts/SparkLine';
 export { CircleColor, Circle } from './Content/Circle/Circle';

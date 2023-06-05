@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LineChartInteractiv = void 0;
-const bambooo_1 = require("bambooo");
+const Element_1 = require("../../Element");
 /**
  * LineChartInteractiv
  */
-class LineChartInteractiv extends bambooo_1.Element {
+class LineChartInteractiv extends Element_1.Element {
     /**
      * height
      * @protected
