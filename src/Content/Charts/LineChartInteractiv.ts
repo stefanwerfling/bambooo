@@ -9,7 +9,7 @@ export class LineChartInteractiv extends Element {
      * height
      * @protected
      */
-    protected _height: string = '300';
+    protected _height: string = '120';
 
     /**
      * data
@@ -65,11 +65,11 @@ export class LineChartInteractiv extends Element {
                 },
                 yaxis: {
                     min: 0,
-                    max: 100,
                     show: true
                 },
                 xaxis: {
-                    show: true
+                    min: 0,
+                    show: false
                 }
             }
         );
@@ -89,7 +89,7 @@ export class LineChartInteractiv extends Element {
      * updateData
      * @param newData
      */
-    public updateData(newData: []): void {
+    public updateData(newData: any[]): void {
         if (this._data.length > newData.length) {
             for (let i = 0; i < newData.length; i++) {
                 this._data = this._data.slice(1);
@@ -103,5 +103,16 @@ export class LineChartInteractiv extends Element {
         while (this._data.length > this._totalPoints) {
             this._data = this._data.slice(1);
         }
+
+        const res: any[] = [];
+
+        for (var i = 0; i < this._data.length; ++i) {
+            res.push([i, this._data[i]])
+        }
+
+        this._plot.setData([res]);
+        this._plot.setupGrid(true);
+        this._plot.draw();
     }
+
 }

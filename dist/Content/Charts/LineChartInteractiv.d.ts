@@ -37,5 +37,5 @@ export declare class LineChartInteractiv extends Element {
      * updateData
      * @param newData
      */
-    updateData(newData: []): void;
+    updateData(newData: any[]): void;
 }
