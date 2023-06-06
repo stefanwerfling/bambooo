@@ -28,6 +28,11 @@ export declare class ModalDialog extends Element {
      */
     protected _modalContent: any;
     /**
+     * overload
+     * @protected
+     */
+    protected _overload: any;
+    /**
      * header
      * @protected
      */
@@ -93,4 +98,12 @@ export declare class ModalDialog extends Element {
      * addButtonSave
      */
     addButtonSave(): any;
+    /**
+     * showLoading
+     */
+    showLoading(): void;
+    /**
+     * hideLoading
+     */
+    hideLoading(): void;
 }

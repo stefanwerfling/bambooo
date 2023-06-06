@@ -32,6 +32,11 @@ class ModalDialog extends Element_1.Element {
      */
     _modalContent;
     /**
+     * overload
+     * @protected
+     */
+    _overload;
+    /**
      * header
      * @protected
      */
@@ -68,6 +73,8 @@ class ModalDialog extends Element_1.Element {
         this._mainElement = jQuery(`<div class="modal fade" id="${idname}" />`).appendTo(aElement);
         this._innerElement = jQuery(`<div class="modal-dialog ${modalType}" />`).appendTo(this._mainElement);
         this._modalContent = jQuery('<div class="modal-content">').appendTo(this._innerElement);
+        this._overload = jQuery('<div class="overlay"><i class="fas fa-2x fa-sync-alt fa-spin"></i></div>').appendTo(this._modalContent);
+        this._overload.hide();
         this._header = jQuery('<div class="modal-header"/>').appendTo(this._modalContent);
         this._header_title = jQuery('<h4 class="modal-title" />').appendTo(this._header);
         this._header_button = jQuery('<button type="button" class="close" data-dismiss="modal" aria-label="Close">' +
@@ -130,6 +137,18 @@ class ModalDialog extends Element_1.Element {
      */
     addButtonSave() {
         return jQuery('<button type="button" class="btn btn-primary">Save</button>').appendTo(this._footer);
+    }
+    /**
+     * showLoading
+     */
+    showLoading() {
+        this._overload.show();
+    }
+    /**
+     * hideLoading
+     */
+    hideLoading() {
+        this._overload.hide();
     }
 }
 exports.ModalDialog = ModalDialog;
