@@ -1,5 +1,4 @@
 /// <reference types="jquery" />
-/// <reference types="bootstrap" />
 import { LangDefine } from '../Lang/LangDefine';
 import { Element } from '../Element';
 /**

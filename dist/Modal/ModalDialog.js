@@ -32,6 +32,11 @@ class ModalDialog extends Element_1.Element {
      */
     _modalContent;
     /**
+     * overload
+     * @protected
+     */
+    _overload;
+    /**
      * header
      * @protected
      */
@@ -132,6 +137,18 @@ class ModalDialog extends Element_1.Element {
      */
     addButtonSave() {
         return jQuery('<button type="button" class="btn btn-primary">Save</button>').appendTo(this._footer);
+    }
+    /**
+     * showLoading
+     */
+    showLoading() {
+        this._overload.show();
+    }
+    /**
+     * hideLoading
+     */
+    hideLoading() {
+        this._overload.hide();
     }
 }
 exports.ModalDialog = ModalDialog;

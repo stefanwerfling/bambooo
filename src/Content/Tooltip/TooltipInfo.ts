@@ -16,10 +16,10 @@ export class TooltipInfo extends Element {
         const telement = this._getAnyElement(element);
         telement.append('&nbsp;');
 
-        this._element = jQuery(`<i class="fa fa-info-circle text-blue" data-toggle="tooltip" data-html="true"></i>`).appendTo(telement);
+        this._element = jQuery('<i class="fa fa-info-circle text-blue" data-toggle="tooltip" data-html="true"></i>').appendTo(telement);
 
         if (tooltipText) {
-            this.setTooltipText(tooltipText)
+            this.setTooltipText(tooltipText);
         }
     }
 
@@ -28,6 +28,7 @@ export class TooltipInfo extends Element {
      * @param tooltipText
      */
     public setTooltipText(tooltipText: string): void {
-        this._element.attr('title', tooltipText);
+        this._element.attr('data-original-title', tooltipText);
     }
+
 }

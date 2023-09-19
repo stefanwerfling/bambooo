@@ -19,7 +19,7 @@ export class Tooltip extends Element {
         this._element = jQuery('<div class="d-inline-block" tabindex="0" data-toggle="tooltip" title=""/>').appendTo(telement);
 
         if (tooltipText) {
-            this.setTooltipText(tooltipText)
+            this.setTooltipText(tooltipText);
         }
     }
 

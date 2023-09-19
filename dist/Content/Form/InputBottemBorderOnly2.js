@@ -41,6 +41,7 @@ class InputBottemBorderOnly2 extends Element_1.Element {
     constructor(element, id, type = InputType.text) {
         super();
         this._type = type;
+        let tid = id;
         let telement = this._getAnyElement(element);
         let ttype = `${type}`;
         let useInputGroup = null;
@@ -52,17 +53,17 @@ class InputBottemBorderOnly2 extends Element_1.Element {
             case InputType.time:
                 ttype = `${InputType.text}`;
                 useInputGroup = 'date';
-                if (id === undefined) {
-                    id = `input${this._uniqId()}`;
+                if (tid === undefined) {
+                    tid = `input${this._uniqId()}`;
                 }
                 break;
         }
         let aid = '';
-        if (id !== undefined && id !== null) {
-            aid = `id="${id}"`;
+        if (tid !== undefined && tid !== null) {
+            aid = `id="${tid}"`;
         }
         if (useInputGroup) {
-            this._inputGroup = jQuery(`<div class="input-group ${useInputGroup}" id="${id}" data-target-input="nearest"></div>`).appendTo(telement);
+            this._inputGroup = jQuery(`<div class="input-group ${useInputGroup}" id="${tid}" data-target-input="nearest"></div>`).appendTo(telement);
             telement = this._inputGroup;
         }
         this._element = jQuery(`<input type="${ttype}" class="form-control form-control-border border-width-2" ${aid} placeholder="">`);
@@ -102,7 +103,7 @@ class InputBottemBorderOnly2 extends Element_1.Element {
      * @param placeholder
      */
     setPlaceholder(placeholder) {
-        this._element.attr("placeholder", placeholder);
+        this._element.attr('placeholder', placeholder);
     }
     /**
      * setValue
@@ -112,7 +113,12 @@ class InputBottemBorderOnly2 extends Element_1.Element {
         switch (this._type) {
             case InputType.date:
             case InputType.time:
-                this._inputGroup.data("datetimepicker").date(value);
+                if (value === '') {
+                    this._inputGroup.data('datetimepicker').clear();
+                }
+                else {
+                    this._inputGroup.data('datetimepicker').date(value);
+                }
                 break;
             default:
                 this._element.val(value);

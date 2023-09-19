@@ -44,6 +44,7 @@ export class InputBottemBorderOnly2 extends Element {
 
         this._type = type;
 
+        let tid = id;
         let telement = this._getAnyElement(element);
         let ttype = `${type}`;
         let useInputGroup: string|null = null;
@@ -58,20 +59,20 @@ export class InputBottemBorderOnly2 extends Element {
                 ttype = `${InputType.text}`;
                 useInputGroup = 'date';
 
-                if (id === undefined) {
-                    id = `input${this._uniqId()}`;
+                if (tid === undefined) {
+                    tid = `input${this._uniqId()}`;
                 }
                 break;
         }
 
         let aid: string = '';
 
-        if (id !== undefined && id !== null) {
-            aid = `id="${id}"`;
+        if (tid !== undefined && tid !== null) {
+            aid = `id="${tid}"`;
         }
 
         if (useInputGroup) {
-            this._inputGroup = jQuery(`<div class="input-group ${useInputGroup}" id="${id}" data-target-input="nearest"></div>`).appendTo(telement);
+            this._inputGroup = jQuery(`<div class="input-group ${useInputGroup}" id="${tid}" data-target-input="nearest"></div>`).appendTo(telement);
             telement = this._inputGroup;
         }
 
@@ -119,7 +120,7 @@ export class InputBottemBorderOnly2 extends Element {
      * @param placeholder
      */
     public setPlaceholder(placeholder: string): void {
-        this._element.attr("placeholder", placeholder);
+        this._element.attr('placeholder', placeholder);
     }
 
     /**
@@ -130,7 +131,11 @@ export class InputBottemBorderOnly2 extends Element {
         switch (this._type) {
             case InputType.date:
             case InputType.time:
-                this._inputGroup.data("datetimepicker").date(value);
+                if (value === '') {
+                    this._inputGroup.data('datetimepicker').clear();
+                } else {
+                    this._inputGroup.data('datetimepicker').date(value);
+                }
                 break;
 
             default:
