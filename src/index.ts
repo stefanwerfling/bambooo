@@ -55,6 +55,7 @@ export {RadioInput} from './Content/Form/RadioInput';
 export {SelectOption, SelectChangeFn, SelectBottemBorderOnly2} from './Content/Form/SelectBottemBorderOnly2';
 export {SwitchChangeFn, Switch} from './Content/Form/Switch';
 export {SwitchTimeoutFn, SwitchTimer} from './Content/Form/SwitchTimer';
+export {Textarea} from './Content/Form/Textarea';
 
 export {IconFa, Icon} from './Content/Icon/Icon';
 
