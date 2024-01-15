@@ -44,6 +44,7 @@ export {Caret, CaretType} from './v1/Content/Caret/Caret';
 
 // ## Content - Charts
 export {LineChart} from './v1/Content/Charts/LineChart';
+export {LineChartInteractiv} from './v1/Content/Charts/LineChartInteractiv';
 export {PieChart} from './v1/Content/Charts/PieChart';
 export {SparkLine} from './v1/Content/Charts/SparkLine';
 
@@ -71,6 +72,7 @@ export {RadioInput} from './v1/Content/Form/RadioInput';
 export {SelectChangeFn, SelectOption, SelectBottemBorderOnly2} from './v1/Content/Form/SelectBottemBorderOnly2';
 export {Switch, SwitchChangeFn} from './v1/Content/Form/Switch';
 export {SwitchTimeoutFn, SwitchTimer} from './v1/Content/Form/SwitchTimer';
+export {Textarea} from './v1/Content/Form/Textarea';
 
 // ## Content - Icon
 export {Icon, IconFa} from './v1/Content/Icon/Icon';
