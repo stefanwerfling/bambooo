@@ -10,11 +10,15 @@
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
 
-    "outDir": "dist",
-    "declaration": true
+    "outDir": "./dist",
+    "declaration": true,
   },
-
+  "exclude": [
+    "**/*.d.ts",
+    "node_modules",
+    "dist"
+  ],
   "include": [
-    "src/**/*",
+    "src/**/*"
   ]
 }

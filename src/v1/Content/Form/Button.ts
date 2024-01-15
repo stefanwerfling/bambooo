@@ -5,7 +5,8 @@ import {Element} from '../../Element';
  */
 export enum ButtonType {
     default = 'default',
-    borderless = 'borderless'
+    borderless = 'borderless',
+    cardCollapse = 'cardCollapse'
 }
 
 /**
@@ -31,6 +32,10 @@ export class Button extends Element {
         switch (type) {
             case ButtonType.borderless:
                 this._element = jQuery(`<a href="#" class="text-muted"/>`).appendTo(telement);
+                break;
+
+            case ButtonType.cardCollapse:
+                this._element = jQuery(`<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>`).appendTo(telement);
                 break;
 
             default:

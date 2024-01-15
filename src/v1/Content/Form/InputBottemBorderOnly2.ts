@@ -1,4 +1,5 @@
 import {Element} from '../../Element';
+import {Icon, IconFa} from '../Icon/Icon';
 import {FormGroupButton} from './FormGroupButton';
 
 /**
@@ -9,13 +10,28 @@ export enum InputType {
     number = 'number',
     range = 'range',
     password = 'password',
-    colorpicker = 'colorpicker'
+    colorpicker = 'colorpicker',
+    date = 'date',
+    datetime = 'datetime',
+    time = 'time'
 }
 
 /**
  * InputBottemBorderOnly2
  */
 export class InputBottemBorderOnly2 extends Element {
+
+    /**
+     * type
+     * @protected
+     */
+    protected _type: InputType = InputType.text;
+
+    /**
+     * input group
+     * @protected
+     */
+    protected _inputGroup: any|null = null;
 
     /**
      * constructor
@@ -26,20 +42,38 @@ export class InputBottemBorderOnly2 extends Element {
     public constructor(element: any, id?: string, type: InputType = InputType.text) {
         super();
 
-        const telement = this._getAnyElement(element);
+        this._type = type;
 
-        let aid: string = '';
-
-        if (id !== undefined && id !== null) {
-            aid = `id="${id}"`;
-        }
-
+        let tid = id;
+        let telement = this._getAnyElement(element);
         let ttype = `${type}`;
+        let useInputGroup: string|null = null;
 
         switch (type) {
             case InputType.colorpicker:
                 ttype = `${InputType.text}`;
                 break;
+
+            case InputType.date:
+            case InputType.time:
+                ttype = `${InputType.text}`;
+                useInputGroup = 'date';
+
+                if (tid === undefined) {
+                    tid = `input${this._uniqId()}`;
+                }
+                break;
+        }
+
+        let aid: string = '';
+
+        if (tid !== undefined && tid !== null) {
+            aid = `id="${tid}"`;
+        }
+
+        if (useInputGroup) {
+            this._inputGroup = jQuery(`<div class="input-group ${useInputGroup}" id="${tid}" data-target-input="nearest"></div>`).appendTo(telement);
+            telement = this._inputGroup;
         }
 
         this._element = jQuery(`<input type="${ttype}" class="form-control form-control-border border-width-2" ${aid} placeholder="">`);
@@ -54,6 +88,30 @@ export class InputBottemBorderOnly2 extends Element {
             case InputType.colorpicker:
                 this._element.colorpicker();
                 break;
+
+            case InputType.date:
+            case InputType.time:
+                const appendInputGroup = jQuery(`<div class="input-group-append" data-target="#${id}" data-toggle="datetimepicker"></div>`).appendTo(telement);
+                const button = jQuery('<div class="input-group-text"></div>').appendTo(appendInputGroup);
+
+                switch (type) {
+                    case InputType.date:
+                        new Icon(button, IconFa.calendar);
+
+                        this._inputGroup.datetimepicker({
+                            format: 'YYYY.MM.DD'
+                        });
+                        break;
+
+                    case InputType.time:
+                        new Icon(button, IconFa.clock);
+
+                        this._inputGroup.datetimepicker({
+                            format: 'LT'
+                        });
+                        break;
+                }
+                break;
         }
     }
 
@@ -62,7 +120,7 @@ export class InputBottemBorderOnly2 extends Element {
      * @param placeholder
      */
     public setPlaceholder(placeholder: string): void {
-        this._element.attr("placeholder", placeholder);
+        this._element.attr('placeholder', placeholder);
     }
 
     /**
@@ -70,7 +128,19 @@ export class InputBottemBorderOnly2 extends Element {
      * @param value
      */
     public setValue(value: string): void {
-        this._element.val(value);
+        switch (this._type) {
+            case InputType.date:
+            case InputType.time:
+                if (value === '') {
+                    this._inputGroup.data('datetimepicker').clear();
+                } else {
+                    this._inputGroup.data('datetimepicker').date(value);
+                }
+                break;
+
+            default:
+                this._element.val(value);
+        }
     }
 
     /**

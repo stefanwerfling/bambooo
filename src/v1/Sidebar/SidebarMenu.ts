@@ -39,6 +39,12 @@ export class SidebarMenu {
      * initTreeview
      */
     public initTreeview(): void {
+        const oscontent = this._navElement.parent().find('.os-content');
+
+        if (oscontent.length > 0) {
+            this._navElement.detach().appendTo(oscontent);
+        }
+
         this._ulElement.Treeview();
     }
 }
