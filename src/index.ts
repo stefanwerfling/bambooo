@@ -1,27 +1,123 @@
 
-export {Element} from './Element';
-export {ColumnContent} from './ColumnContent';
-export {Content} from './Content';
-export {ContentHeader} from './ContentHeader';
-export {ContentWrapper} from './ContentWrapper';
-export {ControlSidebar} from './ControlSidebar';
-export {Footer} from './Footer';
-export {MainSidebar} from './MainSidebar';
-export {Navbar} from './Navbar';
-export {Preloader} from './Preloader';
-export {Wrapper} from './Wrapper';
+// V1 ------------------------------------------------------------------------------------------------------------------
+// ## Base imports
 
-export {ContentColSize, ContentCol} from './Content/ContentCol';
-export {ContentDisable} from './Content/ContentDisable';
-export {ContentRowClass, ContentRow} from './Content/ContentRow';
+export {ColumnContent} from './v1/ColumnContent';
+export {Content} from './v1/Content';
+export {ContentHeader} from './v1/ContentHeader';
+export {ContentWrapper} from './v1/ContentWrapper';
+export {ControlSidebar} from './v1/ControlSidebar';
+export {Element} from './v1/Element';
+export {Footer} from './v1/Footer';
+export {MainSidebar} from './v1/MainSidebar';
+export {Navbar} from './v1/Navbar';
+export {Preloader} from './v1/Preloader';
+export {Wrapper} from './v1/Wrapper';
 
-export {BadgeType, Badge} from './Content/Badge/Badge';
+// ## Content
+export {ContentColSize, ContentCol} from './v1/Content/ContentCol';
+export {ContentDisable} from './v1/Content/ContentDisable';
+export {ContentRowClass, ContentRow} from './v1/Content/ContentRow';
 
-export {InfoBoxBg, InfoBoxMb, InfoBox} from './Content/Box/InfoBox';
-export {SmallBoxBg, SmallBox} from './Content/Box/SmallBox';
+// ## Content - Badge
+export {BadgeType, Badge} from './v1/Content/Badge/Badge';
 
-export {ButtonBorderless} from './Content/Button/ButtonBorderless';
-export {ButtonDefaultType, ButtonClass, ButtonDefaultClickFn, ButtonDefault} from './Content/Button/ButtonDefault';
-export {ButtonGroup} from './Content/Button/ButtonGroup';
+// ## Content - Box
+export {InfoBoxBg, InfoBoxMb, InfoBox} from './v1/Content/Box/InfoBox';
+export {SmallBoxBg, SmallBox} from './v1/Content/Box/SmallBox';
 
-export {NavbarLinkButton} from './Navbar/NavbarLinkButton';
+// ## Content - Button
+export {ButtonBorderless} from './v1/Content/Button/ButtonBorderless';
+export {ButtonDefaultType, ButtonClass, ButtonDefaultClickFn, ButtonDefault} from './v1/Content/Button/ButtonDefault';
+export {ButtonGroup} from './v1/Content/Button/ButtonGroup';
+export {ButtonListAddress} from './v1/Content/Button/ButtonListAddress';
+export {ButtonShowMore} from './v1/Content/Button/ButtonShowMore';
+
+// ## Content - Callout
+export {Callout, CalloutType} from './v1/Content/Callout/Callout';
+
+// ## Content - Card
+export {Card, CardType, CardLine, CardBodyType} from './v1/Content/Card/Card';
+
+// ## Content - Caret
+export {Caret, CaretType} from './v1/Content/Caret/Caret';
+
+// ## Content - Charts
+export {LineChart} from './v1/Content/Charts/LineChart';
+export {PieChart} from './v1/Content/Charts/PieChart';
+export {SparkLine} from './v1/Content/Charts/SparkLine';
+
+// ## Content - Circle
+export {Circle, CircleColor} from './v1/Content/Circle/Circle';
+
+// ## Content - Description
+export {DescriptionBlock, DescriptionBlockBorder} from './v1/Content/Description/DescriptionBlock';
+
+// ## Content - Dialog
+export {DialogConfirm, DialogConfirmClickFn} from './v1/Content/Dialog/DialogConfirm';
+export {DialogInfo, DialogInfoClickFn} from './v1/Content/Dialog/DialogInfo';
+
+// ## Content - Form
+export {BlockButton, BlockButtonType, BlockButtonClickFn} from './v1/Content/Form/BlockButton';
+export {Button, ButtonClickFn, ButtonType} from './v1/Content/Form/Button';
+export {ButtonMenu, ButtonMenuPosition} from './v1/Content/Form/ButtonMenu';
+export {Form} from './v1/Content/Form/Form';
+export {FormGroup} from './v1/Content/Form/FormGroup';
+export {FormGroupButton, FormGroupButtonClickFn} from './v1/Content/Form/FormGroupButton';
+export {FormRow} from './v1/Content/Form/FormRow';
+export {InputType, InputBottemBorderOnly2} from './v1/Content/Form/InputBottemBorderOnly2';
+export {Multiple} from './v1/Content/Form/Multiple';
+export {RadioInput} from './v1/Content/Form/RadioInput';
+export {SelectChangeFn, SelectOption, SelectBottemBorderOnly2} from './v1/Content/Form/SelectBottemBorderOnly2';
+export {Switch, SwitchChangeFn} from './v1/Content/Form/Switch';
+export {SwitchTimeoutFn, SwitchTimer} from './v1/Content/Form/SwitchTimer';
+
+// ## Content - Icon
+export {Icon, IconFa} from './v1/Content/Icon/Icon';
+
+// ## Content - Image
+export {Image, ImageArt, ImageType} from './v1/Content/Image/Image';
+export {ImageCoin} from './v1/Content/Image/ImageCoin';
+
+// ## Content - Tab
+export {NavTab, NavTabElements} from './v1/Content/Tab/NavTab';
+
+// ## Content - Table
+export {Table} from './v1/Content/Table/Table';
+export {Td} from './v1/Content/Table/Td';
+export {Th} from './v1/Content/Table/Th';
+export {Tr} from './v1/Content/Table/Tr';
+
+// ## Content - Text
+export {PText, PTextType} from './v1/Content/Text/PText';
+export {StrongText} from './v1/Content/Text/StrongText';
+export {Text, TextAlignment} from './v1/Content/Text/Text';
+
+// ## Content - Tooltip
+export {Tooltip} from './v1/Content/Tooltip/Tooltip';
+export {TooltipInfo} from './v1/Content/Tooltip/TooltipInfo';
+
+// ## Lang
+export {LangDefine} from './v1/Lang/LangDefine';
+export {LangText} from './v1/Lang/LangText';
+
+// # Modal
+export {ModalDialog, ModalDialogType} from './v1/Modal/ModalDialog';
+
+// ## Navbar
+export {LeftNavbar} from './v1/Navbar/LeftNavbar';
+export {LeftNavbarLink, LeftNavbarLinkFn} from './v1/Navbar/LeftNavbarLink';
+export {LeftNavbarPushmenu} from './v1/Navbar/LeftNavbarPushmenu';
+export {NavbarLinkButton} from './v1/Navbar/NavbarLinkButton';
+export {NavbarLinkFullsize} from './v1/Navbar/NavbarLinkFullsize';
+export {ChangeLangClickFn, NavbarLinkLanguage} from './v1/Navbar/NavbarLinkLanguage';
+export {RightNavbar} from './v1/Navbar/RightNavbar';
+
+// ## Sidebar
+export {Sidebar} from './v1/Sidebar/Sidebar';
+export {SidebarLogo} from './v1/Sidebar/SidebarLogo';
+export {SidebarMenu} from './v1/Sidebar/SidebarMenu';
+export {SidebarMenuItem, SidebarMenuItemClickFn} from './v1/Sidebar/SidebarMenuItem';
+export {SidebarMenuItemBadge} from './v1/Sidebar/SidebarMenuItemBadge';
+export {SidebarMenuTree} from './v1/Sidebar/SidebarMenuTree';
+export {SidebarUserPanel, SidebarUserPanelClickFn} from './v1/Sidebar/SidebarUserPanel';

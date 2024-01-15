@@ -107,6 +107,13 @@ export class Card extends Element {
     }
 
     /**
+     * getHeaderElement
+     */
+    public getHeaderElement(): any {
+        return this._header;
+    }
+
+    /**
      * getTitleElement
      */
     public getTitleElement(): any {
@@ -146,6 +153,13 @@ export class Card extends Element {
      */
     public hideHeader(): void {
         this._header.hide();
+    }
+
+    /**
+     * getBodyElement
+     */
+    public getBodyElement(): any {
+        return this._body;
     }
 
     /**
