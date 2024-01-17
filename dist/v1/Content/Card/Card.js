@@ -93,6 +93,12 @@ class Card extends Element_1.Element {
         LangText_1.LangText.addLangText(this._title, title);
     }
     /**
+     * getHeaderElement
+     */
+    getHeaderElement() {
+        return this._header;
+    }
+    /**
      * getTitleElement
      */
     getTitleElement() {
@@ -127,6 +133,12 @@ class Card extends Element_1.Element {
      */
     hideHeader() {
         this._header.hide();
+    }
+    /**
+     * getBodyElement
+     */
+    getBodyElement() {
+        return this._body;
     }
     /**
      * emptyBody

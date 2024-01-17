@@ -73,6 +73,10 @@ export declare class Card extends Element {
      */
     setTitle(title: string | LangText): void;
     /**
+     * getHeaderElement
+     */
+    getHeaderElement(): any;
+    /**
      * getTitleElement
      */
     getTitleElement(): any;
@@ -96,6 +100,10 @@ export declare class Card extends Element {
      * hideHeader
      */
     hideHeader(): void;
+    /**
+     * getBodyElement
+     */
+    getBodyElement(): any;
     /**
      * emptyBody
      */

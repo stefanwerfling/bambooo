@@ -15,7 +15,7 @@ class TooltipInfo extends Element_1.Element {
         super();
         const telement = this._getAnyElement(element);
         telement.append('&nbsp;');
-        this._element = jQuery(`<i class="fa fa-info-circle text-blue" data-toggle="tooltip" data-html="true"></i>`).appendTo(telement);
+        this._element = jQuery('<i class="fa fa-info-circle text-blue" data-toggle="tooltip" data-html="true"></i>').appendTo(telement);
         if (tooltipText) {
             this.setTooltipText(tooltipText);
         }
@@ -25,7 +25,7 @@ class TooltipInfo extends Element_1.Element {
      * @param tooltipText
      */
     setTooltipText(tooltipText) {
-        this._element.attr('title', tooltipText);
+        this._element.attr('data-original-title', tooltipText);
     }
 }
 exports.TooltipInfo = TooltipInfo;
