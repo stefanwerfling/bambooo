@@ -92,6 +92,7 @@ export class DialogInfo extends ModalDialog {
      * info
      * @param {string} id
      * @param {ModalDialogType} modalType
+     * @param {string} title
      * @param {any|DialogInfoOnContent} content (Message/Elements)
      * @param {DialogInfoClickFn} clickOk
      * @param buttonOktitle
