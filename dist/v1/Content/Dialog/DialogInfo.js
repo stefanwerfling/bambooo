@@ -41,11 +41,18 @@ class DialogInfo extends ModalDialog_1.ModalDialog {
     }
     /**
      * setMessage
-     * @param message
+     * @param {any} message
      */
     setMessage(message) {
         this._bodyCard.empty();
         this._bodyCard.append(message);
+    }
+    /**
+     * Return the body card element
+     * @returns {any}
+     */
+    getBodyCardElement() {
+        return this._bodyCard;
     }
     /**
      * setClickOk
@@ -63,19 +70,25 @@ class DialogInfo extends ModalDialog_1.ModalDialog {
     }
     /**
      * info
-     * @param id
-     * @param modalType
-     * @param message
-     * @param clickOk
-     * @param clickCancel
+     * @param {string} id
+     * @param {ModalDialogType} modalType
+     * @param {any|DialogInfoOnContent} content (Message/Elements)
+     * @param {DialogInfoClickFn} clickOk
      * @param buttonOktitle
      * @param buttonType
      */
-    static info(id, modalType, title, message, clickOk, buttonOktitle, buttonType = ButtonDefault_1.ButtonClass.primary) {
+    static info(id, modalType, title, content, clickOk, buttonOktitle, buttonType = ButtonDefault_1.ButtonClass.primary) {
         const modal = new DialogInfo(jQuery('body'), id, modalType, buttonType);
         modal.setTitle(title);
-        modal.setMessage(message);
-        modal.setClickOk(clickOk);
+        if (typeof content === 'function') {
+            content(modal);
+        }
+        else {
+            modal.setMessage(content);
+        }
+        if (clickOk) {
+            modal.setClickOk(clickOk);
+        }
         if (buttonOktitle) {
             modal.setButtonOkTitle(buttonOktitle);
         }

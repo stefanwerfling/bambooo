@@ -6,6 +6,10 @@ import { ButtonClass } from '../Button/ButtonDefault';
  */
 export type DialogInfoClickFn = (event: any, dialog: DialogInfo) => void;
 /**
+ * Function type on content
+ */
+export type DialogInfoOnContent = (dialog: DialogInfo) => Promise<void>;
+/**
  * DialogInfo
  */
 export declare class DialogInfo extends ModalDialog {
@@ -34,9 +38,14 @@ export declare class DialogInfo extends ModalDialog {
     constructor(elementObject: Element | any, idname: string, modalType: ModalDialogType, buttonType?: ButtonClass);
     /**
      * setMessage
-     * @param message
+     * @param {any} message
      */
     setMessage(message: any): void;
+    /**
+     * Return the body card element
+     * @returns {any}
+     */
+    getBodyCardElement(): any;
     /**
      * setClickOk
      * @param click
@@ -49,13 +58,12 @@ export declare class DialogInfo extends ModalDialog {
     setButtonOkTitle(title: string): void;
     /**
      * info
-     * @param id
-     * @param modalType
-     * @param message
-     * @param clickOk
-     * @param clickCancel
+     * @param {string} id
+     * @param {ModalDialogType} modalType
+     * @param {any|DialogInfoOnContent} content (Message/Elements)
+     * @param {DialogInfoClickFn} clickOk
      * @param buttonOktitle
      * @param buttonType
      */
-    static info(id: string, modalType: ModalDialogType, title: string, message: any, clickOk: DialogInfoClickFn, buttonOktitle?: string, buttonType?: ButtonClass): void;
+    static info(id: string, modalType: ModalDialogType, title: string, content: any | DialogInfoOnContent, clickOk?: DialogInfoClickFn, buttonOktitle?: string, buttonType?: ButtonClass): void;
 }

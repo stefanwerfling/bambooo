@@ -8,6 +8,11 @@ import {ButtonClass} from '../Button/ButtonDefault';
 export type DialogInfoClickFn = (event: any, dialog: DialogInfo) => void;
 
 /**
+ * Function type on content
+ */
+export type DialogInfoOnContent = (dialog: DialogInfo) => Promise<void>;
+
+/**
  * DialogInfo
  */
 export class DialogInfo extends ModalDialog {
@@ -52,11 +57,19 @@ export class DialogInfo extends ModalDialog {
 
     /**
      * setMessage
-     * @param message
+     * @param {any} message
      */
     public setMessage(message: any): void {
         this._bodyCard.empty();
         this._bodyCard.append(message);
+    }
+
+    /**
+     * Return the body card element
+     * @returns {any}
+     */
+    public getBodyCardElement(): any {
+        return this._bodyCard;
     }
 
     /**
@@ -77,11 +90,10 @@ export class DialogInfo extends ModalDialog {
 
     /**
      * info
-     * @param id
-     * @param modalType
-     * @param message
-     * @param clickOk
-     * @param clickCancel
+     * @param {string} id
+     * @param {ModalDialogType} modalType
+     * @param {any|DialogInfoOnContent} content (Message/Elements)
+     * @param {DialogInfoClickFn} clickOk
      * @param buttonOktitle
      * @param buttonType
      */
@@ -89,16 +101,24 @@ export class DialogInfo extends ModalDialog {
         id: string,
         modalType: ModalDialogType,
         title: string,
-        message: any,
-        clickOk: DialogInfoClickFn,
+        content: any|DialogInfoOnContent,
+        clickOk?: DialogInfoClickFn,
         buttonOktitle?: string,
         buttonType: ButtonClass = ButtonClass.primary
     ): void {
         const modal = new DialogInfo(jQuery('body'), id, modalType, buttonType);
 
         modal.setTitle(title);
-        modal.setMessage(message);
-        modal.setClickOk(clickOk);
+
+        if (typeof content === 'function') {
+            content(modal);
+        } else {
+            modal.setMessage(content);
+        }
+
+        if (clickOk) {
+            modal.setClickOk(clickOk);
+        }
 
         if (buttonOktitle) {
             modal.setButtonOkTitle(buttonOktitle);
