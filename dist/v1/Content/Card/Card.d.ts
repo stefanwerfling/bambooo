@@ -52,6 +52,11 @@ export declare class Card extends Element {
      */
     private _body;
     /**
+     * footer element
+     * @private
+     */
+    private _footer;
+    /**
      * overload element
      * @private
      */
@@ -108,4 +113,9 @@ export declare class Card extends Element {
      * emptyBody
      */
     emptyBody(): void;
+    /**
+     * Return the footer element
+     * @returns {any}
+     */
+    getFooterElement(): any;
 }

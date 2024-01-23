@@ -58,6 +58,11 @@ class Card extends Element_1.Element {
      */
     _body;
     /**
+     * footer element
+     * @private
+     */
+    _footer = null;
+    /**
      * overload element
      * @private
      */
@@ -145,6 +150,16 @@ class Card extends Element_1.Element {
      */
     emptyBody() {
         this._body.empty();
+    }
+    /**
+     * Return the footer element
+     * @returns {any}
+     */
+    getFooterElement() {
+        if (this._footer === null) {
+            this._footer = jQuery('<div class="card-footer"></div>').appendTo(this._element);
+        }
+        return this._footer;
     }
 }
 exports.Card = Card;

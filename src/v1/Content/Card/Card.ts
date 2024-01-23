@@ -61,6 +61,12 @@ export class Card extends Element {
     private _body: any;
 
     /**
+     * footer element
+     * @private
+     */
+    private _footer: any|null = null;
+
+    /**
      * overload element
      * @private
      */
@@ -168,4 +174,17 @@ export class Card extends Element {
     public emptyBody(): void {
         this._body.empty();
     }
+
+    /**
+     * Return the footer element
+     * @returns {any}
+     */
+    public getFooterElement(): any {
+        if (this._footer === null) {
+            this._footer = jQuery('<div class="card-footer"></div>').appendTo(this._element);
+        }
+
+        return this._footer;
+    }
+
 }
