@@ -1,5 +1,10 @@
 import {Element} from '../../Element';
 
+export enum FormRowColType {
+    none = 0,
+    sm = 1
+}
+
 /**
  * FormRow
  */
@@ -22,10 +27,21 @@ export class FormRow extends Element {
      * @param {number} size
      * @param {[string]} addClass
      */
-    public createCol(size: number, addClass?: string): any {
-        let tclass = `col-sm-${size}`;
+    public createCol(size: number, colType: FormRowColType = FormRowColType.sm, addClass?: string): any {
+        let tclass = `col`;
 
-        if (tclass) {
+        switch (colType) {
+            case FormRowColType.none:
+                break;
+
+            case FormRowColType.sm:
+                tclass = `${tclass}-sm`;
+                break;
+        }
+
+        tclass = `${tclass}-${size}`;
+
+        if (addClass) {
             tclass = `${tclass} ${addClass}`;
         }
 

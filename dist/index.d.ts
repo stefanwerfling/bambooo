@@ -37,7 +37,7 @@ export { ButtonMenu, ButtonMenuPosition } from './v1/Content/Form/ButtonMenu';
 export { Form } from './v1/Content/Form/Form';
 export { FormGroup } from './v1/Content/Form/FormGroup';
 export { FormGroupButton, FormGroupButtonClickFn } from './v1/Content/Form/FormGroupButton';
-export { FormRow } from './v1/Content/Form/FormRow';
+export { FormRow, FormRowColType } from './v1/Content/Form/FormRow';
 export { InputType, InputBottemBorderOnly2 } from './v1/Content/Form/InputBottemBorderOnly2';
 export { Multiple } from './v1/Content/Form/Multiple';
 export { RadioInput } from './v1/Content/Form/RadioInput';
