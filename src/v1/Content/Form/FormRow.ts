@@ -7,8 +7,8 @@ export class FormRow extends Element {
 
     /**
      * constructor
-     * @param element
-     * @param style
+     * @param {any} element
+     * @param {string} style
      */
     public constructor(element: any, style: string = '') {
         super();
@@ -19,9 +19,16 @@ export class FormRow extends Element {
 
     /**
      * createCol
-     * @param size
+     * @param {number} size
+     * @param {[string]} addClass
      */
-    public createCol(size: number): any {
-        return jQuery(`<div class="col-sm-${size}">`).appendTo(this._element);
+    public createCol(size: number, addClass?: string): any {
+        let tclass = `col-sm-${size}`;
+
+        if (tclass) {
+            tclass = `${tclass} ${addClass}`;
+        }
+
+        return jQuery(`<div class="${tclass}">`).appendTo(this._element);
     }
 }

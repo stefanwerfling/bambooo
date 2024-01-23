@@ -8,8 +8,8 @@ const Element_1 = require("../../Element");
 class FormRow extends Element_1.Element {
     /**
      * constructor
-     * @param element
-     * @param style
+     * @param {any} element
+     * @param {string} style
      */
     constructor(element, style = '') {
         super();
@@ -18,10 +18,15 @@ class FormRow extends Element_1.Element {
     }
     /**
      * createCol
-     * @param size
+     * @param {number} size
+     * @param {[string]} addClass
      */
-    createCol(size) {
-        return jQuery(`<div class="col-sm-${size}">`).appendTo(this._element);
+    createCol(size, addClass) {
+        let tclass = `col-sm-${size}`;
+        if (tclass) {
+            tclass = `${tclass} ${addClass}`;
+        }
+        return jQuery(`<div class="${tclass}">`).appendTo(this._element);
     }
 }
 exports.FormRow = FormRow;

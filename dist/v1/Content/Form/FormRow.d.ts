@@ -5,13 +5,14 @@ import { Element } from '../../Element';
 export declare class FormRow extends Element {
     /**
      * constructor
-     * @param element
-     * @param style
+     * @param {any} element
+     * @param {string} style
      */
     constructor(element: any, style?: string);
     /**
      * createCol
-     * @param size
+     * @param {number} size
+     * @param {[string]} addClass
      */
-    createCol(size: number): any;
+    createCol(size: number, addClass?: string): any;
 }
