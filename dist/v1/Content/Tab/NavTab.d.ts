@@ -1,9 +1,11 @@
 import { Element } from '../../Element';
+import { LangText } from '../../Lang/LangText';
 /**
  * NavTabElements
  */
 export type NavTabElements = {
     tab: any;
+    title: any;
     body: any;
 };
 /**
@@ -33,10 +35,10 @@ export declare class NavTab extends Element {
     constructor(element: any, id: string);
     /**
      * addTab
-     * @param title
-     * @param id
+     * @param {string|LangText} title
+     * @param {string} id
      */
-    addTab(title: string, id: string): NavTabElements;
+    addTab(title: string | LangText, id: string): NavTabElements;
     /**
      * setTabSelect
      * @param index

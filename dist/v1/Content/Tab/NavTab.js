@@ -34,8 +34,8 @@ class NavTab extends Element_1.Element {
     }
     /**
      * addTab
-     * @param title
-     * @param id
+     * @param {string|LangText} title
+     * @param {string} id
      */
     addTab(title, id) {
         let activ = '';
@@ -46,10 +46,13 @@ class NavTab extends Element_1.Element {
         }
         this._tabIds.push(id);
         const li = jQuery('<li class="nav-item" />').appendTo(this._nav);
-        li.append(`<a class="nav-link ${activ}" id="${id}-tab" data-toggle="pill" href="#${id}-content" role="tab" aria-controls="${id}-content" aria-selected="true">${title}</a>`);
+        const etitle = jQuery(`<a class="nav-link ${activ}" id="${id}-tab" data-toggle="pill" href="#${id}-content" role="tab" aria-controls="${id}-content" aria-selected="true"></a>`).appendTo(li);
+        const telement = Element_1.Element.getAnyElement(title);
+        etitle.append(telement);
         const body = jQuery(`<div class="tab-pane fade ${activ} ${show}" id="${id}-content" role="tabpanel" aria-labelledby="${id}-tab"/>`).appendTo(this._body);
         return {
             tab: li,
+            title: etitle,
             body
         };
     }
