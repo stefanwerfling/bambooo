@@ -40,7 +40,7 @@ class NavTab extends Element_1.Element {
     addTab(title, id) {
         let activ = '';
         let show = '';
-        if (this._tabIds.length == 0) {
+        if (this._tabIds.length === 0) {
             activ = 'active';
             show = 'show';
         }

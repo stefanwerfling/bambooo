@@ -56,7 +56,7 @@ export class NavTab extends Element {
         let activ = '';
         let show = '';
 
-        if (this._tabIds.length == 0) {
+        if (this._tabIds.length === 0) {
             activ = 'active';
             show = 'show';
         }
