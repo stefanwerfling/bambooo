@@ -1,4 +1,5 @@
 import { Element } from '../../Element';
+import { LangText } from '../../Lang/LangText';
 /**
  * ButtonDefaultType
  */
@@ -35,7 +36,7 @@ export declare class ButtonDefault extends Element {
      * title
      * @protected
      */
-    protected _title: string;
+    protected _title: string | LangText;
     /**
      * icon
      * @protected
@@ -48,19 +49,19 @@ export declare class ButtonDefault extends Element {
     protected _clickEnable: boolean;
     /**
      * constructor
-     * @param element
-     * @param title
-     * @param icon
-     * @param bnClass
-     * @param bnType
+     * @param {any} element
+     * @param {string|LangText} title
+     * @param {string} icon
+     * @param {ButtonClass} bnClass
+     * @param {ButtonDefaultType} bnType
      */
-    constructor(element: any, title?: string, icon?: string, bnClass?: ButtonClass, bnType?: ButtonDefaultType);
+    constructor(element: any, title?: string | LangText, icon?: string, bnClass?: ButtonClass, bnType?: ButtonDefaultType);
     /**
      * setValue
-     * @param title
-     * @param icon
+     * @param {string|LangText} title
+     * @param {string} icon
      */
-    setValue(title?: string, icon?: string): void;
+    setValue(title?: string | LangText, icon?: string): void;
     /**
      * setOnClickFn
      * @param onClick

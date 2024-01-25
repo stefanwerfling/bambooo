@@ -1,4 +1,5 @@
 import {Element} from '../../Element';
+import {LangText} from '../../Lang/LangText';
 
 /**
  * ButtonDefaultType
@@ -42,7 +43,7 @@ export class ButtonDefault extends Element {
      * title
      * @protected
      */
-    protected _title = '';
+    protected _title: string|LangText = '';
 
     /**
      * icon
@@ -58,15 +59,15 @@ export class ButtonDefault extends Element {
 
     /**
      * constructor
-     * @param element
-     * @param title
-     * @param icon
-     * @param bnClass
-     * @param bnType
+     * @param {any} element
+     * @param {string|LangText} title
+     * @param {string} icon
+     * @param {ButtonClass} bnClass
+     * @param {ButtonDefaultType} bnType
      */
     public constructor(
         element: any,
-        title?: string,
+        title?: string|LangText,
         icon?: string,
         bnClass: ButtonClass = ButtonClass.default,
         bnType: ButtonDefaultType = ButtonDefaultType.small
@@ -83,10 +84,10 @@ export class ButtonDefault extends Element {
 
     /**
      * setValue
-     * @param title
-     * @param icon
+     * @param {string|LangText} title
+     * @param {string} icon
      */
-    public setValue(title?: string, icon?: string): void {
+    public setValue(title?: string|LangText, icon?: string): void {
         if (title) {
             this._title = title;
         }
@@ -106,7 +107,9 @@ export class ButtonDefault extends Element {
                 this._element.append(' ');
             }
 
-            this._element.append(this._title);
+            const tTitle = this._getAnyElement(this._title);
+
+            this._element.append(tTitle);
         }
     }
 

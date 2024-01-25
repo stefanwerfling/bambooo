@@ -49,11 +49,11 @@ class ButtonDefault extends Element_1.Element {
     _clickEnable = true;
     /**
      * constructor
-     * @param element
-     * @param title
-     * @param icon
-     * @param bnClass
-     * @param bnType
+     * @param {any} element
+     * @param {string|LangText} title
+     * @param {string} icon
+     * @param {ButtonClass} bnClass
+     * @param {ButtonDefaultType} bnType
      */
     constructor(element, title, icon, bnClass = ButtonClass.default, bnType = ButtonDefaultType.small) {
         super();
@@ -64,8 +64,8 @@ class ButtonDefault extends Element_1.Element {
     }
     /**
      * setValue
-     * @param title
-     * @param icon
+     * @param {string|LangText} title
+     * @param {string} icon
      */
     setValue(title, icon) {
         if (title) {
@@ -82,7 +82,8 @@ class ButtonDefault extends Element_1.Element {
             if (this._icon !== '') {
                 this._element.append(' ');
             }
-            this._element.append(this._title);
+            const tTitle = this._getAnyElement(this._title);
+            this._element.append(tTitle);
         }
     }
     /**
