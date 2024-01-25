@@ -13,8 +13,8 @@ class FormGroup extends Element_1.Element {
     _label;
     /**
      * constructor
-     * @param element
-     * @param label
+     * @param {JQuery<HTMLElement>} element
+     * @param {string|JQuery<HTMLElement>|LangText} label
      */
     constructor(element, label) {
         super();
@@ -27,13 +27,15 @@ class FormGroup extends Element_1.Element {
     }
     /**
      * setLabel
-     * @param label
+     * @param {string|JQuery<HTMLElement>|LangText} label
      */
     setLabel(label) {
-        this._label.empty().append(label);
+        const tlabel = this._getAnyElement(label);
+        this._label.empty().append(tlabel);
     }
     /**
      * getLabelElement
+     * @returns {JQuery<HTMLElement>}
      */
     getLabelElement() {
         return this._label;

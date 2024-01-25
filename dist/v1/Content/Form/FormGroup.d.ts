@@ -1,4 +1,7 @@
+/// <reference types="jquery" />
+/// <reference types="jquery" />
 import { Element } from '../../Element';
+import { LangText } from '../../Lang/LangText';
 /**
  * FormGroup
  */
@@ -7,20 +10,21 @@ export declare class FormGroup extends Element {
      * label
      * @protected
      */
-    protected _label: any;
+    protected _label: JQuery<HTMLElement>;
     /**
      * constructor
-     * @param element
-     * @param label
+     * @param {JQuery<HTMLElement>} element
+     * @param {string|JQuery<HTMLElement>|LangText} label
      */
-    constructor(element: any, label?: any);
+    constructor(element: JQuery<HTMLElement>, label?: string | JQuery<HTMLElement> | LangText);
     /**
      * setLabel
-     * @param label
+     * @param {string|JQuery<HTMLElement>|LangText} label
      */
-    setLabel(label: any): void;
+    setLabel(label: string | JQuery<HTMLElement> | LangText): void;
     /**
      * getLabelElement
+     * @returns {JQuery<HTMLElement>}
      */
     getLabelElement(): any;
 }

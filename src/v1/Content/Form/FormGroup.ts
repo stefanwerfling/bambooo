@@ -1,4 +1,5 @@
 import {Element} from '../../Element';
+import {LangText} from '../../Lang/LangText';
 
 /**
  * FormGroup
@@ -9,14 +10,14 @@ export class FormGroup extends Element {
      * label
      * @protected
      */
-    protected _label: any;
+    protected _label: JQuery<HTMLElement>;
 
     /**
      * constructor
-     * @param element
-     * @param label
+     * @param {JQuery<HTMLElement>} element
+     * @param {string|JQuery<HTMLElement>|LangText} label
      */
-    public constructor(element: any, label?: any) {
+    public constructor(element: JQuery<HTMLElement>, label?: string|JQuery<HTMLElement>|LangText) {
         super();
 
         const telement = this._getAnyElement(element);
@@ -31,14 +32,16 @@ export class FormGroup extends Element {
 
     /**
      * setLabel
-     * @param label
+     * @param {string|JQuery<HTMLElement>|LangText} label
      */
-    public setLabel(label: any): void {
-        this._label.empty().append(label);
+    public setLabel(label: string|JQuery<HTMLElement>|LangText): void {
+        const tlabel = this._getAnyElement(label);
+        this._label.empty().append(tlabel);
     }
 
     /**
      * getLabelElement
+     * @returns {JQuery<HTMLElement>}
      */
     public getLabelElement(): any {
         return this._label;
