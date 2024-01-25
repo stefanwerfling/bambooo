@@ -16,7 +16,7 @@ export declare class FormGroup extends Element {
      * @param {JQuery<HTMLElement>} element
      * @param {string|JQuery<HTMLElement>|LangText} label
      */
-    constructor(element: JQuery<HTMLElement>, label?: string | JQuery<HTMLElement> | LangText);
+    constructor(element: JQuery<HTMLElement> | Element, label?: string | JQuery<HTMLElement> | LangText);
     /**
      * setLabel
      * @param {string|JQuery<HTMLElement>|LangText} label

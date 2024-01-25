@@ -17,7 +17,7 @@ export class FormGroup extends Element {
      * @param {JQuery<HTMLElement>} element
      * @param {string|JQuery<HTMLElement>|LangText} label
      */
-    public constructor(element: JQuery<HTMLElement>, label?: string|JQuery<HTMLElement>|LangText) {
+    public constructor(element: JQuery<HTMLElement>|Element, label?: string|JQuery<HTMLElement>|LangText) {
         super();
 
         const telement = this._getAnyElement(element);
