@@ -63,11 +63,12 @@ class ModalDialog extends Element_1.Element {
     _footer;
     /**
      * constructor
-     * @param elementObject
-     * @param idname
-     * @param modalType
+     * @param {Element|any} elementObject
+     * @param {string} idname
+     * @param {ModalDialogType} modalType
+     * @param {boolean} backdrop
      */
-    constructor(elementObject, idname, modalType) {
+    constructor(elementObject, idname, modalType, backdrop = true) {
         super();
         const aElement = this._getAnyElement(elementObject);
         this._mainElement = jQuery(`<div class="modal fade" id="${idname}" />`).appendTo(aElement);
@@ -85,6 +86,9 @@ class ModalDialog extends Element_1.Element {
         });
         this._body = jQuery('<div class="modal-body" />').appendTo(this._modalContent);
         this._footer = jQuery('<div class="modal-footer justify-content-between">').appendTo(this._modalContent);
+        if (backdrop) {
+            this.setBackdrop(backdrop);
+        }
     }
     /**
      * setTitle
@@ -104,6 +108,15 @@ class ModalDialog extends Element_1.Element {
      */
     getFooter() {
         return this._footer;
+    }
+    /**
+     * Set the dialog static
+     * @param {boolean} set
+     */
+    setBackdrop(set) {
+        this._mainElement.modal({
+            backdrop: set
+        });
     }
     /**
      * show

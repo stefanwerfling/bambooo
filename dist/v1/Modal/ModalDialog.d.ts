@@ -59,11 +59,12 @@ export declare class ModalDialog extends Element {
     protected _footer: any;
     /**
      * constructor
-     * @param elementObject
-     * @param idname
-     * @param modalType
+     * @param {Element|any} elementObject
+     * @param {string} idname
+     * @param {ModalDialogType} modalType
+     * @param {boolean} backdrop
      */
-    constructor(elementObject: Element | any, idname: string, modalType: ModalDialogType);
+    constructor(elementObject: Element | any, idname: string, modalType: ModalDialogType, backdrop?: boolean);
     /**
      * setTitle
      * @param title
@@ -77,6 +78,11 @@ export declare class ModalDialog extends Element {
      * getFooter
      */
     getFooter(): any;
+    /**
+     * Set the dialog static
+     * @param {boolean} set
+     */
+    setBackdrop(set: boolean): void;
     /**
      * show
      */

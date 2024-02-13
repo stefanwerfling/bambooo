@@ -71,11 +71,12 @@ export class ModalDialog extends Element {
 
     /**
      * constructor
-     * @param elementObject
-     * @param idname
-     * @param modalType
+     * @param {Element|any} elementObject
+     * @param {string} idname
+     * @param {ModalDialogType} modalType
+     * @param {boolean} backdrop
      */
-    public constructor(elementObject: Element|any, idname: string, modalType: ModalDialogType) {
+    public constructor(elementObject: Element|any, idname: string, modalType: ModalDialogType, backdrop: boolean = true) {
         super();
 
         const aElement = this._getAnyElement(elementObject);
@@ -100,6 +101,10 @@ export class ModalDialog extends Element {
 
         this._body = jQuery('<div class="modal-body" />').appendTo(this._modalContent);
         this._footer = jQuery('<div class="modal-footer justify-content-between">').appendTo(this._modalContent);
+
+        if (backdrop) {
+            this.setBackdrop(backdrop);
+        }
     }
 
     /**
@@ -122,6 +127,16 @@ export class ModalDialog extends Element {
      */
     public getFooter(): any {
         return this._footer;
+    }
+
+    /**
+     * Set the dialog static
+     * @param {boolean} set
+     */
+    public setBackdrop(set: boolean): void {
+        this._mainElement.modal({
+            backdrop: set
+        });
     }
 
     /**

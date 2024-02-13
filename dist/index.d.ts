@@ -75,3 +75,5 @@ export { SidebarMenuItem, SidebarMenuItemClickFn } from './v1/Sidebar/SidebarMen
 export { SidebarMenuItemBadge } from './v1/Sidebar/SidebarMenuItemBadge';
 export { SidebarMenuTree } from './v1/Sidebar/SidebarMenuTree';
 export { SidebarUserPanel, SidebarUserPanelClickFn } from './v1/Sidebar/SidebarUserPanel';
+export { Component as Component2, ComponentOptions as ComponentOptions2 } from './v2/Base/Component';
+export { Widget as Widget2, WidgetOptions as WidgetOptions2 } from './v2/Base/Widget';
