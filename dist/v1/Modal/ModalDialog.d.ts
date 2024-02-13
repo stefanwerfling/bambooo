@@ -79,11 +79,6 @@ export declare class ModalDialog extends Element {
      */
     getFooter(): any;
     /**
-     * Set the dialog static
-     * @param {boolean} set
-     */
-    setBackdrop(set: boolean): void;
-    /**
      * show
      */
     show(): void;

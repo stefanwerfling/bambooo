@@ -81,7 +81,13 @@ export class ModalDialog extends Element {
 
         const aElement = this._getAnyElement(elementObject);
 
-        this._mainElement = jQuery(`<div class="modal fade" id="${idname}" />`).appendTo(aElement);
+        let modalBackdrop = '';
+
+        if (backdrop) {
+            modalBackdrop = 'data-backdrop="static"';
+        }
+
+        this._mainElement = jQuery(`<div class="modal fade" id="${idname}" ${modalBackdrop}/>`).appendTo(aElement);
         this._innerElement = jQuery(`<div class="modal-dialog ${modalType}" />`).appendTo(this._mainElement);
         this._modalContent = jQuery('<div class="modal-content">').appendTo(this._innerElement);
         this._overload = jQuery('<div class="overlay"><i class="fas fa-2x fa-sync-alt fa-spin"></i></div>').appendTo(this._modalContent);
@@ -101,10 +107,6 @@ export class ModalDialog extends Element {
 
         this._body = jQuery('<div class="modal-body" />').appendTo(this._modalContent);
         this._footer = jQuery('<div class="modal-footer justify-content-between">').appendTo(this._modalContent);
-
-        if (backdrop) {
-            this.setBackdrop(backdrop);
-        }
     }
 
     /**
@@ -127,16 +129,6 @@ export class ModalDialog extends Element {
      */
     public getFooter(): any {
         return this._footer;
-    }
-
-    /**
-     * Set the dialog static
-     * @param {boolean} set
-     */
-    public setBackdrop(set: boolean): void {
-        this._mainElement.modal({
-            backdrop: set
-        });
     }
 
     /**
