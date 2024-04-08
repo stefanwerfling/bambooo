@@ -88,7 +88,7 @@ export class SelectBottemBorderOnly2 extends Element {
      */
     public setSelectedValue(value: string): void {
         this._selectedValue = value;
-        this._element.val(value).change();
+        this._element.val(value).prop('selected', true).change();
     }
 
     /**
