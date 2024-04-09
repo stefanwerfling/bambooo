@@ -62,6 +62,11 @@ class ModalDialog extends Element_1.Element {
      */
     _footer;
     /**
+     * on close event
+     * @protected
+     */
+    _onClose = null;
+    /**
      * constructor
      * @param {Element|any} elementObject
      * @param {string} idname
@@ -85,8 +90,11 @@ class ModalDialog extends Element_1.Element {
         this._header_button = jQuery('<button type="button" class="close" data-dismiss="modal" aria-label="Close">' +
             '<span aria-hidden="true">×</span>' +
             '</button>').appendTo(this._header);
-        this._header_button.on('click', () => {
+        this._header_button.on('click', async () => {
             this.hide();
+            if (this._onClose !== null) {
+                await this._onClose(this);
+            }
         });
         this._body = jQuery('<div class="modal-body" />').appendTo(this._modalContent);
         this._footer = jQuery('<div class="modal-footer justify-content-between">').appendTo(this._modalContent);

@@ -11,6 +11,11 @@ export enum ModalDialogType {
 }
 
 /**
+ * Modal dialog event
+ */
+export type ModalDialogEventFn = (dialog: ModalDialog) => Promise<void>;
+
+/**
  * ModalDialog
  */
 export class ModalDialog extends Element {
@@ -70,6 +75,12 @@ export class ModalDialog extends Element {
     protected _footer: any;
 
     /**
+     * on close event
+     * @protected
+     */
+    protected _onClose: ModalDialogEventFn|null = null;
+
+    /**
      * constructor
      * @param {Element|any} elementObject
      * @param {string} idname
@@ -101,8 +112,12 @@ export class ModalDialog extends Element {
             '</button>'
         ).appendTo(this._header);
 
-        this._header_button.on('click', () => {
+        this._header_button.on('click', async() => {
             this.hide();
+
+            if (this._onClose !== null) {
+                await this._onClose(this);
+            }
         });
 
         this._body = jQuery('<div class="modal-body" />').appendTo(this._modalContent);

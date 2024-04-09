@@ -9,6 +9,10 @@ export declare enum ModalDialogType {
     xlarge = "modal-xl"
 }
 /**
+ * Modal dialog event
+ */
+export type ModalDialogEventFn = (dialog: ModalDialog) => Promise<void>;
+/**
  * ModalDialog
  */
 export declare class ModalDialog extends Element {
@@ -57,6 +61,11 @@ export declare class ModalDialog extends Element {
      * @protected
      */
     protected _footer: any;
+    /**
+     * on close event
+     * @protected
+     */
+    protected _onClose: ModalDialogEventFn | null;
     /**
      * constructor
      * @param {Element|any} elementObject

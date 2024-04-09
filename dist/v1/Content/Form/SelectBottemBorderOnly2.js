@@ -64,7 +64,7 @@ class SelectBottemBorderOnly2 extends Element_1.Element {
      */
     setSelectedValue(value) {
         this._selectedValue = value;
-        this._element.val(value).change();
+        this._element.val(value).prop('selected', true).change();
     }
     /**
      * getSelectedValue
