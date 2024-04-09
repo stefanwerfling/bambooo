@@ -140,8 +140,11 @@ class ModalDialog extends Element_1.Element {
      */
     addButtonClose() {
         const close = jQuery('<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>').appendTo(this._footer);
-        close.on('click', () => {
+        close.on('click', async () => {
             this.hide();
+            if (this._onClose !== null) {
+                await this._onClose(this);
+            }
         });
         return close;
     }
@@ -162,6 +165,13 @@ class ModalDialog extends Element_1.Element {
      */
     hideLoading() {
         this._overload.hide();
+    }
+    /**
+     * Set on close event
+     * @param {ModalDialogEventFn} onClose
+     */
+    setOnClose(onClose) {
+        this._onClose = onClose;
     }
 }
 exports.ModalDialog = ModalDialog;

@@ -116,4 +116,9 @@ export declare class ModalDialog extends Element {
      * hideLoading
      */
     hideLoading(): void;
+    /**
+     * Set on close event
+     * @param {ModalDialogEventFn} onClose
+     */
+    setOnClose(onClose: ModalDialogEventFn): void;
 }
