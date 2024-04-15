@@ -80,7 +80,7 @@ export class ButtonMenu extends Button {
         if (icon !== null) {
             new Icon(item, icon);
 
-            item.append('&nbsp;');
+            item.append('&nbsp;&nbsp;');
         }
 
         const textSpan = jQuery('<span></span>').appendTo(item);
