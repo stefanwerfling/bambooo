@@ -30,7 +30,7 @@ export declare class ButtonMenu extends Button {
      * @param type
      * @param position
      */
-    constructor(element: any, icon?: IconFa | null, positonRight?: boolean, type?: ButtonType, position?: ButtonMenuPosition);
+    constructor(element: any, icon?: IconFa | string | null, positonRight?: boolean, type?: ButtonType, position?: ButtonMenuPosition);
     /**
      * addMenuItem
      * @param title

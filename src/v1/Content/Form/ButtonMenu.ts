@@ -37,7 +37,7 @@ export class ButtonMenu extends Button {
      */
     public constructor(
         element: any,
-        icon: IconFa|null = null,
+        icon: IconFa|string|null = null,
         positonRight: boolean = false,
         type: ButtonType = ButtonType.default,
         position: ButtonMenuPosition = ButtonMenuPosition.relative

@@ -7,6 +7,7 @@ export declare enum IconFa {
     add = "fa fa-plus",
     trash = "fa fa-trash",
     copy = "fa fa-copy",
+    sync = "fa fa-sync",
     bars = "fas fa-bars",
     ban = "icon fas fa-ban",
     info = "icon fas fa-info",
@@ -20,6 +21,7 @@ export declare enum IconFa {
     calendar = "fa fa-calendar",
     clock = "far fa-clock",
     external_link = "fa fa-external-link-alt",
+    book = "fa fa-book",
     redo = "fa fa-redo-alt",
     paperclip = "fas fa-paperclip",
     camera = "fas fa-camera"
@@ -33,5 +35,5 @@ export declare class Icon extends Element {
      * @param element
      * @param symbol
      */
-    constructor(element: any, symbol: IconFa);
+    constructor(element: any, symbol: IconFa | string);
 }

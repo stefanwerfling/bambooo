@@ -8,6 +8,7 @@ export enum IconFa {
     add = 'fa fa-plus',
     trash = 'fa fa-trash',
     copy = 'fa fa-copy',
+    sync = 'fa fa-sync',
 
     bars = 'fas fa-bars',
     
@@ -26,6 +27,7 @@ export enum IconFa {
     calendar = 'fa fa-calendar',
     clock = 'far fa-clock',
     external_link = 'fa fa-external-link-alt',
+    book = 'fa fa-book',
 
     redo = 'fa fa-redo-alt',
     paperclip = 'fas fa-paperclip',
@@ -42,11 +44,11 @@ export class Icon extends Element {
      * @param element
      * @param symbol
      */
-    public constructor(element: any, symbol: IconFa) {
+    public constructor(element: any, symbol: IconFa|string) {
         super();
 
         const telement = this._getAnyElement(element);
 
-        jQuery(`<i class="fa ${symbol}"></i>`).appendTo(telement);
+        jQuery(`<i class="${symbol}"></i>`).appendTo(telement);
     }
 }
