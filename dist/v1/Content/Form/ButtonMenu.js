@@ -63,7 +63,7 @@ class ButtonMenu extends Button_1.Button {
         item.appendTo(this._divDropDownMenu);
         if (icon !== null) {
             new Icon_1.Icon(item, icon);
-            item.append('&nbsp;');
+            item.append('&nbsp;&nbsp;');
         }
         const textSpan = jQuery('<span></span>').appendTo(item);
         LangText_1.LangText.addLangText(textSpan, title);
