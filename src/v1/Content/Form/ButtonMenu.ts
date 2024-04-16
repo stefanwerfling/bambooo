@@ -29,11 +29,11 @@ export class ButtonMenu extends Button {
 
     /**
      * constructor
-     * @param element
-     * @param icon
-     * @param positonRight
-     * @param type
-     * @param position
+     * @param {any} element
+     * @param {IconFa|string|null} icon
+     * @param {boolean} positonRight
+     * @param {ButtonType} type
+     * @param {ButtonMenuPosition} position
      */
     public constructor(
         element: any,
@@ -68,11 +68,11 @@ export class ButtonMenu extends Button {
 
     /**
      * addMenuItem
-     * @param title
-     * @param clickFn
-     * @param icon
+     * @param {any|LangText} title
+     * @param {ButtonClickFn} clickFn
+     * @param {IconFa|string|null} icon
      */
-    public addMenuItem(title: any|LangText, clickFn: ButtonClickFn, icon: IconFa|null = null): void {
+    public addMenuItem(title: any|LangText, clickFn: ButtonClickFn, icon: IconFa|string|null = null): void {
         const item = jQuery('<a class="dropdown-item" href="#"/>');
 
         item.appendTo(this._divDropDownMenu);

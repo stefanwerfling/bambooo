@@ -27,7 +27,7 @@ export class SelectBottemBorderOnly2 extends Element {
 
     /**
      * constructor
-     * @param element
+     * @param {any} element
      */
     public constructor(element: any) {
         super();
@@ -42,7 +42,7 @@ export class SelectBottemBorderOnly2 extends Element {
 
     /**
      * setValues
-     * @param options
+     * @param {SelectOption[]} options
      */
     public setValues(options: SelectOption[]): void {
         for (const aoption of options) {
@@ -52,7 +52,7 @@ export class SelectBottemBorderOnly2 extends Element {
 
     /**
      * addValue
-     * @param option
+     * @param {SelectOption} option
      */
     public addValue(option: SelectOption): void {
         let style = '';
@@ -65,6 +65,23 @@ export class SelectBottemBorderOnly2 extends Element {
     }
 
     /**
+     * Return true when an option has the key
+     * @param {string} key
+     * @returns {boolean}
+     */
+    public hasValue(key: string): boolean {
+        let result = false;
+
+        this._element.find('option').each((_index: any, element: any) => {
+            if (jQuery(element).val() === key) {
+                result = true;
+            }
+        });
+
+        return result;
+    }
+
+    /**
      * clearValues
      */
     public clearValues(): void {
@@ -73,7 +90,7 @@ export class SelectBottemBorderOnly2 extends Element {
 
     /**
      * setChangeFn
-     * @param onChangeFn
+     * @param {SelectChangeFn} onChangeFn
      */
     public setChangeFn(onChangeFn: SelectChangeFn): void {
         this._element.unbind().on('change', (): void => {
@@ -84,7 +101,7 @@ export class SelectBottemBorderOnly2 extends Element {
 
     /**
      * setSelectedValue
-     * @param value
+     * @param {string} value
      */
     public setSelectedValue(value: string): void {
         this._selectedValue = value;
@@ -93,6 +110,7 @@ export class SelectBottemBorderOnly2 extends Element {
 
     /**
      * getSelectedValue
+     * @returns {string}
      */
     public getSelectedValue(): string {
         return this._selectedValue;

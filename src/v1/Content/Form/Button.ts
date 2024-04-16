@@ -21,8 +21,8 @@ export class Button extends Element {
 
     /**
      * constructor
-     * @param element
-     * @param type
+     * @param {any} element
+     * @param {ButtonType} type
      */
     public constructor(element: any, type: ButtonType = ButtonType.default) {
         super();
@@ -45,7 +45,7 @@ export class Button extends Element {
 
     /**
      * setOnClickFn
-     * @param onClick
+     * @param {ButtonClickFn} onClick
      */
     public setOnClickFn(onClick: ButtonClickFn): void {
         this._element.unbind().on('click', (): void => {
