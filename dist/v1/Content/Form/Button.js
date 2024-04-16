@@ -17,8 +17,8 @@ var ButtonType;
 class Button extends Element_1.Element {
     /**
      * constructor
-     * @param element
-     * @param type
+     * @param {any} element
+     * @param {ButtonType} type
      */
     constructor(element, type = ButtonType.default) {
         super();
@@ -36,7 +36,7 @@ class Button extends Element_1.Element {
     }
     /**
      * setOnClickFn
-     * @param onClick
+     * @param {ButtonClickFn} onClick
      */
     setOnClickFn(onClick) {
         this._element.unbind().on('click', () => {

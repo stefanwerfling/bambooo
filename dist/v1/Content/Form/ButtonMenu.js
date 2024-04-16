@@ -28,11 +28,11 @@ class ButtonMenu extends Button_1.Button {
     _divDropDownMenu;
     /**
      * constructor
-     * @param element
-     * @param icon
-     * @param positonRight
-     * @param type
-     * @param position
+     * @param {any} element
+     * @param {IconFa|string|null} icon
+     * @param {boolean} positonRight
+     * @param {ButtonType} type
+     * @param {ButtonMenuPosition} position
      */
     constructor(element, icon = null, positonRight = false, type = Button_1.ButtonType.default, position = ButtonMenuPosition.relative) {
         const divGrp = jQuery('<div class="btn-group"/>');
@@ -54,9 +54,9 @@ class ButtonMenu extends Button_1.Button {
     }
     /**
      * addMenuItem
-     * @param title
-     * @param clickFn
-     * @param icon
+     * @param {any|LangText} title
+     * @param {ButtonClickFn} clickFn
+     * @param {IconFa|string|null} icon
      */
     addMenuItem(title, clickFn, icon = null) {
         const item = jQuery('<a class="dropdown-item" href="#"/>');

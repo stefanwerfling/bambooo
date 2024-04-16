@@ -22,35 +22,42 @@ export declare class SelectBottemBorderOnly2 extends Element {
     protected _selectedValue: string;
     /**
      * constructor
-     * @param element
+     * @param {any} element
      */
     constructor(element: any);
     /**
      * setValues
-     * @param options
+     * @param {SelectOption[]} options
      */
     setValues(options: SelectOption[]): void;
     /**
      * addValue
-     * @param option
+     * @param {SelectOption} option
      */
     addValue(option: SelectOption): void;
+    /**
+     * Return true when an option has the key
+     * @param {string} key
+     * @returns {boolean}
+     */
+    hasValue(key: string): boolean;
     /**
      * clearValues
      */
     clearValues(): void;
     /**
      * setChangeFn
-     * @param onChangeFn
+     * @param {SelectChangeFn} onChangeFn
      */
     setChangeFn(onChangeFn: SelectChangeFn): void;
     /**
      * setSelectedValue
-     * @param value
+     * @param {string} value
      */
     setSelectedValue(value: string): void;
     /**
      * getSelectedValue
+     * @returns {string}
      */
     getSelectedValue(): string;
 }

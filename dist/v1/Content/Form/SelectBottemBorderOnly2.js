@@ -13,7 +13,7 @@ class SelectBottemBorderOnly2 extends Element_1.Element {
     _selectedValue = '';
     /**
      * constructor
-     * @param element
+     * @param {any} element
      */
     constructor(element) {
         super();
@@ -24,7 +24,7 @@ class SelectBottemBorderOnly2 extends Element_1.Element {
     }
     /**
      * setValues
-     * @param options
+     * @param {SelectOption[]} options
      */
     setValues(options) {
         for (const aoption of options) {
@@ -33,7 +33,7 @@ class SelectBottemBorderOnly2 extends Element_1.Element {
     }
     /**
      * addValue
-     * @param option
+     * @param {SelectOption} option
      */
     addValue(option) {
         let style = '';
@@ -43,6 +43,20 @@ class SelectBottemBorderOnly2 extends Element_1.Element {
         jQuery(`<option ${style} value="${option.key}">${option.value}</option>`).appendTo(this._element);
     }
     /**
+     * Return true when an option has the key
+     * @param {string} key
+     * @returns {boolean}
+     */
+    hasValue(key) {
+        let result = false;
+        this._element.find('option').each((_index, element) => {
+            if (jQuery(element).val() === key) {
+                result = true;
+            }
+        });
+        return result;
+    }
+    /**
      * clearValues
      */
     clearValues() {
@@ -50,7 +64,7 @@ class SelectBottemBorderOnly2 extends Element_1.Element {
     }
     /**
      * setChangeFn
-     * @param onChangeFn
+     * @param {SelectChangeFn} onChangeFn
      */
     setChangeFn(onChangeFn) {
         this._element.unbind().on('change', () => {
@@ -60,7 +74,7 @@ class SelectBottemBorderOnly2 extends Element_1.Element {
     }
     /**
      * setSelectedValue
-     * @param value
+     * @param {string} value
      */
     setSelectedValue(value) {
         this._selectedValue = value;
@@ -68,6 +82,7 @@ class SelectBottemBorderOnly2 extends Element_1.Element {
     }
     /**
      * getSelectedValue
+     * @returns {string}
      */
     getSelectedValue() {
         return this._selectedValue;

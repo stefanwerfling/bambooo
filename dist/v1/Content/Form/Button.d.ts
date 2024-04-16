@@ -17,13 +17,13 @@ export type ButtonClickFn = () => void;
 export declare class Button extends Element {
     /**
      * constructor
-     * @param element
-     * @param type
+     * @param {any} element
+     * @param {ButtonType} type
      */
     constructor(element: any, type?: ButtonType);
     /**
      * setOnClickFn
-     * @param onClick
+     * @param {ButtonClickFn} onClick
      */
     setOnClickFn(onClick: ButtonClickFn): void;
 }
