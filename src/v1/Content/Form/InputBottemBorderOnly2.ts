@@ -68,9 +68,11 @@ export class InputBottemBorderOnly2 extends Element {
         }
 
         let aid: string = '';
+        let dataTarget: string = '';
 
         if (tid !== undefined && tid !== null) {
             aid = `id="${tid}"`;
+            dataTarget = `data-target=#${tid}`;
         }
 
         if (useInputGroup) {
@@ -78,7 +80,7 @@ export class InputBottemBorderOnly2 extends Element {
             telement = this._inputGroup;
         }
 
-        this._element = jQuery(`<input type="${ttype}" class="form-control form-control-border border-width-2 ${iclasses}" ${aid} placeholder="">`);
+        this._element = jQuery(`<input type="${ttype}" class="form-control form-control-border border-width-2 ${iclasses}" ${aid} ${dataTarget} placeholder="">`);
 
         if (element instanceof FormGroupButton) {
             this._element.prependTo(telement);

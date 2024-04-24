@@ -61,14 +61,16 @@ class InputBottemBorderOnly2 extends Element_1.Element {
                 break;
         }
         let aid = '';
+        let dataTarget = '';
         if (tid !== undefined && tid !== null) {
             aid = `id="${tid}"`;
+            dataTarget = `data-target=#${tid}`;
         }
         if (useInputGroup) {
             this._inputGroup = jQuery(`<div class="input-group ${useInputGroup}" id="${tid}" data-target-input="nearest"></div>`).appendTo(telement);
             telement = this._inputGroup;
         }
-        this._element = jQuery(`<input type="${ttype}" class="form-control form-control-border border-width-2 ${iclasses}" ${aid} placeholder="">`);
+        this._element = jQuery(`<input type="${ttype}" class="form-control form-control-border border-width-2 ${iclasses}" ${aid} ${dataTarget} placeholder="">`);
         if (element instanceof FormGroupButton_1.FormGroupButton) {
             this._element.prependTo(telement);
         }
