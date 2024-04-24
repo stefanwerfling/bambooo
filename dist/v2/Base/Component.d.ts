@@ -1,12 +1,13 @@
 /// <reference types="jquery" />
 /// <reference types="jquery" />
+export type ComponentChildrenFunc = () => (Component | JQuery | string)[];
 /**
  * Component options
  */
 export type ComponentOptions = {
     element?: JQuery;
     emptyElement?: boolean;
-    children?: Component[];
+    children?: (Component | JQuery | string | ComponentChildrenFunc)[];
 };
 /**
  * Component object
@@ -18,6 +19,11 @@ export declare class Component {
      */
     protected _element: JQuery;
     /**
+     * children list
+     * @protected
+     */
+    protected _children: Component[];
+    /**
      * Component constructor
      * @param {ComponentOptions} opt
      */
@@ -27,6 +33,11 @@ export declare class Component {
      * @returns {JQuery<HTMLElement>}
      */
     getElement(): JQuery;
+    /**
+     * Return all children (components)
+     * @returns {Component[]}
+     */
+    getChildren(): Component[];
     /**
      * appendTo
      * @param {Component|string} telement

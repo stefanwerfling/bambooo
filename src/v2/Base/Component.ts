@@ -1,10 +1,13 @@
+
+export type ComponentChildrenFunc = () => (Component|JQuery|string)[];
+
 /**
  * Component options
  */
 export type ComponentOptions = {
     element?: JQuery;
     emptyElement?: boolean;
-    children?: Component[];
+    children?: (Component|JQuery|string|ComponentChildrenFunc)[];
 };
 
 /**
@@ -17,6 +20,12 @@ export class Component {
      * @protected
      */
     protected _element: JQuery;
+
+    /**
+     * children list
+     * @protected
+     */
+    protected _children: Component[];
 
     /**
      * Component constructor
@@ -33,8 +42,26 @@ export class Component {
             this.empty();
         }
 
+        this._children = [];
+
         if (opt?.children) {
-            for (const child of opt.children) {
+            for (const child of opt?.children) {
+                if (child instanceof Component) {
+                    this._children.push(child);
+                } else if(child instanceof Function) {
+                    const subChildren = child();
+
+                    for (const subChild of subChildren) {
+                        if (subChild instanceof Component) {
+                            this._children.push(subChild);
+                        }
+
+                        this.append(subChild);
+                    }
+
+                    continue;
+                }
+
                 this.append(child);
             }
         }
@@ -46,6 +73,14 @@ export class Component {
      */
     public getElement(): JQuery {
         return this._element;
+    }
+
+    /**
+     * Return all children (components)
+     * @returns {Component[]}
+     */
+    public getChildren(): Component[] {
+        return this._children;
     }
 
     /**

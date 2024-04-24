@@ -56,5 +56,12 @@ class Navbar extends Widget_1.Widget {
         super(options);
         this._left = left;
     }
+    /**
+     * Return right Navbar
+     * @returns {NavbarPosition|null}
+     */
+    getRightNavbar() {
+        return this._right;
+    }
 }
 exports.Navbar = Navbar;

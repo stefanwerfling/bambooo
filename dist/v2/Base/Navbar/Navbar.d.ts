@@ -26,4 +26,9 @@ export declare class Navbar extends Widget {
      * @param {NavbarOptions} opt
      */
     constructor(opt?: NavbarOptions);
+    /**
+     * Return right Navbar
+     * @returns {NavbarPosition|null}
+     */
+    getRightNavbar(): NavbarPosition | null;
 }

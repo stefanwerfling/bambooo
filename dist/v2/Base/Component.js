@@ -11,6 +11,11 @@ class Component {
      */
     _element;
     /**
+     * children list
+     * @protected
+     */
+    _children;
+    /**
      * Component constructor
      * @param {ComponentOptions} opt
      */
@@ -24,8 +29,22 @@ class Component {
         if (opt?.emptyElement) {
             this.empty();
         }
+        this._children = [];
         if (opt?.children) {
-            for (const child of opt.children) {
+            for (const child of opt?.children) {
+                if (child instanceof Component) {
+                    this._children.push(child);
+                }
+                else if (child instanceof Function) {
+                    const subChildren = child();
+                    for (const subChild of subChildren) {
+                        if (subChild instanceof Component) {
+                            this._children.push(subChild);
+                        }
+                        this.append(subChild);
+                    }
+                    continue;
+                }
                 this.append(child);
             }
         }
@@ -36,6 +55,13 @@ class Component {
      */
     getElement() {
         return this._element;
+    }
+    /**
+     * Return all children (components)
+     * @returns {Component[]}
+     */
+    getChildren() {
+        return this._children;
     }
     /**
      * appendTo

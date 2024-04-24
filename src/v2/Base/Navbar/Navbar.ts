@@ -1,4 +1,4 @@
-import {Component} from '../Component';
+import {Component, ComponentChildrenFunc} from '../Component';
 import {Widget, WidgetOptions} from '../Widget';
 import {NavbarPosition, NavbarPositionType} from './NavbarPosition';
 
@@ -64,13 +64,13 @@ export class Navbar extends Widget {
             });
         }
 
-        let children: Component[] = [];
+        let children: (Component|JQuery|string|ComponentChildrenFunc)[] = [];
 
         if (options.children) {
             children = options.children;
         }
 
-        const baseChildren: Component[] = [left];
+        const baseChildren: (Component|JQuery|string|ComponentChildrenFunc)[] = [left];
 
         children = baseChildren.concat(children);
 
@@ -79,6 +79,14 @@ export class Navbar extends Widget {
         super(options);
 
         this._left = left;
+    }
+
+    /**
+     * Return right Navbar
+     * @returns {NavbarPosition|null}
+     */
+    public getRightNavbar(): NavbarPosition|null {
+        return this._right;
     }
 
 }
