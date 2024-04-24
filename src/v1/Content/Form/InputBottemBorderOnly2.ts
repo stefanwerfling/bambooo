@@ -48,6 +48,7 @@ export class InputBottemBorderOnly2 extends Element {
         let telement = this._getAnyElement(element);
         let ttype = `${type}`;
         let useInputGroup: string|null = null;
+        let iclasses = '';
 
         switch (type) {
             case InputType.colorpicker:
@@ -58,6 +59,7 @@ export class InputBottemBorderOnly2 extends Element {
             case InputType.time:
                 ttype = `${InputType.text}`;
                 useInputGroup = 'date';
+                iclasses = 'datetimepicker-input';
 
                 if (tid === undefined) {
                     tid = `input${this._uniqId()}`;
@@ -76,7 +78,7 @@ export class InputBottemBorderOnly2 extends Element {
             telement = this._inputGroup;
         }
 
-        this._element = jQuery(`<input type="${ttype}" class="form-control form-control-border border-width-2" ${aid} placeholder="">`);
+        this._element = jQuery(`<input type="${ttype}" class="form-control form-control-border border-width-2 ${iclasses}" ${aid} placeholder="">`);
 
         if (element instanceof FormGroupButton) {
             this._element.prependTo(telement);
@@ -99,7 +101,8 @@ export class InputBottemBorderOnly2 extends Element {
                         new Icon(button, IconFa.calendar);
 
                         this._inputGroup.datetimepicker({
-                            format: 'YYYY.MM.DD'
+                            format: 'YYYY.MM.DD',
+                            lang: 'de'
                         });
                         break;
 
@@ -107,7 +110,8 @@ export class InputBottemBorderOnly2 extends Element {
                         new Icon(button, IconFa.clock);
 
                         this._inputGroup.datetimepicker({
-                            format: 'LT'
+                            format: 'LT',
+                            lang: 'de'
                         });
                         break;
                 }

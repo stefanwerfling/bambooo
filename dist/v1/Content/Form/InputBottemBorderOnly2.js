@@ -45,6 +45,7 @@ class InputBottemBorderOnly2 extends Element_1.Element {
         let telement = this._getAnyElement(element);
         let ttype = `${type}`;
         let useInputGroup = null;
+        let iclasses = '';
         switch (type) {
             case InputType.colorpicker:
                 ttype = `${InputType.text}`;
@@ -53,6 +54,7 @@ class InputBottemBorderOnly2 extends Element_1.Element {
             case InputType.time:
                 ttype = `${InputType.text}`;
                 useInputGroup = 'date';
+                iclasses = 'datetimepicker-input';
                 if (tid === undefined) {
                     tid = `input${this._uniqId()}`;
                 }
@@ -66,7 +68,7 @@ class InputBottemBorderOnly2 extends Element_1.Element {
             this._inputGroup = jQuery(`<div class="input-group ${useInputGroup}" id="${tid}" data-target-input="nearest"></div>`).appendTo(telement);
             telement = this._inputGroup;
         }
-        this._element = jQuery(`<input type="${ttype}" class="form-control form-control-border border-width-2" ${aid} placeholder="">`);
+        this._element = jQuery(`<input type="${ttype}" class="form-control form-control-border border-width-2 ${iclasses}" ${aid} placeholder="">`);
         if (element instanceof FormGroupButton_1.FormGroupButton) {
             this._element.prependTo(telement);
         }
@@ -85,13 +87,15 @@ class InputBottemBorderOnly2 extends Element_1.Element {
                     case InputType.date:
                         new Icon_1.Icon(button, Icon_1.IconFa.calendar);
                         this._inputGroup.datetimepicker({
-                            format: 'YYYY.MM.DD'
+                            format: 'YYYY.MM.DD',
+                            lang: 'de'
                         });
                         break;
                     case InputType.time:
                         new Icon_1.Icon(button, Icon_1.IconFa.clock);
                         this._inputGroup.datetimepicker({
-                            format: 'LT'
+                            format: 'LT',
+                            lang: 'de'
                         });
                         break;
                 }
