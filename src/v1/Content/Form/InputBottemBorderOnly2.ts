@@ -103,7 +103,7 @@ export class InputBottemBorderOnly2 extends Element {
                         new Icon(button, IconFa.calendar);
 
                         this._inputGroup.datetimepicker({
-                            format: 'YYYY.MM.DD',
+                            format: 'YYYY.MM.DD dddd',
                             lang: 'de'
                         });
                         break;
@@ -112,7 +112,7 @@ export class InputBottemBorderOnly2 extends Element {
                         new Icon(button, IconFa.clock);
 
                         this._inputGroup.datetimepicker({
-                            format: 'LT',
+                            format: 'hh:mm',
                             lang: 'de'
                         });
                         break;

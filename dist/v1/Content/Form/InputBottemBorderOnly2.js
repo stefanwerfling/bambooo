@@ -89,14 +89,14 @@ class InputBottemBorderOnly2 extends Element_1.Element {
                     case InputType.date:
                         new Icon_1.Icon(button, Icon_1.IconFa.calendar);
                         this._inputGroup.datetimepicker({
-                            format: 'YYYY.MM.DD',
+                            format: 'YYYY.MM.DD dddd',
                             lang: 'de'
                         });
                         break;
                     case InputType.time:
                         new Icon_1.Icon(button, Icon_1.IconFa.clock);
                         this._inputGroup.datetimepicker({
-                            format: 'LT',
+                            format: 'hh:mm',
                             lang: 'de'
                         });
                         break;
