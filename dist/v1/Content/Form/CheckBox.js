@@ -21,7 +21,7 @@ class CheckBox extends Element_1.Element {
     constructor(element, label = '') {
         super();
         const telement = this._getAnyElement(element);
-        this._element = jQuery('<div class="form-check" />').appendTo(this._element);
+        this._element = jQuery('<div class="form-check" />').appendTo(telement);
         this._input = jQuery(`<input type="checkbox" class="form-check-input">`).appendTo(this._element);
         this._label = jQuery(`<label class="form-check-label">`).appendTo(this._element);
         this.setLabel(label);
