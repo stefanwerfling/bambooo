@@ -14,31 +14,35 @@ class Wrapper extends Widget_1.Widget {
      * @param {WrapperOptions} opt
      */
     constructor(opt) {
-        if (!opt.element) {
-            opt.element = jQuery('.wrapper');
+        let options = {};
+        if (opt) {
+            options = opt;
         }
-        if (opt.element.length === 0) {
+        if (!options.element) {
+            options.element = jQuery('.wrapper');
+        }
+        if (options.element.length === 0) {
             throw Error('Wrapper element not found!');
         }
-        opt.emptyElement = true;
-        let childrens = opt.children;
+        options.emptyElement = true;
+        let childrens = options.children;
         if (!childrens) {
             childrens = [];
         }
-        let preloader = opt.preloader;
+        let preloader = options.preloader;
         if (!preloader) {
             preloader = new Preloader_1.Preloader();
         }
-        let navbar = opt.navbar;
+        let navbar = options.navbar;
         if (!navbar) {
             navbar = new Navbar_1.Navbar();
         }
-        let mainsidebar = opt.mainsidebar;
+        let mainsidebar = options.mainsidebar;
         if (!mainsidebar) {
             mainsidebar = new MainSidebar_1.MainSidebar();
         }
         childrens = [preloader, navbar, mainsidebar, ...childrens];
-        opt.children = childrens;
+        options.children = childrens;
         super(opt);
     }
     /**

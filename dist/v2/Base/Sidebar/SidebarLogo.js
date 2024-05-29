@@ -2,7 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SidebarLogo = void 0;
 const Widget_1 = require("../Widget");
+/**
+ * Sidebar logo
+ */
 class SidebarLogo extends Widget_1.Widget {
+    /**
+     * Constructor
+     * @param {SidebarLogoOptions} opt
+     */
     constructor(opt) {
         let options = {};
         if (opt) {
@@ -19,7 +26,18 @@ class SidebarLogo extends Widget_1.Widget {
             'brand-link'
         ].concat(options.class);
         super(options);
+        if (options.image) {
+            this._element.append(this._createChildImage(options.image));
+        }
+        if (options.title) {
+            this._element.append(this._createChildTitle(options.title));
+        }
     }
+    /**
+     * create a child image object
+     * @param {SidebarLogoOptionImage} option
+     * @protected
+     */
     _createChildImage(option) {
         const img = jQuery('<img>');
         img.attr('src', option.src);
@@ -41,6 +59,22 @@ class SidebarLogo extends Widget_1.Widget {
             });
         }
         return img;
+    }
+    /**
+     * create the child title object
+     * @param {SidebarLogoOptionTitle} option
+     * @returns {JQuery}
+     * @protected
+     */
+    _createChildTitle(option) {
+        const span = jQuery('<span class="brand-text font-weight-light" />');
+        span.append(`${option.text}`);
+        if (option.class) {
+            for (const aClass of option.class) {
+                span.addClass(aClass);
+            }
+        }
+        return span;
     }
 }
 exports.SidebarLogo = SidebarLogo;

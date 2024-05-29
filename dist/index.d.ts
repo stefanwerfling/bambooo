@@ -45,6 +45,7 @@ export { SelectChangeFn, SelectOption, SelectBottemBorderOnly2 } from './v1/Cont
 export { Switch, SwitchChangeFn } from './v1/Content/Form/Switch';
 export { SwitchTimeoutFn, SwitchTimer } from './v1/Content/Form/SwitchTimer';
 export { Textarea } from './v1/Content/Form/Textarea';
+export { CheckBox } from './v1/Content/Form/CheckBox';
 export { Icon, IconFa } from './v1/Content/Icon/Icon';
 export { Image, ImageArt, ImageType } from './v1/Content/Image/Image';
 export { ImageCoin } from './v1/Content/Image/ImageCoin';

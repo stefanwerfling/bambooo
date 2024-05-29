@@ -27,7 +27,8 @@ class RadioInput extends Element_1.Element {
      */
     constructor(element, radionName, radioValue, nameInput, inputValue, checked = false) {
         super();
-        this._element = jQuery('<div class="input-group" />').appendTo(element);
+        const telement = this._getAnyElement(element);
+        this._element = jQuery('<div class="input-group" />').appendTo(telement);
         const prependGroup = jQuery('<div class="input-group-prepend" />').appendTo(this._element);
         const spanInputGroup = jQuery('<span class="input-group-text" />').appendTo(prependGroup);
         this._inputRadio = jQuery(`<input type="radio" name="${radionName}" value="${radioValue}" ${checked}>`).appendTo(spanInputGroup);

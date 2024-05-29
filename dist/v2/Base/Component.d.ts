@@ -1,5 +1,3 @@
-/// <reference types="jquery" />
-/// <reference types="jquery" />
 export type ComponentChildrenFunc = () => (Component | JQuery | string)[];
 /**
  * Component options

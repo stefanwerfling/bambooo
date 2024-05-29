@@ -1,3 +1,4 @@
+import { IWrapper } from './IWrapper';
 import { MainSidebar } from './MainSidebar';
 import { Navbar } from './Navbar/Navbar';
 import { Preloader } from './Preloader';
@@ -13,12 +14,12 @@ export type WrapperOptions = WidgetOptions & {
 /**
  * Wrapper object for AdminLTE
  */
-export declare class Wrapper extends Widget {
+export declare class Wrapper extends Widget implements IWrapper {
     /**
      * Constructor
      * @param {WrapperOptions} opt
      */
-    constructor(opt: WrapperOptions);
+    constructor(opt?: WrapperOptions);
     /**
      * Return a preloader
      * @returns {Preloader|null}

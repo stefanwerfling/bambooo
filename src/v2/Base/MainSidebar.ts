@@ -2,6 +2,9 @@ import {Sidebar} from './Sidebar/Sidebar';
 import {SidebarLogo} from './Sidebar/SidebarLogo';
 import {Widget, WidgetOptions} from './Widget';
 
+/**
+ * main sidebar options
+ */
 export type MainSidebarOptions = WidgetOptions & {
     logo?: SidebarLogo;
     sidebar?: Sidebar;
@@ -49,8 +52,30 @@ export class MainSidebar extends Widget {
             childrens.push(options.logo);
         }
 
-
+        if (options.sidebar) {
+            childrens.push(options.sidebar);
+        }
 
         super(options);
     }
+
+    /**
+     * Return the Sidebar logo object
+     * @returns {SidebarLogo}
+     */
+    public getLogo(): SidebarLogo {
+        for (const child of this._children) {
+            if (child instanceof SidebarLogo) {
+                return child;
+            }
+        }
+
+        const logo = new SidebarLogo();
+
+        this._children.push(logo);
+        this.append(logo);
+
+        return logo;
+    }
+
 }

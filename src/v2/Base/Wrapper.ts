@@ -1,3 +1,4 @@
+import {IWrapper} from './IWrapper';
 import {MainSidebar} from './MainSidebar';
 import {Navbar} from './Navbar/Navbar';
 import {Preloader} from './Preloader';
@@ -15,42 +16,48 @@ export type WrapperOptions = WidgetOptions & {
 /**
  * Wrapper object for AdminLTE
  */
-export class Wrapper extends Widget {
+export class Wrapper extends Widget implements IWrapper {
 
     /**
      * Constructor
      * @param {WrapperOptions} opt
      */
-    public constructor(opt: WrapperOptions) {
-        if (!opt.element) {
-            opt.element = jQuery('.wrapper');
+    public constructor(opt?: WrapperOptions) {
+        let options: WrapperOptions = {};
+
+        if (opt) {
+            options = opt;
         }
 
-        if (opt.element.length === 0) {
+        if (!options.element) {
+            options.element = jQuery('.wrapper');
+        }
+
+        if (options.element.length === 0) {
             throw Error('Wrapper element not found!');
         }
 
-        opt.emptyElement = true;
+        options.emptyElement = true;
 
-        let childrens = opt.children;
+        let childrens = options.children;
 
         if (!childrens) {
             childrens = [];
         }
 
-        let preloader = opt.preloader;
+        let preloader = options.preloader;
 
         if (!preloader) {
             preloader = new Preloader();
         }
 
-        let navbar = opt.navbar;
+        let navbar = options.navbar;
 
         if (!navbar) {
             navbar = new Navbar();
         }
 
-        let mainsidebar = opt.mainsidebar;
+        let mainsidebar = options.mainsidebar;
 
         if (!mainsidebar) {
             mainsidebar = new MainSidebar();
@@ -58,7 +65,7 @@ export class Wrapper extends Widget {
 
         childrens = [preloader, navbar, mainsidebar, ...childrens];
 
-        opt.children = childrens;
+        options.children = childrens;
 
         super(opt);
     }

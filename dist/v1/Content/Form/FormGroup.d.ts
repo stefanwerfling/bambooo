@@ -1,5 +1,3 @@
-/// <reference types="jquery" />
-/// <reference types="jquery" />
 import { Element } from '../../Element';
 import { LangText } from '../../Lang/LangText';
 /**

@@ -73,6 +73,7 @@ export {SelectChangeFn, SelectOption, SelectBottemBorderOnly2} from './v1/Conten
 export {Switch, SwitchChangeFn} from './v1/Content/Form/Switch';
 export {SwitchTimeoutFn, SwitchTimer} from './v1/Content/Form/SwitchTimer';
 export {Textarea} from './v1/Content/Form/Textarea';
+export {CheckBox} from './v1/Content/Form/CheckBox';
 
 // ## Content - Icon
 export {Icon, IconFa} from './v1/Content/Icon/Icon';

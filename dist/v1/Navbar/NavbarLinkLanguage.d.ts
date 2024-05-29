@@ -1,4 +1,3 @@
-/// <reference types="jquery" />
 import { LangDefine } from '../Lang/LangDefine';
 import { Element } from '../Element';
 /**

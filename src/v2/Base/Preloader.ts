@@ -1,3 +1,4 @@
+import {IPreloader} from './IPreloader';
 import {Widget, WidgetOptions} from './Widget';
 
 /**
@@ -11,7 +12,7 @@ export type PreloaderOptions = WidgetOptions & {
 /**
  * Preloader object
  */
-export class Preloader extends Widget {
+export class Preloader extends Widget implements IPreloader {
 
     /**
      * Preloader concstructor

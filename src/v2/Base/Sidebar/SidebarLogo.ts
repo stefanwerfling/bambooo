@@ -1,10 +1,16 @@
 import {Widget, WidgetOptions} from '../Widget';
 
+/**
+ * Type sidebare logo option title
+ */
 export type SidebarLogoOptionTitle = {
     text: string;
     class?: string;
 };
 
+/**
+ * Type sidebare logo option image
+ */
 export type SidebarLogoOptionImage = {
     src: string;
     class?: string[];
@@ -12,13 +18,23 @@ export type SidebarLogoOptionImage = {
     style?: JQuery.PlainObject<string | number | ((this: HTMLElement, index: number, value: string) => string | number | void | undefined)>;
 };
 
+/**
+ * Type Sidebar logo options
+ */
 export type SidebarLogoOptions = WidgetOptions & {
     title?: SidebarLogoOptionTitle;
     image?: SidebarLogoOptionImage;
 }
 
+/**
+ * Sidebar logo
+ */
 export class SidebarLogo extends Widget {
 
+    /**
+     * Constructor
+     * @param {SidebarLogoOptions} opt
+     */
     public constructor(opt?: SidebarLogoOptions) {
         let options: SidebarLogoOptions = {};
 
@@ -41,8 +57,21 @@ export class SidebarLogo extends Widget {
         ].concat(options.class);
 
         super(options);
+
+        if (options.image) {
+            this._element.append(this._createChildImage(options.image));
+        }
+
+        if (options.title) {
+            this._element.append(this._createChildTitle(options.title));
+        }
     }
 
+    /**
+     * create a child image object
+     * @param {SidebarLogoOptionImage} option
+     * @protected
+     */
     protected _createChildImage(option: SidebarLogoOptionImage): JQuery {
         const img = jQuery('<img>');
 
@@ -70,4 +99,25 @@ export class SidebarLogo extends Widget {
 
         return img;
     }
+
+    /**
+     * create the child title object
+     * @param {SidebarLogoOptionTitle} option
+     * @returns {JQuery}
+     * @protected
+     */
+    protected _createChildTitle(option: SidebarLogoOptionTitle): JQuery {
+        const span = jQuery('<span class="brand-text font-weight-light" />');
+
+        span.append(`${option.text}`);
+
+        if (option.class) {
+            for (const aClass of option.class) {
+                span.addClass(aClass);
+            }
+        }
+
+        return span;
+    }
+
 }
