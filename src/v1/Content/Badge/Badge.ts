@@ -30,9 +30,10 @@ export class Badge extends Element {
 
     /**
      * constructor
-     * @param element
-     * @param text
-     * @param type
+     * @param {any} element
+     * @param {string} text
+     * @param {BadgeType} type
+     * @param {string|undefined} aColor
      */
     public constructor(element: any, text: string, type: BadgeType = BadgeType.success, aColor?: string) {
         super();

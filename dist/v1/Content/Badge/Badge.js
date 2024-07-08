@@ -31,9 +31,10 @@ var BadgeType;
 class Badge extends Element_1.Element {
     /**
      * constructor
-     * @param element
-     * @param text
-     * @param type
+     * @param {any} element
+     * @param {string} text
+     * @param {BadgeType} type
+     * @param {string|undefined} aColor
      */
     constructor(element, text, type = BadgeType.success, aColor) {
         super();

@@ -27,9 +27,10 @@ export declare enum BadgeType {
 export declare class Badge extends Element {
     /**
      * constructor
-     * @param element
-     * @param text
-     * @param type
+     * @param {any} element
+     * @param {string} text
+     * @param {BadgeType} type
+     * @param {string|undefined} aColor
      */
     constructor(element: any, text: string, type?: BadgeType, aColor?: string);
 }
