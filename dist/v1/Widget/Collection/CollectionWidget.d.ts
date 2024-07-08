@@ -53,6 +53,11 @@ export declare class CollectionWidget<T extends ICollectionEntryWidget, E extend
         new (...args: any[]): T;
     }): T;
     /**
+     * Return the Element from collection
+     * @returns {E extends Element}
+     */
+    getElement(): E;
+    /**
      * removeAddress
      * @param {ICollectionEntryWidget} object
      */

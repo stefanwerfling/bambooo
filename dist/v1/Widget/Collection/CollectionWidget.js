@@ -60,6 +60,13 @@ class CollectionWidget {
         return new aClass(this, this._editable);
     }
     /**
+     * Return the Element from collection
+     * @returns {E extends Element}
+     */
+    getElement() {
+        return this._element;
+    }
+    /**
      * removeAddress
      * @param {ICollectionEntryWidget} object
      */
