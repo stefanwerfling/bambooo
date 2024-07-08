@@ -84,6 +84,14 @@ export class CollectionWidget<T extends ICollectionEntryWidget, E extends Elemen
     }
 
     /**
+     * Return the Element from collection
+     * @returns {E extends Element}
+     */
+    public getElement(): E {
+        return this._element;
+    }
+
+    /**
      * removeAddress
      * @param {ICollectionEntryWidget} object
      */
