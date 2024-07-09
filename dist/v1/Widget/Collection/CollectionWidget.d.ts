@@ -1,3 +1,4 @@
+import { BClass } from '../../../Core/BTypes';
 import { Element } from '../../Element';
 import { ICollectionEntryWidget } from './CollectionEntryWidget';
 /**
@@ -18,9 +19,7 @@ export declare class CollectionWidget<T extends ICollectionEntryWidget, E extend
      * Entry class for create object
      * @protected
      */
-    protected _entryClass: {
-        new (...args: any[]): T;
-    };
+    protected _entryClass: BClass<T>;
     /**
      * object list
      * @protected
@@ -35,9 +34,7 @@ export declare class CollectionWidget<T extends ICollectionEntryWidget, E extend
         editable: boolean;
         onContainerObject: (element: Element) => E;
         onBindAddBtn: (element: E) => Element | any;
-        entryClass: {
-            new (...args: any[]): T;
-        };
+        entryClass: BClass<T>;
     });
     protected _createAddBtn(element: Element): void;
     /**
@@ -49,9 +46,7 @@ export declare class CollectionWidget<T extends ICollectionEntryWidget, E extend
      * Create a new object
      * @protected
      */
-    protected _createObject(aClass: {
-        new (...args: any[]): T;
-    }): T;
+    protected _createObject(aClass: BClass<T>): T;
     /**
      * Return the Element from collection
      * @returns {E extends Element}

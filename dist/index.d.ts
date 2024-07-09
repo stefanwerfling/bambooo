@@ -1,3 +1,4 @@
+export { BClass } from './Core/BTypes';
 export { ColumnContent } from './v1/ColumnContent';
 export { Content } from './v1/Content';
 export { ContentHeader } from './v1/ContentHeader';

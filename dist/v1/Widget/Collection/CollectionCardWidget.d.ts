@@ -1,3 +1,4 @@
+import { BClass } from '../../../Core/BTypes';
 import { Element } from '../../Element';
 import { Card, CardBodyType, CardLine, CardType } from '../../Content/Card/Card';
 import { ICollectionEntryWidget } from './CollectionEntryWidget';
@@ -9,9 +10,7 @@ export declare class CollectionCardWidget<T extends ICollectionEntryWidget> exte
     constructor(opts: {
         element: Element | any;
         editable: boolean;
-        entryClass: {
-            new (...args: any[]): T;
-        };
+        entryClass: BClass<T>;
         bodyType: CardBodyType;
         cardType: CardType;
         cardLine: CardLine;

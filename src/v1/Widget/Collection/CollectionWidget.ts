@@ -1,3 +1,4 @@
+import {BClass} from '../../../Core/BTypes';
 import {Element} from '../../Element';
 import {ButtonClass, ButtonDefault, ButtonDefaultType} from '../../Content/Button/ButtonDefault';
 import {ICollectionEntryWidget} from './CollectionEntryWidget';
@@ -23,7 +24,7 @@ export class CollectionWidget<T extends ICollectionEntryWidget, E extends Elemen
      * Entry class for create object
      * @protected
      */
-    protected _entryClass: { new(...args : any[]): T;};
+    protected _entryClass: BClass<T>;
 
     /**
      * object list
@@ -40,7 +41,7 @@ export class CollectionWidget<T extends ICollectionEntryWidget, E extends Elemen
         editable: boolean,
         onContainerObject: (element: Element) => E,
         onBindAddBtn: (element: E) => Element|any,
-        entryClass: { new(...args : any[]): T;}
+        entryClass: BClass<T>
     }) {
         this._element = opts.onContainerObject(opts.element);
         this._editable = opts.editable;
@@ -79,7 +80,7 @@ export class CollectionWidget<T extends ICollectionEntryWidget, E extends Elemen
      * Create a new object
      * @protected
      */
-    protected _createObject(aClass: { new(...args : any[]): T;}): T {
+    protected _createObject(aClass: BClass<T>): T {
         return new aClass(this, this._editable);
     }
 
