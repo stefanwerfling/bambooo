@@ -27,6 +27,11 @@ class CollectionWidget {
      */
     _objects = [];
     /**
+     * on update event
+     * @protected
+     */
+    _onUpdate;
+    /**
      * Constructor
      * @param {} opts
      */
@@ -34,6 +39,7 @@ class CollectionWidget {
         this._element = opts.onContainerObject(opts.element);
         this._editable = opts.editable;
         this._entryClass = opts.entryClass;
+        this._onUpdate = opts.onUpdate;
         if (this._editable) {
             const bindElement = opts.onBindAddBtn(this._element);
             this._createAddBtn(bindElement);
@@ -67,10 +73,27 @@ class CollectionWidget {
         return this._element;
     }
     /**
+     * Return the collection size
+     * @returns {number}
+     */
+    getSize() {
+        return this._objects.length;
+    }
+    /**
      * removeAddress
      * @param {ICollectionEntryWidget} object
      */
     removeObject(object) {
+        this._removeObject(object);
+        if (this._onUpdate) {
+            this._onUpdate(object);
+        }
+    }
+    /**
+     * removeAddress
+     * @param {ICollectionEntryWidget} object
+     */
+    _removeObject(object) {
         for (const [index, tobject] of this._objects.entries()) {
             if (object === tobject) {
                 tobject.remove();
@@ -80,12 +103,25 @@ class CollectionWidget {
         }
     }
     /**
+     * Add object
+     * @param {ICollectionEntryWidget} object
+     */
+    addObject(object) {
+        this._objects.push(object);
+        if (this._onUpdate) {
+            this._onUpdate(object);
+        }
+    }
+    /**
      * removeAll
      */
     removeAll() {
         const objects = this._objects;
         for (const object of objects) {
-            this.removeObject(object);
+            this._removeObject(object);
+        }
+        if (this._onUpdate) {
+            this._onUpdate();
         }
     }
 }

@@ -2,7 +2,7 @@ import { BClass } from '../../../Core/BTypes';
 import { Element } from '../../Element';
 import { Card, CardBodyType, CardLine, CardType } from '../../Content/Card/Card';
 import { ICollectionEntryWidget } from './CollectionEntryWidget';
-import { CollectionWidget } from './CollectionWidget';
+import { CollectionWidget, CollectionWidgetOnUpdate } from './CollectionWidget';
 /**
  * Collection card widget
  */
@@ -14,5 +14,6 @@ export declare class CollectionCardWidget<T extends ICollectionEntryWidget> exte
         bodyType: CardBodyType;
         cardType: CardType;
         cardLine: CardLine;
+        onUpdate?: CollectionWidgetOnUpdate<T>;
     });
 }

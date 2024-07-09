@@ -17,7 +17,8 @@ class CollectionCardWidget extends CollectionWidget_1.CollectionWidget {
             onBindAddBtn: (element) => {
                 return element.getToolsElement();
             },
-            entryClass: opts.entryClass
+            entryClass: opts.entryClass,
+            onUpdate: opts.onUpdate
         });
     }
 }

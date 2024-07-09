@@ -4,6 +4,11 @@ import {ButtonClass, ButtonDefault, ButtonDefaultType} from '../../Content/Butto
 import {ICollectionEntryWidget} from './CollectionEntryWidget';
 
 /**
+ * Collection widget on update
+ */
+export type CollectionWidgetOnUpdate<T> = (entry?: T) => void;
+
+/**
  * Collection Widget
  */
 export class CollectionWidget<T extends ICollectionEntryWidget, E extends Element> {
@@ -33,6 +38,12 @@ export class CollectionWidget<T extends ICollectionEntryWidget, E extends Elemen
     protected _objects: T[] = [];
 
     /**
+     * on update event
+     * @protected
+     */
+    protected _onUpdate?: CollectionWidgetOnUpdate<T>;
+
+    /**
      * Constructor
      * @param {} opts
      */
@@ -42,10 +53,12 @@ export class CollectionWidget<T extends ICollectionEntryWidget, E extends Elemen
         onContainerObject: (element: Element) => E,
         onBindAddBtn: (element: E) => Element|any,
         entryClass: BClass<T>
+        onUpdate?: CollectionWidgetOnUpdate<T>
     }) {
         this._element = opts.onContainerObject(opts.element);
         this._editable = opts.editable;
         this._entryClass = opts.entryClass;
+        this._onUpdate = opts.onUpdate;
 
         if (this._editable) {
             const bindElement = opts.onBindAddBtn(this._element);
@@ -93,10 +106,30 @@ export class CollectionWidget<T extends ICollectionEntryWidget, E extends Elemen
     }
 
     /**
+     * Return the collection size
+     * @returns {number}
+     */
+    public getSize(): number {
+        return this._objects.length;
+    }
+
+    /**
      * removeAddress
      * @param {ICollectionEntryWidget} object
      */
     public removeObject(object: T): void {
+        this._removeObject(object);
+
+        if (this._onUpdate) {
+            this._onUpdate(object);
+        }
+    }
+
+    /**
+     * removeAddress
+     * @param {ICollectionEntryWidget} object
+     */
+    protected _removeObject(object: T): void {
         for (const [index, tobject] of this._objects.entries()) {
             if (object === tobject) {
                 tobject.remove();
@@ -108,13 +141,29 @@ export class CollectionWidget<T extends ICollectionEntryWidget, E extends Elemen
     }
 
     /**
+     * Add object
+     * @param {ICollectionEntryWidget} object
+     */
+    public addObject(object: T): void {
+        this._objects.push(object);
+
+        if (this._onUpdate) {
+            this._onUpdate(object);
+        }
+    }
+
+    /**
      * removeAll
      */
     public removeAll(): void {
         const objects = this._objects;
 
         for (const object of objects) {
-            this.removeObject(object);
+            this._removeObject(object);
+        }
+
+        if (this._onUpdate) {
+            this._onUpdate();
         }
     }
 

@@ -2,6 +2,10 @@ import { BClass } from '../../../Core/BTypes';
 import { Element } from '../../Element';
 import { ICollectionEntryWidget } from './CollectionEntryWidget';
 /**
+ * Collection widget on update
+ */
+export type CollectionWidgetOnUpdate<T> = (entry?: T) => void;
+/**
  * Collection Widget
  */
 export declare class CollectionWidget<T extends ICollectionEntryWidget, E extends Element> {
@@ -26,6 +30,11 @@ export declare class CollectionWidget<T extends ICollectionEntryWidget, E extend
      */
     protected _objects: T[];
     /**
+     * on update event
+     * @protected
+     */
+    protected _onUpdate?: CollectionWidgetOnUpdate<T>;
+    /**
      * Constructor
      * @param {} opts
      */
@@ -35,6 +44,7 @@ export declare class CollectionWidget<T extends ICollectionEntryWidget, E extend
         onContainerObject: (element: Element) => E;
         onBindAddBtn: (element: E) => Element | any;
         entryClass: BClass<T>;
+        onUpdate?: CollectionWidgetOnUpdate<T>;
     });
     protected _createAddBtn(element: Element): void;
     /**
@@ -53,10 +63,25 @@ export declare class CollectionWidget<T extends ICollectionEntryWidget, E extend
      */
     getElement(): E;
     /**
+     * Return the collection size
+     * @returns {number}
+     */
+    getSize(): number;
+    /**
      * removeAddress
      * @param {ICollectionEntryWidget} object
      */
     removeObject(object: T): void;
+    /**
+     * removeAddress
+     * @param {ICollectionEntryWidget} object
+     */
+    protected _removeObject(object: T): void;
+    /**
+     * Add object
+     * @param {ICollectionEntryWidget} object
+     */
+    addObject(object: T): void;
     /**
      * removeAll
      */
