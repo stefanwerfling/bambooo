@@ -86,7 +86,7 @@ export class CollectionWidget<T extends ICollectionEntryWidget, E extends Elemen
      * @protected
      */
     protected _onClickAdd(): void {
-        this._objects.push(this._createObject(this._entryClass));
+        this.addObject(this._createObject(this._entryClass));
     }
 
     /**

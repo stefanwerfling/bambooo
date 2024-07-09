@@ -56,7 +56,7 @@ class CollectionWidget {
      * @protected
      */
     _onClickAdd() {
-        this._objects.push(this._createObject(this._entryClass));
+        this.addObject(this._createObject(this._entryClass));
     }
     /**
      * Create a new object
