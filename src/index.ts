@@ -133,6 +133,14 @@ export {ICollectionEntryWidget} from './v1/Widget/Collection/CollectionEntryWidg
 export {CollectionWidget} from './v1/Widget/Collection/CollectionWidget';
 export {CollectionCardWidget} from './v1/Widget/Collection/CollectionCardWidget';
 
+// # Utils
+export {UtilColor} from './v1/Utils/UtilColor';
+export {UtilAvatarGenerator} from './v1/Utils/UtilAvatarGenerator';
+export {UtilDownload} from './v1/Utils/UtilDownload';
+export {UtilShorname} from './v1/Utils/UtilShorname';
+export {UtilNumber} from './v1/Utils/UtilNumber';
+export {UtilRedirect} from './v1/Utils/UtilRedirect';
+
 // V2 ------------------------------------------------------------------------------------------------------------------
 
 export {Component as Component2, ComponentOptions as ComponentOptions2} from './v2/Base/Component';

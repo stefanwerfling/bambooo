@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockButtonType = exports.BlockButton = exports.DialogInfo = exports.DialogConfirm = exports.DescriptionBlockBorder = exports.DescriptionBlock = exports.CircleColor = exports.Circle = exports.SparkLine = exports.PieChart = exports.LineChartInteractiv = exports.LineChart = exports.CaretType = exports.Caret = exports.CardBodyType = exports.CardLine = exports.CardType = exports.Card = exports.CalloutType = exports.Callout = exports.ButtonShowMore = exports.ButtonListAddress = exports.ButtonGroup = exports.ButtonDefault = exports.ButtonClass = exports.ButtonDefaultType = exports.ButtonBorderless = exports.SmallBox = exports.SmallBoxBg = exports.InfoBox = exports.InfoBoxMb = exports.InfoBoxBg = exports.Badge = exports.BadgeType = exports.ContentRow = exports.ContentRowClass = exports.ContentDisable = exports.ContentCol = exports.ContentColSize = exports.Wrapper = exports.Preloader = exports.Navbar = exports.MainSidebar = exports.Footer = exports.Element = exports.ControlSidebar = exports.ContentWrapper = exports.ContentHeader = exports.Content = exports.ColumnContent = void 0;
 exports.SidebarMenuItem = exports.SidebarMenu = exports.SidebarLogo = exports.Sidebar = exports.RightNavbar = exports.NavbarLinkLanguage = exports.NavbarLinkFullsize = exports.NavbarLinkButton = exports.LeftNavbarPushmenu = exports.LeftNavbarLink = exports.LeftNavbar = exports.ModalDialogType = exports.ModalDialog = exports.LangText = exports.TooltipInfo = exports.Tooltip = exports.TextAlignment = exports.Text = exports.StrongText = exports.PTextType = exports.PText = exports.Tr = exports.Th = exports.Td = exports.Table = exports.NavTab = exports.ImageCoin = exports.ImageType = exports.ImageArt = exports.Image = exports.IconFa = exports.Icon = exports.CheckBox = exports.Textarea = exports.SwitchTimer = exports.Switch = exports.SelectBottemBorderOnly2 = exports.RadioInput = exports.Multiple = exports.InputBottemBorderOnly2 = exports.InputType = exports.FormRowColType = exports.FormRow = exports.FormGroupButton = exports.FormGroup = exports.Form = exports.ButtonMenuPosition = exports.ButtonMenu = exports.ButtonType = exports.Button = void 0;
-exports.Widget2 = exports.Component2 = exports.CollectionCardWidget = exports.CollectionWidget = exports.SidebarUserPanel = exports.SidebarMenuTree = exports.SidebarMenuItemBadge = void 0;
+exports.Widget2 = exports.Component2 = exports.UtilRedirect = exports.UtilNumber = exports.UtilShorname = exports.UtilDownload = exports.UtilAvatarGenerator = exports.UtilColor = exports.CollectionCardWidget = exports.CollectionWidget = exports.SidebarUserPanel = exports.SidebarMenuTree = exports.SidebarMenuItemBadge = void 0;
 // V1 ------------------------------------------------------------------------------------------------------------------
 // ## Base imports
 var ColumnContent_1 = require("./v1/ColumnContent");
@@ -211,6 +211,19 @@ var CollectionWidget_1 = require("./v1/Widget/Collection/CollectionWidget");
 Object.defineProperty(exports, "CollectionWidget", { enumerable: true, get: function () { return CollectionWidget_1.CollectionWidget; } });
 var CollectionCardWidget_1 = require("./v1/Widget/Collection/CollectionCardWidget");
 Object.defineProperty(exports, "CollectionCardWidget", { enumerable: true, get: function () { return CollectionCardWidget_1.CollectionCardWidget; } });
+// # Utils
+var UtilColor_1 = require("./v1/Utils/UtilColor");
+Object.defineProperty(exports, "UtilColor", { enumerable: true, get: function () { return UtilColor_1.UtilColor; } });
+var UtilAvatarGenerator_1 = require("./v1/Utils/UtilAvatarGenerator");
+Object.defineProperty(exports, "UtilAvatarGenerator", { enumerable: true, get: function () { return UtilAvatarGenerator_1.UtilAvatarGenerator; } });
+var UtilDownload_1 = require("./v1/Utils/UtilDownload");
+Object.defineProperty(exports, "UtilDownload", { enumerable: true, get: function () { return UtilDownload_1.UtilDownload; } });
+var UtilShorname_1 = require("./v1/Utils/UtilShorname");
+Object.defineProperty(exports, "UtilShorname", { enumerable: true, get: function () { return UtilShorname_1.UtilShorname; } });
+var UtilNumber_1 = require("./v1/Utils/UtilNumber");
+Object.defineProperty(exports, "UtilNumber", { enumerable: true, get: function () { return UtilNumber_1.UtilNumber; } });
+var UtilRedirect_1 = require("./v1/Utils/UtilRedirect");
+Object.defineProperty(exports, "UtilRedirect", { enumerable: true, get: function () { return UtilRedirect_1.UtilRedirect; } });
 // V2 ------------------------------------------------------------------------------------------------------------------
 var Component_1 = require("./v2/Base/Component");
 Object.defineProperty(exports, "Component2", { enumerable: true, get: function () { return Component_1.Component; } });
