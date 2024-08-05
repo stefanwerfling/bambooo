@@ -120,6 +120,7 @@ class CollectionWidget {
         for (const object of objects) {
             this._removeObject(object);
         }
+        this._element.getElement().empty();
         if (this._onUpdate) {
             this._onUpdate();
         }

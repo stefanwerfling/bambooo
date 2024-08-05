@@ -162,6 +162,8 @@ export class CollectionWidget<T extends ICollectionEntryWidget, E extends Elemen
             this._removeObject(object);
         }
 
+        this._element.getElement().empty();
+
         if (this._onUpdate) {
             this._onUpdate();
         }

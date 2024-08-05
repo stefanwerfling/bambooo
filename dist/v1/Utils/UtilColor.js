@@ -32,7 +32,7 @@ class UtilColor {
      * @returns {string}
      */
     static getContrastYIQ(hexcolor) {
-        if (typeof hexcolor === 'string' && hexcolor.length === 7) {
+        if (hexcolor.length === 7) {
             const r = parseInt(hexcolor.substring(1, 3), 16);
             const g = parseInt(hexcolor.substring(3, 5), 16);
             const b = parseInt(hexcolor.substring(5, 7), 16);

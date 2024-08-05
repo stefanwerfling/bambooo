@@ -10,8 +10,18 @@ export declare enum InputType {
     colorpicker = "colorpicker",
     date = "date",
     datetime = "datetime",
-    time = "time"
+    time = "time",
+    daterange = "daterange"
 }
+export interface InputDateRanges {
+    [key: string]: string;
+}
+export type InputTypeOptions = {
+    ranges?: InputDateRanges;
+    date_format?: string;
+    time_format?: string;
+    lang?: string;
+};
 /**
  * InputBottemBorderOnly2
  */
@@ -22,17 +32,23 @@ export declare class InputBottemBorderOnly2 extends Element {
      */
     protected _type: InputType;
     /**
+     * Options
+     * @protected
+     */
+    protected _options: InputTypeOptions;
+    /**
      * input group
      * @protected
      */
     protected _inputGroup: any | null;
     /**
-     * constructor
-     * @param element
-     * @param id
-     * @param type
+     * Constructor
+     * @param {any} element
+     * @param {string} id
+     * @param {InputType} type
+     * @param {InputTypeOptions} options
      */
-    constructor(element: any, id?: string, type?: InputType);
+    constructor(element: any, id?: string, type?: InputType, options?: InputTypeOptions);
     /**
      * setPlaceholder
      * @param placeholder

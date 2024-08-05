@@ -1,3 +1,4 @@
+import moment from 'moment';
 import {Element} from '../../Element';
 import {Icon, IconFa} from '../Icon/Icon';
 import {FormGroupButton} from './FormGroupButton';
@@ -13,8 +14,20 @@ export enum InputType {
     colorpicker = 'colorpicker',
     date = 'date',
     datetime = 'datetime',
-    time = 'time'
+    time = 'time',
+    daterange = 'daterange'
 }
+
+export interface InputDateRanges {
+    [key: string]: string;
+}
+
+export type InputTypeOptions = {
+    ranges?: InputDateRanges;
+    date_format?: string;
+    time_format?: string;
+    lang?: string;
+};
 
 /**
  * InputBottemBorderOnly2
@@ -28,21 +41,29 @@ export class InputBottemBorderOnly2 extends Element {
     protected _type: InputType = InputType.text;
 
     /**
+     * Options
+     * @protected
+     */
+    protected _options: InputTypeOptions;
+
+    /**
      * input group
      * @protected
      */
     protected _inputGroup: any|null = null;
 
     /**
-     * constructor
-     * @param element
-     * @param id
-     * @param type
+     * Constructor
+     * @param {any} element
+     * @param {string} id
+     * @param {InputType} type
+     * @param {InputTypeOptions} options
      */
-    public constructor(element: any, id?: string, type: InputType = InputType.text) {
+    public constructor(element: any, id?: string, type: InputType = InputType.text, options: InputTypeOptions = {}) {
         super();
 
         this._type = type;
+        this._options = options;
 
         let tid = id;
         let telement = this._getAnyElement(element);
@@ -89,31 +110,79 @@ export class InputBottemBorderOnly2 extends Element {
         }
 
         switch (type) {
+            // Color ---------------------------------------------------------------------------------------------------
             case InputType.colorpicker:
                 this._element.colorpicker();
                 break;
 
+            // Datetimepicker ------------------------------------------------------------------------------------------
             case InputType.date:
             case InputType.time:
+            case InputType.daterange:
                 const appendInputGroup = jQuery(`<div class="input-group-append" data-target="#${id}" data-toggle="datetimepicker"></div>`).appendTo(telement);
                 const button = jQuery('<div class="input-group-text"></div>').appendTo(appendInputGroup);
 
+                let lang = 'de';
+
+                if (this._options.lang) {
+                    lang = this._options.lang;
+                }
+
                 switch (type) {
+                    // Date --------------------------------------------------------------------------------------------
                     case InputType.date:
                         new Icon(button, IconFa.calendar);
 
+                        let dformat = 'YYYY.MM.DD dddd';
+
+                        if (this._options.date_format) {
+                            dformat = this._options.date_format;
+                        }
+
                         this._inputGroup.datetimepicker({
-                            format: 'YYYY.MM.DD dddd',
-                            lang: 'de'
+                            format: dformat,
+                            lang: lang
                         });
                         break;
 
+                    // Time --------------------------------------------------------------------------------------------
                     case InputType.time:
                         new Icon(button, IconFa.clock);
 
+                        let tformat = 'hh:mm';
+
+                        if (this._options.time_format) {
+                            tformat = this._options.time_format;
+                        }
+
                         this._inputGroup.datetimepicker({
-                            format: 'hh:mm',
-                            lang: 'de'
+                            format: tformat,
+                            lang: lang
+                        });
+                        break;
+
+                    // Date-Range --------------------------------------------------------------------------------------
+                    case InputType.daterange:
+                        new Icon(button, IconFa.calendar);
+
+                        let drformat = 'YYYY.MM.DD dddd';
+
+                        if (this._options.date_format) {
+                            drformat = this._options.date_format;
+                        }
+
+                        let ranges: InputDateRanges = {};
+
+                        if (this._options.ranges) {
+                            ranges = this._options.ranges;
+                        }
+
+                        this._inputGroup.datetimepicker({
+                            format: drformat,
+                            ranges: ranges,
+                            lang: lang,
+                            startDate: moment().startOf('month'),
+                            endDate: moment().endOf('month')
                         });
                         break;
                 }
