@@ -78,6 +78,7 @@ export class InputBottemBorderOnly2 extends Element {
 
             case InputType.date:
             case InputType.time:
+            case InputType.daterange:
                 ttype = `${InputType.text}`;
                 useInputGroup = 'date';
                 iclasses = 'datetimepicker-input';
