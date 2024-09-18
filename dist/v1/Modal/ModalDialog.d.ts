@@ -108,14 +108,16 @@ export declare class ModalDialog extends Element {
     resetValues(): void;
     /**
      * add a close button on footer
+     * @param {string|LangText|null} title
      * @returns {ButtonDefault}
      */
-    addButtonClose(): ButtonDefault;
+    addButtonClose(title?: string | LangText | null): ButtonDefault;
     /**
      * add a save button on footer
+     * @param {string|LangText|null} title
      * @returns {ButtonDefault}
      */
-    addButtonSave(): any;
+    addButtonSave(title?: string | LangText | null): any;
     /**
      * showLoading
      */

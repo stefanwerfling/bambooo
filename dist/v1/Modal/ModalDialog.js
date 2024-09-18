@@ -143,10 +143,14 @@ class ModalDialog extends Element_1.Element {
     resetValues() { }
     /**
      * add a close button on footer
+     * @param {string|LangText|null} title
      * @returns {ButtonDefault}
      */
-    addButtonClose() {
-        const closeBtn = new ButtonDefault_1.ButtonDefault(this._footer, new LangText_1.LangText('Close'), undefined, ButtonDefault_1.ButtonClass.default, ButtonDefault_1.ButtonDefaultType.none, 'data-dismiss="modal"');
+    addButtonClose(title = null) {
+        if (title === null) {
+            title = new LangText_1.LangText('Close');
+        }
+        const closeBtn = new ButtonDefault_1.ButtonDefault(this._footer, title, undefined, ButtonDefault_1.ButtonClass.default, ButtonDefault_1.ButtonDefaultType.none, 'data-dismiss="modal"');
         closeBtn.setOnClickFn(async () => {
             this.hide();
             if (this._onClose !== null) {
@@ -157,10 +161,14 @@ class ModalDialog extends Element_1.Element {
     }
     /**
      * add a save button on footer
+     * @param {string|LangText|null} title
      * @returns {ButtonDefault}
      */
-    addButtonSave() {
-        const saveBtn = new ButtonDefault_1.ButtonDefault(this._footer, new LangText_1.LangText('Save'), undefined, ButtonDefault_1.ButtonClass.primary, ButtonDefault_1.ButtonDefaultType.none);
+    addButtonSave(title = null) {
+        if (title === null) {
+            title = new LangText_1.LangText('Save');
+        }
+        const saveBtn = new ButtonDefault_1.ButtonDefault(this._footer, title, undefined, ButtonDefault_1.ButtonClass.primary, ButtonDefault_1.ButtonDefaultType.none);
         saveBtn.setOnClickFn(async () => {
             if (this._onSave !== null) {
                 await this._onSave(this);

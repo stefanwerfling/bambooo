@@ -175,12 +175,17 @@ export class ModalDialog extends Element {
 
     /**
      * add a close button on footer
+     * @param {string|LangText|null} title
      * @returns {ButtonDefault}
      */
-    public addButtonClose(): ButtonDefault {
+    public addButtonClose(title: string|LangText|null=null): ButtonDefault {
+        if (title === null) {
+            title = new LangText('Close');
+        }
+
         const closeBtn = new ButtonDefault(
             this._footer,
-            new LangText('Close'),
+            title,
             undefined,
             ButtonClass.default,
             ButtonDefaultType.none,
@@ -200,12 +205,17 @@ export class ModalDialog extends Element {
 
     /**
      * add a save button on footer
+     * @param {string|LangText|null} title
      * @returns {ButtonDefault}
      */
-    public addButtonSave(): any {
+    public addButtonSave(title: string|LangText|null=null): any {
+        if (title === null) {
+            title = new LangText('Save');
+        }
+
         const saveBtn = new ButtonDefault(
             this._footer,
-            new LangText('Save'),
+            title,
             undefined,
             ButtonClass.primary,
             ButtonDefaultType.none
