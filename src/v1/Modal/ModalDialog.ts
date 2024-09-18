@@ -1,3 +1,4 @@
+import {ButtonClass, ButtonDefault, ButtonDefaultType} from '../Content/Button/ButtonDefault';
 import {Element} from '../Element';
 import {LangText} from '../Lang/LangText';
 
@@ -79,6 +80,12 @@ export class ModalDialog extends Element {
      * @protected
      */
     protected _onClose: ModalDialogEventFn|null = null;
+
+    /**
+     * on save event
+     * @protected
+     */
+    protected _onSave: ModalDialogEventFn|null = null;
 
     /**
      * constructor
@@ -167,12 +174,20 @@ export class ModalDialog extends Element {
     public resetValues(): void {}
 
     /**
-     * addButtonClose
+     * add a close button on footer
+     * @returns {ButtonDefault}
      */
-    public addButtonClose(): any {
-        const close = jQuery('<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>').appendTo(this._footer);
+    public addButtonClose(): ButtonDefault {
+        const closeBtn = new ButtonDefault(
+            this._footer,
+            new LangText('Close'),
+            undefined,
+            ButtonClass.default,
+            ButtonDefaultType.none,
+            'data-dismiss="modal"'
+            );
 
-        close.on('click', async() => {
+        closeBtn.setOnClickFn(async() => {
             this.hide();
 
             if (this._onClose !== null) {
@@ -180,14 +195,29 @@ export class ModalDialog extends Element {
             }
         });
 
-        return close;
+        return closeBtn;
     }
 
     /**
-     * addButtonSave
+     * add a save button on footer
+     * @returns {ButtonDefault}
      */
     public addButtonSave(): any {
-        return jQuery('<button type="button" class="btn btn-primary">Save</button>').appendTo(this._footer);
+        const saveBtn = new ButtonDefault(
+            this._footer,
+            new LangText('Save'),
+            undefined,
+            ButtonClass.primary,
+            ButtonDefaultType.none
+        );
+
+        saveBtn.setOnClickFn(async () => {
+            if (this._onSave !== null) {
+                await this._onSave(this);
+            }
+        });
+
+        return saveBtn;
     }
 
     /**
@@ -206,9 +236,17 @@ export class ModalDialog extends Element {
 
     /**
      * Set on close event
-     * @param {ModalDialogEventFn} onClose
+     * @param {ModalDialogEventFn|null} onClose
      */
-    public setOnClose(onClose: ModalDialogEventFn): void {
+    public setOnClose(onClose: ModalDialogEventFn|null): void {
         this._onClose = onClose;
+    }
+
+    /**
+     * Set on save event
+     * @param {ModalDialogEventFn|null} onSave
+     */
+    public setOnSave(onSave: ModalDialogEventFn|null): void {
+        this._onSave = onSave;
     }
 }

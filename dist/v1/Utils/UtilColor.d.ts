@@ -10,8 +10,8 @@ export declare class UtilColor {
     static getColor(text: string): string;
     /**
      * Return the right contrast for given color (black or white)
-     * @param {string} hexcolor - With format #000000
+     * @param {unknown} hexcolor - With format #000000
      * @returns {string}
      */
-    static getContrastYIQ(hexcolor: string): string;
+    static getContrastYIQ(hexcolor: unknown): string;
 }

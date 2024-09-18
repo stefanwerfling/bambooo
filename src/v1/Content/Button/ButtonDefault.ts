@@ -64,20 +64,22 @@ export class ButtonDefault extends Element {
      * @param {string} icon
      * @param {ButtonClass} bnClass
      * @param {ButtonDefaultType} bnType
+     * @param {string} moreAttr
      */
     public constructor(
         element: any,
         title?: string|LangText,
         icon?: string,
         bnClass: ButtonClass = ButtonClass.default,
-        bnType: ButtonDefaultType = ButtonDefaultType.small
+        bnType: ButtonDefaultType = ButtonDefaultType.small,
+        moreAttr: string = ''
     ) {
         super();
 
         const telement = this._getAnyElement(element);
 
         this._class = bnClass;
-        this._element = jQuery(`<button type="button" class="btn ${bnClass} ${bnType}" />`).appendTo(telement);
+        this._element = jQuery(`<button type="button" class="btn ${bnClass} ${bnType}" ${moreAttr} />`).appendTo(telement);
 
         this.setValue(title, icon);
     }

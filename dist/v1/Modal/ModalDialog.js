@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ModalDialog = exports.ModalDialogType = void 0;
+const ButtonDefault_1 = require("../Content/Button/ButtonDefault");
 const Element_1 = require("../Element");
 const LangText_1 = require("../Lang/LangText");
 /**
@@ -66,6 +67,11 @@ class ModalDialog extends Element_1.Element {
      * @protected
      */
     _onClose = null;
+    /**
+     * on save event
+     * @protected
+     */
+    _onSave = null;
     /**
      * constructor
      * @param {Element|any} elementObject
@@ -136,23 +142,31 @@ class ModalDialog extends Element_1.Element {
      */
     resetValues() { }
     /**
-     * addButtonClose
+     * add a close button on footer
+     * @returns {ButtonDefault}
      */
     addButtonClose() {
-        const close = jQuery('<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>').appendTo(this._footer);
-        close.on('click', async () => {
+        const closeBtn = new ButtonDefault_1.ButtonDefault(this._footer, new LangText_1.LangText('Close'), undefined, ButtonDefault_1.ButtonClass.default, ButtonDefault_1.ButtonDefaultType.none, 'data-dismiss="modal"');
+        closeBtn.setOnClickFn(async () => {
             this.hide();
             if (this._onClose !== null) {
                 await this._onClose(this);
             }
         });
-        return close;
+        return closeBtn;
     }
     /**
-     * addButtonSave
+     * add a save button on footer
+     * @returns {ButtonDefault}
      */
     addButtonSave() {
-        return jQuery('<button type="button" class="btn btn-primary">Save</button>').appendTo(this._footer);
+        const saveBtn = new ButtonDefault_1.ButtonDefault(this._footer, new LangText_1.LangText('Save'), undefined, ButtonDefault_1.ButtonClass.primary, ButtonDefault_1.ButtonDefaultType.none);
+        saveBtn.setOnClickFn(async () => {
+            if (this._onSave !== null) {
+                await this._onSave(this);
+            }
+        });
+        return saveBtn;
     }
     /**
      * showLoading
@@ -168,10 +182,17 @@ class ModalDialog extends Element_1.Element {
     }
     /**
      * Set on close event
-     * @param {ModalDialogEventFn} onClose
+     * @param {ModalDialogEventFn|null} onClose
      */
     setOnClose(onClose) {
         this._onClose = onClose;
+    }
+    /**
+     * Set on save event
+     * @param {ModalDialogEventFn|null} onSave
+     */
+    setOnSave(onSave) {
+        this._onSave = onSave;
     }
 }
 exports.ModalDialog = ModalDialog;

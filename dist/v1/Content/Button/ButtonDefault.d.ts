@@ -54,8 +54,9 @@ export declare class ButtonDefault extends Element {
      * @param {string} icon
      * @param {ButtonClass} bnClass
      * @param {ButtonDefaultType} bnType
+     * @param {string} moreAttr
      */
-    constructor(element: any, title?: string | LangText, icon?: string, bnClass?: ButtonClass, bnType?: ButtonDefaultType);
+    constructor(element: any, title?: string | LangText, icon?: string, bnClass?: ButtonClass, bnType?: ButtonDefaultType, moreAttr?: string);
     /**
      * setValue
      * @param {string|LangText} title

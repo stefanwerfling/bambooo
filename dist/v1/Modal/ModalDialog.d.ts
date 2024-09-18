@@ -1,3 +1,4 @@
+import { ButtonDefault } from '../Content/Button/ButtonDefault';
 import { Element } from '../Element';
 import { LangText } from '../Lang/LangText';
 /**
@@ -67,6 +68,11 @@ export declare class ModalDialog extends Element {
      */
     protected _onClose: ModalDialogEventFn | null;
     /**
+     * on save event
+     * @protected
+     */
+    protected _onSave: ModalDialogEventFn | null;
+    /**
      * constructor
      * @param {Element|any} elementObject
      * @param {string} idname
@@ -101,11 +107,13 @@ export declare class ModalDialog extends Element {
      */
     resetValues(): void;
     /**
-     * addButtonClose
+     * add a close button on footer
+     * @returns {ButtonDefault}
      */
-    addButtonClose(): any;
+    addButtonClose(): ButtonDefault;
     /**
-     * addButtonSave
+     * add a save button on footer
+     * @returns {ButtonDefault}
      */
     addButtonSave(): any;
     /**
@@ -118,7 +126,12 @@ export declare class ModalDialog extends Element {
     hideLoading(): void;
     /**
      * Set on close event
-     * @param {ModalDialogEventFn} onClose
+     * @param {ModalDialogEventFn|null} onClose
      */
-    setOnClose(onClose: ModalDialogEventFn): void;
+    setOnClose(onClose: ModalDialogEventFn | null): void;
+    /**
+     * Set on save event
+     * @param {ModalDialogEventFn|null} onSave
+     */
+    setOnSave(onSave: ModalDialogEventFn | null): void;
 }

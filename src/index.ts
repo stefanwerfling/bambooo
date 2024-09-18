@@ -60,6 +60,7 @@ export {DescriptionBlock, DescriptionBlockBorder} from './v1/Content/Description
 // ## Content - Dialog
 export {DialogConfirm, DialogConfirmClickFn} from './v1/Content/Dialog/DialogConfirm';
 export {DialogInfo, DialogInfoClickFn} from './v1/Content/Dialog/DialogInfo';
+export {DialogError, DialogErrorCallFunc, DialogErrorParsed, DialogErrorParseException} from './v1/Content/Dialog/DialogError';
 
 // ## Content - Form
 export {BlockButton, BlockButtonType, BlockButtonClickFn} from './v1/Content/Form/BlockButton';
@@ -108,7 +109,7 @@ export {LangDefine} from './v1/Lang/LangDefine';
 export {LangText} from './v1/Lang/LangText';
 
 // # Modal
-export {ModalDialog, ModalDialogType} from './v1/Modal/ModalDialog';
+export {ModalDialog, ModalDialogType, ModalDialogEventFn} from './v1/Modal/ModalDialog';
 
 // ## Navbar
 export {LeftNavbar} from './v1/Navbar/LeftNavbar';
