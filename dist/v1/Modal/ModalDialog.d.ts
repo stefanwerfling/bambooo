@@ -115,9 +115,10 @@ export declare class ModalDialog extends Element {
     /**
      * add a save button on footer
      * @param {string|LangText|null} title
+     * @param {boolean} showLoading
      * @returns {ButtonDefault}
      */
-    addButtonSave(title?: string | LangText | null): any;
+    addButtonSave(title?: string | LangText | null, showLoading?: boolean): any;
     /**
      * showLoading
      */

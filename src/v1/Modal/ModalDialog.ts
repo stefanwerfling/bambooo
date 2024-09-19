@@ -206,9 +206,10 @@ export class ModalDialog extends Element {
     /**
      * add a save button on footer
      * @param {string|LangText|null} title
+     * @param {boolean} showLoading
      * @returns {ButtonDefault}
      */
-    public addButtonSave(title: string|LangText|null=null): any {
+    public addButtonSave(title: string|LangText|null=null, showLoading: boolean=false): any {
         if (title === null) {
             title = new LangText('Save');
         }
@@ -223,7 +224,19 @@ export class ModalDialog extends Element {
 
         saveBtn.setOnClickFn(async () => {
             if (this._onSave !== null) {
-                await this._onSave(this);
+                if (showLoading) {
+                    this.showLoading();
+                }
+
+                try {
+                    await this._onSave(this);
+                } catch (e) {
+                    console.error(e);
+                }
+
+                if (showLoading) {
+                    this.hideLoading();
+                }
             }
         });
 

@@ -162,16 +162,28 @@ class ModalDialog extends Element_1.Element {
     /**
      * add a save button on footer
      * @param {string|LangText|null} title
+     * @param {boolean} showLoading
      * @returns {ButtonDefault}
      */
-    addButtonSave(title = null) {
+    addButtonSave(title = null, showLoading = false) {
         if (title === null) {
             title = new LangText_1.LangText('Save');
         }
         const saveBtn = new ButtonDefault_1.ButtonDefault(this._footer, title, undefined, ButtonDefault_1.ButtonClass.primary, ButtonDefault_1.ButtonDefaultType.none);
         saveBtn.setOnClickFn(async () => {
             if (this._onSave !== null) {
-                await this._onSave(this);
+                if (showLoading) {
+                    this.showLoading();
+                }
+                try {
+                    await this._onSave(this);
+                }
+                catch (e) {
+                    console.error(e);
+                }
+                if (showLoading) {
+                    this.hideLoading();
+                }
             }
         });
         return saveBtn;
