@@ -2,7 +2,8 @@ import {Element} from '../../Element';
 
 export enum FormRowColType {
     none = 0,
-    sm = 1
+    sm = 1,
+    lg = 2
 }
 
 /**
@@ -36,6 +37,10 @@ export class FormRow extends Element {
 
             case FormRowColType.sm:
                 tclass = `${tclass}-sm`;
+                break;
+
+            case FormRowColType.lg:
+                tclass = `${tclass}-lg`;
                 break;
         }
 

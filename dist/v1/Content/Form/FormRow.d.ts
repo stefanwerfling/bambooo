@@ -1,7 +1,8 @@
 import { Element } from '../../Element';
 export declare enum FormRowColType {
     none = 0,
-    sm = 1
+    sm = 1,
+    lg = 2
 }
 /**
  * FormRow

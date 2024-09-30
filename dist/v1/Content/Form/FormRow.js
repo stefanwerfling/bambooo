@@ -6,6 +6,7 @@ var FormRowColType;
 (function (FormRowColType) {
     FormRowColType[FormRowColType["none"] = 0] = "none";
     FormRowColType[FormRowColType["sm"] = 1] = "sm";
+    FormRowColType[FormRowColType["lg"] = 2] = "lg";
 })(FormRowColType = exports.FormRowColType || (exports.FormRowColType = {}));
 /**
  * FormRow
@@ -33,6 +34,9 @@ class FormRow extends Element_1.Element {
                 break;
             case FormRowColType.sm:
                 tclass = `${tclass}-sm`;
+                break;
+            case FormRowColType.lg:
+                tclass = `${tclass}-lg`;
                 break;
         }
         tclass = `${tclass}-${size}`;
