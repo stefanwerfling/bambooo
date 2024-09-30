@@ -227,6 +227,22 @@ export class InputBottemBorderOnly2 extends Element {
     }
 
     /**
+     * Set the value as number, use it by InputType.number
+     * @param {number} num
+     */
+    public setValueNum(num: number): void {
+        this.setValue(`${num}`);
+    }
+
+    /**
+     * Return the value as number, use it by InputType.number
+     * @returns {number}
+     */
+    public getValueNum(): number {
+        return parseInt(this.getValue(), 10) ?? 0;
+    }
+
+    /**
      * setReadOnly
      * @param readonly
      */

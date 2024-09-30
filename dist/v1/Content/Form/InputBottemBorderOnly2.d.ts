@@ -64,6 +64,16 @@ export declare class InputBottemBorderOnly2 extends Element {
      */
     getValue(): string;
     /**
+     * Set the value as number, use it by InputType.number
+     * @param {number} num
+     */
+    setValueNum(num: number): void;
+    /**
+     * Return the value as number, use it by InputType.number
+     * @returns {number}
+     */
+    getValueNum(): number;
+    /**
      * setReadOnly
      * @param readonly
      */

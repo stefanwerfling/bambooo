@@ -186,6 +186,20 @@ class InputBottemBorderOnly2 extends Element_1.Element {
         return this._element.val();
     }
     /**
+     * Set the value as number, use it by InputType.number
+     * @param {number} num
+     */
+    setValueNum(num) {
+        this.setValue(`${num}`);
+    }
+    /**
+     * Return the value as number, use it by InputType.number
+     * @returns {number}
+     */
+    getValueNum() {
+        return parseInt(this.getValue(), 10) ?? 0;
+    }
+    /**
      * setReadOnly
      * @param readonly
      */
