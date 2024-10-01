@@ -38,7 +38,11 @@ export class BlockButton extends Element {
                 break;
         }
 
-        this._element = jQuery(`<button type="button" class="btn ${bclass}"></button>`).appendTo(element);
+        this._element = jQuery(
+            `<button type="button" class="btn ${bclass}"></button>`
+        ).appendTo(
+            this._getAnyElement(element)
+        );
     }
 
     public setOnClickFn(onClick: BlockButtonClickFn): void {

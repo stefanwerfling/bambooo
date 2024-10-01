@@ -31,7 +31,7 @@ class BlockButton extends Element_1.Element {
                 bclass = ' .btn-xs';
                 break;
         }
-        this._element = jQuery(`<button type="button" class="btn ${bclass}"></button>`).appendTo(element);
+        this._element = jQuery(`<button type="button" class="btn ${bclass}"></button>`).appendTo(this._getAnyElement(element));
     }
     setOnClickFn(onClick) {
         this._element.unbind().on('click', () => {

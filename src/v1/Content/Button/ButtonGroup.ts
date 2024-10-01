@@ -12,7 +12,11 @@ export class ButtonGroup extends Element {
     public constructor(element: any) {
         super();
 
-        this._element = jQuery('<div class="btn-group" />').appendTo(element);
+        this._element = jQuery(
+            '<div class="btn-group" />'
+        ).appendTo(
+            this._getAnyElement(element)
+        );
     }
 
 }
