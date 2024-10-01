@@ -8,11 +8,16 @@ const Element_1 = require("../../Element");
 class ButtonGroup extends Element_1.Element {
     /**
      * constructor
-     * @param element
+     * @param {any|Element} element
+     * @param {string} addClass
      */
-    constructor(element) {
+    constructor(element, addClass) {
         super();
-        this._element = jQuery('<div class="btn-group" />').appendTo(this._getAnyElement(element));
+        let tclass = '';
+        if (addClass) {
+            tclass = `${tclass} ${addClass}`;
+        }
+        this._element = jQuery(`<div class="btn-group ${tclass}" />`).appendTo(this._getAnyElement(element));
     }
 }
 exports.ButtonGroup = ButtonGroup;

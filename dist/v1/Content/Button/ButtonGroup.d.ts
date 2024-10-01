@@ -5,7 +5,8 @@ import { Element } from '../../Element';
 export declare class ButtonGroup extends Element {
     /**
      * constructor
-     * @param element
+     * @param {any|Element} element
+     * @param {string} addClass
      */
-    constructor(element: any);
+    constructor(element: any, addClass?: string);
 }
