@@ -73,6 +73,11 @@ export declare class ModalDialog extends Element {
      */
     protected _onSave: ModalDialogEventFn | null;
     /**
+     * on hidden event
+     * @protected
+     */
+    protected _onHidden: ModalDialogEventFn | null;
+    /**
      * constructor
      * @param {Element|any} elementObject
      * @param {string} idname
@@ -100,7 +105,7 @@ export declare class ModalDialog extends Element {
     /**
      * hide
      */
-    hide(): void;
+    hide(onHidden?: ModalDialogEventFn): void;
     /**
      * resetValues
      * ovverride for use
@@ -137,5 +142,13 @@ export declare class ModalDialog extends Element {
      * @param {ModalDialogEventFn|null} onSave
      */
     setOnSave(onSave: ModalDialogEventFn | null): void;
+    /**
+     * Set on hidden
+     * @param {ModalDialogEventFn|null} onHidden
+     */
+    setOnHidden(onHidden: ModalDialogEventFn | null): void;
+    /**
+     * Destroy
+     */
     destroy(): void;
 }

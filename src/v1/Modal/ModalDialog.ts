@@ -88,6 +88,12 @@ export class ModalDialog extends Element {
     protected _onSave: ModalDialogEventFn|null = null;
 
     /**
+     * on hidden event
+     * @protected
+     */
+    protected _onHidden: ModalDialogEventFn|null = null;
+
+    /**
      * constructor
      * @param {Element|any} elementObject
      * @param {string} idname
@@ -129,6 +135,12 @@ export class ModalDialog extends Element {
 
         this._body = jQuery('<div class="modal-body" />').appendTo(this._modalContent);
         this._footer = jQuery('<div class="modal-footer justify-content-between">').appendTo(this._modalContent);
+
+        this._mainElement.on('hidden.bs.modal', async () => {
+            if (this._onHidden !== null) {
+                await this._onHidden(this);
+            }
+        });
     }
 
     /**
@@ -163,7 +175,7 @@ export class ModalDialog extends Element {
     /**
      * hide
      */
-    public hide(): void {
+    public hide(onHidden?: ModalDialogEventFn): void {
         this._mainElement.modal('hide');
     }
 
@@ -273,6 +285,17 @@ export class ModalDialog extends Element {
         this._onSave = onSave;
     }
 
+    /**
+     * Set on hidden
+     * @param {ModalDialogEventFn|null} onHidden
+     */
+    public setOnHidden(onHidden: ModalDialogEventFn|null): void {
+        this._onHidden = onHidden;
+    }
+
+    /**
+     * Destroy
+     */
     public destroy(): void {
         this.resetValues();
         this._mainElement.remove();
