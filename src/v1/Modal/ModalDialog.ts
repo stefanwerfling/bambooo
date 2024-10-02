@@ -272,4 +272,9 @@ export class ModalDialog extends Element {
     public setOnSave(onSave: ModalDialogEventFn|null): void {
         this._onSave = onSave;
     }
+
+    public destroy(): void {
+        this.resetValues();
+        this._mainElement.remove();
+    }
 }

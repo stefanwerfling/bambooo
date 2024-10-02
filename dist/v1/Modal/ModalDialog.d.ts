@@ -137,4 +137,5 @@ export declare class ModalDialog extends Element {
      * @param {ModalDialogEventFn|null} onSave
      */
     setOnSave(onSave: ModalDialogEventFn | null): void;
+    destroy(): void;
 }

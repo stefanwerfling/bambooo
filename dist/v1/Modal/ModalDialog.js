@@ -214,5 +214,9 @@ class ModalDialog extends Element_1.Element {
     setOnSave(onSave) {
         this._onSave = onSave;
     }
+    destroy() {
+        this.resetValues();
+        this._mainElement.remove();
+    }
 }
 exports.ModalDialog = ModalDialog;
