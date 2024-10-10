@@ -46,4 +46,16 @@ export class FormGroup extends Element {
     public getLabelElement(): any {
         return this._label;
     }
+
+    /**
+     * Clear the elements from group
+     */
+    public clear(): void {
+        this._element.clear();
+
+        if (this._label) {
+            this._label.appendTo(this._element);
+        }
+    }
+
 }

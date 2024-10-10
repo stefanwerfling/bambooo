@@ -40,5 +40,14 @@ class FormGroup extends Element_1.Element {
     getLabelElement() {
         return this._label;
     }
+    /**
+     * Clear the elements from group
+     */
+    clear() {
+        this._element.clear();
+        if (this._label) {
+            this._label.appendTo(this._element);
+        }
+    }
 }
 exports.FormGroup = FormGroup;
