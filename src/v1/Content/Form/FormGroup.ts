@@ -51,7 +51,7 @@ export class FormGroup extends Element {
      * Clear the elements from group
      */
     public clear(): void {
-        this._element.clear();
+        this._element.empty();
 
         if (this._label) {
             this._label.appendTo(this._element);

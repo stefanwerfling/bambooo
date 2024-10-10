@@ -44,7 +44,7 @@ class FormGroup extends Element_1.Element {
      * Clear the elements from group
      */
     clear() {
-        this._element.clear();
+        this._element.empty();
         if (this._label) {
             this._label.appendTo(this._element);
         }
