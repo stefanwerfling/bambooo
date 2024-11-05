@@ -14,9 +14,9 @@ class CheckBox extends Element_1.Element {
      */
     _label;
     /**
-     * constructor
-     * @param element
-     * @param label
+     * Constructor
+     * @param {JQuery<HTMLElement>|Element} element
+     * @param {string|JQuery<HTMLElement>|LangText} label
      */
     constructor(element, label = '') {
         super();
@@ -28,10 +28,11 @@ class CheckBox extends Element_1.Element {
     }
     /**
      * setLabel
-     * @param label
+     * @param {string|JQuery<HTMLElement>|LangText} label
      */
     setLabel(label) {
-        this._label.empty().append(label);
+        const tlabel = this._getAnyElement(label);
+        this._label.empty().append(tlabel);
     }
     /**
      * setReadOnly

@@ -1,4 +1,5 @@
 import { Element } from '../../Element';
+import { LangText } from '../../Lang/LangText';
 export declare class CheckBox extends Element {
     /**
      * input
@@ -11,16 +12,16 @@ export declare class CheckBox extends Element {
      */
     protected _label: any;
     /**
-     * constructor
-     * @param element
-     * @param label
+     * Constructor
+     * @param {JQuery<HTMLElement>|Element} element
+     * @param {string|JQuery<HTMLElement>|LangText} label
      */
-    constructor(element: any, label?: any);
+    constructor(element: JQuery<HTMLElement> | Element, label?: string | JQuery<HTMLElement> | LangText);
     /**
      * setLabel
-     * @param label
+     * @param {string|JQuery<HTMLElement>|LangText} label
      */
-    setLabel(label: any): void;
+    setLabel(label: string | JQuery<HTMLElement> | LangText): void;
     /**
      * setReadOnly
      * @param readonly
