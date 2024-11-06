@@ -30,10 +30,12 @@ export class DescriptionBlock extends Element {
      * @param element
      * @param border
      */
-    public constructor(element: any, border: DescriptionBlockBorder = DescriptionBlockBorder.right) {
+    public constructor(element: Element|any, border: DescriptionBlockBorder = DescriptionBlockBorder.right) {
         super();
 
-        this._element = jQuery(`<div class="description-block ${border}" />`).appendTo(element);
+        const telement = this._getAnyElement(element);
+
+        this._element = jQuery(`<div class="description-block ${border}" />`).appendTo(telement);
         this._h5 = jQuery('<h5 class="description-header" />').appendTo(this._element);
         this._span = jQuery('<span class="description-text" />').appendTo(this._element);
     }

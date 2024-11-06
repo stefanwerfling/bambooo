@@ -45,9 +45,11 @@ export class InfoBox extends Element {
 
     /**
      * constructor
-     * @param element
+     * @param {Element|any} element
+     * @param {InfoBoxBg} bg
+     * @param {InfoBoxMb} mb
      */
-    public constructor(element: any, bg: InfoBoxBg = InfoBoxBg.light, mb: InfoBoxMb = InfoBoxMb.none) {
+    public constructor(element: Element|any, bg: InfoBoxBg = InfoBoxBg.light, mb: InfoBoxMb = InfoBoxMb.none) {
         super();
 
         const telement = this._getAnyElement(element);

@@ -51,6 +51,7 @@ export { CheckBox } from './v1/Content/Form/CheckBox';
 export { Icon, IconFa } from './v1/Content/Icon/Icon';
 export { Image, ImageArt, ImageType } from './v1/Content/Image/Image';
 export { ImageCoin } from './v1/Content/Image/ImageCoin';
+export { StepperLinear } from './v1/Content/Stepper/StepperLinear';
 export { NavTab, NavTabElements } from './v1/Content/Tab/NavTab';
 export { Table } from './v1/Content/Table/Table';
 export { Td } from './v1/Content/Table/Td';

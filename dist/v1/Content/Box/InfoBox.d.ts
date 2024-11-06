@@ -38,9 +38,11 @@ export declare class InfoBox extends Element {
     protected _numberElement: any | null;
     /**
      * constructor
-     * @param element
+     * @param {Element|any} element
+     * @param {InfoBoxBg} bg
+     * @param {InfoBoxMb} mb
      */
-    constructor(element: any, bg?: InfoBoxBg, mb?: InfoBoxMb);
+    constructor(element: Element | any, bg?: InfoBoxBg, mb?: InfoBoxMb);
     /**
      * setIcon
      * @param symbole

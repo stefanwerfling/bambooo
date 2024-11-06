@@ -44,7 +44,9 @@ class InfoBox extends Element_1.Element {
     _numberElement = null;
     /**
      * constructor
-     * @param element
+     * @param {Element|any} element
+     * @param {InfoBoxBg} bg
+     * @param {InfoBoxMb} mb
      */
     constructor(element, bg = InfoBoxBg.light, mb = InfoBoxMb.none) {
         super();

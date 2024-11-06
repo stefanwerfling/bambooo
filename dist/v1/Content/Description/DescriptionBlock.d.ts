@@ -25,7 +25,7 @@ export declare class DescriptionBlock extends Element {
      * @param element
      * @param border
      */
-    constructor(element: any, border?: DescriptionBlockBorder);
+    constructor(element: Element | any, border?: DescriptionBlockBorder);
     /**
      * setHeader
      * @param str
