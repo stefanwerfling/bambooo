@@ -50,6 +50,10 @@ export class StepperLinear extends Element {
         const id = `step-${unid}`;
         const idTrigger = `${id}-trigger`;
 
+        if (this._header.children().length > 0) {
+            this._header.append('<div class="line"></div>');
+        }
+
         const stepHead = jQuery(`<div class="step" data-target="#${id}" />`).appendTo(this._header);
         const stepBtn = jQuery(`<button type="button" class="step-trigger" role="tab" aria-controls="${id}" id="${idTrigger}" />`).appendTo(stepHead);
 
