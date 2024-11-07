@@ -18,13 +18,13 @@ export class RadioInput extends Element {
     protected _input: any;
 
     /**
-     * constructor
-     * @param element
-     * @param radionName
-     * @param radioValue
-     * @param nameInput
-     * @param nameInputValue
-     * @param checked
+     * Constructor
+     * @param {any} element
+     * @param {string} radionName
+     * @param {string} radioValue
+     * @param {string} nameInput
+     * @param {string} inputValue
+     * @param {string} checked
      */
     public constructor(element: any, radionName: string, radioValue: string, nameInput: string, inputValue: string, checked: boolean = false) {
         super();
@@ -38,4 +38,38 @@ export class RadioInput extends Element {
         this._input = jQuery(`<input type="text" class="form-control" name="${nameInput}" value="${inputValue}">`).appendTo(prependGroup);
     }
 
+    /**
+     * Set Value
+     * @param value
+     */
+    public setValue(value: string): void {
+        this._input.val(value);
+    }
+
+    /**
+     * getValue
+     */
+    public getValue(): string {
+        return this._element.val();
+    }
+
+    /**
+     * is box checked
+     * @returns {boolean}
+     */
+    public isChecked(): boolean {
+        return this._inputRadio.is(':checked');
+    }
+
+    /**
+     * Set the box checked or remove checked
+     * @param {boolean} checked
+     */
+    public setChecked(checked: boolean): void {
+        if (checked) {
+            this._inputRadio.attr('checked', 'checked');
+        } else {
+            this._inputRadio.removeAttr('checked');
+        }
+    }
 }
