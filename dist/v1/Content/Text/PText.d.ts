@@ -14,10 +14,11 @@ export declare enum PTextType {
 export declare class PText extends Element {
     /**
      * constructor
-     * @param element
-     * @param type
+     * @param {any|Element} element
+     * @param {PTextType} type
+     * @param {TextAlignment} align
      */
-    constructor(element: any, type?: PTextType, align?: TextAlignment);
+    constructor(element: any | Element, type?: PTextType, align?: TextAlignment);
     /**
      * addValue
      * @param value

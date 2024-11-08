@@ -17,10 +17,11 @@ export class PText extends Element {
 
     /**
      * constructor
-     * @param element
-     * @param type
+     * @param {any|Element} element
+     * @param {PTextType} type
+     * @param {TextAlignment} align
      */
-    public constructor(element: any, type: PTextType = PTextType.muted, align: TextAlignment = TextAlignment.none) {
+    public constructor(element: any|Element, type: PTextType = PTextType.muted, align: TextAlignment = TextAlignment.none) {
         super();
 
         const telement = this._getAnyElement(element);

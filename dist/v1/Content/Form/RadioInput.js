@@ -66,5 +66,24 @@ class RadioInput extends Element_1.Element {
             this._inputRadio.removeAttr('checked');
         }
     }
+    /**
+     * Set Input ReadOnly
+     * @param {boolean} readonly
+     */
+    setInputReadOnly(readonly) {
+        if (readonly) {
+            this._input.attr('disabled', 'disabled');
+        }
+        else {
+            this._input.removeAttr('disabled');
+        }
+    }
+    /**
+     * Is Input readonly
+     * @returns {boolean}
+     */
+    isInputReadOnly() {
+        return this._input.is('[disabled=disabled]');
+    }
 }
 exports.RadioInput = RadioInput;

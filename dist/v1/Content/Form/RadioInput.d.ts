@@ -42,4 +42,14 @@ export declare class RadioInput extends Element {
      * @param {boolean} checked
      */
     setChecked(checked: boolean): void;
+    /**
+     * Set Input ReadOnly
+     * @param {boolean} readonly
+     */
+    setInputReadOnly(readonly: boolean): void;
+    /**
+     * Is Input readonly
+     * @returns {boolean}
+     */
+    isInputReadOnly(): boolean;
 }

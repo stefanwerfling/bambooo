@@ -18,8 +18,9 @@ var PTextType;
 class PText extends Element_1.Element {
     /**
      * constructor
-     * @param element
-     * @param type
+     * @param {any|Element} element
+     * @param {PTextType} type
+     * @param {TextAlignment} align
      */
     constructor(element, type = PTextType.muted, align = Text_1.TextAlignment.none) {
         super();
