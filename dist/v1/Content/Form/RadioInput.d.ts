@@ -1,5 +1,9 @@
 import { Element } from '../../Element';
 /**
+ * RadioInputClickFn
+ */
+export type RadioInputClickFn = () => void;
+/**
  * RadioInput
  */
 export declare class RadioInput extends Element {
@@ -52,4 +56,9 @@ export declare class RadioInput extends Element {
      * @returns {boolean}
      */
     isInputReadOnly(): boolean;
+    /**
+     * Set the onclick function for radio input
+     * @param {RadioInputClickFn} fn
+     */
+    setOnClickFnRadio(fn: RadioInputClickFn): void;
 }

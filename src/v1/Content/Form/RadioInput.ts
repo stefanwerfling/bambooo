@@ -1,6 +1,11 @@
 import {Element} from '../../Element';
 
 /**
+ * RadioInputClickFn
+ */
+export type RadioInputClickFn = () => void;
+
+/**
  * RadioInput
  */
 export class RadioInput extends Element {
@@ -92,4 +97,15 @@ export class RadioInput extends Element {
     public isInputReadOnly(): boolean {
         return this._input.is('[disabled=disabled]');
     }
+
+    /**
+     * Set the onclick function for radio input
+     * @param {RadioInputClickFn} fn
+     */
+    public setOnClickFnRadio(fn: RadioInputClickFn): void {
+        this._inputRadio.unbind().on('click', (): void => {
+            fn();
+        });
+    }
+
 }

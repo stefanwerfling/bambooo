@@ -85,5 +85,14 @@ class RadioInput extends Element_1.Element {
     isInputReadOnly() {
         return this._input.is('[disabled=disabled]');
     }
+    /**
+     * Set the onclick function for radio input
+     * @param {RadioInputClickFn} fn
+     */
+    setOnClickFnRadio(fn) {
+        this._inputRadio.unbind().on('click', () => {
+            fn();
+        });
+    }
 }
 exports.RadioInput = RadioInput;
