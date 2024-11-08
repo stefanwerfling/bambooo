@@ -13,6 +13,7 @@ export { Wrapper } from './v1/Wrapper';
 export { ContentColSize, ContentCol } from './v1/Content/ContentCol';
 export { ContentDisable } from './v1/Content/ContentDisable';
 export { ContentRowClass, ContentRow } from './v1/Content/ContentRow';
+export { ArrowSimpleDirection, ArrowSimple } from './v1/Content/Arrow/ArrowSimple';
 export { BadgeType, Badge } from './v1/Content/Badge/Badge';
 export { InfoBoxBg, InfoBoxMb, InfoBox } from './v1/Content/Box/InfoBox';
 export { SmallBoxBg, SmallBox } from './v1/Content/Box/SmallBox';

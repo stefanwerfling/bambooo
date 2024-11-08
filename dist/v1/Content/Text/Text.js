@@ -16,7 +16,8 @@ var TextAlignment;
 class Text extends Element_1.Element {
     /**
      * constructor
-     * @param element
+     * @param {any|Element} element
+     * @param {TextAlignment} align
      */
     constructor(element, align = TextAlignment.none) {
         super();

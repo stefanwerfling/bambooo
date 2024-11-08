@@ -15,9 +15,10 @@ export class Text extends Element {
 
     /**
      * constructor
-     * @param element
+     * @param {any|Element} element
+     * @param {TextAlignment} align
      */
-    public constructor(element: any, align: TextAlignment = TextAlignment.none) {
+    public constructor(element: any|Element, align: TextAlignment = TextAlignment.none) {
         super();
 
         const telement = this._getAnyElement(element);

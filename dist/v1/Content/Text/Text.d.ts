@@ -12,7 +12,8 @@ export declare enum TextAlignment {
 export declare class Text extends Element {
     /**
      * constructor
-     * @param element
+     * @param {any|Element} element
+     * @param {TextAlignment} align
      */
-    constructor(element: any, align?: TextAlignment);
+    constructor(element: any | Element, align?: TextAlignment);
 }

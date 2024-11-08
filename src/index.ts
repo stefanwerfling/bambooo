@@ -22,6 +22,9 @@ export {ContentColSize, ContentCol} from './v1/Content/ContentCol';
 export {ContentDisable} from './v1/Content/ContentDisable';
 export {ContentRowClass, ContentRow} from './v1/Content/ContentRow';
 
+// ## Content - Arrow
+export {ArrowSimpleDirection, ArrowSimple} from './v1/Content/Arrow/ArrowSimple';
+
 // ## Content - Badge
 export {BadgeType, Badge} from './v1/Content/Badge/Badge';
 
