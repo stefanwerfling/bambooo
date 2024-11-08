@@ -99,6 +99,7 @@ export {Th} from './v1/Content/Table/Th';
 export {Tr} from './v1/Content/Table/Tr';
 
 // ## Content - Text
+export {HeadText} from './v1/Content/Text/HeadText';
 export {PText, PTextType} from './v1/Content/Text/PText';
 export {StrongText} from './v1/Content/Text/StrongText';
 export {Text, TextAlignment} from './v1/Content/Text/Text';
