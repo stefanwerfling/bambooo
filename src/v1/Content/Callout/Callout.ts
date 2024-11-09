@@ -18,27 +18,31 @@ export class Callout extends Element {
 
     /**
      * constructor
-     * @param element
-     * @param type
+     * @param {any|Element} element
+     * @param {CalloutType} type
      */
-    public constructor(element: any, type: CalloutType = CalloutType.info) {
+    public constructor(element: any|Element, type: CalloutType = CalloutType.info) {
         super();
 
-        this._mainElement = jQuery(`<div class="callout ${type}" />`).appendTo(element);
+        const telement = this._getAnyElement(element);
+
+        this._mainElement = jQuery(`<div class="callout ${type}" />`).appendTo(telement);
+
         this._title = jQuery('<h5/>').appendTo(this._mainElement);
         this._element = jQuery('<p/>').appendTo(this._mainElement);
     }
 
     /**
-     * setTitle
-     * @param title
+     * Set Title
+     * @param {string} title
      */
     public setTitle(title: string): void {
         this._title.empty().append(title);
     }
 
     /**
-     * getMainElement
+     * Return the main Element
+     * @returns {any}
      */
     public getMainElement(): any {
         return this._mainElement;

@@ -14,17 +14,18 @@ export declare class Callout extends Element {
     protected _title: any;
     /**
      * constructor
-     * @param element
-     * @param type
+     * @param {any|Element} element
+     * @param {CalloutType} type
      */
-    constructor(element: any, type?: CalloutType);
+    constructor(element: any | Element, type?: CalloutType);
     /**
-     * setTitle
-     * @param title
+     * Set Title
+     * @param {string} title
      */
     setTitle(title: string): void;
     /**
-     * getMainElement
+     * Return the main Element
+     * @returns {any}
      */
     getMainElement(): any;
 }

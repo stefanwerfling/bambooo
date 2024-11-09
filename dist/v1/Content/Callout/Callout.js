@@ -18,24 +18,26 @@ class Callout extends Element_1.Element {
     _title;
     /**
      * constructor
-     * @param element
-     * @param type
+     * @param {any|Element} element
+     * @param {CalloutType} type
      */
     constructor(element, type = CalloutType.info) {
         super();
-        this._mainElement = jQuery(`<div class="callout ${type}" />`).appendTo(element);
+        const telement = this._getAnyElement(element);
+        this._mainElement = jQuery(`<div class="callout ${type}" />`).appendTo(telement);
         this._title = jQuery('<h5/>').appendTo(this._mainElement);
         this._element = jQuery('<p/>').appendTo(this._mainElement);
     }
     /**
-     * setTitle
-     * @param title
+     * Set Title
+     * @param {string} title
      */
     setTitle(title) {
         this._title.empty().append(title);
     }
     /**
-     * getMainElement
+     * Return the main Element
+     * @returns {any}
      */
     getMainElement() {
         return this._mainElement;
