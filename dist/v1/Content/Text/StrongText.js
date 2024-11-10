@@ -25,7 +25,7 @@ class StrongText extends Element_1.Element {
      */
     addText(text) {
         const ttext = this._getAnyElement(text);
-        this._element.addText(text);
+        this._element.append(ttext);
     }
 }
 exports.StrongText = StrongText;

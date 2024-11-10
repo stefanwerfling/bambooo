@@ -28,7 +28,7 @@ export class StrongText extends Element {
      */
     public addText(text: string|JQuery<HTMLElement>|LangText): void {
         const ttext = this._getAnyElement(text);
-        this._element.addText(text);
+        this._element.append(ttext);
     }
 
 }
