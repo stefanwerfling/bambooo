@@ -35,17 +35,18 @@ class RadioInput extends Element_1.Element {
         this._input = jQuery(`<input type="text" class="form-control" name="${nameInput}" value="${inputValue}">`).appendTo(prependGroup);
     }
     /**
-     * Set Value
-     * @param value
+     * Set input Value
+     * @param {string} value
      */
-    setValue(value) {
+    setInputValue(value) {
         this._input.val(value);
     }
     /**
-     * getValue
+     * Return the input value
+     * @returns {string}
      */
-    getValue() {
-        return this._element.val();
+    getInputValue() {
+        return this._input.val();
     }
     /**
      * is box checked

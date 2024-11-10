@@ -44,18 +44,19 @@ export class RadioInput extends Element {
     }
 
     /**
-     * Set Value
-     * @param value
+     * Set input Value
+     * @param {string} value
      */
-    public setValue(value: string): void {
+    public setInputValue(value: string): void {
         this._input.val(value);
     }
 
     /**
-     * getValue
+     * Return the input value
+     * @returns {string}
      */
-    public getValue(): string {
-        return this._element.val();
+    public getInputValue(): string {
+        return this._input.val();
     }
 
     /**

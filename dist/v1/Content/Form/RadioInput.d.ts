@@ -28,14 +28,15 @@ export declare class RadioInput extends Element {
      */
     constructor(element: any, radionName: string, radioValue: string, nameInput: string, inputValue: string, checked?: boolean);
     /**
-     * Set Value
-     * @param value
+     * Set input Value
+     * @param {string} value
      */
-    setValue(value: string): void;
+    setInputValue(value: string): void;
     /**
-     * getValue
+     * Return the input value
+     * @returns {string}
      */
-    getValue(): string;
+    getInputValue(): string;
     /**
      * is box checked
      * @returns {boolean}
