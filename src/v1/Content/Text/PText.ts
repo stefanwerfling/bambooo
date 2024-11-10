@@ -31,11 +31,13 @@ export class PText extends Element {
     }
 
     /**
-     * addValue
-     * @param value
+     * Add value
+     * @param {any|Element} value
      */
-    public addValue(value: any): void {
-        this._element.append(value);
+    public addValue(value: any|Element): void {
+        const telement = this._getAnyElement(value);
+
+        this._element.append(telement);
     }
 
 }

@@ -1,4 +1,5 @@
 import {Element} from '../../Element';
+import {LangText} from '../../Lang/LangText';
 
 /**
  * StrongText
@@ -7,13 +8,27 @@ export class StrongText extends Element {
 
     /**
      * constructor
-     * @param element
+     * @param {any|Element} element
+     * @param {string|JQuery<HTMLElement>|LangText} text
      */
-    public constructor(element: any) {
+    public constructor(element: any|Element, text?: string|JQuery<HTMLElement>|LangText) {
         super();
 
         const telement = this._getAnyElement(element);
-
         this._element = jQuery(`<strong/>`).appendTo(telement);
+
+        if (text) {
+            this.addText(text);
+        }
     }
+
+    /**
+     * Add Text
+     * @param {string|JQuery<HTMLElement>|LangText} text
+     */
+    public addText(text: string|JQuery<HTMLElement>|LangText): void {
+        const ttext = this._getAnyElement(text);
+        this._element.addText(text);
+    }
+
 }

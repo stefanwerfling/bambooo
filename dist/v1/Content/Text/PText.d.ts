@@ -20,8 +20,8 @@ export declare class PText extends Element {
      */
     constructor(element: any | Element, type?: PTextType, align?: TextAlignment);
     /**
-     * addValue
-     * @param value
+     * Add value
+     * @param {any|Element} value
      */
-    addValue(value: any): void;
+    addValue(value: any | Element): void;
 }

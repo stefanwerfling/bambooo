@@ -29,11 +29,12 @@ class PText extends Element_1.Element {
         this._element.addClass(`${align}`);
     }
     /**
-     * addValue
-     * @param value
+     * Add value
+     * @param {any|Element} value
      */
     addValue(value) {
-        this._element.append(value);
+        const telement = this._getAnyElement(value);
+        this._element.append(telement);
     }
 }
 exports.PText = PText;
