@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DialogConfirm = void 0;
 const ModalDialog_1 = require("../../Modal/ModalDialog");
-const ButtonDefault_1 = require("../Button/ButtonDefault");
+const ButtonClass_1 = require("../Button/ButtonClass");
 /**
  * DialogConfirm
  */
@@ -34,7 +34,7 @@ class DialogConfirm extends ModalDialog_1.ModalDialog {
      * @param modalType
      * @param buttonType
      */
-    constructor(elementObject, idname, modalType, buttonType = ButtonDefault_1.ButtonClass.primary) {
+    constructor(elementObject, idname, modalType, buttonType = ButtonClass_1.ButtonClass.primary) {
         super(elementObject, idname, modalType);
         this._bodyCard = jQuery('<div class="card-body"/>').appendTo(this._body);
         const btnCancel = jQuery('<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>').appendTo(this._footer);
@@ -81,15 +81,16 @@ class DialogConfirm extends ModalDialog_1.ModalDialog {
     }
     /**
      * confirm
-     * @param id
-     * @param modalType
-     * @param message
-     * @param clickOk
-     * @param clickCancel
-     * @param buttonOktitle
-     * @param buttonType
+     * @param {string} id
+     * @param {ModalDialogType} modalType
+     * @param {string} title
+     * @param {any} message
+     * @param {DialogConfirmClickFn} clickOk
+     * @param {DialogConfirmClickFn} clickCancel
+     * @param {string} buttonOktitle
+     * @param {ButtonClass} buttonType
      */
-    static confirm(id, modalType, title, message, clickOk, clickCancel, buttonOktitle, buttonType = ButtonDefault_1.ButtonClass.primary) {
+    static confirm(id, modalType, title, message, clickOk, clickCancel, buttonOktitle, buttonType = ButtonClass_1.ButtonClass.primary) {
         const modal = new DialogConfirm(jQuery('body'), id, modalType, buttonType);
         modal.setTitle(title);
         modal.setMessage(message);

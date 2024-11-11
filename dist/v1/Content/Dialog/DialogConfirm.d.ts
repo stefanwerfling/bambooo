@@ -1,6 +1,6 @@
 import { Element } from '../../Element';
 import { ModalDialog, ModalDialogType } from '../../Modal/ModalDialog';
-import { ButtonClass } from '../Button/ButtonDefault';
+import { ButtonClass } from '../Button/ButtonClass';
 /**
  * DialogConfirmClickFn
  */
@@ -59,13 +59,14 @@ export declare class DialogConfirm extends ModalDialog {
     setButtonOkTitle(title: string): void;
     /**
      * confirm
-     * @param id
-     * @param modalType
-     * @param message
-     * @param clickOk
-     * @param clickCancel
-     * @param buttonOktitle
-     * @param buttonType
+     * @param {string} id
+     * @param {ModalDialogType} modalType
+     * @param {string} title
+     * @param {any} message
+     * @param {DialogConfirmClickFn} clickOk
+     * @param {DialogConfirmClickFn} clickCancel
+     * @param {string} buttonOktitle
+     * @param {ButtonClass} buttonType
      */
     static confirm(id: string, modalType: ModalDialogType, title: string, message: any, clickOk: DialogConfirmClickFn, clickCancel?: DialogConfirmClickFn, buttonOktitle?: string, buttonType?: ButtonClass): void;
 }

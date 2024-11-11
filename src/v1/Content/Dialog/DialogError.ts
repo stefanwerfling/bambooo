@@ -1,5 +1,5 @@
 import {ModalDialogType} from '../../Modal/ModalDialog';
-import {ButtonClass} from '../Button/ButtonDefault';
+import {ButtonClass} from '../Button/ButtonClass';
 import {ButtonShowMore} from '../Button/ButtonShowMore';
 import {DialogInfo} from './DialogInfo';
 

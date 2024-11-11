@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DialogError = void 0;
 const ModalDialog_1 = require("../../Modal/ModalDialog");
-const ButtonDefault_1 = require("../Button/ButtonDefault");
+const ButtonClass_1 = require("../Button/ButtonClass");
 const ButtonShowMore_1 = require("../Button/ButtonShowMore");
 const DialogInfo_1 = require("./DialogInfo");
 /**
@@ -34,7 +34,7 @@ class DialogError {
                     parsend.internFunc();
                 }
                 modal.hide();
-            }, 'Ok', ButtonDefault_1.ButtonClass.danger);
+            }, 'Ok', ButtonClass_1.ButtonClass.danger);
             console.error(parsend.msg, e, parsend.details);
         }
         return null;

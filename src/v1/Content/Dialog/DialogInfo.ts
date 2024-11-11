@@ -1,6 +1,6 @@
 import {Element} from '../../Element';
 import {ModalDialog, ModalDialogType} from '../../Modal/ModalDialog';
-import {ButtonClass} from '../Button/ButtonDefault';
+import {ButtonClass} from '../Button/ButtonClass';
 
 /**
  * DialogConfirmClickFn

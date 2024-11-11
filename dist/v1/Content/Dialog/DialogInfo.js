@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DialogInfo = void 0;
 const ModalDialog_1 = require("../../Modal/ModalDialog");
-const ButtonDefault_1 = require("../Button/ButtonDefault");
+const ButtonClass_1 = require("../Button/ButtonClass");
 /**
  * DialogInfo
  */
@@ -29,7 +29,7 @@ class DialogInfo extends ModalDialog_1.ModalDialog {
      * @param modalType
      * @param buttonType
      */
-    constructor(elementObject, idname, modalType, buttonType = ButtonDefault_1.ButtonClass.primary) {
+    constructor(elementObject, idname, modalType, buttonType = ButtonClass_1.ButtonClass.primary) {
         super(elementObject, idname, modalType);
         this._bodyCard = jQuery('<div class="card-body"/>').appendTo(this._body);
         this._btnOk = jQuery(`<button type="button" class="btn ${buttonType}">Ok</button>`).appendTo(this._footer);
@@ -78,7 +78,7 @@ class DialogInfo extends ModalDialog_1.ModalDialog {
      * @param buttonOktitle
      * @param buttonType
      */
-    static info(id, modalType, title, content, clickOk, buttonOktitle, buttonType = ButtonDefault_1.ButtonClass.primary) {
+    static info(id, modalType, title, content, clickOk, buttonOktitle, buttonType = ButtonClass_1.ButtonClass.primary) {
         const modal = new DialogInfo(jQuery('body'), id, modalType, buttonType);
         modal.setTitle(title);
         if (typeof content === 'function') {

@@ -1,6 +1,7 @@
 import {BClass} from '../../../Core/BTypes';
+import {ButtonClass} from '../../Content/Button/ButtonClass';
 import {Element} from '../../Element';
-import {ButtonClass, ButtonDefault, ButtonDefaultType} from '../../Content/Button/ButtonDefault';
+import {ButtonDefault, ButtonDefaultType} from '../../Content/Button/ButtonDefault';
 import {ICollectionEntryWidget} from './CollectionEntryWidget';
 
 /**

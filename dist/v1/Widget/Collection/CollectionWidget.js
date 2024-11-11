@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CollectionWidget = void 0;
+const ButtonClass_1 = require("../../Content/Button/ButtonClass");
 const ButtonDefault_1 = require("../../Content/Button/ButtonDefault");
 /**
  * Collection Widget
@@ -46,7 +47,7 @@ class CollectionWidget {
         }
     }
     _createAddBtn(element) {
-        const addBtn = new ButtonDefault_1.ButtonDefault(element, '', 'fa-plus', ButtonDefault_1.ButtonClass.tool, ButtonDefault_1.ButtonDefaultType.none);
+        const addBtn = new ButtonDefault_1.ButtonDefault(element, '', 'fa-plus', ButtonClass_1.ButtonClass.tool, ButtonDefault_1.ButtonDefaultType.none);
         addBtn.setOnClickFn(() => {
             this._onClickAdd();
         });
