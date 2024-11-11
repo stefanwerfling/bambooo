@@ -116,7 +116,7 @@ export class StepperLinear extends Element {
     public setStepEvent(event: StepperLinearStepEventFn): void {
         this._element[0].addEventListener('shown.bs-stepper', (tevent: any) => {
             if (tevent.detail && tevent.detail.indexStep) {
-                event(tevent.indexStep);
+                event(tevent.detail.indexStep);
             }
         })
     }
