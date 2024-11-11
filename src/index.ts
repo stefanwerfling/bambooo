@@ -91,7 +91,7 @@ export {Image, ImageArt, ImageType} from './v1/Content/Image/Image';
 export {ImageCoin} from './v1/Content/Image/ImageCoin';
 
 // ## Content - Stepper
-export {StepperLinear} from './v1/Content/Stepper/StepperLinear';
+export {StepperLinearStepEventFn, StepperLinear} from './v1/Content/Stepper/StepperLinear';
 
 // ## Content - Tab
 export {NavTab, NavTabElements} from './v1/Content/Tab/NavTab';

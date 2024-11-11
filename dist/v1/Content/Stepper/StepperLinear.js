@@ -40,10 +40,10 @@ class StepperLinear extends Element_1.Element {
     /**
      * Add a Step
      * @param {string|LangText} label
-     * @param {number} circleNumber
+     * @param {number} stepNumber
      * @returns {any}
      */
-    addStep(label, circleNumber) {
+    addStep(label, stepNumber) {
         const unid = this._uniqId();
         const id = `step-${unid}`;
         const idTrigger = `${id}-trigger`;
@@ -52,7 +52,7 @@ class StepperLinear extends Element_1.Element {
         }
         const stepHead = jQuery(`<div class="step" data-target="#${id}" />`).appendTo(this._header);
         const stepBtn = jQuery(`<button type="button" class="step-trigger" role="tab" aria-controls="${id}" id="${idTrigger}" />`).appendTo(stepHead);
-        jQuery(`<span class="bs-stepper-circle">${circleNumber}</span>`).appendTo(stepBtn);
+        jQuery(`<span class="bs-stepper-circle">${stepNumber}</span>`).appendTo(stepBtn);
         const spanLabel = jQuery(`<span class="bs-stepper-label" />`).appendTo(stepBtn);
         LangText_1.LangText.addLangText(spanLabel, label);
         const content = jQuery(`<div id="${id}" class="content" role="tabpanel" aria-labelledby="${idTrigger}" />`);
@@ -80,6 +80,26 @@ class StepperLinear extends Element_1.Element {
         if (this._stepper) {
             this._stepper.previous();
         }
+    }
+    /**
+     * Step to number
+     * @param {number} stepNumber
+     */
+    stepTo(stepNumber) {
+        if (this._stepper) {
+            this._stepper.to(stepNumber);
+        }
+    }
+    /**
+     * Set the step event
+     * @param {StepperLinearStepEventFn} event
+     */
+    setStepEvent(event) {
+        this._element.unbind('show.bs-stepper').on('show.bs-stepper', (tevent) => {
+            if (tevent.indexStep) {
+                event(tevent.indexStep);
+            }
+        });
     }
 }
 exports.StepperLinear = StepperLinear;

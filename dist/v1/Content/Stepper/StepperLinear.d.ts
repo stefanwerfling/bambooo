@@ -2,6 +2,10 @@ import { Element } from '../../Element';
 import { LangText } from '../../Lang/LangText';
 import Stepper from 'bs-stepper';
 /**
+ * Event step event (action by next/prev to step)
+ */
+export type StepperLinearStepEventFn = (indexStep: number) => void;
+/**
  * Stepper linear
  */
 export declare class StepperLinear extends Element {
@@ -28,10 +32,10 @@ export declare class StepperLinear extends Element {
     /**
      * Add a Step
      * @param {string|LangText} label
-     * @param {number} circleNumber
+     * @param {number} stepNumber
      * @returns {any}
      */
-    addStep(label: string | LangText, circleNumber: number): any;
+    addStep(label: string | LangText, stepNumber: number): any;
     /**
      * load
      */
@@ -44,4 +48,14 @@ export declare class StepperLinear extends Element {
      * Previous step
      */
     previous(): void;
+    /**
+     * Step to number
+     * @param {number} stepNumber
+     */
+    stepTo(stepNumber: number): void;
+    /**
+     * Set the step event
+     * @param {StepperLinearStepEventFn} event
+     */
+    setStepEvent(event: StepperLinearStepEventFn): void;
 }
