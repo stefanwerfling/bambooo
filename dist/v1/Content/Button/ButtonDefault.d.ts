@@ -1,5 +1,6 @@
 import { Element } from '../../Element';
 import { LangText } from '../../Lang/LangText';
+import { ButtonClass } from './ButtonClass';
 /**
  * ButtonDefaultType
  */
@@ -8,16 +9,11 @@ export declare enum ButtonDefaultType {
     small = "btn-sm"
 }
 /**
- * ButtonClass
+ * Button default Position
  */
-export declare enum ButtonClass {
-    default = "btn-default",
-    info = "btn-info",
-    danger = "btn-danger",
-    warning = "btn-warning",
-    success = "btn-success",
-    primary = "btn-primary",
-    tool = "btn-tool"
+export declare enum ButtonDefaultPosition {
+    left = "",
+    right = "float-right"
 }
 /**
  * ButtonDefaultClickFn
@@ -55,8 +51,9 @@ export declare class ButtonDefault extends Element {
      * @param {ButtonClass} bnClass
      * @param {ButtonDefaultType} bnType
      * @param {string} moreAttr
+     * @param {ButtonDefaultPosition} position
      */
-    constructor(element: any, title?: string | LangText, icon?: string, bnClass?: ButtonClass, bnType?: ButtonDefaultType, moreAttr?: string);
+    constructor(element: any, title?: string | LangText, icon?: string, bnClass?: ButtonClass, bnType?: ButtonDefaultType, moreAttr?: string, position?: ButtonDefaultPosition);
     /**
      * setValue
      * @param {string|LangText} title

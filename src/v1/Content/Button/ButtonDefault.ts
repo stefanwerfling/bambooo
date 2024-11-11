@@ -1,5 +1,6 @@
 import {Element} from '../../Element';
 import {LangText} from '../../Lang/LangText';
+import {ButtonClass} from './ButtonClass';
 
 /**
  * ButtonDefaultType
@@ -10,17 +11,11 @@ export enum ButtonDefaultType {
 }
 
 /**
- * ButtonClass
+ * Button default Position
  */
-export enum ButtonClass {
-    default = 'btn-default',
-    info = 'btn-info',
-    danger = 'btn-danger',
-    warning = 'btn-warning',
-    success = 'btn-success',
-    primary = 'btn-primary',
-
-    tool = 'btn-tool',
+export enum ButtonDefaultPosition {
+    left = '',
+    right = 'float-right'
 }
 
 /**
@@ -65,6 +60,7 @@ export class ButtonDefault extends Element {
      * @param {ButtonClass} bnClass
      * @param {ButtonDefaultType} bnType
      * @param {string} moreAttr
+     * @param {ButtonDefaultPosition} position
      */
     public constructor(
         element: any,
@@ -72,14 +68,15 @@ export class ButtonDefault extends Element {
         icon?: string,
         bnClass: ButtonClass = ButtonClass.default,
         bnType: ButtonDefaultType = ButtonDefaultType.small,
-        moreAttr: string = ''
+        moreAttr: string = '',
+        position: ButtonDefaultPosition = ButtonDefaultPosition.left
     ) {
         super();
 
         const telement = this._getAnyElement(element);
 
         this._class = bnClass;
-        this._element = jQuery(`<button type="button" class="btn ${bnClass} ${bnType}" ${moreAttr} />`).appendTo(telement);
+        this._element = jQuery(`<button type="button" class="btn ${bnClass} ${bnType} ${position}" ${moreAttr} />`).appendTo(telement);
 
         this.setValue(title, icon);
     }

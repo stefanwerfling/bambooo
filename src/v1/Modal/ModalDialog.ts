@@ -1,4 +1,5 @@
-import {ButtonClass, ButtonDefault, ButtonDefaultType} from '../Content/Button/ButtonDefault';
+import {ButtonClass} from '../Content/Button/ButtonClass';
+import {ButtonDefault, ButtonDefaultType} from '../Content/Button/ButtonDefault';
 import {Element} from '../Element';
 import {LangText} from '../Lang/LangText';
 

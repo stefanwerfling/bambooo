@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ModalDialog = exports.ModalDialogType = void 0;
+const ButtonClass_1 = require("../Content/Button/ButtonClass");
 const ButtonDefault_1 = require("../Content/Button/ButtonDefault");
 const Element_1 = require("../Element");
 const LangText_1 = require("../Lang/LangText");
@@ -160,7 +161,7 @@ class ModalDialog extends Element_1.Element {
         if (title === null) {
             title = new LangText_1.LangText('Close');
         }
-        const closeBtn = new ButtonDefault_1.ButtonDefault(this._footer, title, undefined, ButtonDefault_1.ButtonClass.default, ButtonDefault_1.ButtonDefaultType.none, 'data-dismiss="modal"');
+        const closeBtn = new ButtonDefault_1.ButtonDefault(this._footer, title, undefined, ButtonClass_1.ButtonClass.default, ButtonDefault_1.ButtonDefaultType.none, 'data-dismiss="modal"');
         closeBtn.setOnClickFn(async () => {
             this.hide();
             if (this._onClose !== null) {
@@ -179,7 +180,7 @@ class ModalDialog extends Element_1.Element {
         if (title === null) {
             title = new LangText_1.LangText('Save');
         }
-        const saveBtn = new ButtonDefault_1.ButtonDefault(this._footer, title, undefined, ButtonDefault_1.ButtonClass.primary, ButtonDefault_1.ButtonDefaultType.none);
+        const saveBtn = new ButtonDefault_1.ButtonDefault(this._footer, title, undefined, ButtonClass_1.ButtonClass.primary, ButtonDefault_1.ButtonDefaultType.none);
         saveBtn.setOnClickFn(async () => {
             if (this._onSave !== null) {
                 if (showLoading) {

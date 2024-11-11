@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ButtonDefault = exports.ButtonClass = exports.ButtonDefaultType = void 0;
+exports.ButtonDefault = exports.ButtonDefaultPosition = exports.ButtonDefaultType = void 0;
 const Element_1 = require("../../Element");
+const ButtonClass_1 = require("./ButtonClass");
 /**
  * ButtonDefaultType
  */
@@ -11,18 +12,13 @@ var ButtonDefaultType;
     ButtonDefaultType["small"] = "btn-sm";
 })(ButtonDefaultType = exports.ButtonDefaultType || (exports.ButtonDefaultType = {}));
 /**
- * ButtonClass
+ * Button default Position
  */
-var ButtonClass;
-(function (ButtonClass) {
-    ButtonClass["default"] = "btn-default";
-    ButtonClass["info"] = "btn-info";
-    ButtonClass["danger"] = "btn-danger";
-    ButtonClass["warning"] = "btn-warning";
-    ButtonClass["success"] = "btn-success";
-    ButtonClass["primary"] = "btn-primary";
-    ButtonClass["tool"] = "btn-tool";
-})(ButtonClass = exports.ButtonClass || (exports.ButtonClass = {}));
+var ButtonDefaultPosition;
+(function (ButtonDefaultPosition) {
+    ButtonDefaultPosition["left"] = "";
+    ButtonDefaultPosition["right"] = "float-right";
+})(ButtonDefaultPosition = exports.ButtonDefaultPosition || (exports.ButtonDefaultPosition = {}));
 /**
  * ButtonDefault
  */
@@ -31,7 +27,7 @@ class ButtonDefault extends Element_1.Element {
      * class
      * @protected
      */
-    _class = ButtonClass.default;
+    _class = ButtonClass_1.ButtonClass.default;
     /**
      * title
      * @protected
@@ -55,12 +51,13 @@ class ButtonDefault extends Element_1.Element {
      * @param {ButtonClass} bnClass
      * @param {ButtonDefaultType} bnType
      * @param {string} moreAttr
+     * @param {ButtonDefaultPosition} position
      */
-    constructor(element, title, icon, bnClass = ButtonClass.default, bnType = ButtonDefaultType.small, moreAttr = '') {
+    constructor(element, title, icon, bnClass = ButtonClass_1.ButtonClass.default, bnType = ButtonDefaultType.small, moreAttr = '', position = ButtonDefaultPosition.left) {
         super();
         const telement = this._getAnyElement(element);
         this._class = bnClass;
-        this._element = jQuery(`<button type="button" class="btn ${bnClass} ${bnType}" ${moreAttr} />`).appendTo(telement);
+        this._element = jQuery(`<button type="button" class="btn ${bnClass} ${bnType} ${position}" ${moreAttr} />`).appendTo(telement);
         this.setValue(title, icon);
     }
     /**
@@ -102,7 +99,7 @@ class ButtonDefault extends Element_1.Element {
      * setClass
      * @param bnClass
      */
-    setClass(bnClass = ButtonClass.default) {
+    setClass(bnClass = ButtonClass_1.ButtonClass.default) {
         this._element.removeClass(this._class).addClass(bnClass);
         this._class = bnClass;
     }

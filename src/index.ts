@@ -34,7 +34,8 @@ export {SmallBoxBg, SmallBox} from './v1/Content/Box/SmallBox';
 
 // ## Content - Button
 export {ButtonBorderless} from './v1/Content/Button/ButtonBorderless';
-export {ButtonDefaultType, ButtonClass, ButtonDefaultClickFn, ButtonDefault} from './v1/Content/Button/ButtonDefault';
+export {ButtonClass} from './v1/Content/Button/ButtonClass';
+export {ButtonDefaultType, ButtonDefaultClickFn, ButtonDefault} from './v1/Content/Button/ButtonDefault';
 export {ButtonGroup} from './v1/Content/Button/ButtonGroup';
 export {ButtonListAddress} from './v1/Content/Button/ButtonListAddress';
 export {ButtonShowMore} from './v1/Content/Button/ButtonShowMore';
