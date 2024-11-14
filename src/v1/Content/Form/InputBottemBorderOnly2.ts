@@ -179,7 +179,9 @@ export class InputBottemBorderOnly2 extends Element {
                         }
 
                         this._inputGroup.datetimepicker({
-                            format: drformat,
+                            locale: {
+                                format: drformat,
+                            },
                             ranges: ranges,
                             lang: lang,
                             startDate: moment().startOf('month'),
