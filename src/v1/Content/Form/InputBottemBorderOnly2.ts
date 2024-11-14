@@ -98,7 +98,7 @@ export class InputBottemBorderOnly2 extends Element {
         }
 
         if (useInputGroup) {
-            this._inputGroup = jQuery(`<div class="input-group ${useInputGroup}" id="${tid}" data-target-input="nearest"></div>`).appendTo(telement);
+            this._inputGroup = jQuery(`<div class="input-group ${useInputGroup}" id="${tid}g" data-target-input="nearest"></div>`).appendTo(telement);
             telement = this._inputGroup;
         }
 
