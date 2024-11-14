@@ -19,7 +19,7 @@ export enum InputType {
 }
 
 export interface InputDateRanges {
-    [key: string]: string;
+    [key: string]: string|any;
 }
 
 export type InputTypeOptions = {

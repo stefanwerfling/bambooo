@@ -14,7 +14,7 @@ export declare enum InputType {
     daterange = "daterange"
 }
 export interface InputDateRanges {
-    [key: string]: string;
+    [key: string]: string | any;
 }
 export type InputTypeOptions = {
     ranges?: InputDateRanges;
