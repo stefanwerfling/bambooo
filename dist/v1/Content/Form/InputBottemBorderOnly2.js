@@ -169,10 +169,10 @@ class InputBottemBorderOnly2 extends Element_1.Element {
             case InputType.date:
             case InputType.time:
                 if (value === '') {
-                    this._inputGroup.data('datetimepicker').clear();
+                    this._element.data('datetimepicker').clear();
                 }
                 else {
-                    this._inputGroup.data('datetimepicker').date(value);
+                    this._element.data('datetimepicker').date(value);
                 }
                 break;
             default:
