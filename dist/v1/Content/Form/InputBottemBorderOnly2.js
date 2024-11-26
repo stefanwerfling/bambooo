@@ -113,7 +113,7 @@ class InputBottemBorderOnly2 extends Element_1.Element {
                         if (this._options.date_format) {
                             dformat = this._options.date_format;
                         }
-                        this._inputGroup.datetimepicker({
+                        this._element.datetimepicker({
                             format: dformat,
                             lang: lang
                         });
@@ -125,7 +125,7 @@ class InputBottemBorderOnly2 extends Element_1.Element {
                         if (this._options.time_format) {
                             tformat = this._options.time_format;
                         }
-                        this._inputGroup.datetimepicker({
+                        this._element.datetimepicker({
                             format: tformat,
                             lang: lang
                         });
@@ -141,7 +141,7 @@ class InputBottemBorderOnly2 extends Element_1.Element {
                         if (this._options.ranges) {
                             ranges = this._options.ranges;
                         }
-                        this._inputGroup.datetimepicker({
+                        this._element.datetimepicker({
                             format: drformat,
                             ranges: ranges,
                             lang: lang,
