@@ -109,7 +109,7 @@ class InputBottemBorderOnly2 extends Element_1.Element {
                     // Date --------------------------------------------------------------------------------------------
                     case InputType.date:
                         new Icon_1.Icon(button, Icon_1.IconFa.calendar);
-                        let dformat = 'YYYY-MM-DD dddd';
+                        let dformat = 'YYYY-MM-DD';
                         if (this._options.date_format) {
                             dformat = this._options.date_format;
                         }
@@ -133,7 +133,7 @@ class InputBottemBorderOnly2 extends Element_1.Element {
                     // Date-Range --------------------------------------------------------------------------------------
                     case InputType.daterange:
                         new Icon_1.Icon(button, Icon_1.IconFa.calendar);
-                        let drformat = 'YYYY-MM-DD dddd';
+                        let drformat = 'YYYY-MM-DD';
                         if (this._options.date_format) {
                             drformat = this._options.date_format;
                         }
