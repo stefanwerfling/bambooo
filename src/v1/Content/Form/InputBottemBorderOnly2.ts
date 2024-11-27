@@ -134,7 +134,7 @@ export class InputBottemBorderOnly2 extends Element {
                     case InputType.date:
                         new Icon(button, IconFa.calendar);
 
-                        let dformat = 'YYYY.MM.DD dddd';
+                        let dformat = 'YYYY-MM-DD dddd';
 
                         if (this._options.date_format) {
                             dformat = this._options.date_format;
@@ -166,7 +166,7 @@ export class InputBottemBorderOnly2 extends Element {
                     case InputType.daterange:
                         new Icon(button, IconFa.calendar);
 
-                        let drformat = 'YYYY.MM.DD dddd';
+                        let drformat = 'YYYY-MM-DD dddd';
 
                         if (this._options.date_format) {
                             drformat = this._options.date_format;
