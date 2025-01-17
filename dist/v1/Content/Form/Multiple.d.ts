@@ -5,6 +5,11 @@ import { SelectOption } from './SelectBottemBorderOnly2';
  */
 export declare class Multiple extends Element {
     /**
+     * Limit
+     * @protected
+     */
+    protected _limit: number;
+    /**
      * constructor
      * @param element
      * @param id
@@ -16,8 +21,13 @@ export declare class Multiple extends Element {
      */
     protected _reload(): void;
     /**
-     * addValue
-     * @param option
+     * Set limit
+     * @param {number} limit
+     */
+    setLimit(limit: number): void;
+    /**
+     * Add value
+     * @param {SelectOption} option
      */
     addValue(option: SelectOption): void;
     /**
@@ -26,7 +36,7 @@ export declare class Multiple extends Element {
     clearValues(): void;
     /**
      * setValue
-     * @param values
+     * @param {any[]} values
      */
     setValue(values: any[]): void;
     /**

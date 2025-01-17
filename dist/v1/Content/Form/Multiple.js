@@ -7,6 +7,11 @@ const Element_1 = require("../../Element");
  */
 class Multiple extends Element_1.Element {
     /**
+     * Limit
+     * @protected
+     */
+    _limit = 0;
+    /**
      * constructor
      * @param element
      * @param id
@@ -26,12 +31,21 @@ class Multiple extends Element_1.Element {
      */
     _reload() {
         this._element.select2({
-            theme: 'bootstrap4'
+            theme: 'bootstrap4',
+            maximumSelectionLength: this._limit
         });
     }
     /**
-     * addValue
-     * @param option
+     * Set limit
+     * @param {number} limit
+     */
+    setLimit(limit) {
+        this._limit = limit;
+        this._reload();
+    }
+    /**
+     * Add value
+     * @param {SelectOption} option
      */
     addValue(option) {
         jQuery(`<option value="${option.key}">${option.value}</option>`).appendTo(this._element);
@@ -46,7 +60,7 @@ class Multiple extends Element_1.Element {
     }
     /**
      * setValue
-     * @param values
+     * @param {any[]} values
      */
     setValue(values) {
         this._element.val(values);

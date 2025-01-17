@@ -7,6 +7,12 @@ import {SelectOption} from './SelectBottemBorderOnly2';
 export class Multiple extends Element {
 
     /**
+     * Limit
+     * @protected
+     */
+    protected _limit: number = 0;
+
+    /**
      * constructor
      * @param element
      * @param id
@@ -31,13 +37,23 @@ export class Multiple extends Element {
      */
     protected _reload(): void {
         this._element.select2({
-            theme: 'bootstrap4'
+            theme: 'bootstrap4',
+            maximumSelectionLength: this._limit
         });
     }
 
     /**
-     * addValue
-     * @param option
+     * Set limit
+     * @param {number} limit
+     */
+    public setLimit(limit: number): void {
+        this._limit = limit;
+        this._reload();
+    }
+
+    /**
+     * Add value
+     * @param {SelectOption} option
      */
     public addValue(option: SelectOption): void {
         jQuery(`<option value="${option.key}">${option.value}</option>`).appendTo(this._element);
@@ -54,7 +70,7 @@ export class Multiple extends Element {
 
     /**
      * setValue
-     * @param values
+     * @param {any[]} values
      */
     public setValue(values: any[]): void {
         this._element.val(values);
@@ -67,4 +83,5 @@ export class Multiple extends Element {
     public getValue(): any[] {
         return this._element.val();
     }
+
 }

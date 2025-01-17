@@ -24,7 +24,7 @@ export declare class FormGroup extends Element {
      * getLabelElement
      * @returns {JQuery<HTMLElement>}
      */
-    getLabelElement(): any;
+    getLabelElement(): JQuery<HTMLElement>;
     /**
      * Clear the elements from group
      */

@@ -43,7 +43,7 @@ export class FormGroup extends Element {
      * getLabelElement
      * @returns {JQuery<HTMLElement>}
      */
-    public getLabelElement(): any {
+    public getLabelElement(): JQuery<HTMLElement> {
         return this._label;
     }
 
