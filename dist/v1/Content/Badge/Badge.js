@@ -24,7 +24,7 @@ var BadgeType;
     BadgeType["color_cream_bgreen"] = "#40E0D0";
     BadgeType["color_cream_blue"] = "#6495ED";
     BadgeType["color_cream_purpel"] = "#CCCCFF";
-})(BadgeType = exports.BadgeType || (exports.BadgeType = {}));
+})(BadgeType || (exports.BadgeType = BadgeType = {}));
 /**
  * Badge
  */

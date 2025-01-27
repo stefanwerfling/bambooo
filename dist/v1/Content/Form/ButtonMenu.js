@@ -11,7 +11,7 @@ var ButtonMenuPosition;
 (function (ButtonMenuPosition) {
     ButtonMenuPosition["none"] = "unset";
     ButtonMenuPosition["relative"] = "relative";
-})(ButtonMenuPosition = exports.ButtonMenuPosition || (exports.ButtonMenuPosition = {}));
+})(ButtonMenuPosition || (exports.ButtonMenuPosition = ButtonMenuPosition = {}));
 /**
  * ButtonMenu
  */

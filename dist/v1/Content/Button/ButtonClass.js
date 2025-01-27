@@ -13,4 +13,4 @@ var ButtonClass;
     ButtonClass["success"] = "btn-success";
     ButtonClass["primary"] = "btn-primary";
     ButtonClass["tool"] = "btn-tool";
-})(ButtonClass = exports.ButtonClass || (exports.ButtonClass = {}));
+})(ButtonClass || (exports.ButtonClass = ButtonClass = {}));

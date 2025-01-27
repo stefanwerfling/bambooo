@@ -11,7 +11,7 @@ var PTextType;
     PTextType["danger"] = "text-danger";
     PTextType["warning"] = "text-warning";
     PTextType["muted"] = "text-muted";
-})(PTextType = exports.PTextType || (exports.PTextType = {}));
+})(PTextType || (exports.PTextType = PTextType = {}));
 /**
  * PText
  */

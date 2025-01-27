@@ -8,7 +8,7 @@ var FormRowColType;
     FormRowColType[FormRowColType["sm"] = 1] = "sm";
     FormRowColType[FormRowColType["lg"] = 2] = "lg";
     FormRowColType[FormRowColType["auto"] = 3] = "auto";
-})(FormRowColType = exports.FormRowColType || (exports.FormRowColType = {}));
+})(FormRowColType || (exports.FormRowColType = FormRowColType = {}));
 /**
  * FormRow
  */

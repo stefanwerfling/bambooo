@@ -13,7 +13,7 @@ var ModalDialogType;
     ModalDialogType["small"] = "modal-sm";
     ModalDialogType["large"] = "modal-lg";
     ModalDialogType["xlarge"] = "modal-xl";
-})(ModalDialogType = exports.ModalDialogType || (exports.ModalDialogType = {}));
+})(ModalDialogType || (exports.ModalDialogType = ModalDialogType = {}));
 /**
  * ModalDialog
  */

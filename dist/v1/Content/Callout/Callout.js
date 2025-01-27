@@ -9,7 +9,7 @@ var CalloutType;
     CalloutType["info"] = "callout-info";
     CalloutType["success"] = "callout-success";
     CalloutType["default"] = "";
-})(CalloutType = exports.CalloutType || (exports.CalloutType = {}));
+})(CalloutType || (exports.CalloutType = CalloutType = {}));
 /**
  * Callout
  */

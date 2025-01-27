@@ -10,7 +10,7 @@ var CaretType;
     CaretType["up"] = "fa-caret-up";
     CaretType["left"] = "fa-caret-left";
     CaretType["down"] = "fa-caret-down";
-})(CaretType = exports.CaretType || (exports.CaretType = {}));
+})(CaretType || (exports.CaretType = CaretType = {}));
 /**
  * Caret
  */

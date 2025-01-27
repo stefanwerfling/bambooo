@@ -6,12 +6,12 @@ var ImageArt;
 (function (ImageArt) {
     ImageArt["base"] = "";
     ImageArt["profile"] = "profile-user-img";
-})(ImageArt = exports.ImageArt || (exports.ImageArt = {}));
+})(ImageArt || (exports.ImageArt = ImageArt = {}));
 var ImageType;
 (function (ImageType) {
     ImageType["none"] = "";
     ImageType["fluidCircle"] = "img-fluid img-circle";
-})(ImageType = exports.ImageType || (exports.ImageType = {}));
+})(ImageType || (exports.ImageType = ImageType = {}));
 /**
  * Image
  */

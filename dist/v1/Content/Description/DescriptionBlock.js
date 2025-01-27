@@ -9,7 +9,7 @@ var DescriptionBlockBorder;
 (function (DescriptionBlockBorder) {
     DescriptionBlockBorder["none"] = "";
     DescriptionBlockBorder["right"] = "border-right";
-})(DescriptionBlockBorder = exports.DescriptionBlockBorder || (exports.DescriptionBlockBorder = {}));
+})(DescriptionBlockBorder || (exports.DescriptionBlockBorder = DescriptionBlockBorder = {}));
 /**
  * DescriptionBlock
  */

@@ -11,7 +11,7 @@ var CardBodyType;
     CardBodyType["none"] = "";
     CardBodyType["table"] = "table-responsive p-0";
     CardBodyType["profile"] = "box-profile";
-})(CardBodyType = exports.CardBodyType || (exports.CardBodyType = {}));
+})(CardBodyType || (exports.CardBodyType = CardBodyType = {}));
 /**
  * CardType
  */
@@ -24,7 +24,7 @@ var CardType;
     CardType["danger"] = "card-danger";
     CardType["info"] = "card-info";
     CardType["secondary"] = "card-secondary";
-})(CardType = exports.CardType || (exports.CardType = {}));
+})(CardType || (exports.CardType = CardType = {}));
 /**
  * CardLine
  */
@@ -32,7 +32,7 @@ var CardLine;
 (function (CardLine) {
     CardLine["none"] = "";
     CardLine["outline"] = "card-outline";
-})(CardLine = exports.CardLine || (exports.CardLine = {}));
+})(CardLine || (exports.CardLine = CardLine = {}));
 /**
  * Card
  */

@@ -8,7 +8,7 @@ var ArrowSimpleDirection;
     ArrowSimpleDirection["down"] = "down";
     ArrowSimpleDirection["left"] = "left";
     ArrowSimpleDirection["right"] = "right";
-})(ArrowSimpleDirection = exports.ArrowSimpleDirection || (exports.ArrowSimpleDirection = {}));
+})(ArrowSimpleDirection || (exports.ArrowSimpleDirection = ArrowSimpleDirection = {}));
 class ArrowSimple extends Element_1.Element {
     /**
      * constructor

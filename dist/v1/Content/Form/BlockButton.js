@@ -9,7 +9,7 @@ var BlockButtonType;
     BlockButtonType[BlockButtonType["BlockSmall"] = 2] = "BlockSmall";
     BlockButtonType[BlockButtonType["BlockTool"] = 3] = "BlockTool";
     BlockButtonType[BlockButtonType["BlockXS"] = 4] = "BlockXS";
-})(BlockButtonType = exports.BlockButtonType || (exports.BlockButtonType = {}));
+})(BlockButtonType || (exports.BlockButtonType = BlockButtonType = {}));
 /**
  * BlockButton
  */

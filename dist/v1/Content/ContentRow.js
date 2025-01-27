@@ -11,7 +11,7 @@ var ContentRowClass;
 (function (ContentRowClass) {
     ContentRowClass["none"] = "";
     ContentRowClass["mb2"] = "mb-2";
-})(ContentRowClass = exports.ContentRowClass || (exports.ContentRowClass = {}));
+})(ContentRowClass || (exports.ContentRowClass = ContentRowClass = {}));
 /**
  * ContentRow
  */

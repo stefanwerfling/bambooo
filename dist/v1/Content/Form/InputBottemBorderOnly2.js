@@ -22,7 +22,7 @@ var InputType;
     InputType["datetime"] = "datetime";
     InputType["time"] = "time";
     InputType["daterange"] = "daterange";
-})(InputType = exports.InputType || (exports.InputType = {}));
+})(InputType || (exports.InputType = InputType = {}));
 /**
  * InputBottemBorderOnly2
  */

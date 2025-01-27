@@ -6,7 +6,7 @@ var NavbarPositionType;
 (function (NavbarPositionType) {
     NavbarPositionType[NavbarPositionType["left"] = 0] = "left";
     NavbarPositionType[NavbarPositionType["right"] = 1] = "right";
-})(NavbarPositionType = exports.NavbarPositionType || (exports.NavbarPositionType = {}));
+})(NavbarPositionType || (exports.NavbarPositionType = NavbarPositionType = {}));
 ;
 /**
  * Navbar position

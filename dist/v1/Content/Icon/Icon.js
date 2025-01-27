@@ -29,7 +29,7 @@ var IconFa;
     IconFa["redo"] = "fa fa-redo-alt";
     IconFa["paperclip"] = "fas fa-paperclip";
     IconFa["camera"] = "fas fa-camera";
-})(IconFa = exports.IconFa || (exports.IconFa = {}));
+})(IconFa || (exports.IconFa = IconFa = {}));
 /**
  * Icon
  */

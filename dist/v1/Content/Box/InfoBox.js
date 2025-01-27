@@ -13,7 +13,7 @@ var InfoBoxBg;
     InfoBoxBg["success"] = "bg-success";
     InfoBoxBg["warning"] = "bg-warning";
     InfoBoxBg["info"] = "bg-info";
-})(InfoBoxBg = exports.InfoBoxBg || (exports.InfoBoxBg = {}));
+})(InfoBoxBg || (exports.InfoBoxBg = InfoBoxBg = {}));
 ;
 /**
  * InfoBoxMb
@@ -22,7 +22,7 @@ var InfoBoxMb;
 (function (InfoBoxMb) {
     InfoBoxMb["none"] = "";
     InfoBoxMb["mb3"] = "mb-3";
-})(InfoBoxMb = exports.InfoBoxMb || (exports.InfoBoxMb = {}));
+})(InfoBoxMb || (exports.InfoBoxMb = InfoBoxMb = {}));
 /**
  * InfoBox
  */

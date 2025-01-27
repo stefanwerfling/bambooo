@@ -8,7 +8,7 @@ var SmallBoxBg;
     SmallBoxBg["success"] = "bg-success";
     SmallBoxBg["warrning"] = "bg-warning";
     SmallBoxBg["danger"] = "bg-danger";
-})(SmallBoxBg = exports.SmallBoxBg || (exports.SmallBoxBg = {}));
+})(SmallBoxBg || (exports.SmallBoxBg = SmallBoxBg = {}));
 class SmallBox extends Element_1.Element {
     _bg = null;
     _innerElement;

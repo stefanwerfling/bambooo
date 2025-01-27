@@ -10,7 +10,7 @@ var ButtonDefaultType;
 (function (ButtonDefaultType) {
     ButtonDefaultType["none"] = "";
     ButtonDefaultType["small"] = "btn-sm";
-})(ButtonDefaultType = exports.ButtonDefaultType || (exports.ButtonDefaultType = {}));
+})(ButtonDefaultType || (exports.ButtonDefaultType = ButtonDefaultType = {}));
 /**
  * Button default Position
  */
@@ -18,7 +18,7 @@ var ButtonDefaultPosition;
 (function (ButtonDefaultPosition) {
     ButtonDefaultPosition["left"] = "";
     ButtonDefaultPosition["right"] = "float-right";
-})(ButtonDefaultPosition = exports.ButtonDefaultPosition || (exports.ButtonDefaultPosition = {}));
+})(ButtonDefaultPosition || (exports.ButtonDefaultPosition = ButtonDefaultPosition = {}));
 /**
  * ButtonDefault
  */

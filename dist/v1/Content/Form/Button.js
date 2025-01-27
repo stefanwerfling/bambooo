@@ -10,7 +10,7 @@ var ButtonType;
     ButtonType["default"] = "default";
     ButtonType["borderless"] = "borderless";
     ButtonType["cardCollapse"] = "cardCollapse";
-})(ButtonType = exports.ButtonType || (exports.ButtonType = {}));
+})(ButtonType || (exports.ButtonType = ButtonType = {}));
 /**
  * Button
  */

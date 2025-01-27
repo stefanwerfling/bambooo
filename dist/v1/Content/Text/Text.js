@@ -9,7 +9,7 @@ var TextAlignment;
 (function (TextAlignment) {
     TextAlignment["none"] = "";
     TextAlignment["center"] = "text-center";
-})(TextAlignment = exports.TextAlignment || (exports.TextAlignment = {}));
+})(TextAlignment || (exports.TextAlignment = TextAlignment = {}));
 /**
  * Text
  */

@@ -1,4 +1,3 @@
-/// <reference types="jquery" />
 import { Widget, WidgetOptions } from '../Widget';
 /**
  * Type sidebare logo option title

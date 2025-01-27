@@ -14,7 +14,7 @@ var CircleColor;
     CircleColor["orange"] = "text-orange";
     CircleColor["yellow"] = "text-yellow";
     CircleColor["gray"] = "text-gray";
-})(CircleColor = exports.CircleColor || (exports.CircleColor = {}));
+})(CircleColor || (exports.CircleColor = CircleColor = {}));
 ;
 /**
  * Circle

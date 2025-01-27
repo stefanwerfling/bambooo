@@ -46,6 +46,7 @@ export { InputType, InputBottemBorderOnly2 } from './v1/Content/Form/InputBottem
 export { Multiple } from './v1/Content/Form/Multiple';
 export { RadioInput } from './v1/Content/Form/RadioInput';
 export { SelectChangeFn, SelectOption, SelectBottemBorderOnly2 } from './v1/Content/Form/SelectBottemBorderOnly2';
+export { Summernote } from './v1/Content/Form/Summernote';
 export { Switch, SwitchChangeFn } from './v1/Content/Form/Switch';
 export { SwitchTimeoutFn, SwitchTimer } from './v1/Content/Form/SwitchTimer';
 export { Textarea } from './v1/Content/Form/Textarea';

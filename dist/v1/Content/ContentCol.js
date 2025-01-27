@@ -33,7 +33,7 @@ var ContentColSize;
     ContentColSize["colSm6"] = "col-sm-6";
     ContentColSize["colSm12"] = "col-sm-12";
     ContentColSize["col12ColSm6ColMd3"] = "col-12 col-sm-6 col-md-3";
-})(ContentColSize = exports.ContentColSize || (exports.ContentColSize = {}));
+})(ContentColSize || (exports.ContentColSize = ContentColSize = {}));
 /**
  * ContentCol
  */
