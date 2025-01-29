@@ -19,7 +19,7 @@ export { InfoBoxBg, InfoBoxMb, InfoBox } from './v1/Content/Box/InfoBox';
 export { SmallBoxBg, SmallBox } from './v1/Content/Box/SmallBox';
 export { ButtonBorderless } from './v1/Content/Button/ButtonBorderless';
 export { ButtonClass } from './v1/Content/Button/ButtonClass';
-export { ButtonDefaultType, ButtonDefaultClickFn, ButtonDefault } from './v1/Content/Button/ButtonDefault';
+export { ButtonDefaultType, ButtonDefaultClickFn, ButtonDefault, ButtonDefaultPosition } from './v1/Content/Button/ButtonDefault';
 export { ButtonGroup } from './v1/Content/Button/ButtonGroup';
 export { ButtonListAddress } from './v1/Content/Button/ButtonListAddress';
 export { ButtonShowMore } from './v1/Content/Button/ButtonShowMore';
