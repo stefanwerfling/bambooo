@@ -21,13 +21,13 @@ export declare class LeftNavbarLink {
     private _aElement;
     /**
      * constructor
-     * @param leftNavbar
-     * @param title
-     * @param onClickFn
-     * @param linkClass
-     * @param icon
+     * @param {LeftNavbar} leftNavbar
+     * @param {string|LangText} title
+     * @param {LeftNavbarLinkFn|null} onClickFn
+     * @param {string} linkClass
+     * @param {IconFa|string|null} icon
      */
-    constructor(leftNavbar: LeftNavbar, title: string | LangText, onClickFn?: LeftNavbarLinkFn | null, linkClass?: string, icon?: IconFa | null);
+    constructor(leftNavbar: LeftNavbar, title: string | LangText, onClickFn?: LeftNavbarLinkFn | null, linkClass?: string, icon?: IconFa | string | null);
     /**
      * getLiElement
      */
