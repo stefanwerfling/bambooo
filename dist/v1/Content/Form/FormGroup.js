@@ -10,7 +10,7 @@ class FormGroup extends Element_1.Element {
      * label
      * @protected
      */
-    _label;
+    _label = null;
     /**
      * constructor
      * @param {JQuery<HTMLElement>} element
@@ -20,10 +20,19 @@ class FormGroup extends Element_1.Element {
         super();
         const telement = this._getAnyElement(element);
         this._element = jQuery('<div class="form-group" />').appendTo(telement);
-        this._label = jQuery('<label/>').appendTo(this._element);
         if (label) {
             this.setLabel(label);
         }
+    }
+    /**
+     * Create the label object element
+     * @protected
+     */
+    _getLabel() {
+        if (this._label === null) {
+            this._label = jQuery('<label/>').appendTo(this._element);
+        }
+        return this._label;
     }
     /**
      * setLabel
@@ -31,22 +40,26 @@ class FormGroup extends Element_1.Element {
      */
     setLabel(label) {
         const tlabel = this._getAnyElement(label);
-        this._label.empty().append(tlabel);
+        this._getLabel().empty().append(tlabel);
     }
     /**
      * getLabelElement
      * @returns {JQuery<HTMLElement>}
      */
     getLabelElement() {
-        return this._label;
+        return this._getLabel();
     }
     /**
      * Clear the elements from group
      */
     clear() {
-        this._label.detach();
+        if (this._label !== null) {
+            this._label.detach();
+        }
         this._element.empty();
-        this._label.appendTo(this._element);
+        if (this._label !== null) {
+            this._label.appendTo(this._element);
+        }
     }
 }
 exports.FormGroup = FormGroup;
