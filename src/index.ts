@@ -76,6 +76,7 @@ export {FormGroupButton, FormGroupButtonClickFn} from './v1/Content/Form/FormGro
 export {FormRow, FormRowColType} from './v1/Content/Form/FormRow';
 export {InputType, InputBottemBorderOnly2} from './v1/Content/Form/InputBottemBorderOnly2';
 export {Multiple} from './v1/Content/Form/Multiple';
+export {Radio} from './v1/Content/Form/Radio';
 export {RadioInput} from './v1/Content/Form/RadioInput';
 export {SelectChangeFn, SelectOption, SelectBottemBorderOnly2} from './v1/Content/Form/SelectBottemBorderOnly2';
 export {Summernote} from './v1/Content/Form/Summernote';

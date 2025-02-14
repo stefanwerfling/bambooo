@@ -10,7 +10,7 @@ export class FormGroup extends Element {
      * label
      * @protected
      */
-    protected _label: JQuery<HTMLElement>;
+    protected _label: JQuery<HTMLElement>|null = null;
 
     /**
      * constructor
@@ -23,11 +23,22 @@ export class FormGroup extends Element {
         const telement = this._getAnyElement(element);
 
         this._element = jQuery('<div class="form-group" />').appendTo(telement);
-        this._label = jQuery('<label/>').appendTo(this._element);
 
         if (label) {
             this.setLabel(label);
         }
+    }
+
+    /**
+     * Create the label object element
+     * @protected
+     */
+    protected _getLabel(): JQuery<HTMLElement> {
+        if (this._label === null) {
+            this._label = jQuery('<label/>').appendTo(this._element);
+        }
+
+        return this._label;
     }
 
     /**
@@ -36,7 +47,7 @@ export class FormGroup extends Element {
      */
     public setLabel(label: string|JQuery<HTMLElement>|LangText): void {
         const tlabel = this._getAnyElement(label);
-        this._label.empty().append(tlabel);
+        this._getLabel().empty().append(tlabel);
     }
 
     /**
@@ -44,16 +55,22 @@ export class FormGroup extends Element {
      * @returns {JQuery<HTMLElement>}
      */
     public getLabelElement(): JQuery<HTMLElement> {
-        return this._label;
+        return this._getLabel();
     }
 
     /**
      * Clear the elements from group
      */
     public clear(): void {
-        this._label.detach();
+        if (this._label !== null) {
+            this._label.detach();
+        }
+
         this._element.empty();
-        this._label.appendTo(this._element);
+
+        if (this._label !== null) {
+            this._label.appendTo(this._element);
+        }
     }
 
 }
