@@ -1,10 +1,15 @@
 import { BClass } from '../../../Core/BTypes';
 import { Element } from '../../Element';
 import { ICollectionEntryWidget } from './CollectionEntryWidget';
+export declare enum CollectionWidgetOnUpdateEvent {
+    add = 0,
+    remove = 1,
+    removeAll = 2
+}
 /**
  * Collection widget on update
  */
-export type CollectionWidgetOnUpdate<T> = (entry?: T) => void;
+export type CollectionWidgetOnUpdate<T> = (event: CollectionWidgetOnUpdateEvent, entry?: T) => void;
 /**
  * Collection Widget
  */

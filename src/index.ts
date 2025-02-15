@@ -141,7 +141,7 @@ export {SidebarUserPanel, SidebarUserPanelClickFn} from './v1/Sidebar/SidebarUse
 
 // # Widget
 export {ICollectionEntryWidget} from './v1/Widget/Collection/CollectionEntryWidget';
-export {CollectionWidget} from './v1/Widget/Collection/CollectionWidget';
+export {CollectionWidgetOnUpdateEvent, CollectionWidgetOnUpdate, CollectionWidget} from './v1/Widget/Collection/CollectionWidget';
 export {CollectionCardWidget} from './v1/Widget/Collection/CollectionCardWidget';
 
 // # Utils

@@ -85,7 +85,7 @@ export { SidebarMenuItemBadge } from './v1/Sidebar/SidebarMenuItemBadge';
 export { SidebarMenuTree } from './v1/Sidebar/SidebarMenuTree';
 export { SidebarUserPanel, SidebarUserPanelClickFn } from './v1/Sidebar/SidebarUserPanel';
 export { ICollectionEntryWidget } from './v1/Widget/Collection/CollectionEntryWidget';
-export { CollectionWidget } from './v1/Widget/Collection/CollectionWidget';
+export { CollectionWidgetOnUpdateEvent, CollectionWidgetOnUpdate, CollectionWidget } from './v1/Widget/Collection/CollectionWidget';
 export { CollectionCardWidget } from './v1/Widget/Collection/CollectionCardWidget';
 export { UtilColor } from './v1/Utils/UtilColor';
 export { UtilAvatarGenerator } from './v1/Utils/UtilAvatarGenerator';

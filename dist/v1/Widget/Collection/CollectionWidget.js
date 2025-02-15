@@ -1,8 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CollectionWidget = void 0;
+exports.CollectionWidget = exports.CollectionWidgetOnUpdateEvent = void 0;
 const ButtonClass_1 = require("../../Content/Button/ButtonClass");
 const ButtonDefault_1 = require("../../Content/Button/ButtonDefault");
+var CollectionWidgetOnUpdateEvent;
+(function (CollectionWidgetOnUpdateEvent) {
+    CollectionWidgetOnUpdateEvent[CollectionWidgetOnUpdateEvent["add"] = 0] = "add";
+    CollectionWidgetOnUpdateEvent[CollectionWidgetOnUpdateEvent["remove"] = 1] = "remove";
+    CollectionWidgetOnUpdateEvent[CollectionWidgetOnUpdateEvent["removeAll"] = 2] = "removeAll";
+})(CollectionWidgetOnUpdateEvent || (exports.CollectionWidgetOnUpdateEvent = CollectionWidgetOnUpdateEvent = {}));
 /**
  * Collection Widget
  */
@@ -87,7 +93,7 @@ class CollectionWidget {
     removeObject(object) {
         this._removeObject(object);
         if (this._onUpdate) {
-            this._onUpdate(object);
+            this._onUpdate(CollectionWidgetOnUpdateEvent.remove, object);
         }
     }
     /**
@@ -110,7 +116,7 @@ class CollectionWidget {
     addObject(object) {
         this._objects.push(object);
         if (this._onUpdate) {
-            this._onUpdate(object);
+            this._onUpdate(CollectionWidgetOnUpdateEvent.add, object);
         }
     }
     /**
@@ -123,7 +129,7 @@ class CollectionWidget {
         }
         this._element.getElement().empty();
         if (this._onUpdate) {
-            this._onUpdate();
+            this._onUpdate(CollectionWidgetOnUpdateEvent.removeAll);
         }
     }
 }

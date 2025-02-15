@@ -4,10 +4,16 @@ import {Element} from '../../Element';
 import {ButtonDefault, ButtonDefaultType} from '../../Content/Button/ButtonDefault';
 import {ICollectionEntryWidget} from './CollectionEntryWidget';
 
+export enum CollectionWidgetOnUpdateEvent {
+    add,
+    remove,
+    removeAll
+}
+
 /**
  * Collection widget on update
  */
-export type CollectionWidgetOnUpdate<T> = (entry?: T) => void;
+export type CollectionWidgetOnUpdate<T> = (event: CollectionWidgetOnUpdateEvent, entry?: T) => void;
 
 /**
  * Collection Widget
@@ -122,7 +128,10 @@ export class CollectionWidget<T extends ICollectionEntryWidget, E extends Elemen
         this._removeObject(object);
 
         if (this._onUpdate) {
-            this._onUpdate(object);
+            this._onUpdate(
+                CollectionWidgetOnUpdateEvent.remove,
+                object
+            );
         }
     }
 
@@ -149,7 +158,10 @@ export class CollectionWidget<T extends ICollectionEntryWidget, E extends Elemen
         this._objects.push(object);
 
         if (this._onUpdate) {
-            this._onUpdate(object);
+            this._onUpdate(
+                CollectionWidgetOnUpdateEvent.add,
+                object
+            );
         }
     }
 
@@ -166,7 +178,7 @@ export class CollectionWidget<T extends ICollectionEntryWidget, E extends Elemen
         this._element.getElement().empty();
 
         if (this._onUpdate) {
-            this._onUpdate();
+            this._onUpdate(CollectionWidgetOnUpdateEvent.removeAll);
         }
     }
 
