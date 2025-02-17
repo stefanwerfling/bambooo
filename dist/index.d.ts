@@ -87,6 +87,7 @@ export { SidebarUserPanel, SidebarUserPanelClickFn } from './v1/Sidebar/SidebarU
 export { ICollectionEntryWidget } from './v1/Widget/Collection/CollectionEntryWidget';
 export { CollectionWidgetOnUpdateEvent, CollectionWidgetOnUpdate, CollectionWidget } from './v1/Widget/Collection/CollectionWidget';
 export { CollectionCardWidget } from './v1/Widget/Collection/CollectionCardWidget';
+export { SearchWidgetOnTemplateSelection, SearchWidgetOnTemplateResult, SearchWidgetOnEvent, SearchWidgetData, SearchWidget } from './v1/Widget/Search/SearchWidget';
 export { UtilColor } from './v1/Utils/UtilColor';
 export { UtilAvatarGenerator } from './v1/Utils/UtilAvatarGenerator';
 export { UtilDownload } from './v1/Utils/UtilDownload';

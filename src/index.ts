@@ -143,6 +143,7 @@ export {SidebarUserPanel, SidebarUserPanelClickFn} from './v1/Sidebar/SidebarUse
 export {ICollectionEntryWidget} from './v1/Widget/Collection/CollectionEntryWidget';
 export {CollectionWidgetOnUpdateEvent, CollectionWidgetOnUpdate, CollectionWidget} from './v1/Widget/Collection/CollectionWidget';
 export {CollectionCardWidget} from './v1/Widget/Collection/CollectionCardWidget';
+export {SearchWidgetOnTemplateSelection, SearchWidgetOnTemplateResult, SearchWidgetOnEvent, SearchWidgetData, SearchWidget} from './v1/Widget/Search/SearchWidget';
 
 // # Utils
 export {UtilColor} from './v1/Utils/UtilColor';
