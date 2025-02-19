@@ -57,7 +57,7 @@ export { Image, ImageArt, ImageType } from './v1/Content/Image/Image';
 export { ImageCoin } from './v1/Content/Image/ImageCoin';
 export { ProgressbarStyle, ProgressbarColor, Progressbar } from './v1/Content/Progress/Progressbar';
 export { StepperLinearStepEventFn, StepperLinear } from './v1/Content/Stepper/StepperLinear';
-export { NavTab, NavTabElements } from './v1/Content/Tab/NavTab';
+export { NavTabOnLoad, NavTabElements, NavTab } from './v1/Content/Tab/NavTab';
 export { Table } from './v1/Content/Table/Table';
 export { Td } from './v1/Content/Table/Td';
 export { Th } from './v1/Content/Table/Th';

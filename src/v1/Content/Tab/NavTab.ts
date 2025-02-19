@@ -1,5 +1,6 @@
 import {Element} from '../../Element';
 import {LangText} from '../../Lang/LangText';
+import Event = JQuery.Event;
 
 /**
  * NavTabElements
@@ -9,6 +10,14 @@ export type NavTabElements = {
     title: any;
     body: any;
 }
+
+/**
+ * NavTabOnLoad
+ */
+export type NavTabOnLoad = (event: Event, ui: {
+    tab: any;
+    panel: any;
+}) => void;
 
 /**
  * NavTab
@@ -44,7 +53,7 @@ export class NavTab extends Element {
         const aelement = this._getAnyElement(element);
 
         this._nav = jQuery(`<ul class="nav nav-tabs" id="${id}" role="tablist" />`).appendTo(aelement);
-        this._body = jQuery('<div class="tab-content" id="${id}-tabContent" />').appendTo(aelement);
+        this._body = jQuery(`<div class="tab-content" id="${id}-tabContent" />`).appendTo(aelement);
     }
 
     /**
@@ -91,4 +100,15 @@ export class NavTab extends Element {
             }
         });
     }
+
+    /**
+     * Set on load
+     * @param {NavTabOnLoad} onload
+     */
+    public setOnLoad(onload: NavTabOnLoad): void {
+        this._nav.on('tabsload', (event: any, ui: any) => {
+            onload(event, ui);
+        });
+    }
+
 }

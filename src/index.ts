@@ -99,7 +99,7 @@ export {ProgressbarStyle, ProgressbarColor, Progressbar} from './v1/Content/Prog
 export {StepperLinearStepEventFn, StepperLinear} from './v1/Content/Stepper/StepperLinear';
 
 // ## Content - Tab
-export {NavTab, NavTabElements} from './v1/Content/Tab/NavTab';
+export {NavTabOnLoad, NavTabElements, NavTab} from './v1/Content/Tab/NavTab';
 
 // ## Content - Table
 export {Table} from './v1/Content/Table/Table';

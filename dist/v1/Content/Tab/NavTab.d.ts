@@ -1,5 +1,6 @@
 import { Element } from '../../Element';
 import { LangText } from '../../Lang/LangText';
+import Event = JQuery.Event;
 /**
  * NavTabElements
  */
@@ -8,6 +9,13 @@ export type NavTabElements = {
     title: any;
     body: any;
 };
+/**
+ * NavTabOnLoad
+ */
+export type NavTabOnLoad = (event: Event, ui: {
+    tab: any;
+    panel: any;
+}) => void;
 /**
  * NavTab
  */
@@ -44,4 +52,9 @@ export declare class NavTab extends Element {
      * @param index
      */
     setTabSelect(index: number): void;
+    /**
+     * Set on load
+     * @param {NavTabOnLoad} onload
+     */
+    setOnLoad(onload: NavTabOnLoad): void;
 }

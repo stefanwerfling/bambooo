@@ -30,7 +30,7 @@ class NavTab extends Element_1.Element {
         super();
         const aelement = this._getAnyElement(element);
         this._nav = jQuery(`<ul class="nav nav-tabs" id="${id}" role="tablist" />`).appendTo(aelement);
-        this._body = jQuery('<div class="tab-content" id="${id}-tabContent" />').appendTo(aelement);
+        this._body = jQuery(`<div class="tab-content" id="${id}-tabContent" />`).appendTo(aelement);
     }
     /**
      * addTab
@@ -66,6 +66,15 @@ class NavTab extends Element_1.Element {
                 // @ts-ignore
                 jQuery(telement).tab('show');
             }
+        });
+    }
+    /**
+     * Set on load
+     * @param {NavTabOnLoad} onload
+     */
+    setOnLoad(onload) {
+        this._nav.on('tabsload', (event, ui) => {
+            onload(event, ui);
         });
     }
 }
