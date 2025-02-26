@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ButtonMenu = exports.ButtonMenuPosition = void 0;
 const LangText_1 = require("../../Lang/LangText");
+const ButtonClass_js_1 = require("../Button/ButtonClass.js");
 const Icon_1 = require("../Icon/Icon");
 const Button_1 = require("./Button");
 /**
@@ -33,11 +34,12 @@ class ButtonMenu extends Button_1.Button {
      * @param {boolean} positonRight
      * @param {ButtonType} type
      * @param {ButtonMenuPosition} position
+     * @param {ButtonClass} bnClass
      */
-    constructor(element, icon = null, positonRight = false, type = Button_1.ButtonType.default, position = ButtonMenuPosition.relative) {
+    constructor(element, icon = null, positonRight = false, type = Button_1.ButtonType.default, position = ButtonMenuPosition.relative, bnClass = ButtonClass_js_1.ButtonClass.default) {
         const divGrp = jQuery('<div class="btn-group"/>');
         divGrp.css('position', `${position}`);
-        super(divGrp, type);
+        super(divGrp, type, bnClass);
         const telement = this._getAnyElement(element);
         divGrp.appendTo(telement);
         if (icon !== null) {

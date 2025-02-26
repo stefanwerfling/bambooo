@@ -1,4 +1,5 @@
 import {LangText} from '../../Lang/LangText';
+import {ButtonClass} from '../Button/ButtonClass.js';
 import {Icon, IconFa} from '../Icon/Icon';
 import {Button, ButtonClickFn, ButtonType} from './Button';
 
@@ -34,18 +35,20 @@ export class ButtonMenu extends Button {
      * @param {boolean} positonRight
      * @param {ButtonType} type
      * @param {ButtonMenuPosition} position
+     * @param {ButtonClass} bnClass
      */
     public constructor(
         element: any,
         icon: IconFa|string|null = null,
         positonRight: boolean = false,
         type: ButtonType = ButtonType.default,
-        position: ButtonMenuPosition = ButtonMenuPosition.relative
+        position: ButtonMenuPosition = ButtonMenuPosition.relative,
+        bnClass: ButtonClass = ButtonClass.default
     ) {
         const divGrp = jQuery('<div class="btn-group"/>');
         divGrp.css('position', `${position}`);
 
-        super(divGrp, type);
+        super(divGrp, type, bnClass);
 
         const telement = this._getAnyElement(element);
         divGrp.appendTo(telement)

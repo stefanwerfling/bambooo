@@ -1,4 +1,5 @@
 import {Element} from '../../Element';
+import {ButtonClass} from '../Button/ButtonClass.js';
 
 /**
  * ButtonType
@@ -20,11 +21,26 @@ export type ButtonClickFn = () => void;
 export class Button extends Element {
 
     /**
+     * click enable
+     * @protected
+     */
+    protected _clickEnable = true;
+
+    /**
      * constructor
      * @param {any} element
      * @param {ButtonType} type
+     * @param {ButtonClass} bnClass
+     * @param {string} moreClass
+     * @param {string} moreAttr
      */
-    public constructor(element: any, type: ButtonType = ButtonType.default) {
+    public constructor(
+        element: any,
+        type: ButtonType = ButtonType.default,
+        bnClass: ButtonClass = ButtonClass.default,
+        moreClass: string = '',
+        moreAttr: string = '',
+    ) {
         super();
 
         const telement = this._getAnyElement(element);
@@ -39,7 +55,7 @@ export class Button extends Element {
                 break;
 
             default:
-                this._element = jQuery(`<button type="button" class="btn btn-default"></button>`).appendTo(telement);
+                this._element = jQuery(`<button type="button" class="btn ${bnClass} ${moreClass}" ${moreAttr} />`).appendTo(telement);
         }
     }
 
@@ -49,8 +65,17 @@ export class Button extends Element {
      */
     public setOnClickFn(onClick: ButtonClickFn): void {
         this._element.unbind().on('click', (): void => {
-            onClick();
+            if (this._clickEnable) {
+                onClick();
+            }
         });
     }
 
+    /**
+     * setClickEnable
+     * @param {boolean} enable
+     */
+    public setClickEnable(enable: boolean): void {
+        this._clickEnable = enable;
+    }
 }

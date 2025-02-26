@@ -1,5 +1,5 @@
-import { Element } from '../../Element';
 import { LangText } from '../../Lang/LangText';
+import { Button } from '../Form/Button.js';
 import { ButtonClass } from './ButtonClass';
 /**
  * ButtonDefaultType
@@ -22,7 +22,7 @@ export type ButtonDefaultClickFn = () => void;
 /**
  * ButtonDefault
  */
-export declare class ButtonDefault extends Element {
+export declare class ButtonDefault extends Button {
     /**
      * class
      * @protected
@@ -38,11 +38,6 @@ export declare class ButtonDefault extends Element {
      * @protected
      */
     protected _icon: string;
-    /**
-     * click enable
-     * @protected
-     */
-    protected _clickEnable: boolean;
     /**
      * constructor
      * @param {any} element
@@ -61,18 +56,8 @@ export declare class ButtonDefault extends Element {
      */
     setValue(title?: string | LangText, icon?: string): void;
     /**
-     * setOnClickFn
-     * @param onClick
-     */
-    setOnClickFn(onClick: ButtonDefaultClickFn): void;
-    /**
      * setClass
      * @param bnClass
      */
     setClass(bnClass?: ButtonClass): void;
-    /**
-     * setClickEnable
-     * @param enable
-     */
-    setClickEnable(enable: boolean): void;
 }

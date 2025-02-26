@@ -1,5 +1,5 @@
-import {Element} from '../../Element';
 import {LangText} from '../../Lang/LangText';
+import {Button, ButtonType} from '../Form/Button.js';
 import {ButtonClass} from './ButtonClass';
 
 /**
@@ -26,7 +26,7 @@ export type ButtonDefaultClickFn = () => void;
 /**
  * ButtonDefault
  */
-export class ButtonDefault extends Element {
+export class ButtonDefault extends Button {
 
     /**
      * class
@@ -47,12 +47,6 @@ export class ButtonDefault extends Element {
     protected _icon = '';
 
     /**
-     * click enable
-     * @protected
-     */
-    protected _clickEnable = true;
-
-    /**
      * constructor
      * @param {any} element
      * @param {string|LangText} title
@@ -71,13 +65,9 @@ export class ButtonDefault extends Element {
         moreAttr: string = '',
         position: ButtonDefaultPosition = ButtonDefaultPosition.left
     ) {
-        super();
-
-        const telement = this._getAnyElement(element);
+        super(element, ButtonType.default, bnClass, `${bnType} ${position}`, moreAttr);
 
         this._class = bnClass;
-        this._element = jQuery(`<button type="button" class="btn ${bnClass} ${bnType} ${position}" ${moreAttr} />`).appendTo(telement);
-
         this.setValue(title, icon);
     }
 
@@ -113,32 +103,12 @@ export class ButtonDefault extends Element {
     }
 
     /**
-     * setOnClickFn
-     * @param onClick
-     */
-    public setOnClickFn(onClick: ButtonDefaultClickFn): void {
-        this._element.unbind().on('click', (): void => {
-            if (this._clickEnable) {
-                onClick();
-            }
-        });
-    }
-
-    /**
      * setClass
      * @param bnClass
      */
     public setClass(bnClass: ButtonClass = ButtonClass.default): void {
         this._element.removeClass(this._class).addClass(bnClass);
         this._class = bnClass;
-    }
-
-    /**
-     * setClickEnable
-     * @param enable
-     */
-    public setClickEnable(enable: boolean): void {
-        this._clickEnable = enable;
     }
 
 }

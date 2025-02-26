@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ButtonDefault = exports.ButtonDefaultPosition = exports.ButtonDefaultType = void 0;
-const Element_1 = require("../../Element");
+const Button_js_1 = require("../Form/Button.js");
 const ButtonClass_1 = require("./ButtonClass");
 /**
  * ButtonDefaultType
@@ -22,7 +22,7 @@ var ButtonDefaultPosition;
 /**
  * ButtonDefault
  */
-class ButtonDefault extends Element_1.Element {
+class ButtonDefault extends Button_js_1.Button {
     /**
      * class
      * @protected
@@ -39,11 +39,6 @@ class ButtonDefault extends Element_1.Element {
      */
     _icon = '';
     /**
-     * click enable
-     * @protected
-     */
-    _clickEnable = true;
-    /**
      * constructor
      * @param {any} element
      * @param {string|LangText} title
@@ -54,10 +49,8 @@ class ButtonDefault extends Element_1.Element {
      * @param {ButtonDefaultPosition} position
      */
     constructor(element, title, icon, bnClass = ButtonClass_1.ButtonClass.default, bnType = ButtonDefaultType.small, moreAttr = '', position = ButtonDefaultPosition.left) {
-        super();
-        const telement = this._getAnyElement(element);
+        super(element, Button_js_1.ButtonType.default, bnClass, `${bnType} ${position}`, moreAttr);
         this._class = bnClass;
-        this._element = jQuery(`<button type="button" class="btn ${bnClass} ${bnType} ${position}" ${moreAttr} />`).appendTo(telement);
         this.setValue(title, icon);
     }
     /**
@@ -85,30 +78,12 @@ class ButtonDefault extends Element_1.Element {
         }
     }
     /**
-     * setOnClickFn
-     * @param onClick
-     */
-    setOnClickFn(onClick) {
-        this._element.unbind().on('click', () => {
-            if (this._clickEnable) {
-                onClick();
-            }
-        });
-    }
-    /**
      * setClass
      * @param bnClass
      */
     setClass(bnClass = ButtonClass_1.ButtonClass.default) {
         this._element.removeClass(this._class).addClass(bnClass);
         this._class = bnClass;
-    }
-    /**
-     * setClickEnable
-     * @param enable
-     */
-    setClickEnable(enable) {
-        this._clickEnable = enable;
     }
 }
 exports.ButtonDefault = ButtonDefault;
