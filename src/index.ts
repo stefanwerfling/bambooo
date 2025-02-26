@@ -68,7 +68,7 @@ export {DialogError, DialogErrorCallFunc, DialogErrorParsed, DialogErrorParseExc
 
 // ## Content - Form
 export {BlockButton, BlockButtonType, BlockButtonClickFn} from './v1/Content/Form/BlockButton';
-export {Button, ButtonClickFn, ButtonType} from './v1/Content/Form/Button';
+export {Button, ButtonClickFn, ButtonType, ButtonShape} from './v1/Content/Form/Button';
 export {ButtonMenu, ButtonMenuPosition} from './v1/Content/Form/ButtonMenu';
 export {Form} from './v1/Content/Form/Form';
 export {FormGroup} from './v1/Content/Form/FormGroup';

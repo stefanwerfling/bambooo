@@ -36,7 +36,7 @@ export { DialogConfirm, DialogConfirmClickFn } from './v1/Content/Dialog/DialogC
 export { DialogInfo, DialogInfoClickFn } from './v1/Content/Dialog/DialogInfo';
 export { DialogError, DialogErrorCallFunc, DialogErrorParsed, DialogErrorParseException } from './v1/Content/Dialog/DialogError';
 export { BlockButton, BlockButtonType, BlockButtonClickFn } from './v1/Content/Form/BlockButton';
-export { Button, ButtonClickFn, ButtonType } from './v1/Content/Form/Button';
+export { Button, ButtonClickFn, ButtonType, ButtonShape } from './v1/Content/Form/Button';
 export { ButtonMenu, ButtonMenuPosition } from './v1/Content/Form/ButtonMenu';
 export { Form } from './v1/Content/Form/Form';
 export { FormGroup } from './v1/Content/Form/FormGroup';

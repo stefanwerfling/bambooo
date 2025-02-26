@@ -1,7 +1,7 @@
 import { LangText } from '../../Lang/LangText';
 import { ButtonClass } from '../Button/ButtonClass.js';
 import { IconFa } from '../Icon/Icon';
-import { Button, ButtonClickFn, ButtonType } from './Button';
+import { Button, ButtonClickFn, ButtonShape, ButtonType } from './Button';
 /**
  * ButtonMenuPosition
  */
@@ -31,8 +31,9 @@ export declare class ButtonMenu extends Button {
      * @param {ButtonType} type
      * @param {ButtonMenuPosition} position
      * @param {ButtonClass} bnClass
+     * @param {ButtonShape|string} shape
      */
-    constructor(element: any, icon?: IconFa | string | null, positonRight?: boolean, type?: ButtonType, position?: ButtonMenuPosition, bnClass?: ButtonClass);
+    constructor(element: any, icon?: IconFa | string | null, positonRight?: boolean, type?: ButtonType, position?: ButtonMenuPosition, bnClass?: ButtonClass, shape?: ButtonShape | string);
     /**
      * addMenuItem
      * @param {any|LangText} title

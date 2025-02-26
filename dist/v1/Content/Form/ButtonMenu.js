@@ -35,11 +35,12 @@ class ButtonMenu extends Button_1.Button {
      * @param {ButtonType} type
      * @param {ButtonMenuPosition} position
      * @param {ButtonClass} bnClass
+     * @param {ButtonShape|string} shape
      */
-    constructor(element, icon = null, positonRight = false, type = Button_1.ButtonType.default, position = ButtonMenuPosition.relative, bnClass = ButtonClass_js_1.ButtonClass.default) {
+    constructor(element, icon = null, positonRight = false, type = Button_1.ButtonType.default, position = ButtonMenuPosition.relative, bnClass = ButtonClass_js_1.ButtonClass.default, shape = Button_1.ButtonShape.none) {
         const divGrp = jQuery('<div class="btn-group"/>');
         divGrp.css('position', `${position}`);
-        super(divGrp, type, bnClass);
+        super(divGrp, type, bnClass, shape);
         const telement = this._getAnyElement(element);
         divGrp.appendTo(telement);
         if (icon !== null) {
