@@ -44,7 +44,7 @@ export {ButtonShowMore} from './v1/Content/Button/ButtonShowMore';
 export {Callout, CalloutType} from './v1/Content/Callout/Callout';
 
 // ## Content - Card
-export {Card, CardType, CardLine, CardBodyType} from './v1/Content/Card/Card';
+export {Card, CardType, CardLine, CardBodyType, CardShape} from './v1/Content/Card/Card';
 
 // ## Content - Caret
 export {Caret, CaretType} from './v1/Content/Caret/Caret';
@@ -91,6 +91,9 @@ export {Icon, IconFa} from './v1/Content/Icon/Icon';
 // ## Content - Image
 export {Image, ImageArt, ImageType} from './v1/Content/Image/Image';
 export {ImageCoin} from './v1/Content/Image/ImageCoin';
+
+export {KanbanCard} from './v1/Content/Kanban/KanbanCard';
+export {KanbanBoard} from './v1/Content/Kanban/KanbanBoard';
 
 // ## Content - Progress
 export {ProgressbarStyle, ProgressbarColor, Progressbar} from './v1/Content/Progress/Progressbar';

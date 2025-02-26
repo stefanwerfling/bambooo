@@ -32,6 +32,14 @@ export enum CardLine {
 }
 
 /**
+ * CardShape
+ */
+export enum CardShape {
+    none = '',
+    row = 'card-row'
+}
+
+/**
  * Card
  */
 export class Card extends Element {
@@ -40,55 +48,58 @@ export class Card extends Element {
      * header element
      * @private
      */
-    private _header: any;
+    protected _header: any;
 
     /**
      * title element
      * @private
      */
-    private _title: any;
+    protected _title: any;
 
     /**
      * tools element
      * @private
      */
-    private _tools: any;
+    protected _tools: any;
 
     /**
      * body element
      * @private
      */
-    private _body: any;
+    protected _body: any;
 
     /**
      * footer element
      * @private
      */
-    private _footer: any|null = null;
+    protected _footer: any|null = null;
 
     /**
      * overload element
      * @private
      */
-    private _overload: any;
+    protected _overload: any;
 
     /**
      * constructor
-     * @param elementObject
-     * @param bodyType
-     * @param cardType
+     * @param {any} elementObject
+     * @param {CardBodyType} bodyType
+     * @param {CardType} cardType
+     * @param {CardLine} cardLine
+     * @param {CardShape} cardShape
      */
     public constructor(
         elementObject: any,
         bodyType: CardBodyType = CardBodyType.table,
         cardType: CardType = CardType.none,
-        cardLine: CardLine = CardLine.none
+        cardLine: CardLine = CardLine.none,
+        cardShape: CardShape = CardShape.none
     ) {
         super();
 
         const telement = this._getAnyElement(elementObject);
 
-        this._element = jQuery(`<div class="card ${cardType} ${cardLine}" />`).appendTo(telement);
+        this._element = jQuery(`<div class="card ${cardShape} ${cardType} ${cardLine}" />`).appendTo(telement);
         this._header = jQuery('<div class="card-header"/>').appendTo(this._element);
         this._title = jQuery('<h3 class="card-title"/>').appendTo(this._header);
         this._tools = jQuery('<div class="card-tools"/>').appendTo(this._header);
@@ -99,6 +110,7 @@ export class Card extends Element {
 
     /**
      * getMainElement
+     * @return {any}
      */
     public getMainElement(): any {
         return this._element;
@@ -106,7 +118,7 @@ export class Card extends Element {
 
     /**
      * setTitle
-     * @param title
+     * @param {string|LangText} title
      */
     public setTitle(title: string|LangText): void {
         LangText.addLangText(this._title, title);
@@ -114,6 +126,7 @@ export class Card extends Element {
 
     /**
      * getHeaderElement
+     * @return {any}
      */
     public getHeaderElement(): any {
         return this._header;
@@ -121,6 +134,7 @@ export class Card extends Element {
 
     /**
      * getTitleElement
+     * @return {any}
      */
     public getTitleElement(): any {
         return this._title;
@@ -128,6 +142,7 @@ export class Card extends Element {
 
     /**
      * getToolsElement
+     * @return {any}
      */
     public getToolsElement(): any {
         return this._tools;
@@ -135,6 +150,7 @@ export class Card extends Element {
 
     /**
      * getElement
+     * @return {any}
      */
     public getElement(): any {
         return this._body;
@@ -163,6 +179,7 @@ export class Card extends Element {
 
     /**
      * getBodyElement
+     * @return {any}
      */
     public getBodyElement(): any {
         return this._body;

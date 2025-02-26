@@ -28,6 +28,13 @@ export declare enum CardLine {
     outline = "card-outline"
 }
 /**
+ * CardShape
+ */
+export declare enum CardShape {
+    none = "",
+    row = "card-row"
+}
+/**
  * Card
  */
 export declare class Card extends Element {
@@ -35,62 +42,69 @@ export declare class Card extends Element {
      * header element
      * @private
      */
-    private _header;
+    protected _header: any;
     /**
      * title element
      * @private
      */
-    private _title;
+    protected _title: any;
     /**
      * tools element
      * @private
      */
-    private _tools;
+    protected _tools: any;
     /**
      * body element
      * @private
      */
-    private _body;
+    protected _body: any;
     /**
      * footer element
      * @private
      */
-    private _footer;
+    protected _footer: any | null;
     /**
      * overload element
      * @private
      */
-    private _overload;
+    protected _overload: any;
     /**
      * constructor
-     * @param elementObject
-     * @param bodyType
-     * @param cardType
+     * @param {any} elementObject
+     * @param {CardBodyType} bodyType
+     * @param {CardType} cardType
+     * @param {CardLine} cardLine
+     * @param {CardShape} cardShape
      */
-    constructor(elementObject: any, bodyType?: CardBodyType, cardType?: CardType, cardLine?: CardLine);
+    constructor(elementObject: any, bodyType?: CardBodyType, cardType?: CardType, cardLine?: CardLine, cardShape?: CardShape);
     /**
      * getMainElement
+     * @return {any}
      */
     getMainElement(): any;
     /**
      * setTitle
-     * @param title
+     * @param {string|LangText} title
      */
     setTitle(title: string | LangText): void;
     /**
      * getHeaderElement
+     * @return {any}
      */
     getHeaderElement(): any;
     /**
      * getTitleElement
+     * @return {any}
      */
     getTitleElement(): any;
     /**
      * getToolsElement
+     * @return {any}
      */
     getToolsElement(): any;
     /**
      * getElement
+     * @return {any}
      */
     getElement(): any;
     /**
@@ -107,6 +121,7 @@ export declare class Card extends Element {
     hideHeader(): void;
     /**
      * getBodyElement
+     * @return {any}
      */
     getBodyElement(): any;
     /**

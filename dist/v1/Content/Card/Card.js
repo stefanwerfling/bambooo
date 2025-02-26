@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Card = exports.CardLine = exports.CardType = exports.CardBodyType = void 0;
+exports.Card = exports.CardShape = exports.CardLine = exports.CardType = exports.CardBodyType = void 0;
 const Element_1 = require("../../Element");
 const LangText_1 = require("../../Lang/LangText");
 /**
@@ -33,6 +33,14 @@ var CardLine;
     CardLine["none"] = "";
     CardLine["outline"] = "card-outline";
 })(CardLine || (exports.CardLine = CardLine = {}));
+/**
+ * CardShape
+ */
+var CardShape;
+(function (CardShape) {
+    CardShape["none"] = "";
+    CardShape["row"] = "card-row";
+})(CardShape || (exports.CardShape = CardShape = {}));
 /**
  * Card
  */
@@ -69,14 +77,16 @@ class Card extends Element_1.Element {
     _overload;
     /**
      * constructor
-     * @param elementObject
-     * @param bodyType
-     * @param cardType
+     * @param {any} elementObject
+     * @param {CardBodyType} bodyType
+     * @param {CardType} cardType
+     * @param {CardLine} cardLine
+     * @param {CardShape} cardShape
      */
-    constructor(elementObject, bodyType = CardBodyType.table, cardType = CardType.none, cardLine = CardLine.none) {
+    constructor(elementObject, bodyType = CardBodyType.table, cardType = CardType.none, cardLine = CardLine.none, cardShape = CardShape.none) {
         super();
         const telement = this._getAnyElement(elementObject);
-        this._element = jQuery(`<div class="card ${cardType} ${cardLine}" />`).appendTo(telement);
+        this._element = jQuery(`<div class="card ${cardShape} ${cardType} ${cardLine}" />`).appendTo(telement);
         this._header = jQuery('<div class="card-header"/>').appendTo(this._element);
         this._title = jQuery('<h3 class="card-title"/>').appendTo(this._header);
         this._tools = jQuery('<div class="card-tools"/>').appendTo(this._header);
@@ -86,37 +96,42 @@ class Card extends Element_1.Element {
     }
     /**
      * getMainElement
+     * @return {any}
      */
     getMainElement() {
         return this._element;
     }
     /**
      * setTitle
-     * @param title
+     * @param {string|LangText} title
      */
     setTitle(title) {
         LangText_1.LangText.addLangText(this._title, title);
     }
     /**
      * getHeaderElement
+     * @return {any}
      */
     getHeaderElement() {
         return this._header;
     }
     /**
      * getTitleElement
+     * @return {any}
      */
     getTitleElement() {
         return this._title;
     }
     /**
      * getToolsElement
+     * @return {any}
      */
     getToolsElement() {
         return this._tools;
     }
     /**
      * getElement
+     * @return {any}
      */
     getElement() {
         return this._body;
@@ -141,6 +156,7 @@ class Card extends Element_1.Element {
     }
     /**
      * getBodyElement
+     * @return {any}
      */
     getBodyElement() {
         return this._body;
