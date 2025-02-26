@@ -11,6 +11,17 @@ export enum ButtonType {
 }
 
 /**
+ * Button Shape
+ */
+export enum ButtonShape {
+    none = '',
+    lg = 'btn-lg',
+    sm = 'btn-sm',
+    xs = 'btn-xs',
+    flat = 'btn-flat',
+}
+
+/**
  * ButtonClickFn
  */
 export type ButtonClickFn = () => void;
@@ -31,6 +42,7 @@ export class Button extends Element {
      * @param {any} element
      * @param {ButtonType} type
      * @param {ButtonClass} bnClass
+     * @param {ButtonShape|string} shape
      * @param {string} moreClass
      * @param {string} moreAttr
      */
@@ -38,6 +50,7 @@ export class Button extends Element {
         element: any,
         type: ButtonType = ButtonType.default,
         bnClass: ButtonClass = ButtonClass.default,
+        shape: ButtonShape|string = ButtonShape.none,
         moreClass: string = '',
         moreAttr: string = '',
     ) {
@@ -55,7 +68,7 @@ export class Button extends Element {
                 break;
 
             default:
-                this._element = jQuery(`<button type="button" class="btn ${bnClass} ${moreClass}" ${moreAttr} />`).appendTo(telement);
+                this._element = jQuery(`<button type="button" class="btn ${bnClass} ${shape} ${moreClass}" ${moreAttr} />`).appendTo(telement);
         }
     }
 
@@ -78,4 +91,19 @@ export class Button extends Element {
     public setClickEnable(enable: boolean): void {
         this._clickEnable = enable;
     }
+
+    /**
+     * setDisabled
+     * @param {boolean} disable
+     */
+    public setDisabled(disable: boolean): void {
+        this.setClickEnable(!disable);
+
+        if (disable) {
+            this._element.addClass('.disabled');
+        } else {
+            this._element.removeClass('.disabled');
+        }
+    }
+
 }

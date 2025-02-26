@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Button = exports.ButtonType = void 0;
+exports.Button = exports.ButtonShape = exports.ButtonType = void 0;
 const Element_1 = require("../../Element");
 const ButtonClass_js_1 = require("../Button/ButtonClass.js");
 /**
@@ -12,6 +12,17 @@ var ButtonType;
     ButtonType["borderless"] = "borderless";
     ButtonType["cardCollapse"] = "cardCollapse";
 })(ButtonType || (exports.ButtonType = ButtonType = {}));
+/**
+ * Button Shape
+ */
+var ButtonShape;
+(function (ButtonShape) {
+    ButtonShape["none"] = "";
+    ButtonShape["lg"] = "btn-lg";
+    ButtonShape["sm"] = "btn-sm";
+    ButtonShape["xs"] = "btn-xs";
+    ButtonShape["flat"] = "btn-flat";
+})(ButtonShape || (exports.ButtonShape = ButtonShape = {}));
 /**
  * Button
  */
@@ -26,10 +37,11 @@ class Button extends Element_1.Element {
      * @param {any} element
      * @param {ButtonType} type
      * @param {ButtonClass} bnClass
+     * @param {ButtonShape|string} shape
      * @param {string} moreClass
      * @param {string} moreAttr
      */
-    constructor(element, type = ButtonType.default, bnClass = ButtonClass_js_1.ButtonClass.default, moreClass = '', moreAttr = '') {
+    constructor(element, type = ButtonType.default, bnClass = ButtonClass_js_1.ButtonClass.default, shape = ButtonShape.none, moreClass = '', moreAttr = '') {
         super();
         const telement = this._getAnyElement(element);
         switch (type) {
@@ -40,7 +52,7 @@ class Button extends Element_1.Element {
                 this._element = jQuery(`<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>`).appendTo(telement);
                 break;
             default:
-                this._element = jQuery(`<button type="button" class="btn ${bnClass} ${moreClass}" ${moreAttr} />`).appendTo(telement);
+                this._element = jQuery(`<button type="button" class="btn ${bnClass} ${shape} ${moreClass}" ${moreAttr} />`).appendTo(telement);
         }
     }
     /**
@@ -60,6 +72,19 @@ class Button extends Element_1.Element {
      */
     setClickEnable(enable) {
         this._clickEnable = enable;
+    }
+    /**
+     * setDisabled
+     * @param {boolean} disable
+     */
+    setDisabled(disable) {
+        this.setClickEnable(!disable);
+        if (disable) {
+            this._element.addClass('.disabled');
+        }
+        else {
+            this._element.removeClass('.disabled');
+        }
     }
 }
 exports.Button = Button;

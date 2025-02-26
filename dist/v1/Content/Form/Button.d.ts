@@ -9,6 +9,16 @@ export declare enum ButtonType {
     cardCollapse = "cardCollapse"
 }
 /**
+ * Button Shape
+ */
+export declare enum ButtonShape {
+    none = "",
+    lg = "btn-lg",
+    sm = "btn-sm",
+    xs = "btn-xs",
+    flat = "btn-flat"
+}
+/**
  * ButtonClickFn
  */
 export type ButtonClickFn = () => void;
@@ -26,10 +36,11 @@ export declare class Button extends Element {
      * @param {any} element
      * @param {ButtonType} type
      * @param {ButtonClass} bnClass
+     * @param {ButtonShape|string} shape
      * @param {string} moreClass
      * @param {string} moreAttr
      */
-    constructor(element: any, type?: ButtonType, bnClass?: ButtonClass, moreClass?: string, moreAttr?: string);
+    constructor(element: any, type?: ButtonType, bnClass?: ButtonClass, shape?: ButtonShape | string, moreClass?: string, moreAttr?: string);
     /**
      * setOnClickFn
      * @param {ButtonClickFn} onClick
@@ -40,4 +51,9 @@ export declare class Button extends Element {
      * @param {boolean} enable
      */
     setClickEnable(enable: boolean): void;
+    /**
+     * setDisabled
+     * @param {boolean} disable
+     */
+    setDisabled(disable: boolean): void;
 }

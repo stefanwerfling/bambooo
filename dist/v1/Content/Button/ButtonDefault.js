@@ -44,12 +44,12 @@ class ButtonDefault extends Button_js_1.Button {
      * @param {string|LangText} title
      * @param {string} icon
      * @param {ButtonClass} bnClass
-     * @param {ButtonDefaultType} bnType
+     * @param {ButtonDefaultType|ButtonShape} bnType
      * @param {string} moreAttr
      * @param {ButtonDefaultPosition} position
      */
     constructor(element, title, icon, bnClass = ButtonClass_1.ButtonClass.default, bnType = ButtonDefaultType.small, moreAttr = '', position = ButtonDefaultPosition.left) {
-        super(element, Button_js_1.ButtonType.default, bnClass, `${bnType} ${position}`, moreAttr);
+        super(element, Button_js_1.ButtonType.default, bnClass, bnType, `${position}`, moreAttr);
         this._class = bnClass;
         this.setValue(title, icon);
     }

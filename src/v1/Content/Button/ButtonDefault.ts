@@ -1,5 +1,5 @@
 import {LangText} from '../../Lang/LangText';
-import {Button, ButtonType} from '../Form/Button.js';
+import {Button, ButtonShape, ButtonType} from '../Form/Button.js';
 import {ButtonClass} from './ButtonClass';
 
 /**
@@ -52,7 +52,7 @@ export class ButtonDefault extends Button {
      * @param {string|LangText} title
      * @param {string} icon
      * @param {ButtonClass} bnClass
-     * @param {ButtonDefaultType} bnType
+     * @param {ButtonDefaultType|ButtonShape} bnType
      * @param {string} moreAttr
      * @param {ButtonDefaultPosition} position
      */
@@ -61,11 +61,11 @@ export class ButtonDefault extends Button {
         title?: string|LangText,
         icon?: string,
         bnClass: ButtonClass = ButtonClass.default,
-        bnType: ButtonDefaultType = ButtonDefaultType.small,
+        bnType: ButtonDefaultType|ButtonShape = ButtonDefaultType.small,
         moreAttr: string = '',
         position: ButtonDefaultPosition = ButtonDefaultPosition.left
     ) {
-        super(element, ButtonType.default, bnClass, `${bnType} ${position}`, moreAttr);
+        super(element, ButtonType.default, bnClass, bnType, `${position}`, moreAttr);
 
         this._class = bnClass;
         this.setValue(title, icon);
