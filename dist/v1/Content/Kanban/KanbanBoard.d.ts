@@ -6,6 +6,7 @@ import { KanbanCard } from './KanbanCard.js';
  * Kanban Board
  */
 export declare class KanbanBoard extends Element {
+    protected _container: any;
     /**
      * Constructor
      * @param {any} element

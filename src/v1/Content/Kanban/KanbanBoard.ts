@@ -8,6 +8,8 @@ import {KanbanCard} from './KanbanCard.js';
  */
 export class KanbanBoard extends Element {
 
+    protected _container: any;
+
     /**
      * Constructor
      * @param {any} element
@@ -17,7 +19,9 @@ export class KanbanBoard extends Element {
         super();
 
         const telement = this._getAnyElement(element);
-        this._element = jQuery(`<div class="container-fluid h-${heightPercent}" />`).appendTo(telement);
+
+        this._element = jQuery('<div class="container-wrapper kanban">').appendTo(telement);
+        this._container = jQuery(`<div class="container-fluid h-${heightPercent}" />`).appendTo(this._element);
     }
 
     /**
@@ -26,7 +30,7 @@ export class KanbanBoard extends Element {
      * @param {CardType} cardType
      */
     public createKanbanCard(title: string|LangText, cardType: CardType = CardType.secondary): KanbanCard {
-        const card = new KanbanCard(this._element, cardType);
+        const card = new KanbanCard(this._container, cardType);
         card.setTitle(title);
 
         return card;

@@ -8,6 +8,7 @@ const KanbanCard_js_1 = require("./KanbanCard.js");
  * Kanban Board
  */
 class KanbanBoard extends Element_js_1.Element {
+    _container;
     /**
      * Constructor
      * @param {any} element
@@ -16,7 +17,8 @@ class KanbanBoard extends Element_js_1.Element {
     constructor(element, heightPercent = 100) {
         super();
         const telement = this._getAnyElement(element);
-        this._element = jQuery(`<div class="container-fluid h-${heightPercent}" />`).appendTo(telement);
+        this._element = jQuery('<div class="container-wrapper kanban">').appendTo(telement);
+        this._container = jQuery(`<div class="container-fluid h-${heightPercent}" />`).appendTo(this._element);
     }
     /**
      * create a Kanban Card
@@ -24,7 +26,7 @@ class KanbanBoard extends Element_js_1.Element {
      * @param {CardType} cardType
      */
     createKanbanCard(title, cardType = Card_js_1.CardType.secondary) {
-        const card = new KanbanCard_js_1.KanbanCard(this._element, cardType);
+        const card = new KanbanCard_js_1.KanbanCard(this._container, cardType);
         card.setTitle(title);
         return card;
     }
