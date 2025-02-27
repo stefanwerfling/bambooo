@@ -92,8 +92,10 @@ export {Icon, IconFa} from './v1/Content/Icon/Icon';
 export {Image, ImageArt, ImageType} from './v1/Content/Image/Image';
 export {ImageCoin} from './v1/Content/Image/ImageCoin';
 
+// ## Content - Kanban
 export {KanbanCard} from './v1/Content/Kanban/KanbanCard';
 export {KanbanBoard} from './v1/Content/Kanban/KanbanBoard';
+export {KanbanEntryCard} from './v1/Content/Kanban/KanbanEntryCard.js';
 
 // ## Content - Progress
 export {ProgressbarStyle, ProgressbarColor, Progressbar} from './v1/Content/Progress/Progressbar';

@@ -57,6 +57,7 @@ export { Image, ImageArt, ImageType } from './v1/Content/Image/Image';
 export { ImageCoin } from './v1/Content/Image/ImageCoin';
 export { KanbanCard } from './v1/Content/Kanban/KanbanCard';
 export { KanbanBoard } from './v1/Content/Kanban/KanbanBoard';
+export { KanbanEntryCard } from './v1/Content/Kanban/KanbanEntryCard.js';
 export { ProgressbarStyle, ProgressbarColor, Progressbar } from './v1/Content/Progress/Progressbar';
 export { StepperLinearStepEventFn, StepperLinear } from './v1/Content/Stepper/StepperLinear';
 export { NavTabOnLoad, NavTabElements, NavTab } from './v1/Content/Tab/NavTab';
