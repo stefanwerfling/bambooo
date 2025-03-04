@@ -57,4 +57,12 @@ export declare class NavTab extends Element {
      * @param {NavTabOnLoad} onload
      */
     setOnLoad(onload: NavTabOnLoad): void;
+    /**
+     * Hide
+     */
+    hide(): void;
+    /**
+     * Show
+     */
+    show(): void;
 }

@@ -92,6 +92,7 @@ export { SidebarMenuItem, SidebarMenuItemClickFn } from './v1/Sidebar/SidebarMen
 export { SidebarMenuItemBadge } from './v1/Sidebar/SidebarMenuItemBadge';
 export { SidebarMenuTree } from './v1/Sidebar/SidebarMenuTree';
 export { SidebarUserPanel, SidebarUserPanelClickFn } from './v1/Sidebar/SidebarUserPanel';
+export { BeepOptions, Beep } from './v1/Sound/Beep';
 export { ICollectionEntryWidget } from './v1/Widget/Collection/CollectionEntryWidget';
 export { CollectionWidgetOnUpdateEvent, CollectionWidgetOnUpdate, CollectionWidget } from './v1/Widget/Collection/CollectionWidget';
 export { CollectionCardWidget } from './v1/Widget/Collection/CollectionCardWidget';

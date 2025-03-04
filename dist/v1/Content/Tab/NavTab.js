@@ -77,5 +77,19 @@ class NavTab extends Element_1.Element {
             onload(event, ui);
         });
     }
+    /**
+     * Hide
+     */
+    hide() {
+        this._nav.hide();
+        this._body.hide();
+    }
+    /**
+     * Show
+     */
+    show() {
+        this._body.show();
+        this._nav.show();
+    }
 }
 exports.NavTab = NavTab;

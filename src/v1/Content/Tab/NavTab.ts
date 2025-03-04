@@ -111,4 +111,20 @@ export class NavTab extends Element {
         });
     }
 
+    /**
+     * Hide
+     */
+    public override hide(): void {
+        this._nav.hide();
+        this._body.hide();
+    }
+
+    /**
+     * Show
+     */
+    public override show(): void {
+        this._body.show();
+        this._nav.show();
+    }
+
 }

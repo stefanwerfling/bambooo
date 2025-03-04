@@ -2,7 +2,7 @@
   "name": "bambooo",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "AdminLTE Typescript Framework",
   "scripts": {
     "build": "npm run compile",

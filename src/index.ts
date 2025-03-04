@@ -151,6 +151,9 @@ export {SidebarMenuItemBadge} from './v1/Sidebar/SidebarMenuItemBadge';
 export {SidebarMenuTree} from './v1/Sidebar/SidebarMenuTree';
 export {SidebarUserPanel, SidebarUserPanelClickFn} from './v1/Sidebar/SidebarUserPanel';
 
+// ## Sound
+export {BeepOptions, Beep} from './v1/Sound/Beep';
+
 // # Widget
 export {ICollectionEntryWidget} from './v1/Widget/Collection/CollectionEntryWidget';
 export {CollectionWidgetOnUpdateEvent, CollectionWidgetOnUpdate, CollectionWidget} from './v1/Widget/Collection/CollectionWidget';
