@@ -14,23 +14,25 @@ export declare class LangText extends Element {
     protected _class: string;
     /**
      * constructor
-     * @param text
+     * @param {string} text
+     * @param {[string]} cssClass
+     * @param {[LangTextDefaultClickFn]} onClick
      */
     constructor(text: string, cssClass?: string, onClick?: LangTextDefaultClickFn);
     /**
      * addLangText
-     * @param element
-     * @param atext
+     * @param {any} element
+     * @param {LangText|string} atext
      */
     static addLangText(element: any, atext: LangText | string): void;
     /**
      * setOnClickFn
-     * @param onClick
+     * @param {LangTextDefaultClickFn} onClick
      */
     setOnClickFn(onClick: LangTextDefaultClickFn): void;
     /**
      * setClass
-     * @param bnClass
+     * @param {string} cssClass
      */
     setClass(cssClass: string): void;
 }

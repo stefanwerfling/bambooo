@@ -75,6 +75,8 @@ export { Tooltip } from './v1/Content/Tooltip/Tooltip';
 export { TooltipInfo } from './v1/Content/Tooltip/TooltipInfo';
 export { LangDefine } from './v1/Lang/LangDefine';
 export { LangText } from './v1/Lang/LangText';
+export { LangText2 } from './v1/Lang/LangText2';
+export { Lang } from './v1/Lang/Lang';
 export { ModalDialog, ModalDialogType, ModalDialogEventFn } from './v1/Modal/ModalDialog';
 export { LeftNavbar } from './v1/Navbar/LeftNavbar';
 export { LeftNavbarLink, LeftNavbarLinkFn } from './v1/Navbar/LeftNavbarLink';

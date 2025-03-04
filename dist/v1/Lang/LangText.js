@@ -13,7 +13,9 @@ class LangText extends Element_1.Element {
     _class = '';
     /**
      * constructor
-     * @param text
+     * @param {string} text
+     * @param {[string]} cssClass
+     * @param {[LangTextDefaultClickFn]} onClick
      */
     constructor(text, cssClass, onClick) {
         super();
@@ -30,8 +32,8 @@ class LangText extends Element_1.Element {
     }
     /**
      * addLangText
-     * @param element
-     * @param atext
+     * @param {any} element
+     * @param {LangText|string} atext
      */
     static addLangText(element, atext) {
         const telement = Element_1.Element.getAnyElement(element);
@@ -44,7 +46,7 @@ class LangText extends Element_1.Element {
     }
     /**
      * setOnClickFn
-     * @param onClick
+     * @param {LangTextDefaultClickFn} onClick
      */
     setOnClickFn(onClick) {
         this._element.unbind().on('click', () => {
@@ -53,7 +55,7 @@ class LangText extends Element_1.Element {
     }
     /**
      * setClass
-     * @param bnClass
+     * @param {string} cssClass
      */
     setClass(cssClass) {
         this._element.removeClass(this._class).addClass(cssClass);

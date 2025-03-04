@@ -19,7 +19,9 @@ export class LangText extends Element {
 
     /**
      * constructor
-     * @param text
+     * @param {string} text
+     * @param {[string]} cssClass
+     * @param {[LangTextDefaultClickFn]} onClick
      */
     public constructor(
         text: string,
@@ -44,8 +46,8 @@ export class LangText extends Element {
 
     /**
      * addLangText
-     * @param element
-     * @param atext
+     * @param {any} element
+     * @param {LangText|string} atext
      */
     public static addLangText(element: any, atext: LangText|string): void {
         const telement = Element.getAnyElement(element);
@@ -59,7 +61,7 @@ export class LangText extends Element {
 
     /**
      * setOnClickFn
-     * @param onClick
+     * @param {LangTextDefaultClickFn} onClick
      */
     public setOnClickFn(onClick: LangTextDefaultClickFn): void {
         this._element.unbind().on('click', (): void => {
@@ -69,7 +71,7 @@ export class LangText extends Element {
 
     /**
      * setClass
-     * @param bnClass
+     * @param {string} cssClass
      */
     public setClass(cssClass: string): void {
         this._element.removeClass(this._class).addClass(cssClass);
