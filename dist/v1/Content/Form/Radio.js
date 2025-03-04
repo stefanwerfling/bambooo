@@ -28,10 +28,11 @@ class Radio extends Element_js_1.Element {
         super();
         const telement = this._getAnyElement(element);
         this._element = jQuery('<div class="form-check" />').appendTo(telement);
-        this._inputRadio = jQuery(`<input class="form-check-input" type="radio" name="${radionName}" value="${radioValue}" ${checked}>`).appendTo(this._element);
+        this._inputRadio = jQuery(`<input class="form-check-input" type="radio" name="${radionName}" value="${radioValue}">`).appendTo(this._element);
         if (label !== null) {
             this.setLabel(label);
         }
+        this.setChecked(checked);
     }
     /**
      * Create the label object element

@@ -60,6 +60,8 @@ export {Circle, CircleColor} from './v1/Content/Circle/Circle';
 
 // ## Content - Description
 export {DescriptionBlock, DescriptionBlockBorder} from './v1/Content/Description/DescriptionBlock';
+export {DescriptionListEntryType, DescriptionListEntry} from './v1/Content/Description/DescriptionListEntry';
+export {DescriptionListType, DescriptionList} from './v1/Content/Description/DescriptionList';
 
 // ## Content - Dialog
 export {DialogConfirm, DialogConfirmClickFn} from './v1/Content/Dialog/DialogConfirm';

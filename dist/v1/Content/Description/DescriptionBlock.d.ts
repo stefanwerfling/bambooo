@@ -1,4 +1,5 @@
 import { Element } from '../../Element';
+import { LangText } from '../../Lang/LangText.js';
 /**
  * DescriptionBlockBorder
  */
@@ -28,14 +29,14 @@ export declare class DescriptionBlock extends Element {
     constructor(element: Element | any, border?: DescriptionBlockBorder);
     /**
      * setHeader
-     * @param str
+     * @param {string|LangText} str
      */
-    setHeader(str: string): void;
+    setHeader(str: string | LangText): void;
     /**
      * setText
-     * @param str
+     * @param {string|LangText} str
      */
-    setText(str: string): void;
+    setText(str: string | LangText): void;
     /**
      * getTextElement
      */

@@ -32,6 +32,8 @@ export { PieChart } from './v1/Content/Charts/PieChart';
 export { SparkLine } from './v1/Content/Charts/SparkLine';
 export { Circle, CircleColor } from './v1/Content/Circle/Circle';
 export { DescriptionBlock, DescriptionBlockBorder } from './v1/Content/Description/DescriptionBlock';
+export { DescriptionListEntryType, DescriptionListEntry } from './v1/Content/Description/DescriptionListEntry';
+export { DescriptionListType, DescriptionList } from './v1/Content/Description/DescriptionList';
 export { DialogConfirm, DialogConfirmClickFn } from './v1/Content/Dialog/DialogConfirm';
 export { DialogInfo, DialogInfoClickFn } from './v1/Content/Dialog/DialogInfo';
 export { DialogError, DialogErrorCallFunc, DialogErrorParsed, DialogErrorParseException } from './v1/Content/Dialog/DialogError';

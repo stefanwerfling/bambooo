@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DescriptionBlock = exports.DescriptionBlockBorder = void 0;
 const Element_1 = require("../../Element");
+const LangText_js_1 = require("../../Lang/LangText.js");
 /**
  * DescriptionBlockBorder
  */
@@ -38,17 +39,17 @@ class DescriptionBlock extends Element_1.Element {
     }
     /**
      * setHeader
-     * @param str
+     * @param {string|LangText} str
      */
     setHeader(str) {
-        this._h5.empty().append(str);
+        LangText_js_1.LangText.addLangText(this._h5.empty(), str);
     }
     /**
      * setText
-     * @param str
+     * @param {string|LangText} str
      */
     setText(str) {
-        this._span.empty().append(str);
+        LangText_js_1.LangText.addLangText(this._span.empty(), str);
     }
     /**
      * getTextElement
