@@ -113,6 +113,20 @@ export class Element {
     }
 
     /**
+     * Helper bool class, add or remove a class
+     * @param {string} classname
+     * @param {boolean} enable
+     * @protected
+     */
+    protected _boolClass(classname: string, enable: boolean): void {
+        if (enable) {
+            this._element.addClass(classname);
+        } else {
+            this._element.removeClass(classname);
+        }
+    }
+
+    /**
      * addClass
      * @param aclass
      */

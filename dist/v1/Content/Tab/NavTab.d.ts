@@ -5,6 +5,7 @@ import Event = JQuery.Event;
  * NavTabElements
  */
 export type NavTabElements = {
+    id: string;
     tab: any;
     title: any;
     body: any;
@@ -37,16 +38,16 @@ export declare class NavTab extends Element {
     protected _tabIds: string[];
     /**
      * constructor
-     * @param element
-     * @param id
+     * @param {any} element
+     * @param {[string]} id
      */
-    constructor(element: any, id: string);
+    constructor(element: any, id?: string);
     /**
      * addTab
      * @param {string|LangText} title
      * @param {string} id
      */
-    addTab(title: string | LangText, id: string): NavTabElements;
+    addTab(title: string | LangText, id?: string): NavTabElements;
     /**
      * setTabSelect
      * @param index

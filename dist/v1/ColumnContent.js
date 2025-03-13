@@ -8,7 +8,8 @@ const Element_1 = require("./Element");
 class ColumnContent extends Element_1.Element {
     /**
      * constructor
-     * @param toElement
+     * @param {[any[]]} elements
+     * @param {[any]} toElement
      */
     constructor(elements, toElement) {
         super();
@@ -26,7 +27,7 @@ class ColumnContent extends Element_1.Element {
     }
     /**
      * add
-     * @param element
+     * @param {any} element
      */
     add(element) {
         if (!Element_1.Element.isEmpty(this._element)) {

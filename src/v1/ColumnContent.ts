@@ -7,7 +7,8 @@ export class ColumnContent extends Element {
 
     /**
      * constructor
-     * @param toElement
+     * @param {[any[]]} elements
+     * @param {[any]} toElement
      */
     public constructor(elements?: any[], toElement?: any) {
         super();
@@ -27,7 +28,7 @@ export class ColumnContent extends Element {
 
     /**
      * add
-     * @param element
+     * @param {any} element
      */
     public add(element: any) {
         if (!Element.isEmpty(this._element)) {

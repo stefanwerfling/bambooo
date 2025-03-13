@@ -10,11 +10,12 @@ export declare class Content extends Element {
     private _contentFluidElement;
     /**
      * constructor
-     * @param element
+     * @param {any} element
      */
     constructor(element?: any);
     /**
      * getContentFluidElement
+     * @return {any}
      */
     getContentFluidElement(): any;
     /**

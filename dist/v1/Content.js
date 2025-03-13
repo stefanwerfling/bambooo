@@ -13,7 +13,7 @@ class Content extends Element_1.Element {
     _contentFluidElement;
     /**
      * constructor
-     * @param element
+     * @param {any} element
      */
     constructor(element) {
         super();
@@ -30,6 +30,7 @@ class Content extends Element_1.Element {
     }
     /**
      * getContentFluidElement
+     * @return {any}
      */
     getContentFluidElement() {
         return this._contentFluidElement;

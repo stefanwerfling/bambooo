@@ -23,14 +23,21 @@ class NavTab extends Element_1.Element {
     _tabIds = [];
     /**
      * constructor
-     * @param element
-     * @param id
+     * @param {any} element
+     * @param {[string]} id
      */
     constructor(element, id) {
         super();
+        let aId;
+        if (id === undefined) {
+            aId = this._uniqId();
+        }
+        else {
+            aId = id;
+        }
         const aelement = this._getAnyElement(element);
-        this._nav = jQuery(`<ul class="nav nav-tabs" id="${id}" role="tablist" />`).appendTo(aelement);
-        this._body = jQuery(`<div class="tab-content" id="${id}-tabContent" />`).appendTo(aelement);
+        this._nav = jQuery(`<ul class="nav nav-tabs" id="${aId}" role="tablist" />`).appendTo(aelement);
+        this._body = jQuery(`<div class="tab-content" id="${aId}-tabContent" />`).appendTo(aelement);
     }
     /**
      * addTab
@@ -44,13 +51,21 @@ class NavTab extends Element_1.Element {
             activ = 'active';
             show = 'show';
         }
-        this._tabIds.push(id);
+        let aId;
+        if (id === undefined) {
+            aId = this._uniqId();
+        }
+        else {
+            aId = id;
+        }
+        this._tabIds.push(aId);
         const li = jQuery('<li class="nav-item" />').appendTo(this._nav);
-        const etitle = jQuery(`<a class="nav-link ${activ}" id="${id}-tab" data-toggle="pill" href="#${id}-content" role="tab" aria-controls="${id}-content" aria-selected="true"></a>`).appendTo(li);
+        const etitle = jQuery(`<a class="nav-link ${activ}" id="${aId}-tab" data-toggle="pill" href="#${aId}-content" role="tab" aria-controls="${aId}-content" aria-selected="true"></a>`).appendTo(li);
         const telement = Element_1.Element.getAnyElement(title);
         etitle.append(telement);
-        const body = jQuery(`<div class="tab-pane fade ${activ} ${show}" id="${id}-content" role="tabpanel" aria-labelledby="${id}-tab"/>`).appendTo(this._body);
+        const body = jQuery(`<div class="tab-pane fade ${activ} ${show}" id="${aId}-content" role="tabpanel" aria-labelledby="${aId}-tab"/>`).appendTo(this._body);
         return {
+            id: aId,
             tab: li,
             title: etitle,
             body

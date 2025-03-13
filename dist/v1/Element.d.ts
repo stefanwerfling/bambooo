@@ -60,6 +60,13 @@ export declare class Element {
      */
     append(telement: Element | string): void;
     /**
+     * Helper bool class, add or remove a class
+     * @param {string} classname
+     * @param {boolean} enable
+     * @protected
+     */
+    protected _boolClass(classname: string, enable: boolean): void;
+    /**
      * addClass
      * @param aclass
      */
