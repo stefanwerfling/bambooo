@@ -109,7 +109,7 @@ export {StepperLinearStepEventFn, StepperLinear} from './v1/Content/Stepper/Step
 export {NavTabOnLoad, NavTabElements, NavTab} from './v1/Content/Tab/NavTab';
 
 // ## Content - Table
-export {Table} from './v1/Content/Table/Table';
+export {TableOptions, Table} from './v1/Content/Table/Table';
 export {Td} from './v1/Content/Table/Td';
 export {Th} from './v1/Content/Table/Th';
 export {Tr} from './v1/Content/Table/Tr';
