@@ -83,10 +83,15 @@ export declare class CollectionWidget<T extends ICollectionEntryWidget, E extend
      */
     protected _removeObject(object: T): void;
     /**
-     * Add object
+     * Add an object
      * @param {ICollectionEntryWidget} object
      */
     addObject(object: T): void;
+    /**
+     * Empty collection element
+     * @protected
+     */
+    protected _emptyCollectionElement(): void;
     /**
      * removeAll
      */

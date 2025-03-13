@@ -110,7 +110,7 @@ class CollectionWidget {
         }
     }
     /**
-     * Add object
+     * Add an object
      * @param {ICollectionEntryWidget} object
      */
     addObject(object) {
@@ -120,6 +120,13 @@ class CollectionWidget {
         }
     }
     /**
+     * Empty collection element
+     * @protected
+     */
+    _emptyCollectionElement() {
+        this._element.getElement().empty();
+    }
+    /**
      * removeAll
      */
     removeAll() {
@@ -127,7 +134,7 @@ class CollectionWidget {
         for (const object of objects) {
             this._removeObject(object);
         }
-        this._element.getElement().empty();
+        this._emptyCollectionElement();
         if (this._onUpdate) {
             this._onUpdate(CollectionWidgetOnUpdateEvent.removeAll);
         }

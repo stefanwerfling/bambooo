@@ -151,7 +151,7 @@ export class CollectionWidget<T extends ICollectionEntryWidget, E extends Elemen
     }
 
     /**
-     * Add object
+     * Add an object
      * @param {ICollectionEntryWidget} object
      */
     public addObject(object: T): void {
@@ -166,6 +166,14 @@ export class CollectionWidget<T extends ICollectionEntryWidget, E extends Elemen
     }
 
     /**
+     * Empty collection element
+     * @protected
+     */
+    protected _emptyCollectionElement(): void {
+        this._element.getElement().empty();
+    }
+
+    /**
      * removeAll
      */
     public removeAll(): void {
@@ -175,7 +183,7 @@ export class CollectionWidget<T extends ICollectionEntryWidget, E extends Elemen
             this._removeObject(object);
         }
 
-        this._element.getElement().empty();
+        this._emptyCollectionElement();
 
         if (this._onUpdate) {
             this._onUpdate(CollectionWidgetOnUpdateEvent.removeAll);
