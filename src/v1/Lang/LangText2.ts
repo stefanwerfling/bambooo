@@ -5,6 +5,11 @@ import {LangText} from './LangText.js';
  */
 export class LangText2 extends LangText {
 
+    /**
+     *
+     * @param {string} text
+     * @param {...} params
+     */
     public constructor(text: string, ...params: (string|number)[]) {
         super(text);
 

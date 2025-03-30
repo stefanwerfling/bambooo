@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PageLoader = void 0;
-const Wrapper_1 = require("./Base/Wrapper");
+const Wrapper_js_1 = require("./Base/Wrapper.js");
 /**
  * Page loader object
  */
@@ -40,11 +40,11 @@ class PageLoader {
         }
         else {
             this._options = {
-                wrapper: new Wrapper_1.Wrapper()
+                wrapper: new Wrapper_js_1.Wrapper()
             };
         }
         if (!this._options.wrapper) {
-            this._options.wrapper = new Wrapper_1.Wrapper();
+            this._options.wrapper = new Wrapper_js_1.Wrapper();
         }
     }
     /**
@@ -53,7 +53,7 @@ class PageLoader {
      */
     getWrapper() {
         if (!this._options.wrapper) {
-            this._options.wrapper = new Wrapper_1.Wrapper();
+            this._options.wrapper = new Wrapper_js_1.Wrapper();
         }
         return this._options.wrapper;
     }

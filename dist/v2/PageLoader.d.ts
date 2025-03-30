@@ -1,8 +1,8 @@
-import { IWrapper } from './Base/IWrapper';
-import { BasePage } from './BasePage';
-import { IBasePage } from './IBasePage';
-import { IPageLoader } from './IPageLoader';
-import { ILang } from './Lang/ILang';
+import { IWrapper } from './Base/IWrapper.js';
+import { BasePage } from './BasePage.js';
+import { IBasePage } from './IBasePage.js';
+import { IPageLoader } from './IPageLoader.js';
+import { ILang } from './Lang/ILang.js';
 /**
  * Page loader on event
  */

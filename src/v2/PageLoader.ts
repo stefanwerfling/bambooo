@@ -1,10 +1,10 @@
-import {IWrapper} from './Base/IWrapper';
-import {Wrapper, WrapperOptions} from './Base/Wrapper';
-import {BasePage} from './BasePage';
-import {IBasePage} from './IBasePage';
-import {IPageLoader} from './IPageLoader';
-import {ILang} from './Lang/ILang';
-import {HttpError} from './Net/HttpError';
+import {IWrapper} from './Base/IWrapper.js';
+import {Wrapper, WrapperOptions} from './Base/Wrapper.js';
+import {BasePage} from './BasePage.js';
+import {IBasePage} from './IBasePage.js';
+import {IPageLoader} from './IPageLoader.js';
+import {ILang} from './Lang/ILang.js';
+import {HttpError} from './../Core/Net/Error/HttpError.js';
 
 /**
  * Page loader on event

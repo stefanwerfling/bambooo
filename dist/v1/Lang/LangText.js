@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LangText = void 0;
-const Element_1 = require("../Element");
+const Element_js_1 = require("../Base/Element.js");
 /**
  * LangText
  */
-class LangText extends Element_1.Element {
+class LangText extends Element_js_1.Element {
     /**
      * class
      * @protected
@@ -36,7 +36,7 @@ class LangText extends Element_1.Element {
      * @param {LangText|string} atext
      */
     static addLangText(element, atext) {
-        const telement = Element_1.Element.getAnyElement(element);
+        const telement = Element_js_1.Element.getAnyElement(element);
         if (atext instanceof LangText) {
             telement.empty().append(atext.getElement());
         }

@@ -6,6 +6,11 @@ const LangText_js_1 = require("./LangText.js");
  * LangText2 with params
  */
 class LangText2 extends LangText_js_1.LangText {
+    /**
+     *
+     * @param {string} text
+     * @param {...} params
+     */
     constructor(text, ...params) {
         super(text);
         this._element.data('lang_params', params);
