@@ -104,7 +104,7 @@ export { BeepOptions, Beep } from './v1/Base/Sound/Beep.js';
 export { ICollectionEntryWidget } from './v1/Base/Widget/Collection/CollectionEntryWidget.js';
 export { CollectionWidgetOnUpdateEvent, CollectionWidgetOnUpdate, CollectionWidget } from './v1/Base/Widget/Collection/CollectionWidget.js';
 export { CollectionCardWidget } from './v1/Base/Widget/Collection/CollectionCardWidget.js';
-export { SearchWidgetOnTemplateSelection, SearchWidgetOnTemplateResult, SearchWidgetOnEvent, SearchWidgetData, SearchWidget } from './v1/Base/Widget/Search/SearchWidget.js';
+export { SearchWidgetSelect2AjaxParams, SearchWidgetSelect2AjaxTransport, SearchWidgetOnTemplateSelection, SearchWidgetOnTemplateResult, SearchWidgetOnEvent, SearchWidgetData, SearchWidget } from './v1/Base/Widget/Search/SearchWidget.js';
 export { UtilColor } from './v1/Base/Utils/UtilColor.js';
 export { UtilAvatarGenerator } from './v1/Base/Utils/UtilAvatarGenerator.js';
 export { UtilDownload } from './v1/Base/Utils/UtilDownload.js';

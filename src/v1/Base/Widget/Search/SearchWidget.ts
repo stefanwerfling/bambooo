@@ -1,15 +1,15 @@
 import 'jquery';
 import {Element} from '../../Element.js';
 
-interface Select2AjaxParams {
+export interface SearchWidgetSelect2AjaxParams {
     data: any;
     url: string;
     method?: string;
     headers?: {[key: string]: string;};
 }
 
-type Select2AjaxTransport = (
-    params: Select2AjaxParams,
+export type SearchWidgetSelect2AjaxTransport = (
+    params: SearchWidgetSelect2AjaxParams,
     success: (data: any) => void,
     failure: (jqXHR: JQuery.jqXHR|undefined, textStatus: string, errorThrown: string) => void
 ) => Promise<void | JQuery.jqXHR>;
@@ -48,7 +48,7 @@ type SearchWidgetSelectOptions = {
         url: string;
         dataType: string;
     }|{
-        transport: Select2AjaxTransport;
+        transport: SearchWidgetSelect2AjaxTransport;
     };
     allowClear: boolean;
     maximumSelectionLength: number;
@@ -139,9 +139,9 @@ export class SearchWidget extends Element {
 
     /**
      * Set request transport
-     * @param {Select2AjaxTransport} cTransport
+     * @param {SearchWidgetSelect2AjaxTransport} cTransport
      */
-    public setRequestTransport(cTransport: Select2AjaxTransport): void {
+    public setRequestTransport(cTransport: SearchWidgetSelect2AjaxTransport): void {
         this._selectOptions.ajax = {
             transport: cTransport
         };
