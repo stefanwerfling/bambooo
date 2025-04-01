@@ -14,6 +14,13 @@ export type SearchWidgetSelect2AjaxTransport = (
     failure: (jqXHR: JQuery.jqXHR|undefined, textStatus: string, errorThrown: string) => void
 ) => Promise<void | JQuery.jqXHR>;
 
+export type SearchWidgetSelect2AjaxTransportExt<T> = (
+    params: SearchWidgetSelect2AjaxParams,
+    success: (data: any) => void,
+    failure: (jqXHR: JQuery.jqXHR|undefined, textStatus: string, errorThrown: string) => void,
+    options?: T
+) => Promise<void | JQuery.jqXHR>;
+
 /**
  * Search widget data
  */
@@ -139,11 +146,14 @@ export class SearchWidget extends Element {
 
     /**
      * Set request transport
-     * @param {SearchWidgetSelect2AjaxTransport} cTransport
+     * @param {SearchWidgetSelect2AjaxTransportExt} cTransport
+     * @param {[T]} options
      */
-    public setRequestTransport(cTransport: SearchWidgetSelect2AjaxTransport): void {
+    public setRequestTransport<T>(cTransport: SearchWidgetSelect2AjaxTransportExt<T>, options?: T): void {
         this._selectOptions.ajax = {
-            transport: cTransport
+            transport: (params, success, failure) => {
+                return cTransport(params, success, failure, options);
+            }
         };
         this._selectOptions.data = null;
         this._updateSelect();

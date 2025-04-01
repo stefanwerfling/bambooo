@@ -77,11 +77,14 @@ class SearchWidget extends Element_js_1.Element {
     }
     /**
      * Set request transport
-     * @param {SearchWidgetSelect2AjaxTransport} cTransport
+     * @param {SearchWidgetSelect2AjaxTransportExt} cTransport
+     * @param {[T]} options
      */
-    setRequestTransport(cTransport) {
+    setRequestTransport(cTransport, options) {
         this._selectOptions.ajax = {
-            transport: cTransport
+            transport: (params, success, failure) => {
+                return cTransport(params, success, failure, options);
+            }
         };
         this._selectOptions.data = null;
         this._updateSelect();

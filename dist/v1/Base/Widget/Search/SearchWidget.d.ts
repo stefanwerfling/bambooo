@@ -9,6 +9,7 @@ export interface SearchWidgetSelect2AjaxParams {
     };
 }
 export type SearchWidgetSelect2AjaxTransport = (params: SearchWidgetSelect2AjaxParams, success: (data: any) => void, failure: (jqXHR: JQuery.jqXHR | undefined, textStatus: string, errorThrown: string) => void) => Promise<void | JQuery.jqXHR>;
+export type SearchWidgetSelect2AjaxTransportExt<T> = (params: SearchWidgetSelect2AjaxParams, success: (data: any) => void, failure: (jqXHR: JQuery.jqXHR | undefined, textStatus: string, errorThrown: string) => void, options?: T) => Promise<void | JQuery.jqXHR>;
 /**
  * Search widget data
  */
@@ -89,9 +90,10 @@ export declare class SearchWidget extends Element {
     setRequestUrl(url: string): void;
     /**
      * Set request transport
-     * @param {SearchWidgetSelect2AjaxTransport} cTransport
+     * @param {SearchWidgetSelect2AjaxTransportExt} cTransport
+     * @param {[T]} options
      */
-    setRequestTransport(cTransport: SearchWidgetSelect2AjaxTransport): void;
+    setRequestTransport<T>(cTransport: SearchWidgetSelect2AjaxTransportExt<T>, options?: T): void;
     /**
      * Set allow to clear
      * @param {boolean} allow
