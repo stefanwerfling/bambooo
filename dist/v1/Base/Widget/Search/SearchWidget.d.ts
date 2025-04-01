@@ -1,6 +1,6 @@
 import 'jquery';
 import { Element } from '../../Element.js';
-interface Select2AjaxParams {
+export interface SearchWidgetSelect2AjaxParams {
     data: any;
     url: string;
     method?: string;
@@ -8,7 +8,7 @@ interface Select2AjaxParams {
         [key: string]: string;
     };
 }
-type Select2AjaxTransport = (params: Select2AjaxParams, success: (data: any) => void, failure: (jqXHR: JQuery.jqXHR | undefined, textStatus: string, errorThrown: string) => void) => Promise<void | JQuery.jqXHR>;
+export type SearchWidgetSelect2AjaxTransport = (params: SearchWidgetSelect2AjaxParams, success: (data: any) => void, failure: (jqXHR: JQuery.jqXHR | undefined, textStatus: string, errorThrown: string) => void) => Promise<void | JQuery.jqXHR>;
 /**
  * Search widget data
  */
@@ -41,7 +41,7 @@ type SearchWidgetSelectOptions = {
         url: string;
         dataType: string;
     } | {
-        transport: Select2AjaxTransport;
+        transport: SearchWidgetSelect2AjaxTransport;
     };
     allowClear: boolean;
     maximumSelectionLength: number;
@@ -89,9 +89,9 @@ export declare class SearchWidget extends Element {
     setRequestUrl(url: string): void;
     /**
      * Set request transport
-     * @param {Select2AjaxTransport} cTransport
+     * @param {SearchWidgetSelect2AjaxTransport} cTransport
      */
-    setRequestTransport(cTransport: Select2AjaxTransport): void;
+    setRequestTransport(cTransport: SearchWidgetSelect2AjaxTransport): void;
     /**
      * Set allow to clear
      * @param {boolean} allow
