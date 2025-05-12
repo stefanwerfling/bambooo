@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LangText = void 0;
 const Element_js_1 = require("../Base/Element.js");
+const Lang_js_1 = require("./Lang.js");
 /**
  * LangText
  */
@@ -60,6 +61,28 @@ class LangText extends Element_js_1.Element {
     setClass(cssClass) {
         this._element.removeClass(this._class).addClass(cssClass);
         this._class = cssClass;
+    }
+    /**
+     * Return the text but translated
+     * @return {string}
+     */
+    getTranslatedText() {
+        const text = this._element.attr('lang-value');
+        if (text) {
+            return Lang_js_1.Lang.i().l(text);
+        }
+        return '';
+    }
+    /**
+     * Return the orginal text
+     * @return {string}
+     */
+    getOrginalText() {
+        const text = this._element.attr('lang-value');
+        if (text) {
+            return text;
+        }
+        return '';
     }
 }
 exports.LangText = LangText;

@@ -35,4 +35,14 @@ export declare class LangText extends Element {
      * @param {string} cssClass
      */
     setClass(cssClass: string): void;
+    /**
+     * Return the text but translated
+     * @return {string}
+     */
+    getTranslatedText(): string;
+    /**
+     * Return the orginal text
+     * @return {string}
+     */
+    getOrginalText(): string;
 }

@@ -1,4 +1,5 @@
 import {Element} from '../Base/Element.js';
+import {Lang} from './Lang.js';
 
 /**
  * LangTextDefaultClickFn
@@ -78,4 +79,31 @@ export class LangText extends Element {
         this._class = cssClass;
     }
 
+    /**
+     * Return the text but translated
+     * @return {string}
+     */
+    public getTranslatedText(): string {
+        const text = this._element.attr('lang-value');
+
+        if (text) {
+            return Lang.i().l(text);
+        }
+
+        return '';
+    }
+
+    /**
+     * Return the orginal text
+     * @return {string}
+     */
+    public getOrginalText(): string {
+        const text = this._element.attr('lang-value');
+
+        if (text) {
+            return text;
+        }
+
+        return '';
+    }
 }

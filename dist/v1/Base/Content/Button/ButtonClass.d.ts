@@ -8,5 +8,6 @@ export declare enum ButtonClass {
     warning = "btn-warning",
     success = "btn-success",
     primary = "btn-primary",
+    app = "btn-app",
     tool = "btn-tool"
 }
