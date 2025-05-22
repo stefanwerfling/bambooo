@@ -121,7 +121,21 @@ class Lang {
         eElement.find('[lang="1"]').each((_index, element) => {
             const attrLangValue = jQuery(element).attr('lang-value');
             if (attrLangValue) {
-                let newText = this.l(attrLangValue);
+                // check is simple text or multi text ------------------------------------------------------------------
+                let newText = '';
+                if (attrLangValue.indexOf('$')) {
+                    newText = attrLangValue;
+                    const matches = [...attrLangValue.matchAll(/\$(.*?)\$/g)];
+                    const results = matches.map(m => m[1]);
+                    for (const part of results) {
+                        const newTextPart = this.l(part);
+                        newText = newText.replaceAll(`$${part}$`, newTextPart);
+                    }
+                }
+                else {
+                    newText = this.l(attrLangValue);
+                }
+                // replace params --------------------------------------------------------------------------------------
                 const data = jQuery(element).data('lang_params');
                 if (data) {
                     newText = (0, sprintf_js_1.sprintf)(newText, ...data);
