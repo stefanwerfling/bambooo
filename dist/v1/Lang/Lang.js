@@ -123,7 +123,7 @@ class Lang {
             if (attrLangValue) {
                 // check is simple text or multi text ------------------------------------------------------------------
                 let newText = '';
-                if (attrLangValue.indexOf('$')) {
+                if (attrLangValue.indexOf('$') >= 0) {
                     newText = attrLangValue;
                     const matches = [...attrLangValue.matchAll(/\$(.*?)\$/g)];
                     const results = matches.map(m => m[1]);
