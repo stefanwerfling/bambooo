@@ -22,6 +22,9 @@ class KanbanBoard extends Element_js_1.Element {
         super();
         const telement = this._getAnyElement(element);
         this._element = jQuery('<div class="content-wrapper kanban">').appendTo(telement);
+        this._element.css({
+            height: '100%'
+        });
         this._container = jQuery(`<div class="container-fluid h-${heightPercent}" />`).appendTo(this._element);
     }
     /**
