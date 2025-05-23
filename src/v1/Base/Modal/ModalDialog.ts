@@ -1,3 +1,4 @@
+import MobileDetect from 'mobile-detect';
 import {ButtonClass} from '../Content/Button/ButtonClass.js';
 import {ButtonDefault, ButtonDefaultType} from '../Content/Button/ButtonDefault.js';
 import {Element} from '../Element.js';
@@ -142,6 +143,19 @@ export class ModalDialog extends Element {
                 await this._onHidden(this);
             }
         });
+
+        // -------------------------------------------------------------------------------------------------------------
+
+        if (typeof MobileDetect === 'function') {
+            const md = new MobileDetect(window.navigator.userAgent);
+
+            if (!!md.mobile()) {
+                this._innerElement.css({
+                    'max-width': '100%',
+                    'margin': '0'
+                });
+            }
+        }
     }
 
     /**
@@ -180,6 +194,10 @@ export class ModalDialog extends Element {
      * @param {[ModalDialogEventFn]} onHidden
      */
     public hide(onHidden?: ModalDialogEventFn): void {
+        if (onHidden) {
+            this.setOnHidden(onHidden);
+        }
+
         this._mainElement.modal('hide');
     }
 

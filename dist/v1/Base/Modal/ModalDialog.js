@@ -1,6 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ModalDialog = exports.ModalDialogType = void 0;
+const mobile_detect_1 = __importDefault(require("mobile-detect"));
 const ButtonClass_js_1 = require("../Content/Button/ButtonClass.js");
 const ButtonDefault_js_1 = require("../Content/Button/ButtonDefault.js");
 const Element_js_1 = require("../Element.js");
@@ -115,6 +119,16 @@ class ModalDialog extends Element_js_1.Element {
                 await this._onHidden(this);
             }
         });
+        // -------------------------------------------------------------------------------------------------------------
+        if (typeof mobile_detect_1.default === 'function') {
+            const md = new mobile_detect_1.default(window.navigator.userAgent);
+            if (!!md.mobile()) {
+                this._innerElement.css({
+                    'max-width': '100%',
+                    'margin': '0'
+                });
+            }
+        }
     }
     /**
      * setTitle
@@ -148,6 +162,9 @@ class ModalDialog extends Element_js_1.Element {
      * @param {[ModalDialogEventFn]} onHidden
      */
     hide(onHidden) {
+        if (onHidden) {
+            this.setOnHidden(onHidden);
+        }
         this._mainElement.modal('hide');
     }
     /**
