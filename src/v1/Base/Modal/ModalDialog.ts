@@ -142,6 +142,12 @@ export class ModalDialog extends Element {
             if (this._onHidden !== null) {
                 await this._onHidden(this);
             }
+
+            if(jQuery('.modal.show').length > 0) {
+                jQuery('body').addClass('modal-open');
+            } else {
+                jQuery('body').removeClass('modal-open');
+            }
         });
 
         // -------------------------------------------------------------------------------------------------------------

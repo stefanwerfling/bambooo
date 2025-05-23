@@ -118,6 +118,12 @@ class ModalDialog extends Element_js_1.Element {
             if (this._onHidden !== null) {
                 await this._onHidden(this);
             }
+            if (jQuery('.modal.show').length > 0) {
+                jQuery('body').addClass('modal-open');
+            }
+            else {
+                jQuery('body').removeClass('modal-open');
+            }
         });
         // -------------------------------------------------------------------------------------------------------------
         if (typeof mobile_detect_1.default === 'function') {
