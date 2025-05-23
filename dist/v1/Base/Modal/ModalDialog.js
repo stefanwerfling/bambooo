@@ -131,7 +131,7 @@ class ModalDialog extends Element_js_1.Element {
             if (!!md.mobile()) {
                 this._innerElement.css({
                     'max-width': '100%',
-                    'margin': '0'
+                    'margin': '15px'
                 });
             }
         }
