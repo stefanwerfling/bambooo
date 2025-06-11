@@ -75,5 +75,14 @@ class CheckBox extends Element_js_1.Element {
             this._input.removeAttr('checked');
         }
     }
+    /**
+     * Set the onclick function for checkbox
+     * @param {CheckBoxClickFn} fn
+     */
+    setOnClickFn(fn) {
+        this._input.unbind().on('click', () => {
+            fn();
+        });
+    }
 }
 exports.CheckBox = CheckBox;

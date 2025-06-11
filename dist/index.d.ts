@@ -61,7 +61,7 @@ export { Summernote } from './v1/Base/Content/Form/Summernote.js';
 export { Switch, SwitchChangeFn } from './v1/Base/Content/Form/Switch.js';
 export { SwitchTimeoutFn, SwitchTimer } from './v1/Base/Content/Form/SwitchTimer.js';
 export { Textarea } from './v1/Base/Content/Form/Textarea.js';
-export { CheckBox } from './v1/Base/Content/Form/CheckBox.js';
+export { CheckBoxClickFn, CheckBox } from './v1/Base/Content/Form/CheckBox.js';
 export { Icon, IconFa } from './v1/Base/Content/Icon/Icon.js';
 export { Image, ImageArt, ImageType } from './v1/Base/Content/Image/Image.js';
 export { ImageCoin } from './v1/Base/Content/Image/ImageCoin.js';

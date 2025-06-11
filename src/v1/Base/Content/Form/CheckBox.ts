@@ -2,6 +2,11 @@ import {Element} from '../../Element.js';
 import {LangText} from '../../../Lang/LangText.js';
 
 /**
+ * CheckBoxClickFn
+ */
+export type CheckBoxClickFn = () => void;
+
+/**
  * Check Box
  */
 export class CheckBox extends Element {
@@ -85,4 +90,13 @@ export class CheckBox extends Element {
         }
     }
 
+    /**
+     * Set the onclick function for checkbox
+     * @param {CheckBoxClickFn} fn
+     */
+    public setOnClickFn(fn: CheckBoxClickFn): void {
+        this._input.unbind().on('click', (): void => {
+            fn();
+        });
+    }
 }

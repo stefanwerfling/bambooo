@@ -1,6 +1,10 @@
 import { Element } from '../../Element.js';
 import { LangText } from '../../../Lang/LangText.js';
 /**
+ * CheckBoxClickFn
+ */
+export type CheckBoxClickFn = () => void;
+/**
  * Check Box
  */
 export declare class CheckBox extends Element {
@@ -45,4 +49,9 @@ export declare class CheckBox extends Element {
      * @param {boolean} checked
      */
     setChecked(checked: boolean): void;
+    /**
+     * Set the onclick function for checkbox
+     * @param {CheckBoxClickFn} fn
+     */
+    setOnClickFn(fn: CheckBoxClickFn): void;
 }

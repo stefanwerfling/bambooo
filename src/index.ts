@@ -96,7 +96,7 @@ export {Summernote} from './v1/Base/Content/Form/Summernote.js';
 export {Switch, SwitchChangeFn} from './v1/Base/Content/Form/Switch.js';
 export {SwitchTimeoutFn, SwitchTimer} from './v1/Base/Content/Form/SwitchTimer.js';
 export {Textarea} from './v1/Base/Content/Form/Textarea.js';
-export {CheckBox} from './v1/Base/Content/Form/CheckBox.js';
+export {CheckBoxClickFn, CheckBox} from './v1/Base/Content/Form/CheckBox.js';
 
 // ## Content - Icon
 export {Icon, IconFa} from './v1/Base/Content/Icon/Icon.js';
@@ -169,7 +169,16 @@ export {BeepOptions, Beep} from './v1/Base/Sound/Beep.js';
 export {ICollectionEntryWidget} from './v1/Base/Widget/Collection/CollectionEntryWidget.js';
 export {CollectionWidgetOnUpdateEvent, CollectionWidgetOnUpdate, CollectionWidget} from './v1/Base/Widget/Collection/CollectionWidget.js';
 export {CollectionCardWidget} from './v1/Base/Widget/Collection/CollectionCardWidget.js';
-export {SearchWidgetSelect2AjaxParams, SearchWidgetSelect2AjaxTransport, SearchWidgetSelect2AjaxTransportExt, SearchWidgetOnTemplateSelection, SearchWidgetOnTemplateResult, SearchWidgetOnEvent, SearchWidgetData, SearchWidget} from './v1/Base/Widget/Search/SearchWidget.js';
+export {
+    SearchWidgetSelect2AjaxParams,
+    SearchWidgetSelect2AjaxTransport,
+    SearchWidgetSelect2AjaxTransportExt,
+    SearchWidgetOnTemplateSelection,
+    SearchWidgetOnTemplateResult,
+    SearchWidgetOnEvent,
+    SearchWidgetData,
+    SearchWidget
+} from './v1/Base/Widget/Search/SearchWidget.js';
 
 // # Utils
 export {UtilColor} from './v1/Base/Utils/UtilColor.js';
