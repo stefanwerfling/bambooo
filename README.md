@@ -1,11 +1,12 @@
 [![Discord](https://img.shields.io/discord/1347133593578766369.svg?label=Discord&logo=discord&color=5865F2&logoColor=white)](https://discord.gg/52PQ2mbWQD) [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/stefanwerfling/bambooo)
 
 # Bambooo
-AdminLTE Typescript Framework (The basic idea of the name is to build the front end like a bamboo frame.)
 
-"Never repeat yourself" is one of the most important attitudes of a programmer. 
-Since I now have several projects that I use with the same basic framework for a chic admin front end, 
-I have now decided to outsource this as an extra project and thus make it easier to maintain the code.
+<p align="center">
+<img src="/doc/images/logo.png" width="300px" style="border-radius: 15px;transition: transform .2s;object-fit: cover;">
+<br><br>
+AdminLTE Typescript Framework (The basic idea of the name is to build the front end like a bamboo frame). "Never repeat yourself" is one of the most important attitudes of a programmer. Since I now have several projects that I use with the same basic framework for a chic admin front end, I have now decided to outsource this as an extra project and thus make it easier to maintain the code.
+</p>
 
 ## Installation
 First, the following packages must be installed:
