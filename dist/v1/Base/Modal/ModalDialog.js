@@ -266,7 +266,9 @@ class ModalDialog extends Element_js_1.Element {
         const removeIfNoOtherModal = () => {
             if (jQuery('.modal.show').length === 0) {
                 jQuery('.modal-backdrop').last().remove();
-                jQuery('body').removeClass('modal-open');
+                jQuery('body')
+                    .removeClass('modal-open')
+                    .css('padding-right', '');
             }
             this._mainElement.remove();
         };
