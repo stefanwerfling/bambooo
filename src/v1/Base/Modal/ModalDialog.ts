@@ -327,12 +327,21 @@ export class ModalDialog extends Element {
     public destroy(): void {
         this.resetValues();
 
-        this._mainElement.one('hidden.bs.modal', () => {
-            jQuery('.modal-backdrop').remove();
-            jQuery('body').removeClass('modal-open');
-            this._mainElement.remove();
-        });
+        const removeIfNoOtherModal = () => {
+            if (jQuery('.modal.show').length === 0) {
+                jQuery('.modal-backdrop').last().remove();
+                jQuery('body').removeClass('modal-open');
+            }
 
-        this._mainElement.remove();
+            this._mainElement.remove();
+        };
+
+        if (this._mainElement.hasClass('show')) {
+            this._mainElement.one('hidden.bs.modal', removeIfNoOtherModal);
+            this._mainElement.modal('hide');
+        } else {
+            removeIfNoOtherModal();
+        }
     }
+
 }
