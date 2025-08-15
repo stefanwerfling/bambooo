@@ -326,6 +326,13 @@ export class ModalDialog extends Element {
      */
     public destroy(): void {
         this.resetValues();
+
+        this._mainElement.one('hidden.bs.modal', () => {
+            jQuery('.modal-backdrop').remove();
+            jQuery('body').removeClass('modal-open');
+            this._mainElement.remove();
+        });
+
         this._mainElement.remove();
     }
 }
