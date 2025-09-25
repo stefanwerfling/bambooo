@@ -8,9 +8,9 @@ export class Tr extends Component {
 
     /**
      * Constructor
-     * @param {Table} element
+     * @param {Table|JQuery} element
      */
-    public constructor(element: Table) {
+    public constructor(element: Table|JQuery) {
         super();
 
         const telement = this._getAnyElement(element);

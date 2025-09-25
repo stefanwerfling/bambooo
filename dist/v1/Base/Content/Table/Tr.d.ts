@@ -6,7 +6,7 @@ import { Table } from './Table.js';
 export declare class Tr extends Component {
     /**
      * Constructor
-     * @param {Table} element
+     * @param {Table|JQuery} element
      */
-    constructor(element: Table);
+    constructor(element: Table | JQuery);
 }

@@ -8,7 +8,7 @@ const Component_js_1 = require("../../Component.js");
 class Tr extends Component_js_1.Component {
     /**
      * Constructor
-     * @param {Table} element
+     * @param {Table|JQuery} element
      */
     constructor(element) {
         super();
