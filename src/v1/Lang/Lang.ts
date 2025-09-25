@@ -145,7 +145,7 @@ export class Lang {
 
             if (attrLangValue) {
                 // check is simple text or multi text ------------------------------------------------------------------
-                let newText = '';
+                let newText: string;
 
                 if (attrLangValue.indexOf('$') >= 0) {
                     newText = attrLangValue;

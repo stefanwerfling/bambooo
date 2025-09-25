@@ -1,4 +1,4 @@
-import {Component, ComponentType} from '../../Component.js';
+import {Component} from '../../Component.js';
 import {Icon, IconFa} from '../Icon/Icon';
 
 /**
@@ -10,7 +10,7 @@ export enum InfoBoxBg {
     success = 'bg-success',
     warning = 'bg-warning',
     info = 'bg-info'
-};
+}
 
 /**
  * InfoBoxMb

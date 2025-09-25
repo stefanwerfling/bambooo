@@ -23,7 +23,7 @@ class ContentRow extends Component_js_1.Component {
      */
     constructor(content, rowclass) {
         super();
-        let tcontent = null;
+        let tcontent;
         if (content instanceof Wrapper_1.Wrapper) {
             tcontent = content.getContentWrapper().getContent();
         }
@@ -36,7 +36,7 @@ class ContentRow extends Component_js_1.Component {
         if (typeof tcontent.getContentFluidElement === 'function') {
             this._element = jQuery('<div class="row" />').appendTo(tcontent.getContentFluidElement());
         }
-        else if (tcontent !== null) {
+        else {
             this._element = jQuery('<div class="row" />').appendTo(tcontent);
         }
         if (rowclass) {

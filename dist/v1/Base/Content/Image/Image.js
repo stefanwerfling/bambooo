@@ -27,7 +27,7 @@ class Image extends Component_js_1.Component {
     constructor(element, url, art = ImageArt.base, type = ImageType.none, alt) {
         super();
         const telement = this._getAnyElement(element);
-        this._element = jQuery('<img />').appendTo(telement);
+        this._element = jQuery('<img  alt=""/>').appendTo(telement);
         this._element.attr('src', url);
         if (alt) {
             this._element.attr('alt', alt);

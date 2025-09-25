@@ -11,7 +11,7 @@ export enum CircleColor {
     orange = 'text-orange',
     yellow = 'text-yellow',
     gray = 'text-gray'
-};
+}
 
 /**
  * Circle

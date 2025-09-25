@@ -28,7 +28,7 @@ export class Image extends Component {
 
         const telement = this._getAnyElement(element);
 
-        this._element = jQuery('<img />').appendTo(telement);
+        this._element = jQuery('<img  alt=""/>').appendTo(telement);
         this._element.attr('src', url);
 
         if (alt) {

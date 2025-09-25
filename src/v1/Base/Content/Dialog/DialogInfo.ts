@@ -1,4 +1,4 @@
-import {Component, ComponentType} from '../../Component.js';
+import {ComponentType} from '../../Component.js';
 import {ModalDialog, ModalDialogType} from '../../Modal/ModalDialog';
 import {ButtonClass} from '../Button/ButtonClass';
 

@@ -14,7 +14,6 @@ var InfoBoxBg;
     InfoBoxBg["warning"] = "bg-warning";
     InfoBoxBg["info"] = "bg-info";
 })(InfoBoxBg || (exports.InfoBoxBg = InfoBoxBg = {}));
-;
 /**
  * InfoBoxMb
  */

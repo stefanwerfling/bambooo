@@ -1,5 +1,5 @@
 import {BClass} from '../../../../Core/BTypes.js';
-import {Component, ComponentType} from '../../Component.js';
+import {ComponentType} from '../../Component.js';
 import {Card, CardBodyType, CardLine, CardType} from '../../Content/Card/Card.js';
 import {ICollectionEntryWidget} from './CollectionEntryWidget.js';
 import {CollectionWidget, CollectionWidgetOnUpdate} from './CollectionWidget.js';

@@ -122,7 +122,7 @@ class Lang {
             const attrLangValue = jQuery(element).attr('lang-value');
             if (attrLangValue) {
                 // check is simple text or multi text ------------------------------------------------------------------
-                let newText = '';
+                let newText;
                 if (attrLangValue.indexOf('$') >= 0) {
                     newText = attrLangValue;
                     const matches = [...attrLangValue.matchAll(/\$(.*?)\$/g)];
