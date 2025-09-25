@@ -1,23 +1,34 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 
 /**
  * SparkLine
  */
-export class SparkLine extends Element {
+export class SparkLine extends Component {
 
-    protected _height: string = '70';
-    protected _width: string = '240';
+    /**
+     * Height
+     * @protected
+     */
+    protected _height: number = 70;
 
+    /**
+     * Width
+     * @protected
+     */
+    protected _width: number = 240;
+
+    /**
+     * Data
+     * @protected
+     */
     protected _data: number[] = [];
 
     /**
      * constructor
-     * @param element
+     * @param {ComponentType} element
      */
-    public constructor(element: any) {
-        super();
-
-        this._element = jQuery('<div />').appendTo(element);
+    public constructor(element: ComponentType) {
+        super(jQuery('<div />').appendTo(Component.getAnyElement(element)));
     }
 
     public addData(value: number): void {

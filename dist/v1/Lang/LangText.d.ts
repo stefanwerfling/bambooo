@@ -1,4 +1,4 @@
-import { Element } from '../Base/Element.js';
+import { Component } from '../Base/Component.js';
 /**
  * LangTextDefaultClickFn
  */
@@ -6,7 +6,7 @@ export type LangTextDefaultClickFn = (langText: LangText) => void;
 /**
  * LangText
  */
-export declare class LangText extends Element {
+export declare class LangText extends Component {
     /**
      * class
      * @protected

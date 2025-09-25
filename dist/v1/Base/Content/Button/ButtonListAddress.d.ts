@@ -1,6 +1,6 @@
-import { Element } from '../../Element';
+import { Component } from '../../Component.js';
 /**
  * ButtonListAddress
  */
-export declare class ButtonListAddress extends Element {
+export declare class ButtonListAddress extends Component {
 }

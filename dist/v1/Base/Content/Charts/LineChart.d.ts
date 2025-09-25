@@ -1,14 +1,18 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 /**
  * LineChart
  */
-export declare class LineChart extends Element {
-    protected _height: string;
+export declare class LineChart extends Component {
+    /**
+     * Height
+     * @protected
+     */
+    protected _height: number;
     /**
      * constructor
-     * @param element
+     * @param {ComponentType} element
      */
-    constructor(element: any);
+    constructor(element: ComponentType);
     /**
      * _changeCanvasSize
      * @protected
@@ -18,5 +22,5 @@ export declare class LineChart extends Element {
      * _getContext
      * @protected
      */
-    protected _getContext(): any;
+    protected _getContext(): CanvasRenderingContext2D | null;
 }

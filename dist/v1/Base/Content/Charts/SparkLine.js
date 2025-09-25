@@ -1,21 +1,32 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SparkLine = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * SparkLine
  */
-class SparkLine extends Element_1.Element {
-    _height = '70';
-    _width = '240';
+class SparkLine extends Component_js_1.Component {
+    /**
+     * Height
+     * @protected
+     */
+    _height = 70;
+    /**
+     * Width
+     * @protected
+     */
+    _width = 240;
+    /**
+     * Data
+     * @protected
+     */
     _data = [];
     /**
      * constructor
-     * @param element
+     * @param {ComponentType} element
      */
     constructor(element) {
-        super();
-        this._element = jQuery('<div />').appendTo(element);
+        super(jQuery('<div />').appendTo(Component_js_1.Component.getAnyElement(element)));
     }
     addData(value) {
         this._data.push(value);

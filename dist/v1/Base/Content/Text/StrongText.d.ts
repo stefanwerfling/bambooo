@@ -1,18 +1,18 @@
-import { Element } from './../../Element.js';
+import { Component, ComponentType } from '../../Component.js';
 import { LangText } from './../../../Lang/LangText.js';
 /**
  * StrongText
  */
-export declare class StrongText extends Element {
+export declare class StrongText extends Component {
     /**
      * constructor
-     * @param {any|Element} element
-     * @param {string|JQuery<HTMLElement>|LangText} text
+     * @param {ComponentType} element
+     * @param {string|JQuery|LangText} text
      */
-    constructor(element: any | Element, text?: string | JQuery<HTMLElement> | LangText);
+    constructor(element: ComponentType, text?: string | JQuery | LangText);
     /**
      * Add Text
-     * @param {string|JQuery<HTMLElement>|LangText} text
+     * @param {string|JQuery|LangText} text
      */
-    addText(text: string | JQuery<HTMLElement> | LangText): void;
+    addText(text: string | JQuery | LangText): void;
 }

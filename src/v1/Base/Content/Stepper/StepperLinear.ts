@@ -1,4 +1,4 @@
-import {Element} from './../../Element.js';
+import {Component, ComponentType} from '../../Component.js';
 import {LangText} from './../../../Lang/LangText.js';
 import Stepper from 'bs-stepper';
 
@@ -10,19 +10,19 @@ export type StepperLinearStepEventFn = (indexStep: number) => void;
 /**
  * Stepper linear
  */
-export class StepperLinear extends Element {
+export class StepperLinear extends Component {
 
     /**
      * Header
      * @protected
      */
-    protected _header: any;
+    protected _header: JQuery
 
     /**
      * Content
      * @protected
      */
-    protected _content: any;
+    protected _content: JQuery;
 
     /**
      * Stepper
@@ -32,9 +32,9 @@ export class StepperLinear extends Element {
 
     /**
      * Constructor
-     * @param {Element|any} element
+     * @param {ComponentType} element
      */
-    public constructor(element: Element|any) {
+    public constructor(element: ComponentType) {
         super();
 
         const telement = this._getAnyElement(element);
@@ -48,7 +48,7 @@ export class StepperLinear extends Element {
      * Add a Step
      * @param {string|LangText} label
      * @param {number} stepNumber
-     * @returns {any}
+     * @returns {JQuery}
      */
     public addStep(label: string|LangText, stepNumber: number): any {
         const unid = this._uniqId();

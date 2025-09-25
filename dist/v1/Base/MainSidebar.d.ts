@@ -8,22 +8,22 @@ export declare class MainSidebar {
      * element
      * @private
      */
-    private _element;
+    protected _element: JQuery;
     /**
      * logo
      * @private
      */
-    private _logo;
+    protected _logo: SidebarLogo;
     /**
      * sidebar
      * @private
      */
-    private _sidebar;
+    protected _sidebar: Sidebar;
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {JQuery} element
      */
-    constructor(element?: any);
+    constructor(element?: JQuery);
     /**
      * getLogo
      */

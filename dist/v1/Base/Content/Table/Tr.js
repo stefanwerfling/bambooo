@@ -1,14 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Tr = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * Tr
  */
-class Tr extends Element_1.Element {
+class Tr extends Component_js_1.Component {
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {Table} element
      */
     constructor(element) {
         super();

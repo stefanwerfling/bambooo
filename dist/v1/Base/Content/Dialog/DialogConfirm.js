@@ -28,11 +28,11 @@ class DialogConfirm extends ModalDialog_1.ModalDialog {
      */
     _cancelFn = null;
     /**
-     * constructor
-     * @param elementObject
-     * @param idname
-     * @param modalType
-     * @param buttonType
+     * Constructor
+     * @param {ComponentType} elementObject
+     * @param {string} idname
+     * @param {ModalDialogType} modalType
+     * @param {ButtonClass} buttonType
      */
     constructor(elementObject, idname, modalType, buttonType = ButtonClass_1.ButtonClass.primary) {
         super(elementObject, idname, modalType);
@@ -52,7 +52,7 @@ class DialogConfirm extends ModalDialog_1.ModalDialog {
     }
     /**
      * setMessage
-     * @param message
+     * @param {JQuery|string} message
      */
     setMessage(message) {
         this._bodyCard.empty();
@@ -84,7 +84,7 @@ class DialogConfirm extends ModalDialog_1.ModalDialog {
      * @param {string} id
      * @param {ModalDialogType} modalType
      * @param {string} title
-     * @param {any} message
+     * @param {JQuery|string} message
      * @param {DialogConfirmClickFn} clickOk
      * @param {DialogConfirmClickFn} clickCancel
      * @param {string} buttonOktitle

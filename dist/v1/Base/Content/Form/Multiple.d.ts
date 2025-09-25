@@ -1,20 +1,20 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 import { SelectOption } from './SelectBottemBorderOnly2';
 /**
  * Multiple
  */
-export declare class Multiple extends Element {
+export declare class Multiple extends Component {
     /**
      * Limit
      * @protected
      */
     protected _limit: number;
     /**
-     * constructor
-     * @param element
-     * @param id
+     * Constructor
+     * @param {ComponentType} element
+     * @param {string} id
      */
-    constructor(element: any, id?: string);
+    constructor(element: ComponentType, id?: string);
     /**
      * _reload
      * @protected
@@ -36,11 +36,12 @@ export declare class Multiple extends Element {
     clearValues(): void;
     /**
      * setValue
-     * @param {any[]} values
+     * @param {string[]} values
      */
-    setValue(values: any[]): void;
+    setValue(values: string[]): void;
     /**
      * getValue
+     * @return {string[]}
      */
-    getValue(): any[];
+    getValue(): string[];
 }

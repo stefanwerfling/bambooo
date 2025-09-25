@@ -1,12 +1,12 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 /**
  * ImageCoin
  */
-export declare class ImageCoin extends Element {
+export declare class ImageCoin extends Component {
     /**
      * constructor
-     * @param element
-     * @param symbol
+     * @param {ComponentType} element
+     * @param {string} symbol
      */
-    constructor(element: any, symbol: string);
+    constructor(element: ComponentType, symbol: string);
 }

@@ -10,25 +10,25 @@ export class ContentWrapper {
      * element
      * @private
      */
-    private _element: any;
+    protected _element: JQuery;
 
     /**
      * content header
      * @private
      */
-    private _contentHeader: ContentHeader;
+    protected _contentHeader: ContentHeader;
 
     /**
      * content
      * @private
      */
-    private _content: Content;
+    protected _content: Content;
 
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {JQuery} element
      */
-    public constructor(element?: any) {
+    public constructor(element?: JQuery) {
         if (element) {
             this._element = element;
         } else {
@@ -48,8 +48,9 @@ export class ContentWrapper {
 
     /**
      * getElement
+     * @return {JQuery}
      */
-    public getElement(): any {
+    public getElement(): JQuery {
         return this._element;
     }
 

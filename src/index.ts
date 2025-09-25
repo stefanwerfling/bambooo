@@ -15,13 +15,12 @@ export {NetFetch} from './Core/Net/NetFetch.js';
 
 // V1 ------------------------------------------------------------------------------------------------------------------
 // ## Base imports
-
+export {ComponentType, Component} from './v1/Base/Component.js';
 export {ColumnContent} from './v1/Base/ColumnContent.js';
 export {Content} from './v1/Base/Content.js';
 export {ContentHeader} from './v1/Base/ContentHeader.js';
 export {ContentWrapper} from './v1/Base/ContentWrapper.js';
 export {ControlSidebar} from './v1/Base/ControlSidebar.js';
-export {Element} from './v1/Base/Element.js';
 export {Footer} from './v1/Base/Footer.js';
 export {MainSidebar} from './v1/Base/MainSidebar.js';
 export {Navbar} from './v1/Base/Navbar.js';

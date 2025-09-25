@@ -1,3 +1,4 @@
+import {Component, ComponentType} from '../Component.js';
 import {SidebarMenu} from './SidebarMenu';
 import {SidebarUserPanel} from './SidebarUserPanel';
 
@@ -10,27 +11,27 @@ export class Sidebar {
      * element
      * @private
      */
-    private _element: any;
+    protected _element: JQuery;
 
     /**
      * user panel
      * @private
      */
-    private _userPanel: SidebarUserPanel | null = null;
+    protected _userPanel: SidebarUserPanel | null = null;
 
     /**
      * menu
      * @private
      */
-    private _menu: SidebarMenu | null = null;
+    protected _menu: SidebarMenu | null = null;
 
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {ComponentType} element
      */
-    public constructor(element?: any) {
+    public constructor(element?: ComponentType) {
         if (element) {
-            this._element = element;
+            this._element = Component.getAnyElement(element);
         } else {
             throw Error('sidebar element not found!');
         }
@@ -38,6 +39,7 @@ export class Sidebar {
 
     /**
      * getMenu
+     * @return {SidebarMenu}
      */
     public getMenu(): SidebarMenu {
         if (this._menu === null) {
@@ -49,6 +51,7 @@ export class Sidebar {
 
     /**
      * getUserPanel
+     * @return {SidebarUserPanel}
      */
     public getUserPanel(): SidebarUserPanel {
         if (this._userPanel === null) {
@@ -60,8 +63,9 @@ export class Sidebar {
 
     /**
      * getElement
+     * @return {JQuery}
      */
-    public getElement(): any {
+    public getElement(): JQuery {
         return this._element;
     }
 

@@ -23,8 +23,8 @@ class MainSidebar {
      */
     _sidebar;
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {JQuery} element
      */
     constructor(element) {
         if (element) {

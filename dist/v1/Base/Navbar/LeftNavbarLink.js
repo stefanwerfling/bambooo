@@ -45,14 +45,14 @@ class LeftNavbarLink {
     }
     /**
      * getLiElement
-     * @return {any}
+     * @return {JQuery}
      */
     getLiElement() {
         return this._liElement;
     }
     /**
      * getAElement
-     * @return {any}
+     * @return {JQuery}
      */
     getAElement() {
         return this._aElement;

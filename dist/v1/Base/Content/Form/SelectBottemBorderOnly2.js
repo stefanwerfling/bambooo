@@ -1,19 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SelectBottemBorderOnly2 = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * SelectBottemBorderOnly2
  */
-class SelectBottemBorderOnly2 extends Element_1.Element {
+class SelectBottemBorderOnly2 extends Component_js_1.Component {
     /**
      * selected value
      * @protected
      */
     _selectedValue = '';
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {ComponentType} element
      */
     constructor(element) {
         super();

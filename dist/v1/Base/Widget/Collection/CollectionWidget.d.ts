@@ -1,5 +1,5 @@
 import { BClass } from '../../../../Core/BTypes.js';
-import { Element } from '../../Element.js';
+import { Component, ComponentType } from '../../Component.js';
 import { ICollectionEntryWidget } from './CollectionEntryWidget.js';
 /**
  * Collection widget on update event
@@ -16,7 +16,7 @@ export type CollectionWidgetOnUpdate<T> = (event: CollectionWidgetOnUpdateEvent,
 /**
  * Collection Widget
  */
-export declare class CollectionWidget<T extends ICollectionEntryWidget, E extends Element> {
+export declare class CollectionWidget<T extends ICollectionEntryWidget, E extends Component> {
     /**
      * Element
      * @protected
@@ -47,14 +47,14 @@ export declare class CollectionWidget<T extends ICollectionEntryWidget, E extend
      * @param {} opts
      */
     constructor(opts: {
-        element: Element | any;
+        element: ComponentType;
         editable: boolean;
-        onContainerObject: (element: Element) => E;
-        onBindAddBtn: (element: E) => Element | any;
+        onContainerObject: (element: ComponentType) => E;
+        onBindAddBtn: (element: E) => ComponentType;
         entryClass: BClass<T>;
         onUpdate?: CollectionWidgetOnUpdate<T>;
     });
-    protected _createAddBtn(element: Element): void;
+    protected _createAddBtn(element: ComponentType): void;
     /**
      * On click add event
      * @protected

@@ -23,18 +23,18 @@ export declare class SidebarUserPanel {
      */
     private _username;
     /**
-     * constructor
-     * @param sidebar
+     * Constructor
+     * @param {Sidebar} sidebar
      */
     constructor(sidebar: Sidebar);
     /**
      * setImage
-     * @param url
+     * @param {string} url
      */
     setImage(url: string): void;
     /**
      * setUsername
-     * @param username
+     * @param {string} username
      */
     setUsername(username: string): void;
     /**

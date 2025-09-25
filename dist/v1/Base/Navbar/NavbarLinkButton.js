@@ -1,14 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NavbarLinkButton = void 0;
-const Element_1 = require("../Element");
+const Component_js_1 = require("../Component.js");
 /**
  * NavbarLinkButton
  */
-class NavbarLinkButton extends Element_1.Element {
+class NavbarLinkButton extends Component_js_1.Component {
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {ComponentType} element
+     * @param {string} icon
+     * @param {NavbarLinkButtonFn} click
      */
     constructor(element, icon, click) {
         super();

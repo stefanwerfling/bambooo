@@ -1,4 +1,4 @@
-import {Element} from './Element.js';
+import {Component} from './Component.js';
 import {LangText} from './../Lang/LangText.js';
 
 /**
@@ -10,19 +10,19 @@ export class ContentHeader {
      * Element
      * @private
      */
-    private _element: any;
+    protected _element: any;
 
     /**
      * Title
      * @private
      */
-    private _title: string|LangText = '';
+    protected _title: string|LangText = '';
 
     /**
      * constructor
-     * @param {[any]} element
+     * @param {[JQuery]} element
      */
-    public constructor(element?: any) {
+    public constructor(element?: JQuery) {
         if (element) {
             this._element = element;
         } else {
@@ -44,9 +44,9 @@ export class ContentHeader {
 
     /**
      * Return the element
-     * @returns {any}
+     * @returns {JQuery}
      */
-    public getElement(): any {
+    public getElement(): JQuery {
         return this._element;
     }
 
@@ -60,7 +60,7 @@ export class ContentHeader {
         const chTitle = this._element.find('#ch_title').empty();
         const h1 = jQuery('<h1 class="m-0"></h1>').appendTo(chTitle);
 
-        const telement = Element.getAnyElement(title);
+        const telement = Component.getAnyElement(title);
 
         h1.append(telement);
     }

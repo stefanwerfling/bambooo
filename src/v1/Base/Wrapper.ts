@@ -14,7 +14,7 @@ export class Wrapper {
      * element
      * @private
      */
-    private readonly _element: any;
+    private readonly _element: JQuery;
 
     /**
      * preloader
@@ -53,10 +53,10 @@ export class Wrapper {
     private readonly _controlSidebar: ControlSidebar;
 
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {JQuery} element
      */
-    public constructor(element?: any) {
+    public constructor(element?: JQuery) {
         if (element) {
             this._element = element;
         } else {
@@ -90,8 +90,9 @@ export class Wrapper {
 
     /**
      * getElement
+     * @return {JQuery}
      */
-    public getElement(): any {
+    public getElement(): JQuery {
         return this._element;
     }
 

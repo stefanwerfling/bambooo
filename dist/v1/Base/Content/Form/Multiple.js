@@ -1,20 +1,20 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Multiple = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * Multiple
  */
-class Multiple extends Element_1.Element {
+class Multiple extends Component_js_1.Component {
     /**
      * Limit
      * @protected
      */
     _limit = 0;
     /**
-     * constructor
-     * @param element
-     * @param id
+     * Constructor
+     * @param {ComponentType} element
+     * @param {string} id
      */
     constructor(element, id) {
         super();
@@ -30,10 +30,15 @@ class Multiple extends Element_1.Element {
      * @protected
      */
     _reload() {
-        this._element.select2({
-            theme: 'bootstrap4',
-            maximumSelectionLength: this._limit
-        });
+        if (typeof this._element.select2 === 'function') {
+            this._element.select2({
+                theme: 'bootstrap4',
+                maximumSelectionLength: this._limit
+            });
+        }
+        else {
+            console.log('Multiple: Select2 plugin not found!');
+        }
     }
     /**
      * Set limit
@@ -60,7 +65,7 @@ class Multiple extends Element_1.Element {
     }
     /**
      * setValue
-     * @param {any[]} values
+     * @param {string[]} values
      */
     setValue(values) {
         this._element.val(values);
@@ -68,9 +73,17 @@ class Multiple extends Element_1.Element {
     }
     /**
      * getValue
+     * @return {string[]}
      */
     getValue() {
-        return this._element.val();
+        const val = this._element.val();
+        if (Array.isArray(val)) {
+            return val;
+        }
+        if (val == null) {
+            return [];
+        }
+        return [String(val)];
     }
 }
 exports.Multiple = Multiple;

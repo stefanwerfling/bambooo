@@ -39,8 +39,8 @@ class ButtonDefault extends Button_js_1.Button {
      */
     _icon = '';
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {string|LangText} title
      * @param {string} icon
      * @param {ButtonClass} bnClass
@@ -54,7 +54,7 @@ class ButtonDefault extends Button_js_1.Button {
         this.setValue(title, icon);
     }
     /**
-     * setValue
+     * Set value
      * @param {string|LangText} title
      * @param {string} icon
      */
@@ -78,8 +78,8 @@ class ButtonDefault extends Button_js_1.Button {
         }
     }
     /**
-     * setClass
-     * @param bnClass
+     * Set class
+     * @param {ButtonClass} bnClass
      */
     setClass(bnClass = ButtonClass_1.ButtonClass.default) {
         this._element.removeClass(this._class).addClass(bnClass);

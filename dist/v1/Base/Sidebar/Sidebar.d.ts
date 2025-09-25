@@ -1,3 +1,4 @@
+import { ComponentType } from '../Component.js';
 import { SidebarMenu } from './SidebarMenu';
 import { SidebarUserPanel } from './SidebarUserPanel';
 /**
@@ -8,32 +9,35 @@ export declare class Sidebar {
      * element
      * @private
      */
-    private _element;
+    protected _element: JQuery;
     /**
      * user panel
      * @private
      */
-    private _userPanel;
+    protected _userPanel: SidebarUserPanel | null;
     /**
      * menu
      * @private
      */
-    private _menu;
+    protected _menu: SidebarMenu | null;
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {ComponentType} element
      */
-    constructor(element?: any);
+    constructor(element?: ComponentType);
     /**
      * getMenu
+     * @return {SidebarMenu}
      */
     getMenu(): SidebarMenu;
     /**
      * getUserPanel
+     * @return {SidebarUserPanel}
      */
     getUserPanel(): SidebarUserPanel;
     /**
      * getElement
+     * @return {JQuery}
      */
-    getElement(): any;
+    getElement(): JQuery;
 }

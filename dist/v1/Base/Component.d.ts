@@ -1,46 +1,52 @@
 /**
- * Element
+ * Component type
  */
-export declare class Element {
+export type ComponentType = unknown | Component | JQuery | HTMLElement;
+/**
+ * Component
+ */
+export declare class Component {
     /**
      * element (jquery)
      * @protected
      */
-    protected _element: any;
+    protected _element: JQuery;
     /**
-     * constructor
-     * @param aelement
+     * Constructor
+     * @param {ComponentType} aElement
      */
-    constructor(aelement?: any);
+    constructor(aElement?: ComponentType);
     /**
      * _uniqId
      * @protected
      */
     protected _uniqId(): string;
     /**
-     * getElement
-     * return the main enclosed element
+     * Return the main enclosed element
+     * @return {JQuery}
      */
-    getElement(): any;
+    getElement(): JQuery;
     /**
      * getAnyElement
      * helper for giving an element as any (by jquery)
-     * @param aelement
+     * @param {ComponentType} aelement
+     * @return {JQuery}
      * @protected
      */
-    static getAnyElement(aelement?: any): any;
+    static getAnyElement(aelement?: ComponentType): JQuery;
     /**
      * isEmpty
      * @param el
      */
-    static isEmpty(el: any): boolean;
+    static isEmpty(el: JQuery): Boolean;
     /**
      * _getAnyElement
      * helper for giving an element as any (by jquery)
-     * @param aelement
+     * @param {unknown|JQuery} aelement
+     * @return {JQuery}
      * @protected
      */
-    protected _getAnyElement(aelement?: any): any;
+    protected _getAnyElement(aelement?: ComponentType): JQuery;
     /**
      * hide
      */
@@ -53,12 +59,12 @@ export declare class Element {
      * appendTo
      * @param telement
      */
-    appendTo(telement: Element | string): void;
+    appendTo(telement: Component | string): void;
     /**
      * append
      * @param telement
      */
-    append(telement: Element | string): void;
+    append(telement: Component | string): void;
     /**
      * Helper bool class, add or remove a class
      * @param {string} classname
@@ -73,7 +79,7 @@ export declare class Element {
     addClass(aclass: string): void;
     /**
      * setCss
-     * @param css
+     * @param {Record<string, string | number>} css
      */
-    setCss(css: object): void;
+    setCss(css: Record<string, string | number>): void;
 }

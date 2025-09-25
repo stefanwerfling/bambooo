@@ -1,3 +1,4 @@
+import { ComponentType } from '../../Component.js';
 import { Textarea } from './Textarea';
 /**
  * Summernote
@@ -10,11 +11,11 @@ export declare class Summernote extends Textarea {
     protected _isEnable: boolean;
     /**
      * Constructor for Summernote element.
-     * @param {Element|HTMLElement} element - A element to append the Textarea element.
+     * @param {ComponentType} element - A element to append the Textarea element.
      * @param {[string]} placeholder - Optional, placeholder for textarea.
      * @param {number} rows - Textarea rows.
      */
-    constructor(element: any, placeholder?: string, rows?: number);
+    constructor(element: ComponentType, placeholder?: string, rows?: number);
     protected create(focus: boolean): void;
     destroy(): void;
     /**

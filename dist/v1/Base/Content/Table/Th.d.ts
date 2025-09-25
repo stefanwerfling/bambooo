@@ -1,18 +1,19 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 import { Tr } from './Tr';
 /**
  * Th
  */
-export declare class Th extends Element {
+export declare class Th extends Component {
     /**
      * constructor
-     * @param atr
-     * @param avalue
+     * @param {Tr} atr
+     * @param {ComponentType} avalue
+     * @param {width} width
      */
-    constructor(atr: Tr, avalue?: any, width?: string);
+    constructor(atr: Tr, avalue?: ComponentType, width?: string);
     /**
      * addValue
-     * @param avalue
+     * @param {ComponentType} avalue
      */
-    addValue(avalue: any): void;
+    addValue(avalue: ComponentType): void;
 }

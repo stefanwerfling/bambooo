@@ -1,5 +1,5 @@
 import { ButtonDefault } from '../Content/Button/ButtonDefault.js';
-import { Element } from '../Element.js';
+import { Component, ComponentType } from '../Component.js';
 import { LangText } from '../../Lang/LangText.js';
 /**
  * ModalDialogType
@@ -16,52 +16,52 @@ export type ModalDialogEventFn = (dialog: ModalDialog) => Promise<void>;
 /**
  * ModalDialog
  */
-export declare class ModalDialog extends Element {
+export declare class ModalDialog extends Component {
     /**
      * main element
      * @protected
      */
-    protected _mainElement: any;
+    protected _mainElement: JQuery;
     /**
      * inner element
      * @protected
      */
-    protected _innerElement: any;
+    protected _innerElement: JQuery;
     /**
      * modal content
      * @protected
      */
-    protected _modalContent: any;
+    protected _modalContent: JQuery;
     /**
      * overload
      * @protected
      */
-    protected _overload: any;
+    protected _overload: JQuery;
     /**
      * header
      * @protected
      */
-    protected _header: any;
+    protected _header: JQuery;
     /**
      * header title
      * @protected
      */
-    protected _header_title: any;
+    protected _header_title: JQuery;
     /**
      * header button
      * @protected
      */
-    protected _header_button: any;
+    protected _header_button: JQuery;
     /**
      * body
      * @protected
      */
-    protected _body: any;
+    protected _body: JQuery;
     /**
      * footer
      * @protected
      */
-    protected _footer: any;
+    protected _footer: JQuery;
     /**
      * on close event
      * @protected
@@ -78,13 +78,13 @@ export declare class ModalDialog extends Element {
      */
     protected _onHidden: ModalDialogEventFn | null;
     /**
-     * constructor
-     * @param {Element|any} elementObject
+     * Constructor
+     * @param {ComponentType} elementObject
      * @param {string} idname
      * @param {ModalDialogType} modalType
      * @param {boolean} backdrop
      */
-    constructor(elementObject: Element | any, idname: string, modalType: ModalDialogType, backdrop?: boolean);
+    constructor(elementObject: ComponentType, idname: string, modalType: ModalDialogType, backdrop?: boolean);
     /**
      * setTitle
      * @param {string|LangText} title

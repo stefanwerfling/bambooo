@@ -1,20 +1,22 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 
 /**
  * LineChart
  */
-export class LineChart extends Element {
+export class LineChart extends Component {
 
-    protected _height: string = '250';
+    /**
+     * Height
+     * @protected
+     */
+    protected _height: number = 250;
 
     /**
      * constructor
-     * @param element
+     * @param {ComponentType} element
      */
-    public constructor(element: any) {
-        super();
-
-        this._element = jQuery('<canvas style="max-width: 100%;" />').appendTo(element);
+    public constructor(element: ComponentType) {
+        super(jQuery('<canvas style="max-width: 100%;" />').appendTo(Component.getAnyElement(element)));
         this._changeCanvasSize();
     }
 
@@ -34,8 +36,9 @@ export class LineChart extends Element {
      * _getContext
      * @protected
      */
-    protected _getContext(): any {
-        return this._element.get(0).getContext('2d');
+    protected _getContext(): CanvasRenderingContext2D | null {
+        const canvas = this._element.get(0) as HTMLCanvasElement | undefined;
+        return canvas?.getContext('2d') ?? null;
     }
 
 }

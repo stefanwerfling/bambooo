@@ -1,15 +1,15 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 
 /**
  * LineChartInteractiv
  */
-export class LineChartInteractiv extends Element {
+export class LineChartInteractiv extends Component {
 
     /**
      * height
      * @protected
      */
-    protected _height: string = '120';
+    protected _height: number = 120;
 
     /**
      * data
@@ -30,15 +30,11 @@ export class LineChartInteractiv extends Element {
     protected _plot: any;
 
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {ComponentType} element
      */
-    public constructor(element: any) {
-        super();
-
-        const telement = this._getAnyElement(element);
-
-        this._element = jQuery('<div></div>').appendTo(telement);
+    public constructor(element: ComponentType) {
+        super(jQuery('<div></div>').appendTo(Component.getAnyElement(element)));
         this._changeSize();
 
         // @ts-ignore

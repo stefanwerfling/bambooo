@@ -44,14 +44,15 @@ export declare class Wrapper {
      */
     private readonly _controlSidebar;
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {JQuery} element
      */
-    constructor(element?: any);
+    constructor(element?: JQuery);
     /**
      * getElement
+     * @return {JQuery}
      */
-    getElement(): any;
+    getElement(): JQuery;
     /**
      * getMainSidebar
      */

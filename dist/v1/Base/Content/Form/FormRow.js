@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FormRow = exports.FormRowColType = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 var FormRowColType;
 (function (FormRowColType) {
     FormRowColType[FormRowColType["none"] = 0] = "none";
@@ -12,10 +12,10 @@ var FormRowColType;
 /**
  * FormRow
  */
-class FormRow extends Element_1.Element {
+class FormRow extends Component_js_1.Component {
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {string} style
      */
     constructor(element, style = '') {
@@ -28,7 +28,7 @@ class FormRow extends Element_1.Element {
      * @param {number} size
      * @param {FormRowColType} colType
      * @param {[string]} addClass
-     * @returns {any}
+     * @returns {JQuery}
      */
     createCol(size, colType = FormRowColType.sm, addClass) {
         let tclass = `col`;
@@ -58,7 +58,7 @@ class FormRow extends Element_1.Element {
     /**
      * Create auto col element
      * @param {string} addClass
-     * @returns {any}
+     * @returns {JQuery}
      */
     createAutoCol(addClass) {
         return this.createCol(0, FormRowColType.auto, addClass);

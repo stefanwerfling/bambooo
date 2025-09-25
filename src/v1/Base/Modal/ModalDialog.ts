@@ -1,7 +1,7 @@
 import MobileDetect from 'mobile-detect';
 import {ButtonClass} from '../Content/Button/ButtonClass.js';
 import {ButtonDefault, ButtonDefaultType} from '../Content/Button/ButtonDefault.js';
-import {Element} from '../Element.js';
+import {Component, ComponentType} from '../Component.js';
 import {LangText} from '../../Lang/LangText.js';
 
 /**
@@ -21,61 +21,61 @@ export type ModalDialogEventFn = (dialog: ModalDialog) => Promise<void>;
 /**
  * ModalDialog
  */
-export class ModalDialog extends Element {
+export class ModalDialog extends Component {
 
     /**
      * main element
      * @protected
      */
-    protected _mainElement: any;
+    protected _mainElement: JQuery;
 
     /**
      * inner element
      * @protected
      */
-    protected _innerElement: any;
+    protected _innerElement: JQuery;
 
     /**
      * modal content
      * @protected
      */
-    protected _modalContent: any;
+    protected _modalContent: JQuery;
 
     /**
      * overload
      * @protected
      */
-    protected _overload: any;
+    protected _overload: JQuery;
 
     /**
      * header
      * @protected
      */
-    protected _header: any;
+    protected _header: JQuery;
 
     /**
      * header title
      * @protected
      */
-    protected _header_title: any;
+    protected _header_title: JQuery;
 
     /**
      * header button
      * @protected
      */
-    protected _header_button: any;
+    protected _header_button: JQuery;
 
     /**
      * body
      * @protected
      */
-    protected _body: any;
+    protected _body: JQuery;
 
     /**
      * footer
      * @protected
      */
-    protected _footer: any;
+    protected _footer: JQuery;
 
     /**
      * on close event
@@ -96,13 +96,13 @@ export class ModalDialog extends Element {
     protected _onHidden: ModalDialogEventFn|null = null;
 
     /**
-     * constructor
-     * @param {Element|any} elementObject
+     * Constructor
+     * @param {ComponentType} elementObject
      * @param {string} idname
      * @param {ModalDialogType} modalType
      * @param {boolean} backdrop
      */
-    public constructor(elementObject: Element|any, idname: string, modalType: ModalDialogType, backdrop: boolean = true) {
+    public constructor(elementObject: ComponentType, idname: string, modalType: ModalDialogType, backdrop: boolean = true) {
         super();
 
         const aElement = this._getAnyElement(elementObject);
@@ -192,7 +192,9 @@ export class ModalDialog extends Element {
      * show
      */
     public show(): void {
-        this._mainElement.modal('show');
+        if (typeof (this._mainElement as any).modal === 'function') {
+            (this._mainElement as any).modal('show');
+        }
     }
 
     /**
@@ -204,7 +206,9 @@ export class ModalDialog extends Element {
             this.setOnHidden(onHidden);
         }
 
-        this._mainElement.modal('hide');
+        if (typeof (this._mainElement as any).modal === 'function') {
+            (this._mainElement as any).modal('hide');
+        }
     }
 
     /**
@@ -340,7 +344,10 @@ export class ModalDialog extends Element {
 
         if (this._mainElement.hasClass('show')) {
             this._mainElement.one('hidden.bs.modal', removeIfNoOtherModal);
-            this._mainElement.modal('hide');
+
+            if (typeof (this._mainElement as any).modal === 'function') {
+                (this._mainElement as any).modal('hide');
+            }
         } else {
             removeIfNoOtherModal();
         }

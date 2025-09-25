@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockButton = exports.BlockButtonType = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 var BlockButtonType;
 (function (BlockButtonType) {
     BlockButtonType[BlockButtonType["Block"] = 0] = "Block";
@@ -13,9 +13,13 @@ var BlockButtonType;
 /**
  * BlockButton
  */
-class BlockButton extends Element_1.Element {
+class BlockButton extends Component_js_1.Component {
+    /**
+     * Constructor
+     * @param {ComponentType} element
+     * @param {BlockButtonType} blocktype
+     */
     constructor(element, blocktype = BlockButtonType.Block) {
-        super();
         let bclass = 'btn-default btn-block';
         switch (blocktype) {
             case BlockButtonType.BlockFlat:
@@ -31,8 +35,12 @@ class BlockButton extends Element_1.Element {
                 bclass = ' .btn-xs';
                 break;
         }
-        this._element = jQuery(`<button type="button" class="btn ${bclass}"></button>`).appendTo(this._getAnyElement(element));
+        super(jQuery(`<button type="button" class="btn ${bclass}"></button>`).appendTo(Component_js_1.Component.getAnyElement(element)));
     }
+    /**
+     * Set on click
+     * @param {BlockButtonClickFn} onClick
+     */
     setOnClickFn(onClick) {
         this._element.unbind().on('click', () => {
             onClick();

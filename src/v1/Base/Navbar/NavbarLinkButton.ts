@@ -1,4 +1,4 @@
-import {Element} from '../Element';
+import {Component, ComponentType} from '../Component.js';
 
 /**
  * NavbarLinkButtonFn
@@ -8,13 +8,15 @@ export type NavbarLinkButtonFn = (event: any) => void;
 /**
  * NavbarLinkButton
  */
-export class NavbarLinkButton extends Element {
+export class NavbarLinkButton extends Component {
 
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {ComponentType} element
+     * @param {string} icon
+     * @param {NavbarLinkButtonFn} click
      */
-    public constructor(element: any, icon: string, click: NavbarLinkButtonFn) {
+    public constructor(element: ComponentType, icon: string, click: NavbarLinkButtonFn) {
         super();
 
         const telement = this._getAnyElement(element);

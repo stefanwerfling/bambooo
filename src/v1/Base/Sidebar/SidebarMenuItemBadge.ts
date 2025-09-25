@@ -1,8 +1,15 @@
 import {SidebarMenuItem} from './SidebarMenuItem';
 
+/**
+ * Sidebar menu item badge
+ */
 export class SidebarMenuItemBadge {
 
-    protected _span: any;
+    /**
+     * Span
+     * @protected
+     */
+    protected _span: JQuery;
 
     /**
      * constructor
@@ -12,7 +19,11 @@ export class SidebarMenuItemBadge {
         this._span = jQuery('<span class="badge badge-info right" />').appendTo(sidebarMenuItem.getPElement());
     }
 
-    public setContent(content: any): void {
+    /**
+     * Set content
+     * @param {string|JQuery} content
+     */
+    public setContent(content: string|JQuery): void {
         this._span.empty().append(content);
     }
 

@@ -1,4 +1,4 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 /**
  * Table Options
  */
@@ -10,28 +10,28 @@ export type TableOptions = {
 /**
  * Table
  */
-export declare class Table extends Element {
+export declare class Table extends Component {
     /**
      * _thead
      * @private
      */
-    private _thead;
+    protected _thead: JQuery;
     /**
      * _tbody
      * @private
      */
-    private _tbody;
+    protected _tbody: JQuery;
     /**
      * _tfoot
      * @private
      */
-    private _tfoot;
+    protected _tfoot: JQuery | null;
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {TableOptions} options
      */
-    constructor(element: any, options?: TableOptions);
+    constructor(element: ComponentType, options?: TableOptions);
     /**
      * Set table style striped
      * @param {boolean} striped
@@ -49,17 +49,17 @@ export declare class Table extends Element {
     setStyleTextNoWrap(noWrap: boolean): void;
     /**
      * getThead
-     * @return {any}
+     * @return {JQuery}
      */
-    getThead(): any;
+    getThead(): JQuery;
     /**
      * getTbody
-     * @return {any}
+     * @return {JQuery}
      */
-    getTbody(): any;
+    getTbody(): JQuery;
     /**
      * getFoot
-     * @return {any}
+     * @return {JQuery}
      */
-    getFoot(): any;
+    getFoot(): JQuery;
 }

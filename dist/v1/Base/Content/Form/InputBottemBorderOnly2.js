@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InputBottemBorderOnly2 = exports.InputType = void 0;
 const moment_1 = __importDefault(require("moment"));
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 const Icon_1 = require("../Icon/Icon");
 const FormGroupButton_1 = require("./FormGroupButton");
 /**
@@ -26,7 +26,7 @@ var InputType;
 /**
  * InputBottemBorderOnly2
  */
-class InputBottemBorderOnly2 extends Element_1.Element {
+class InputBottemBorderOnly2 extends Component_js_1.Component {
     /**
      * type
      * @protected
@@ -44,7 +44,7 @@ class InputBottemBorderOnly2 extends Element_1.Element {
     _inputGroup = null;
     /**
      * Constructor
-     * @param {any} element
+     * @param {ComponentType} element
      * @param {string} id
      * @param {InputType} type
      * @param {InputTypeOptions} options
@@ -93,7 +93,12 @@ class InputBottemBorderOnly2 extends Element_1.Element {
         switch (type) {
             // Color ---------------------------------------------------------------------------------------------------
             case InputType.colorpicker:
-                this._element.colorpicker();
+                if (typeof jQuery.fn.colorpicker === 'function') {
+                    this._element.colorpicker();
+                }
+                else {
+                    console.log('InputBottemBorderOnly2: Colorpicker plugin not found!');
+                }
                 break;
             // Datetimepicker ------------------------------------------------------------------------------------------
             case InputType.date:
@@ -113,10 +118,15 @@ class InputBottemBorderOnly2 extends Element_1.Element {
                         if (this._options.date_format) {
                             dformat = this._options.date_format;
                         }
-                        this._element.datetimepicker({
-                            format: dformat,
-                            lang: lang
-                        });
+                        if (typeof this._element.datetimepicker === 'function') {
+                            this._element.datetimepicker({
+                                format: dformat,
+                                lang: lang
+                            });
+                        }
+                        else {
+                            console.log('InputBottemBorderOnly2: Datetimepicker plugin not found!');
+                        }
                         break;
                     // Time --------------------------------------------------------------------------------------------
                     case InputType.time:
@@ -125,10 +135,15 @@ class InputBottemBorderOnly2 extends Element_1.Element {
                         if (this._options.time_format) {
                             tformat = this._options.time_format;
                         }
-                        this._element.datetimepicker({
-                            format: tformat,
-                            lang: lang
-                        });
+                        if (typeof this._element.datetimepicker === 'function') {
+                            this._element.datetimepicker({
+                                format: tformat,
+                                lang: lang
+                            });
+                        }
+                        else {
+                            console.log('InputBottemBorderOnly2: Datetimepicker plugin not found!');
+                        }
                         break;
                     // Date-Range --------------------------------------------------------------------------------------
                     case InputType.daterange:
@@ -141,13 +156,18 @@ class InputBottemBorderOnly2 extends Element_1.Element {
                         if (this._options.ranges) {
                             ranges = this._options.ranges;
                         }
-                        this._element.datetimepicker({
-                            format: drformat,
-                            ranges: ranges,
-                            lang: lang,
-                            startDate: (0, moment_1.default)().startOf('month'),
-                            endDate: (0, moment_1.default)().endOf('month')
-                        });
+                        if (typeof this._element.datetimepicker === 'function') {
+                            this._element.datetimepicker({
+                                format: drformat,
+                                ranges: ranges,
+                                lang: lang,
+                                startDate: (0, moment_1.default)().startOf('month'),
+                                endDate: (0, moment_1.default)().endOf('month')
+                            });
+                        }
+                        else {
+                            console.log('InputBottemBorderOnly2: Datetimepicker plugin not found!');
+                        }
                         break;
                 }
                 break;
@@ -183,7 +203,7 @@ class InputBottemBorderOnly2 extends Element_1.Element {
      * getValue
      */
     getValue() {
-        return this._element.val();
+        return `${this._element.val()}`;
     }
     /**
      * Set the value as number, use it by InputType.number

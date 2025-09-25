@@ -1,14 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RightNavbar = void 0;
-const Element_1 = require("../Element");
+const Component_js_1 = require("../Component.js");
 /**
  * RightNavbar
  */
-class RightNavbar extends Element_1.Element {
+class RightNavbar extends Component_js_1.Component {
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {ComponentType} element
      */
     constructor(element) {
         super();

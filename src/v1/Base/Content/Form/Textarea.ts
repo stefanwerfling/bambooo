@@ -1,17 +1,17 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 
 /**
  * Textarea form element.
  */
-export class Textarea extends Element {
+export class Textarea extends Component {
 
     /**
      * Constructor for Textarea element.
-     * @param {Element|HTMLElement} element - A element to append the Textarea element.
+     * @param {ComponentType} element - A element to append the Textarea element.
      * @param {[string]} placeholder - Optional, placeholder for textarea.
      * @param {number} rows - Textarea rows.
      */
-    public constructor(element: any, placeholder?: string, rows: number = 3) {
+    public constructor(element: ComponentType, placeholder?: string, rows: number = 3) {
         super();
 
         let tplaceholder = '';
@@ -46,7 +46,7 @@ export class Textarea extends Element {
      * @returns {string}
      */
     public getValue(): string {
-        return this._element.val();
+        return this._element.val() as string;
     }
 
 }

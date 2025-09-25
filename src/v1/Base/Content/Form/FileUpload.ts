@@ -1,10 +1,11 @@
+import {ComponentType} from '../../Component.js';
 import {Card, CardBodyType, CardLine, CardType} from '../Card/Card';
 import {FormRow, FormRowColType} from './FormRow';
 
 export class FileUpload extends Card {
 
     public constructor(
-        elementObject: any,
+        elementObject: ComponentType,
         bodyType: CardBodyType = CardBodyType.table,
         cardType: CardType = CardType.none,
         cardLine: CardLine = CardLine.none

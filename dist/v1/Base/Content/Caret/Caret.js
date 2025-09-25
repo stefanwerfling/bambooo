@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Caret = exports.CaretType = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * CaretType
  */
@@ -14,14 +14,13 @@ var CaretType;
 /**
  * Caret
  */
-class Caret extends Element_1.Element {
+class Caret extends Component_js_1.Component {
     /**
-     * constructor
-     * @param element
-     * @param type
+     * Constructor
+     * @param {ComponentType} element
+     * @param {CaretType} type
      */
     constructor(element, type = CaretType.up) {
-        super();
         let dp = '';
         switch (type) {
             case CaretType.down:
@@ -34,11 +33,11 @@ class Caret extends Element_1.Element {
                 dp = 'text-success';
                 break;
         }
-        this._element = jQuery(`<span class="description-percentage ${dp}"><i class="fas ${type}"></i> </span>`).appendTo(element);
+        super(jQuery(`<span class="description-percentage ${dp}"><i class="fas ${type}"></i> </span>`).appendTo(Component_js_1.Component.getAnyElement(element)));
     }
     /**
      * addValue
-     * @param value
+     * @param {JQuery|string} value
      */
     addValue(value) {
         this._element.append(value);

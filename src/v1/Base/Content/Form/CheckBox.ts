@@ -1,4 +1,4 @@
-import {Element} from '../../Element.js';
+import {Component, ComponentType} from '../../Component.js';
 import {LangText} from '../../../Lang/LangText.js';
 
 /**
@@ -9,26 +9,26 @@ export type CheckBoxClickFn = () => void;
 /**
  * Check Box
  */
-export class CheckBox extends Element {
+export class CheckBox extends Component {
 
     /**
      * input
      * @protected
      */
-    protected _input: any;
+    protected _input: JQuery;
 
     /**
      * label
      * @protected
      */
-    protected _label: any;
+    protected _label: JQuery;
 
     /**
      * Constructor
-     * @param {JQuery<HTMLElement>|Element} element
+     * @param {ComponentType} element
      * @param {string|JQuery<HTMLElement>|LangText} label
      */
-    public constructor(element: JQuery<HTMLElement>|Element, label: string|JQuery<HTMLElement>|LangText = '') {
+    public constructor(element: ComponentType, label: string|JQuery|LangText = '') {
         super();
 
         const telement = this._getAnyElement(element);
@@ -42,9 +42,9 @@ export class CheckBox extends Element {
 
     /**
      * setLabel
-     * @param {string|JQuery<HTMLElement>|LangText} label
+     * @param {string|JQuery|LangText} label
      */
-    public setLabel(label: string|JQuery<HTMLElement>|LangText): void {
+    public setLabel(label: string|JQuery|LangText): void {
         const tlabel = this._getAnyElement(label);
 
         this._label.empty().append(tlabel);

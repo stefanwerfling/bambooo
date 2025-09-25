@@ -1,4 +1,4 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 
 /**
  * SwitchChangeFn
@@ -8,27 +8,27 @@ export type SwitchChangeFn = (value: boolean) => void;
 /**
  * Switch
  */
-export class Switch extends Element {
+export class Switch extends Component {
 
     /**
      * input
      * @protected
      */
-    protected _input: any;
+    protected _input: JQuery;
 
     /**
      * label
      * @protected
      */
-    protected _label: any;
+    protected _label: JQuery;
 
     /**
      * constructor
-     * @param element
-     * @param id
-     * @param label
+     * @param {ComponentType} element
+     * @param {string} id
+     * @param {JQuery|string} label
      */
-    public constructor(element: any, id: string, label: any = '') {
+    public constructor(element: ComponentType, id: string, label: JQuery|string = '') {
         super();
 
         const telement = this._getAnyElement(element);
@@ -44,15 +44,15 @@ export class Switch extends Element {
 
     /**
      * setLabel
-     * @param label
+     * @param {JQuery|string} label
      */
-    public setLabel(label: any): void {
+    public setLabel(label: JQuery|string): void {
         this._label.empty().append(label);
     }
 
     /**
      * setEnable
-     * @param enable
+     * @param {boolean} enable
      */
     public setEnable(enable: boolean): void {
         this._input.prop('checked', enable);
@@ -61,6 +61,7 @@ export class Switch extends Element {
 
     /**
      * isEnable
+     * @return {boolean}
      */
     public isEnable(): boolean {
         return this._input.is(':checked');
@@ -68,7 +69,7 @@ export class Switch extends Element {
 
     /**
      * setChangeFn
-     * @param onChangeFn
+     * @param {SwitchChangeFn} onChangeFn
      */
     public setChangeFn(onChangeFn: SwitchChangeFn): void {
         this._input.unbind().on('change', (): void => {
@@ -78,11 +79,11 @@ export class Switch extends Element {
 
     /**
      * setInativ
-     * @param inactiv
+     * @param {boolean} inactiv
      */
     public setInativ(inactiv: boolean) {
         if (inactiv) {
-            this._input.attr('disabled', true);
+            this._input.attr('disabled', 1);
         } else {
             this._input.removeAttr('disabled');
         }

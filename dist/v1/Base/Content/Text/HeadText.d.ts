@@ -1,19 +1,19 @@
-import { Element } from './../../Element.js';
+import { Component, ComponentType } from '../../Component.js';
 import { LangText } from './../../../Lang/LangText.js';
 /**
  * H Head element
  */
-export declare class HeadText extends Element {
+export declare class HeadText extends Component {
     /**
-     * constructor
-     * @param {any|Element} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {number} hnum
      * @param {string|LangText} title
      */
-    constructor(element: any | Element, hnum: number, title?: string | LangText);
+    constructor(element: ComponentType, hnum: number, title?: string | LangText);
     /**
      * Set title
-     * @param {string|JQuery<HTMLElement>|LangText} title
+     * @param {string|JQuery|LangText} title
      */
-    setTitle(title: string | JQuery<HTMLElement> | LangText): void;
+    setTitle(title: string | JQuery | LangText): void;
 }

@@ -1,4 +1,4 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 /**
  * CircleColor
  */
@@ -14,11 +14,11 @@ export declare enum CircleColor {
 /**
  * Circle
  */
-export declare class Circle extends Element {
+export declare class Circle extends Component {
     /**
-     * constructor
-     * @param element
-     * @param color
+     * Constructor
+     * @param {ComponentType} element
+     * @param {CircleColor|string} color
      */
-    constructor(element: any, color: CircleColor | string);
+    constructor(element: ComponentType, color: CircleColor | string);
 }

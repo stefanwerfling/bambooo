@@ -1,19 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LineChart = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * LineChart
  */
-class LineChart extends Element_1.Element {
-    _height = '250';
+class LineChart extends Component_js_1.Component {
+    /**
+     * Height
+     * @protected
+     */
+    _height = 250;
     /**
      * constructor
-     * @param element
+     * @param {ComponentType} element
      */
     constructor(element) {
-        super();
-        this._element = jQuery('<canvas style="max-width: 100%;" />').appendTo(element);
+        super(jQuery('<canvas style="max-width: 100%;" />').appendTo(Component_js_1.Component.getAnyElement(element)));
         this._changeCanvasSize();
     }
     /**
@@ -32,7 +35,8 @@ class LineChart extends Element_1.Element {
      * @protected
      */
     _getContext() {
-        return this._element.get(0).getContext('2d');
+        const canvas = this._element.get(0);
+        return canvas?.getContext('2d') ?? null;
     }
 }
 exports.LineChart = LineChart;

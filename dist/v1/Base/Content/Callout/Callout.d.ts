@@ -1,4 +1,7 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
+/**
+ * Callout type
+ */
 export declare enum CalloutType {
     warning = "callout-warning",
     danger = "callout-danger",
@@ -9,15 +12,23 @@ export declare enum CalloutType {
 /**
  * Callout
  */
-export declare class Callout extends Element {
-    protected _mainElement: any;
-    protected _title: any;
+export declare class Callout extends Component {
+    /**
+     * Main Element
+     * @protected
+     */
+    protected _mainElement: JQuery;
+    /**
+     * Title
+     * @protected
+     */
+    protected _title: JQuery;
     /**
      * constructor
-     * @param {any|Element} element
+     * @param {ComponentType} element
      * @param {CalloutType} type
      */
-    constructor(element: any | Element, type?: CalloutType);
+    constructor(element: ComponentType, type?: CalloutType);
     /**
      * Set Title
      * @param {string} title
@@ -25,7 +36,7 @@ export declare class Callout extends Element {
     setTitle(title: string): void;
     /**
      * Return the main Element
-     * @returns {any}
+     * @returns {JQuery}
      */
-    getMainElement(): any;
+    getMainElement(): JQuery;
 }

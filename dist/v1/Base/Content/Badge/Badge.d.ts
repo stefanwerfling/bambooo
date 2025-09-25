@@ -1,4 +1,4 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 /**
  * BadgeType
  */
@@ -24,13 +24,13 @@ export declare enum BadgeType {
 /**
  * Badge
  */
-export declare class Badge extends Element {
+export declare class Badge extends Component {
     /**
      * constructor
-     * @param {any} element
+     * @param {ComponentType} element
      * @param {string} text
      * @param {BadgeType} type
      * @param {string|undefined} aColor
      */
-    constructor(element: any, text: string, type?: BadgeType, aColor?: string);
+    constructor(element: ComponentType, text: string, type?: BadgeType, aColor?: string);
 }

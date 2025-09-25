@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StrongText = void 0;
-const Element_js_1 = require("./../../Element.js");
+const Component_js_1 = require("../../Component.js");
 /**
  * StrongText
  */
-class StrongText extends Element_js_1.Element {
+class StrongText extends Component_js_1.Component {
     /**
      * constructor
-     * @param {any|Element} element
-     * @param {string|JQuery<HTMLElement>|LangText} text
+     * @param {ComponentType} element
+     * @param {string|JQuery|LangText} text
      */
     constructor(element, text) {
         super();
@@ -21,7 +21,7 @@ class StrongText extends Element_js_1.Element {
     }
     /**
      * Add Text
-     * @param {string|JQuery<HTMLElement>|LangText} text
+     * @param {string|JQuery|LangText} text
      */
     addText(text) {
         const ttext = this._getAnyElement(text);

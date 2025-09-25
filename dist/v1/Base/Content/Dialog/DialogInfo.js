@@ -23,11 +23,11 @@ class DialogInfo extends ModalDialog_1.ModalDialog {
      */
     _okFn = null;
     /**
-     * constructor
-     * @param elementObject
-     * @param idname
-     * @param modalType
-     * @param buttonType
+     * Constructor
+     * @param {ComponentType} elementObject
+     * @param {string} idname
+     * @param {ModalDialogType} modalType
+     * @param {ButtonClass} buttonType
      */
     constructor(elementObject, idname, modalType, buttonType = ButtonClass_1.ButtonClass.primary) {
         super(elementObject, idname, modalType);
@@ -41,7 +41,7 @@ class DialogInfo extends ModalDialog_1.ModalDialog {
     }
     /**
      * setMessage
-     * @param {any} message
+     * @param {JQuery|string} message
      */
     setMessage(message) {
         this._bodyCard.empty();
@@ -73,7 +73,7 @@ class DialogInfo extends ModalDialog_1.ModalDialog {
      * @param {string} id
      * @param {ModalDialogType} modalType
      * @param {string} title
-     * @param {any|DialogInfoOnContent} content (Message/Elements)
+     * @param {JQuery|string|DialogInfoOnContent} content (Message/Elements)
      * @param {DialogInfoClickFn} clickOk
      * @param buttonOktitle
      * @param buttonType
@@ -82,7 +82,7 @@ class DialogInfo extends ModalDialog_1.ModalDialog {
         const modal = new DialogInfo(jQuery('body'), id, modalType, buttonType);
         modal.setTitle(title);
         if (typeof content === 'function') {
-            content(modal);
+            content(modal).then();
         }
         else {
             modal.setMessage(content);

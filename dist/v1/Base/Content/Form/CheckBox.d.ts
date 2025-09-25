@@ -1,4 +1,4 @@
-import { Element } from '../../Element.js';
+import { Component, ComponentType } from '../../Component.js';
 import { LangText } from '../../../Lang/LangText.js';
 /**
  * CheckBoxClickFn
@@ -7,28 +7,28 @@ export type CheckBoxClickFn = () => void;
 /**
  * Check Box
  */
-export declare class CheckBox extends Element {
+export declare class CheckBox extends Component {
     /**
      * input
      * @protected
      */
-    protected _input: any;
+    protected _input: JQuery;
     /**
      * label
      * @protected
      */
-    protected _label: any;
+    protected _label: JQuery;
     /**
      * Constructor
-     * @param {JQuery<HTMLElement>|Element} element
+     * @param {ComponentType} element
      * @param {string|JQuery<HTMLElement>|LangText} label
      */
-    constructor(element: JQuery<HTMLElement> | Element, label?: string | JQuery<HTMLElement> | LangText);
+    constructor(element: ComponentType, label?: string | JQuery | LangText);
     /**
      * setLabel
-     * @param {string|JQuery<HTMLElement>|LangText} label
+     * @param {string|JQuery|LangText} label
      */
-    setLabel(label: string | JQuery<HTMLElement> | LangText): void;
+    setLabel(label: string | JQuery | LangText): void;
     /**
      * setReadOnly
      * @param {boolean} readonly

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Image = exports.ImageType = exports.ImageArt = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 var ImageArt;
 (function (ImageArt) {
     ImageArt["base"] = "";
@@ -15,14 +15,14 @@ var ImageType;
 /**
  * Image
  */
-class Image extends Element_1.Element {
+class Image extends Component_js_1.Component {
     /**
-     * constructor
-     * @param element
-     * @param url
-     * @param art
-     * @param type
-     * @param alt
+     * Constructor
+     * @param {ComponentType} element
+     * @param {string} url
+     * @param {ImageArt} art
+     * @param {ImageType} type
+     * @param {string} alt
      */
     constructor(element, url, art = ImageArt.base, type = ImageType.none, alt) {
         super();

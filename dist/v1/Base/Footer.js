@@ -11,8 +11,8 @@ class Footer {
      */
     _element;
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {JQuery} element
      */
     constructor(element) {
         if (element) {

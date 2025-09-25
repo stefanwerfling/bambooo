@@ -1,14 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ContentDisable = void 0;
-const Element_1 = require("../Element");
+const Component_js_1 = require("../Component.js");
 /**
  * ContentDisable
  */
-class ContentDisable extends Element_1.Element {
+class ContentDisable extends Component_js_1.Component {
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {ComponentType} element
      */
     constructor(element) {
         super();

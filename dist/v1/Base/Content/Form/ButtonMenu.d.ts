@@ -1,4 +1,5 @@
 import { LangText } from '../../../Lang/LangText.js';
+import { ComponentType } from '../../Component.js';
 import { ButtonClass } from '../Button/ButtonClass.js';
 import { IconFa } from '../Icon/Icon.js';
 import { Button, ButtonClickFn, ButtonShape, ButtonType } from './Button.js';
@@ -17,15 +18,15 @@ export declare class ButtonMenu extends Button {
      * div group
      * @protected
      */
-    protected _divGrp: any;
+    protected _divGrp: JQuery;
     /**
      * div drop down menu
      * @protected
      */
-    protected _divDropDownMenu: any;
+    protected _divDropDownMenu: JQuery;
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {IconFa|string|null} icon
      * @param {boolean} positonRight
      * @param {ButtonType} type
@@ -33,7 +34,7 @@ export declare class ButtonMenu extends Button {
      * @param {ButtonClass} bnClass
      * @param {ButtonShape|string} shape
      */
-    constructor(element: any, icon?: IconFa | string | null, positonRight?: boolean, type?: ButtonType, position?: ButtonMenuPosition, bnClass?: ButtonClass, shape?: ButtonShape | string);
+    constructor(element: ComponentType, icon?: IconFa | string | null, positonRight?: boolean, type?: ButtonType, position?: ButtonMenuPosition, bnClass?: ButtonClass, shape?: ButtonShape | string);
     /**
      * addMenuItem
      * @param {any|LangText} title

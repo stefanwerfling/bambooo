@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InfoBox = exports.InfoBoxMb = exports.InfoBoxBg = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 const Icon_1 = require("../Icon/Icon");
 /**
  * InfoBoxBg
@@ -26,7 +26,7 @@ var InfoBoxMb;
 /**
  * InfoBox
  */
-class InfoBox extends Element_1.Element {
+class InfoBox extends Component_js_1.Component {
     /**
      * infobox content element
      * @protected
@@ -44,7 +44,7 @@ class InfoBox extends Element_1.Element {
     _numberElement = null;
     /**
      * constructor
-     * @param {Element|any} element
+     * @param {Component|any} element
      * @param {InfoBoxBg} bg
      * @param {InfoBoxMb} mb
      */
@@ -63,7 +63,8 @@ class InfoBox extends Element_1.Element {
         new Icon_1.Icon(iconBox, symbole);
     }
     /**
-     * getContentElement
+     * Return the content element
+     * @return {JQuery}
      */
     getContentElement() {
         if (this._contentElement === null) {
@@ -72,7 +73,8 @@ class InfoBox extends Element_1.Element {
         return this._contentElement;
     }
     /**
-     * getTextElement
+     * Return the text element
+     * @return {JQuery}
      */
     getTextElement() {
         if (this._textElement === null) {
@@ -81,7 +83,8 @@ class InfoBox extends Element_1.Element {
         return this._textElement;
     }
     /**
-     * getNumberElement
+     * Get number element
+     * @return {JQuery}
      */
     getNumberElement() {
         if (this._numberElement === null) {

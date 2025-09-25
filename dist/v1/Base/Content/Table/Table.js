@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Table = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * Table
  */
-class Table extends Element_1.Element {
+class Table extends Component_js_1.Component {
     /**
      * _thead
      * @private
@@ -22,8 +22,8 @@ class Table extends Element_1.Element {
      */
     _tfoot = null;
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {TableOptions} options
      */
     constructor(element, options = {}) {
@@ -61,21 +61,21 @@ class Table extends Element_1.Element {
     }
     /**
      * getThead
-     * @return {any}
+     * @return {JQuery}
      */
     getThead() {
         return this._thead;
     }
     /**
      * getTbody
-     * @return {any}
+     * @return {JQuery}
      */
     getTbody() {
         return this._tbody;
     }
     /**
      * getFoot
-     * @return {any}
+     * @return {JQuery}
      */
     getFoot() {
         if (this._tfoot === null) {

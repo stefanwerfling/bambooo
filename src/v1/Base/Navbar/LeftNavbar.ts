@@ -1,3 +1,5 @@
+import {Component, ComponentType} from '../Component.js';
+
 /**
  * LeftNavbar
  */
@@ -18,24 +20,25 @@ export class LeftNavbar {
      * element
      * @private
      */
-    private _element: any;
+    protected _element: JQuery;
 
     /**
-     * constructor
+     * Constructor
      * @param element
      */
-    public constructor(element?: any) {
+    public constructor(element?: ComponentType) {
         if (element) {
-            this._element = jQuery('<ul class="navbar-nav" />').appendTo(element);
+            this._element = jQuery('<ul class="navbar-nav" />').appendTo(Component.getAnyElement(element));
         } else {
             throw Error('left navbar element not found!');
         }
     }
 
     /**
-     * getElement
+     * Get element
+     * @return {JQuery}
      */
-    public getElement(): any {
+    public getElement(): JQuery {
         return this._element;
     }
 

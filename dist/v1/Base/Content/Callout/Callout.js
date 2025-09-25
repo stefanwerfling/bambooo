@@ -1,7 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Callout = exports.CalloutType = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
+/**
+ * Callout type
+ */
 var CalloutType;
 (function (CalloutType) {
     CalloutType["warning"] = "callout-warning";
@@ -13,20 +16,28 @@ var CalloutType;
 /**
  * Callout
  */
-class Callout extends Element_1.Element {
+class Callout extends Component_js_1.Component {
+    /**
+     * Main Element
+     * @protected
+     */
     _mainElement;
+    /**
+     * Title
+     * @protected
+     */
     _title;
     /**
      * constructor
-     * @param {any|Element} element
+     * @param {ComponentType} element
      * @param {CalloutType} type
      */
     constructor(element, type = CalloutType.info) {
-        super();
-        const telement = this._getAnyElement(element);
-        this._mainElement = jQuery(`<div class="callout ${type}" />`).appendTo(telement);
-        this._title = jQuery('<h5/>').appendTo(this._mainElement);
-        this._element = jQuery('<p/>').appendTo(this._mainElement);
+        const mainElement = jQuery(`<div class="callout ${type}" />`).appendTo(Component_js_1.Component.getAnyElement(element));
+        const title = jQuery('<h5/>').appendTo(mainElement);
+        super(jQuery('<p/>').appendTo(mainElement));
+        this._mainElement = mainElement;
+        this._title = title;
     }
     /**
      * Set Title
@@ -37,7 +48,7 @@ class Callout extends Element_1.Element {
     }
     /**
      * Return the main Element
-     * @returns {any}
+     * @returns {JQuery}
      */
     getMainElement() {
         return this._mainElement;

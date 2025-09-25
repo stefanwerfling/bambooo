@@ -16,25 +16,25 @@ export class SidebarMenuItem {
      * le element
      * @private
      */
-    private readonly _liElement: any;
+    private readonly _liElement: JQuery;
 
     /**
      * a element
      * @private
      */
-    private readonly _aElement: any;
+    private readonly _aElement: JQuery;
 
     /**
      * i element
      * @private
      */
-    private readonly _iElement: any;
+    private readonly _iElement: JQuery;
 
     /**
      * p element
      * @private
      */
-    private readonly _pElement: any;
+    private readonly _pElement: JQuery;
 
     /**
      * Name
@@ -49,7 +49,7 @@ export class SidebarMenuItem {
     private _iconClass: string = 'fa-circle';
 
     /**
-     * constructor
+     * Constructor
      * @param {SidebarMenu|SidebarMenuTree} sidebar
      * @param {boolean} isSubItem
      */
@@ -118,17 +118,17 @@ export class SidebarMenuItem {
 
     /**
      * getLiElement
-     * @return {any}
+     * @return {JQuery}
      */
-    public getLiElement(): any {
+    public getLiElement(): JQuery {
         return this._liElement;
     }
 
     /**
      * getPElement
-     * @return {any}
+     * @return {JQuery}
      */
-    public getPElement(): any {
+    public getPElement(): JQuery {
         return this._pElement;
     }
 

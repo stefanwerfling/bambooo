@@ -1,6 +1,9 @@
-import {Element} from '../../Element.js';
+import {Component, ComponentType} from '../../Component.js';
 import {LangText} from '../../../Lang/LangText.js';
 
+/**
+ * Description list entry type
+ */
 export enum DescriptionListEntryType {
     none = 0,
     col_4_8 = 1,
@@ -10,21 +13,27 @@ export enum DescriptionListEntryType {
 /**
  * DescriptionListEntry
  */
-export class DescriptionListEntry extends Element {
+export class DescriptionListEntry extends Component {
 
     /**
      * Label Element
      * @protected
      */
-    protected _label: any;
+    protected _label: JQuery;
 
-    public constructor(element: Element|any, type: DescriptionListEntryType = DescriptionListEntryType.none) {
-        super();
+    /**
+     * Constructor
+     * @param {ComponentType} element
+     * @param {DescriptionListEntryType} type
+     */
+    public constructor(element: ComponentType, type: DescriptionListEntryType = DescriptionListEntryType.none) {
+        const telement = Component.getAnyElement(element);
 
-        const telement = this._getAnyElement(element);
+        const label = jQuery('<dt />').appendTo(telement);
 
-        this._label = jQuery('<dt />').appendTo(telement);
-        this._element = jQuery('<dd> /').appendTo(telement);
+        super(jQuery('<dd> /').appendTo(telement));
+
+        this._label = label;
 
         switch (type) {
             case DescriptionListEntryType.col_4_8:
@@ -41,9 +50,9 @@ export class DescriptionListEntry extends Element {
 
     /**
      * Return the label element
-     * @return {any}
+     * @return {JQuery}
      */
-    public getLabelElement(): any {
+    public getLabelElement(): JQuery {
         return this._label;
     }
 

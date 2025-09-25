@@ -1,18 +1,18 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 import {Tr} from './Tr';
 
 /**
  * Td
  */
-export class Td extends Element {
+export class Td extends Component {
 
     /**
-     * constructor
-     * @param atr
-     * @param avalue
-     * @param colspan
+     * Constructor
+     * @param {Tr} atr
+     * @param {ComponentType} avalue
+     * @param {number} colspan
      */
-    public constructor(atr: Tr, avalue?: any, colspan?: number) {
+    public constructor(atr: Tr, avalue?: ComponentType, colspan?: number) {
         super();
 
         let params = '';
@@ -30,9 +30,9 @@ export class Td extends Element {
 
     /**
      * addValue
-     * @param avalue
+     * @param {ComponentType} avalue
      */
-    public addValue(avalue: any): void {
+    public addValue(avalue: ComponentType): void {
         const element = this._getAnyElement(avalue);
 
         this._element.append(element);

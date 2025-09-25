@@ -1,13 +1,13 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 /**
  * ButtonShowMore
  */
-export declare class ButtonShowMore extends Element {
+export declare class ButtonShowMore extends Component {
     /**
      * constructor
-     * @param element
-     * @param showContent
-     * @param hideContent
+     * @param {ComponentType} element
+     * @param {JQuery} showContent
+     * @param {JQuery} hideContent
      */
-    constructor(element: any, showContent: any, hideContent: any);
+    constructor(element: ComponentType, showContent: JQuery | string, hideContent: JQuery | string);
 }

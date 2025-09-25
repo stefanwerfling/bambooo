@@ -1,12 +1,12 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 /**
  * ButtonGroup
  */
-export declare class ButtonGroup extends Element {
+export declare class ButtonGroup extends Component {
     /**
      * constructor
-     * @param {any|Element} element
+     * @param {ComponentType} element
      * @param {string} addClass
      */
-    constructor(element: any, addClass?: string);
+    constructor(element: ComponentType, addClass?: string);
 }

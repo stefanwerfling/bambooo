@@ -16,13 +16,13 @@ export class LeftNavbarLink {
      * list element
      * @private
      */
-    private _liElement: any;
+    protected _liElement: JQuery;
 
     /**
      * link element
      * @private
      */
-    private _aElement: any;
+    protected _aElement: JQuery;
 
     /**
      * constructor
@@ -57,17 +57,17 @@ export class LeftNavbarLink {
 
     /**
      * getLiElement
-     * @return {any}
+     * @return {JQuery}
      */
-    public getLiElement(): any {
+    public getLiElement(): JQuery {
         return this._liElement;
     }
 
     /**
      * getAElement
-     * @return {any}
+     * @return {JQuery}
      */
-    public getAElement(): any {
+    public getAElement(): JQuery {
         return this._aElement;
     }
 

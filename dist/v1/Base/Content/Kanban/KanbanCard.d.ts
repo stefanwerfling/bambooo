@@ -1,3 +1,4 @@
+import { ComponentType } from '../../Component.js';
 import { LangText } from './../../../Lang/LangText.js';
 import { Card, CardType } from '../Card/Card.js';
 import { KanbanEntryCard } from './KanbanEntryCard.js';
@@ -7,10 +8,10 @@ import { KanbanEntryCard } from './KanbanEntryCard.js';
 export declare class KanbanCard extends Card {
     /**
      * Constructor
-     * @param {any} element
+     * @param {ComponentType} element
      * @param {CardType} cardType
      */
-    constructor(element: any, cardType?: CardType);
+    constructor(element: ComponentType, cardType?: CardType);
     /**
      * Creat an entry
      * @param {string|LangText} title

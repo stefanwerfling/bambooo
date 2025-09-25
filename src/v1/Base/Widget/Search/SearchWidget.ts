@@ -1,5 +1,5 @@
 import 'jquery';
-import {Element} from '../../Element.js';
+import {Component, ComponentType} from '../../Component.js';
 
 export interface SearchWidgetSelect2AjaxParams {
     data: any;
@@ -66,7 +66,7 @@ type SearchWidgetSelectOptions = {
 /**
  * Search widget
  */
-export class SearchWidget extends Element {
+export class SearchWidget extends Component {
 
     /**
      * Select2 object
@@ -95,9 +95,9 @@ export class SearchWidget extends Element {
 
     /**
      * Contructor
-     * @param {Element|any} element
+     * @param {ComponentType} element
      */
-    public constructor(element: Element | any) {
+    public constructor(element: ComponentType) {
         super(element);
 
         this._select = jQuery('<select class="select2bs4" multiple="multiple" style="width: 100%;">').appendTo(this._element);
@@ -148,6 +148,7 @@ export class SearchWidget extends Element {
      * Set request transport
      * @param {SearchWidgetSelect2AjaxTransportExt} cTransport
      * @param {[T]} options
+     * @template T
      */
     public setRequestTransport<T>(cTransport: SearchWidgetSelect2AjaxTransportExt<T>, options?: T): void {
         this._selectOptions.ajax = {

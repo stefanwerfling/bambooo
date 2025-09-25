@@ -1,4 +1,4 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 
 /**
  * CircleColor
@@ -16,18 +16,14 @@ export enum CircleColor {
 /**
  * Circle
  */
-export class Circle extends Element {
+export class Circle extends Component {
 
     /**
-     * constructor
-     * @param element
-     * @param color
+     * Constructor
+     * @param {ComponentType} element
+     * @param {CircleColor|string} color
      */
-    public constructor(element: any, color: CircleColor|string) {
-        super();
-
-        const telement = this._getAnyElement(element);
-
-        this._element = jQuery(`<i class="fas fa-circle fa-1x ${color}"></i>`).appendTo(telement);
+    public constructor(element: ComponentType, color: CircleColor|string) {
+        super(jQuery(`<i class="fas fa-circle fa-1x ${color}"></i>`).appendTo(Component.getAnyElement(element)));
     }
 }

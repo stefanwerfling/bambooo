@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ArrowSimple = exports.ArrowSimpleDirection = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 var ArrowSimpleDirection;
 (function (ArrowSimpleDirection) {
     ArrowSimpleDirection["up"] = "up";
@@ -9,10 +9,13 @@ var ArrowSimpleDirection;
     ArrowSimpleDirection["left"] = "left";
     ArrowSimpleDirection["right"] = "right";
 })(ArrowSimpleDirection || (exports.ArrowSimpleDirection = ArrowSimpleDirection = {}));
-class ArrowSimple extends Element_1.Element {
+/**
+ * Arrow Simple
+ */
+class ArrowSimple extends Component_js_1.Component {
     /**
-     * constructor
-     * @param {any|Element} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {ArrowSimpleDirection} direction
      * @param {string} color
      * @param {number} sizePx

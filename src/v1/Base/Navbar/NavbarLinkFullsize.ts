@@ -1,15 +1,15 @@
-import {Element} from '../Element';
+import {Component, ComponentType} from '../Component.js';
 
 /**
  * NavbarLinkFullsize
  */
-export class NavbarLinkFullsize extends Element {
+export class NavbarLinkFullsize extends Component {
 
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {ComponentType} element
      */
-    public constructor(element: any) {
+    public constructor(element: ComponentType) {
         super();
 
         const telement = this._getAnyElement(element);

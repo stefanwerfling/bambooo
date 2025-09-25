@@ -1,36 +1,36 @@
-import {Element} from './../../Element.js';
+import {Component, ComponentType} from '../../Component.js';
 import {LangText} from './../../../Lang/LangText.js';
 
 /**
  * Radio
  */
-export class Radio extends Element {
+export class Radio extends Component {
 
     /**
      * input radio
      * @protected
      */
-    protected _inputRadio: JQuery<HTMLElement>;
+    protected _inputRadio: JQuery;
 
     /**
      * label
      * @protected
      */
-    protected _label: JQuery<HTMLElement>|null = null;
+    protected _label: JQuery|null = null;
 
     /**
      * Constructor
-     * @param {JQuery<HTMLElement>|any} element
+     * @param {ComponentType} element
      * @param {string} radionName
      * @param {string} radioValue
-     * @param {string|LangText|JQuery<HTMLElement>|null} label
+     * @param {string|LangText|JQuery|null} label
      * @param {boolean} checked
      */
     public constructor(
-        element: JQuery<HTMLElement>|any,
+        element: ComponentType,
         radionName: string,
         radioValue: string,
-        label: string|LangText|JQuery<HTMLElement>|null = null,
+        label: string|LangText|JQuery|null = null,
         checked: boolean = false
     ) {
         super();
@@ -50,9 +50,9 @@ export class Radio extends Element {
     /**
      * Create the label object element
      * @protected
-     * @return {JQuery<HTMLElement>}
+     * @return {JQuery}
      */
-    protected _getLabel(): JQuery<HTMLElement> {
+    protected _getLabel(): JQuery {
         if (this._label === null) {
             this._label = jQuery('<label class="form-check-label"/>').appendTo(this._element);
         }
@@ -62,18 +62,18 @@ export class Radio extends Element {
 
     /**
      * setLabel
-     * @param {string|JQuery<HTMLElement>|LangText} label
+     * @param {string|JQuery|LangText} label
      */
-    public setLabel(label: string|JQuery<HTMLElement>|LangText): void {
+    public setLabel(label: string|JQuery|LangText): void {
         const tlabel = this._getAnyElement(label);
         this._getLabel().empty().append(tlabel);
     }
 
     /**
      * getLabelElement
-     * @returns {JQuery<HTMLElement>}
+     * @returns {JQuery}
      */
-    public getLabelElement(): JQuery<HTMLElement> {
+    public getLabelElement(): JQuery {
         return this._getLabel();
     }
 

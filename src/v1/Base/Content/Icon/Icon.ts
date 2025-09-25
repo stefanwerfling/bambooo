@@ -1,4 +1,4 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 
 /**
  * IconFa
@@ -37,14 +37,14 @@ export enum IconFa {
 /**
  * Icon
  */
-export class Icon extends Element {
+export class Icon extends Component {
 
     /**
-     * constructor
-     * @param element
-     * @param symbol
+     * Constructor
+     * @param {ComponentType} element
+     * @param {IconFa|string} symbol
      */
-    public constructor(element: any, symbol: IconFa|string) {
+    public constructor(element: ComponentType, symbol: IconFa|string) {
         super();
 
         const telement = this._getAnyElement(element);

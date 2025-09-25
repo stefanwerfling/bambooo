@@ -6,14 +6,15 @@ export declare class ControlSidebar {
      * element
      * @private
      */
-    private _element;
+    protected _element: JQuery;
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {JQuery} element
      */
-    constructor(element?: any);
+    constructor(element?: JQuery);
     /**
      * getElement
+     * @return {JQuery}
      */
-    getElement(): any;
+    getElement(): JQuery;
 }

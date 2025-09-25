@@ -1,4 +1,4 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 /**
  * SelectOption
  */
@@ -14,17 +14,17 @@ export type SelectChangeFn = (value: any) => void;
 /**
  * SelectBottemBorderOnly2
  */
-export declare class SelectBottemBorderOnly2 extends Element {
+export declare class SelectBottemBorderOnly2 extends Component {
     /**
      * selected value
      * @protected
      */
     protected _selectedValue: string;
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {ComponentType} element
      */
-    constructor(element: any);
+    constructor(element: ComponentType);
     /**
      * setValues
      * @param {SelectOption[]} options

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Progressbar = exports.ProgressbarColor = exports.ProgressbarStyle = void 0;
-const Element_js_1 = require("./../../Element.js");
+const Component_js_1 = require("../../Component.js");
 const LangText_js_1 = require("./../../../Lang/LangText.js");
 /**
  * Progressbar Style
@@ -26,7 +26,7 @@ var ProgressbarColor;
 /**
  * Progressbar
  */
-class Progressbar extends Element_js_1.Element {
+class Progressbar extends Component_js_1.Component {
     /**
      * Progressbar div
      * @protected
@@ -44,7 +44,7 @@ class Progressbar extends Element_js_1.Element {
     _label = null;
     /**
      * Constructor
-     * @param {JQuery<HTMLElement>|any} element
+     * @param {ComponentType} element
      * @param {ProgressbarStyle} style
      * @param {ProgressbarColor} color
      * @param {string|null|LangText} label

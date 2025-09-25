@@ -8,7 +8,7 @@ const Card_js_1 = require("../Card/Card.js");
 class KanbanEntryCard extends Card_js_1.Card {
     /**
      * Constructor
-     * @param {any} element
+     * @param {ComponentType} element
      * @param {CardType} cardType
      */
     constructor(element, cardType = Card_js_1.CardType.secondary) {

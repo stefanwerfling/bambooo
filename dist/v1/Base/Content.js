@@ -1,19 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Content = void 0;
-const Element_1 = require("./Element");
+const Component_js_1 = require("./Component.js");
 /**
  * Content
  */
-class Content extends Element_1.Element {
+class Content extends Component_js_1.Component {
     /**
      * content fluid element
      * @private
      */
     _contentFluidElement;
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {JQuery} element
      */
     constructor(element) {
         super();

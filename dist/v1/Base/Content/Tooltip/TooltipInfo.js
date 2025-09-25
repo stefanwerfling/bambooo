@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TooltipInfo = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * TooltipInfo
  */
-class TooltipInfo extends Element_1.Element {
+class TooltipInfo extends Component_js_1.Component {
     /**
-     * constructor
-     * @param element
-     * @param tooltipText
+     * Constructor
+     * @param {ComponentType} element
+     * @param {string} tooltipText
      */
     constructor(element, tooltipText) {
         super();
@@ -22,7 +22,7 @@ class TooltipInfo extends Element_1.Element {
     }
     /**
      * setTooltipText
-     * @param tooltipText
+     * @param {string} tooltipText
      */
     setTooltipText(tooltipText) {
         this._element.attr('data-original-title', tooltipText);

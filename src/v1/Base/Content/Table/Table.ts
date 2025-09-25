@@ -1,4 +1,4 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 
 /**
  * Table Options
@@ -12,32 +12,32 @@ export type TableOptions = {
 /**
  * Table
  */
-export class Table extends Element {
+export class Table extends Component {
 
     /**
      * _thead
      * @private
      */
-    private _thead: any;
+    protected _thead: JQuery;
 
     /**
      * _tbody
      * @private
      */
-    private _tbody: any;
+    protected _tbody: JQuery;
 
     /**
      * _tfoot
      * @private
      */
-    private _tfoot: any = null;
+    protected _tfoot: JQuery|null = null;
 
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {TableOptions} options
      */
-    public constructor(element: any, options: TableOptions = {}) {
+    public constructor(element: ComponentType, options: TableOptions = {}) {
         super();
 
         const telement = this._getAnyElement(element);
@@ -81,25 +81,25 @@ export class Table extends Element {
 
     /**
      * getThead
-     * @return {any}
+     * @return {JQuery}
      */
-    public getThead(): any {
+    public getThead(): JQuery {
         return this._thead;
     }
 
     /**
      * getTbody
-     * @return {any}
+     * @return {JQuery}
      */
-    public getTbody(): any {
+    public getTbody(): JQuery {
         return this._tbody;
     }
 
     /**
      * getFoot
-     * @return {any}
+     * @return {JQuery}
      */
-    public getFoot(): any {
+    public getFoot(): JQuery {
         if (this._tfoot === null) {
             this._tfoot = jQuery('<tfoot />').appendTo(this._element);
         }

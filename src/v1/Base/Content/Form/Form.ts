@@ -1,19 +1,16 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 
 /**
  * Form
  */
-export class Form extends Element {
+export class Form extends Component {
 
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {ComponentType} element
      */
-    public constructor(element: any) {
-        super();
-
-        const telement = this._getAnyElement(element);
-
-        this._element = jQuery('<form></form>').appendTo(telement);
+    public constructor(element: ComponentType) {
+        super(jQuery('<form></form>').appendTo(Component.getAnyElement(element)));
     }
+
 }

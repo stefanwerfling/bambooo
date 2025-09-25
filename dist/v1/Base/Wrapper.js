@@ -47,8 +47,8 @@ class Wrapper {
      */
     _controlSidebar;
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {JQuery} element
      */
     constructor(element) {
         if (element) {
@@ -76,6 +76,7 @@ class Wrapper {
     }
     /**
      * getElement
+     * @return {JQuery}
      */
     getElement() {
         return this._element;

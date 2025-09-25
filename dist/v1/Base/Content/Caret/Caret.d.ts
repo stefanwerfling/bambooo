@@ -1,4 +1,4 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 /**
  * CaretType
  */
@@ -10,16 +10,16 @@ export declare enum CaretType {
 /**
  * Caret
  */
-export declare class Caret extends Element {
+export declare class Caret extends Component {
     /**
-     * constructor
-     * @param element
-     * @param type
+     * Constructor
+     * @param {ComponentType} element
+     * @param {CaretType} type
      */
-    constructor(element: any, type?: CaretType);
+    constructor(element: ComponentType, type?: CaretType);
     /**
      * addValue
-     * @param value
+     * @param {JQuery|string} value
      */
-    addValue(value: any): void;
+    addValue(value: JQuery | string): void;
 }

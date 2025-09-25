@@ -1,3 +1,5 @@
+import {Component, ComponentType} from '../Component.js';
+
 /**
  * SidebarLogo
  */
@@ -7,27 +9,27 @@ export class SidebarLogo {
      * element
      * @private
      */
-    private _element: any;
+    protected _element: JQuery;
 
     /**
      * image url
      * @private
      */
-    private _image: string = '';
+    protected _image: string = '';
 
     /**
      * title
      * @private
      */
-    private _title: string = '';
+    protected _title: string = '';
 
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {ComponentType} element
      */
-    public constructor(element?: any) {
+    public constructor(element?: ComponentType) {
         if (element) {
-            this._element = element;
+            this._element = Component.getAnyElement(element);
         } else {
             throw Error('sidebar logo element not found!');
         }
@@ -35,14 +37,15 @@ export class SidebarLogo {
 
     /**
      * getElement
+     * @return {JQuery}
      */
-    public getElement(): any {
+    public getElement(): JQuery {
         return this._element;
     }
 
     /**
      * setImage
-     * @param url
+     * @param {string} url
      */
     public setImage(url: string): void {
         this._image = url;
@@ -51,7 +54,7 @@ export class SidebarLogo {
 
     /**
      * setTitle
-     * @param title
+     * @param {string} title
      */
     public setTitle(title: string): void {
         this._title = title;

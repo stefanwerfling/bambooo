@@ -1,4 +1,4 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 
 /**
  * TextAlignment
@@ -11,14 +11,14 @@ export enum TextAlignment {
 /**
  * Text
  */
-export class Text extends Element {
+export class Text extends Component {
 
     /**
      * constructor
-     * @param {any|Element} element
+     * @param {ComponentType} element
      * @param {TextAlignment} align
      */
-    public constructor(element: any|Element, align: TextAlignment = TextAlignment.none) {
+    public constructor(element: ComponentType, align: TextAlignment = TextAlignment.none) {
         super();
 
         const telement = this._getAnyElement(element);

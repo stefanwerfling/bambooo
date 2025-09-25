@@ -1,16 +1,31 @@
+import {ComponentType} from '../../Component.js';
 import {Switch} from './Switch';
 
+/**
+ * Switch timeout function
+ */
 export type SwitchTimeoutFn = () => void;
 
+/**
+ * Switch timer
+ */
 export class SwitchTimer extends Switch {
 
     protected _timeoutSec: number;
     protected _counter: number = 0;
-    protected _intervalId: any;
-    protected _labelValue: any;
+    protected _intervalId: number|null = null;
+    protected _labelValue: string;
+
     protected _timeoutFn: SwitchTimeoutFn|null = null;
 
-    public constructor(element: any, id: string, timeoutSec: number, label: any = '') {
+    /**
+     * Constructor
+     * @param {ComponentType} element
+     * @param {string} id
+     * @param {number} timeoutSec
+     * @param {string} label
+     */
+    public constructor(element: ComponentType, id: string, timeoutSec: number, label: string = '') {
         super(element, id, label);
 
         this._timeoutSec = timeoutSec;

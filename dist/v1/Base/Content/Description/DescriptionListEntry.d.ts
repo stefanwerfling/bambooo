@@ -1,5 +1,8 @@
-import { Element } from '../../Element.js';
+import { Component, ComponentType } from '../../Component.js';
 import { LangText } from '../../../Lang/LangText.js';
+/**
+ * Description list entry type
+ */
 export declare enum DescriptionListEntryType {
     none = 0,
     col_4_8 = 1,
@@ -8,18 +11,23 @@ export declare enum DescriptionListEntryType {
 /**
  * DescriptionListEntry
  */
-export declare class DescriptionListEntry extends Element {
+export declare class DescriptionListEntry extends Component {
     /**
      * Label Element
      * @protected
      */
-    protected _label: any;
-    constructor(element: Element | any, type?: DescriptionListEntryType);
+    protected _label: JQuery;
+    /**
+     * Constructor
+     * @param {ComponentType} element
+     * @param {DescriptionListEntryType} type
+     */
+    constructor(element: ComponentType, type?: DescriptionListEntryType);
     /**
      * Return the label element
-     * @return {any}
+     * @return {JQuery}
      */
-    getLabelElement(): any;
+    getLabelElement(): JQuery;
     /**
      * Set the label
      * @param {string|LangText} str

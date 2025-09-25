@@ -1,4 +1,4 @@
-import { Element } from '../../Element.js';
+import { Component, ComponentType } from '../../Component.js';
 import { DescriptionListEntry, DescriptionListEntryType } from './DescriptionListEntry.js';
 export declare enum DescriptionListType {
     none = 0,
@@ -7,14 +7,18 @@ export declare enum DescriptionListType {
 /**
  * Description List
  */
-export declare class DescriptionList extends Element {
+export declare class DescriptionList extends Component {
+    /**
+     * Type
+     * @protected
+     */
     protected _type: DescriptionListType;
     /**
-     * constructor
-     * @param {Element|any} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {DescriptionListType} type
      */
-    constructor(element: Element | any, type?: DescriptionListType);
+    constructor(element: ComponentType, type?: DescriptionListType);
     /**
      * Create an Entry
      * @param {DescriptionListEntryType} type

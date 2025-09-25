@@ -1,9 +1,9 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 import { ButtonDefaultClickFn } from './ButtonDefault';
 /**
  * ButtonBorderless
  */
-export declare class ButtonBorderless extends Element {
+export declare class ButtonBorderless extends Component {
     /**
      * title
      * @protected
@@ -21,27 +21,25 @@ export declare class ButtonBorderless extends Element {
     protected _clickEnable: boolean;
     /**
      * constructor
-     * @param element
-     * @param title
-     * @param icon
-     * @param bnClass
-     * @param bnType
+     * @param {ComponentType} element
+     * @param {string} title
+     * @param {icon} icon
      */
-    constructor(element: any, title?: string, icon?: string);
+    constructor(element: ComponentType, title?: string, icon?: string);
     /**
-     * setValue
-     * @param title
-     * @param icon
+     * Set value
+     * @param {string} title
+     * @param {string} icon
      */
     setValue(title?: string, icon?: string): void;
     /**
      * setOnClickFn
-     * @param onClick
+     * @param {ButtonDefaultClickFn} onClick
      */
     setOnClickFn(onClick: ButtonDefaultClickFn): void;
     /**
      * setClickEnable
-     * @param enable
+     * @param {boolean} enable
      */
     setClickEnable(enable: boolean): void;
 }

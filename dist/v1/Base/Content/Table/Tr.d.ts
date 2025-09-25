@@ -1,11 +1,12 @@
-import { Element } from '../../Element';
+import { Component } from '../../Component.js';
+import { Table } from './Table.js';
 /**
  * Tr
  */
-export declare class Tr extends Element {
+export declare class Tr extends Component {
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {Table} element
      */
-    constructor(element: any);
+    constructor(element: Table);
 }

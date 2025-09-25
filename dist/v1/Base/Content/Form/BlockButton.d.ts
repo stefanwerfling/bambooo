@@ -1,4 +1,4 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 export declare enum BlockButtonType {
     Block = 0,
     BlockFlat = 1,
@@ -10,7 +10,16 @@ export type BlockButtonClickFn = () => void;
 /**
  * BlockButton
  */
-export declare class BlockButton extends Element {
-    constructor(element: any, blocktype?: BlockButtonType);
+export declare class BlockButton extends Component {
+    /**
+     * Constructor
+     * @param {ComponentType} element
+     * @param {BlockButtonType} blocktype
+     */
+    constructor(element: ComponentType, blocktype?: BlockButtonType);
+    /**
+     * Set on click
+     * @param {BlockButtonClickFn} onClick
+     */
     setOnClickFn(onClick: BlockButtonClickFn): void;
 }

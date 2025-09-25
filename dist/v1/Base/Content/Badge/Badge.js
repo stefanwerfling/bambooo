@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Badge = exports.BadgeType = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * BadgeType
  */
@@ -28,10 +28,10 @@ var BadgeType;
 /**
  * Badge
  */
-class Badge extends Element_1.Element {
+class Badge extends Component_js_1.Component {
     /**
      * constructor
-     * @param {any} element
+     * @param {ComponentType} element
      * @param {string} text
      * @param {BadgeType} type
      * @param {string|undefined} aColor

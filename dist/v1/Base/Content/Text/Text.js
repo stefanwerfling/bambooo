@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Text = exports.TextAlignment = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * TextAlignment
  */
@@ -13,10 +13,10 @@ var TextAlignment;
 /**
  * Text
  */
-class Text extends Element_1.Element {
+class Text extends Component_js_1.Component {
     /**
      * constructor
-     * @param {any|Element} element
+     * @param {ComponentType} element
      * @param {TextAlignment} align
      */
     constructor(element, align = TextAlignment.none) {

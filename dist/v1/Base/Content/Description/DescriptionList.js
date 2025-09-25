@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DescriptionList = exports.DescriptionListType = void 0;
-const Element_js_1 = require("../../Element.js");
+const Component_js_1 = require("../../Component.js");
 const DescriptionListEntry_js_1 = require("./DescriptionListEntry.js");
 var DescriptionListType;
 (function (DescriptionListType) {
@@ -11,18 +11,20 @@ var DescriptionListType;
 /**
  * Description List
  */
-class DescriptionList extends Element_js_1.Element {
+class DescriptionList extends Component_js_1.Component {
+    /**
+     * Type
+     * @protected
+     */
     _type;
     /**
-     * constructor
-     * @param {Element|any} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {DescriptionListType} type
      */
     constructor(element, type = DescriptionListType.none) {
-        super();
+        super(jQuery('<dl />').appendTo(Component_js_1.Component.getAnyElement(element)));
         this._type = type;
-        const telement = this._getAnyElement(element);
-        this._element = jQuery('<dl />').appendTo(telement);
         switch (this._type) {
             case DescriptionListType.horizontal:
                 this._element.addClass('row');

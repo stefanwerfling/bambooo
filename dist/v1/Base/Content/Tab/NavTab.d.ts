@@ -1,4 +1,4 @@
-import { Element } from './../../Element.js';
+import { Component, ComponentType } from '../../Component.js';
 import { LangText } from './../../../Lang/LangText.js';
 import Event = JQuery.Event;
 /**
@@ -6,42 +6,42 @@ import Event = JQuery.Event;
  */
 export type NavTabElements = {
     id: string;
-    tab: any;
-    title: any;
-    body: any;
+    tab: JQuery;
+    title: JQuery;
+    body: JQuery;
 };
 /**
  * NavTabOnLoad
  */
 export type NavTabOnLoad = (event: Event, ui: {
-    tab: any;
-    panel: any;
+    tab: JQuery;
+    panel: JQuery;
 }) => void;
 /**
  * NavTab
  */
-export declare class NavTab extends Element {
+export declare class NavTab extends Component {
     /**
      * nav
      * @protected
      */
-    protected _nav: any;
+    protected _nav: JQuery;
     /**
      * body
      * @protected
      */
-    protected _body: any;
+    protected _body: JQuery;
     /**
      * tab ids
      * @protected
      */
     protected _tabIds: string[];
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {[string]} id
      */
-    constructor(element: any, id?: string);
+    constructor(element: ComponentType, id?: string);
     /**
      * addTab
      * @param {string|LangText} title

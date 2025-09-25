@@ -1,4 +1,4 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 /**
  * InputType
  */
@@ -13,9 +13,15 @@ export declare enum InputType {
     time = "time",
     daterange = "daterange"
 }
+/**
+ * Input date ranges interface
+ */
 export interface InputDateRanges {
     [key: string]: string | any;
 }
+/**
+ * Input type options
+ */
 export type InputTypeOptions = {
     ranges?: InputDateRanges;
     date_format?: string;
@@ -25,7 +31,7 @@ export type InputTypeOptions = {
 /**
  * InputBottemBorderOnly2
  */
-export declare class InputBottemBorderOnly2 extends Element {
+export declare class InputBottemBorderOnly2 extends Component {
     /**
      * type
      * @protected
@@ -40,15 +46,15 @@ export declare class InputBottemBorderOnly2 extends Element {
      * input group
      * @protected
      */
-    protected _inputGroup: any | null;
+    protected _inputGroup: JQuery | null;
     /**
      * Constructor
-     * @param {any} element
+     * @param {ComponentType} element
      * @param {string} id
      * @param {InputType} type
      * @param {InputTypeOptions} options
      */
-    constructor(element: any, id?: string, type?: InputType, options?: InputTypeOptions);
+    constructor(element: ComponentType, id?: string, type?: InputType, options?: InputTypeOptions);
     /**
      * setPlaceholder
      * @param placeholder

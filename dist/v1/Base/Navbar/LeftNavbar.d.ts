@@ -1,3 +1,4 @@
+import { ComponentType } from '../Component.js';
 /**
  * LeftNavbar
  */
@@ -11,16 +12,17 @@ export declare class LeftNavbar {
      * element
      * @private
      */
-    private _element;
+    protected _element: JQuery;
     /**
-     * constructor
+     * Constructor
      * @param element
      */
-    constructor(element?: any);
+    constructor(element?: ComponentType);
     /**
-     * getElement
+     * Get element
+     * @return {JQuery}
      */
-    getElement(): any;
+    getElement(): JQuery;
     /**
      * load
      */

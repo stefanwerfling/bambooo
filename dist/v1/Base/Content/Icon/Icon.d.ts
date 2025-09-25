@@ -1,4 +1,4 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 /**
  * IconFa
  */
@@ -29,11 +29,11 @@ export declare enum IconFa {
 /**
  * Icon
  */
-export declare class Icon extends Element {
+export declare class Icon extends Component {
     /**
-     * constructor
-     * @param element
-     * @param symbol
+     * Constructor
+     * @param {ComponentType} element
+     * @param {IconFa|string} symbol
      */
-    constructor(element: any, symbol: IconFa | string);
+    constructor(element: ComponentType, symbol: IconFa | string);
 }

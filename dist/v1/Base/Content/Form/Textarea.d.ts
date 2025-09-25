@@ -1,15 +1,15 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 /**
  * Textarea form element.
  */
-export declare class Textarea extends Element {
+export declare class Textarea extends Component {
     /**
      * Constructor for Textarea element.
-     * @param {Element|HTMLElement} element - A element to append the Textarea element.
+     * @param {ComponentType} element - A element to append the Textarea element.
      * @param {[string]} placeholder - Optional, placeholder for textarea.
      * @param {number} rows - Textarea rows.
      */
-    constructor(element: any, placeholder?: string, rows?: number);
+    constructor(element: ComponentType, placeholder?: string, rows?: number);
     /**
      * Set the placeholder.
      * @param {string} placeholder

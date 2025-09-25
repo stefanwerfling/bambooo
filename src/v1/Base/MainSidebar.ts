@@ -10,25 +10,25 @@ export class MainSidebar {
      * element
      * @private
      */
-    private _element: any;
+    protected _element: JQuery;
 
     /**
      * logo
      * @private
      */
-    private _logo: SidebarLogo;
+    protected _logo: SidebarLogo;
 
     /**
      * sidebar
      * @private
      */
-    private _sidebar: Sidebar;
+    protected _sidebar: Sidebar;
 
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {JQuery} element
      */
-    public constructor(element?: any) {
+    public constructor(element?: JQuery) {
         if (element) {
             this._element = element;
         } else {

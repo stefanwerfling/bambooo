@@ -1,10 +1,10 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 import {ButtonDefaultClickFn} from './ButtonDefault';
 
 /**
  * ButtonBorderless
  */
-export class ButtonBorderless extends Element {
+export class ButtonBorderless extends Component {
 
     /**
      * title
@@ -26,30 +26,26 @@ export class ButtonBorderless extends Element {
 
     /**
      * constructor
-     * @param element
-     * @param title
-     * @param icon
-     * @param bnClass
-     * @param bnType
+     * @param {ComponentType} element
+     * @param {string} title
+     * @param {icon} icon
      */
     public constructor(
-        element: any,
+        element: ComponentType,
         title?: string,
         icon?: string
     ) {
-        super();
+        const telement = Component.getAnyElement(element);
 
-        const telement = this._getAnyElement(element);
-
-        this._element = jQuery(`<a href="#" class="text-muted"/>`).appendTo(telement);
+        super(jQuery(`<a href="#" class="text-muted"/>`).appendTo(telement));
 
         this.setValue(title, icon);
     }
 
     /**
-     * setValue
-     * @param title
-     * @param icon
+     * Set value
+     * @param {string} title
+     * @param {string} icon
      */
     public setValue(title?: string, icon?: string): void {
         if (title) {
@@ -77,7 +73,7 @@ export class ButtonBorderless extends Element {
 
     /**
      * setOnClickFn
-     * @param onClick
+     * @param {ButtonDefaultClickFn} onClick
      */
     public setOnClickFn(onClick: ButtonDefaultClickFn): void {
         this._element.unbind().on('click', (): void => {
@@ -89,7 +85,7 @@ export class ButtonBorderless extends Element {
 
     /**
      * setClickEnable
-     * @param enable
+     * @param {boolean} enable
      */
     public setClickEnable(enable: boolean): void {
         this._clickEnable = enable;

@@ -1,19 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Form = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * Form
  */
-class Form extends Element_1.Element {
+class Form extends Component_js_1.Component {
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {ComponentType} element
      */
     constructor(element) {
-        super();
-        const telement = this._getAnyElement(element);
-        this._element = jQuery('<form></form>').appendTo(telement);
+        super(jQuery('<form></form>').appendTo(Component_js_1.Component.getAnyElement(element)));
     }
 }
 exports.Form = Form;

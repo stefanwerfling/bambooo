@@ -1,4 +1,4 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 
 /**
  * FormGroupButtonClickFn
@@ -8,19 +8,19 @@ export type FormGroupButtonClickFn = () => void;
 /**
  * FormGroupButton
  */
-export class FormGroupButton extends Element {
+export class FormGroupButton extends Component {
 
     /**
      * _subElement
      * @protected
      */
-    protected _subElement: any;
+    protected _subElement: JQuery;
 
     /**
      * icon element
      * @protected
      */
-    protected _iconElement: any;
+    protected _iconElement: JQuery;
 
     /**
      * _click
@@ -29,10 +29,10 @@ export class FormGroupButton extends Element {
     protected _click?: FormGroupButtonClickFn;
 
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {ComponentType} element
      */
-    public constructor(element: any) {
+    public constructor(element: ComponentType) {
         super();
 
         const telement = this._getAnyElement(element);
@@ -54,21 +54,23 @@ export class FormGroupButton extends Element {
 
     /**
      * getButtonElement
+     * @return {JQuery}
      */
-    public getButtonElement(): any {
+    public getButtonElement(): JQuery {
         return this._subElement;
     }
 
     /**
      * getIconElement
+     * @return {JQuery}
      */
-    public getIconElement(): any {
+    public getIconElement(): JQuery {
         return this._iconElement;
     }
 
     /**
      * setOnClickFn
-     * @param onClick
+     * @param {FormGroupButtonClickFn} onClick
      */
     public setOnClickFn(onClick: FormGroupButtonClickFn): void {
         this._click = onClick;

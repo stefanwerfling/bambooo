@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ContentHeader = void 0;
-const Element_js_1 = require("./Element.js");
+const Component_js_1 = require("./Component.js");
 /**
  * Content header
  */
@@ -18,7 +18,7 @@ class ContentHeader {
     _title = '';
     /**
      * constructor
-     * @param {[any]} element
+     * @param {[JQuery]} element
      */
     constructor(element) {
         if (element) {
@@ -39,7 +39,7 @@ class ContentHeader {
     }
     /**
      * Return the element
-     * @returns {any}
+     * @returns {JQuery}
      */
     getElement() {
         return this._element;
@@ -52,7 +52,7 @@ class ContentHeader {
         this._title = title;
         const chTitle = this._element.find('#ch_title').empty();
         const h1 = jQuery('<h1 class="m-0"></h1>').appendTo(chTitle);
-        const telement = Element_js_1.Element.getAnyElement(title);
+        const telement = Component_js_1.Component.getAnyElement(title);
         h1.append(telement);
     }
     /**

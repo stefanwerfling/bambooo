@@ -1,5 +1,5 @@
 import { BClass } from '../../../../Core/BTypes.js';
-import { Element } from '../../Element.js';
+import { ComponentType } from '../../Component.js';
 import { Card, CardBodyType, CardLine, CardType } from '../../Content/Card/Card.js';
 import { ICollectionEntryWidget } from './CollectionEntryWidget.js';
 import { CollectionWidget, CollectionWidgetOnUpdate } from './CollectionWidget.js';
@@ -12,7 +12,7 @@ export declare class CollectionCardWidget<T extends ICollectionEntryWidget> exte
      * @param {object} opts
      */
     constructor(opts: {
-        element: Element | any;
+        element: ComponentType;
         editable: boolean;
         entryClass: BClass<T>;
         bodyType: CardBodyType;

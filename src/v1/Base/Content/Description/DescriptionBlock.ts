@@ -1,4 +1,4 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 import {LangText} from '../../../Lang/LangText.js';
 
 /**
@@ -12,31 +12,27 @@ export enum DescriptionBlockBorder {
 /**
  * DescriptionBlock
  */
-export class DescriptionBlock extends Element {
+export class DescriptionBlock extends Component {
 
     /**
      * h5
      * @protected
      */
-    protected _h5: any;
+    protected _h5: JQuery;
 
     /**
      * span
      * @protected
      */
-    protected _span: any;
+    protected _span: JQuery;
 
     /**
-     * constructor
-     * @param element
-     * @param border
+     * Constructor
+     * @param {ComponentType} element
+     * @param {DescriptionBlockBorder} border
      */
-    public constructor(element: Element|any, border: DescriptionBlockBorder = DescriptionBlockBorder.right) {
-        super();
-
-        const telement = this._getAnyElement(element);
-
-        this._element = jQuery(`<div class="description-block ${border}" />`).appendTo(telement);
+    public constructor(element: ComponentType, border: DescriptionBlockBorder = DescriptionBlockBorder.right) {
+        super(jQuery(`<div class="description-block ${border}" />`).appendTo(Component.getAnyElement(element)));
         this._h5 = jQuery('<h5 class="description-header" />').appendTo(this._element);
         this._span = jQuery('<span class="description-text" />').appendTo(this._element);
     }
@@ -58,9 +54,10 @@ export class DescriptionBlock extends Element {
     }
 
     /**
-     * getTextElement
+     * Get text element
+     * @return {JQuery}
      */
-    public getTextElement(): any {
+    public getTextElement(): JQuery {
         return this._span;
     }
 

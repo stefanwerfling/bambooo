@@ -1,3 +1,4 @@
+import { ComponentType } from '../Component.js';
 /**
  * SidebarLogo
  */
@@ -6,34 +7,35 @@ export declare class SidebarLogo {
      * element
      * @private
      */
-    private _element;
+    protected _element: JQuery;
     /**
      * image url
      * @private
      */
-    private _image;
+    protected _image: string;
     /**
      * title
      * @private
      */
-    private _title;
+    protected _title: string;
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {ComponentType} element
      */
-    constructor(element?: any);
+    constructor(element?: ComponentType);
     /**
      * getElement
+     * @return {JQuery}
      */
-    getElement(): any;
+    getElement(): JQuery;
     /**
      * setImage
-     * @param url
+     * @param {string} url
      */
     setImage(url: string): void;
     /**
      * setTitle
-     * @param title
+     * @param {string} title
      */
     setTitle(title: string): void;
     /**

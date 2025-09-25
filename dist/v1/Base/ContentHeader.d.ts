@@ -7,22 +7,22 @@ export declare class ContentHeader {
      * Element
      * @private
      */
-    private _element;
+    protected _element: any;
     /**
      * Title
      * @private
      */
-    private _title;
+    protected _title: string | LangText;
     /**
      * constructor
-     * @param {[any]} element
+     * @param {[JQuery]} element
      */
-    constructor(element?: any);
+    constructor(element?: JQuery);
     /**
      * Return the element
-     * @returns {any}
+     * @returns {JQuery}
      */
-    getElement(): any;
+    getElement(): JQuery;
     /**
      * Set the title
      * @param {string|LangText} title

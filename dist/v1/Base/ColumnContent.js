@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ColumnContent = void 0;
-const Element_1 = require("./Element");
+const Component_js_1 = require("./Component.js");
 /**
  * ColumnContent
  */
-class ColumnContent extends Element_1.Element {
+class ColumnContent extends Component_js_1.Component {
     /**
-     * constructor
-     * @param {[any[]]} elements
-     * @param {[any]} toElement
+     * Constructor
+     * @param {[ComponentType[]]} elements
+     * @param {[JQuery]} toElement
      */
     constructor(elements, toElement) {
         super();
@@ -27,13 +27,13 @@ class ColumnContent extends Element_1.Element {
     }
     /**
      * add
-     * @param {any} element
+     * @param {ComponentType} element
      */
     add(element) {
-        if (!Element_1.Element.isEmpty(this._element)) {
+        if (!Component_js_1.Component.isEmpty(this._element)) {
             this._element.append('<br>');
         }
-        const telement = Element_1.Element.getAnyElement(element);
+        const telement = Component_js_1.Component.getAnyElement(element);
         this._element.append(telement);
     }
 }

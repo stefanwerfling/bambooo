@@ -3,28 +3,62 @@ import {SidebarMenuItem} from './SidebarMenuItem';
 
 export class SidebarMenu {
 
-    private _navElement: any;
-    private _ulElement: any;
+    /**
+     * Nav element
+     * @protected
+     */
+    protected _navElement: JQuery;
 
-    private _items: SidebarMenuItem[] = [];
+    /**
+     * ul element
+     * @protected
+     */
+    protected _ulElement: JQuery;
 
+    /**
+     * Items
+     * @protected
+     */
+    protected _items: SidebarMenuItem[] = [];
+
+    /**
+     * Constructor
+     * @param {Sidebar} sidebar
+     */
     public constructor(sidebar: Sidebar) {
         this._navElement = jQuery('<nav class="mt-2" />').appendTo(sidebar.getElement());
         this._ulElement = jQuery('<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" />').appendTo(this._navElement);
     }
 
-    public getNavElement(): any {
+    /**
+     * Get nav element
+     * @return {JQuery}
+     */
+    public getNavElement(): JQuery {
         return this._navElement;
     }
 
-    public getUlElement(): any {
+    /**
+     * Get ul element
+     * @return {JQuery}
+     */
+    public getUlElement(): JQuery {
         return this._ulElement;
     }
 
+    /**
+     * Add menu item
+     * @param {SidebarMenuItem} menuItem
+     */
     public addMenuItem(menuItem: SidebarMenuItem): void {
         this._items.push(menuItem);
     }
 
+    /**
+     * Get menu item by name
+     * @param {string} name
+     * @return {SidebarMenuItem|null}
+     */
     public getMenuItem(name: string): SidebarMenuItem|null {
         for (const item of this._items) {
             if (item.getName() === name) {
@@ -45,6 +79,8 @@ export class SidebarMenu {
             this._navElement.detach().appendTo(oscontent);
         }
 
-        this._ulElement.Treeview();
+        if (typeof (this._ulElement as any).Treeview === 'function') {
+            (this._ulElement as any).Treeview();
+        }
     }
 }

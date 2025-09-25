@@ -1,22 +1,22 @@
-import { Element } from './../../Element.js';
+import { Component, ComponentType } from '../../Component.js';
 import { LangText } from './../../../Lang/LangText.js';
 import { CardType } from './../Card/Card.js';
 import { KanbanCard } from './KanbanCard.js';
 /**
  * Kanban Board
  */
-export declare class KanbanBoard extends Element {
+export declare class KanbanBoard extends Component {
     /**
      * Container
      * @protected
      */
-    protected _container: any;
+    protected _container: JQuery;
     /**
      * Constructor
-     * @param {any} element
+     * @param {ComponentType} element
      * @param {number} heightPercent
      */
-    constructor(element: any, heightPercent?: number);
+    constructor(element: ComponentType, heightPercent?: number);
     /**
      * create a Kanban Card
      * @param {string|LangText} title

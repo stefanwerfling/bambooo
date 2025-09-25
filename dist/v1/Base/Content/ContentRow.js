@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ContentRow = exports.ContentRowClass = void 0;
 const ContentWrapper_1 = require("../ContentWrapper");
-const Element_1 = require("../Element");
+const Component_js_1 = require("../Component.js");
 const Wrapper_1 = require("../Wrapper");
 /**
  * ContentRowClass
@@ -15,10 +15,11 @@ var ContentRowClass;
 /**
  * ContentRow
  */
-class ContentRow extends Element_1.Element {
+class ContentRow extends Component_js_1.Component {
     /**
-     * constructor
-     * @param content
+     * Constructor
+     * @param {Content|Wrapper|ContentWrapper} content
+     * @param {ContentRowClass} rowclass
      */
     constructor(content, rowclass) {
         super();

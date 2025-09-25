@@ -1,4 +1,4 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 import { LangText } from '../../../Lang/LangText.js';
 /**
  * DescriptionBlockBorder
@@ -10,23 +10,23 @@ export declare enum DescriptionBlockBorder {
 /**
  * DescriptionBlock
  */
-export declare class DescriptionBlock extends Element {
+export declare class DescriptionBlock extends Component {
     /**
      * h5
      * @protected
      */
-    protected _h5: any;
+    protected _h5: JQuery;
     /**
      * span
      * @protected
      */
-    protected _span: any;
+    protected _span: JQuery;
     /**
-     * constructor
-     * @param element
-     * @param border
+     * Constructor
+     * @param {ComponentType} element
+     * @param {DescriptionBlockBorder} border
      */
-    constructor(element: Element | any, border?: DescriptionBlockBorder);
+    constructor(element: ComponentType, border?: DescriptionBlockBorder);
     /**
      * setHeader
      * @param {string|LangText} str
@@ -38,7 +38,8 @@ export declare class DescriptionBlock extends Element {
      */
     setText(str: string | LangText): void;
     /**
-     * getTextElement
+     * Get text element
+     * @return {JQuery}
      */
-    getTextElement(): any;
+    getTextElement(): JQuery;
 }

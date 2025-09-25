@@ -1,4 +1,4 @@
-import {Element} from '../Element';
+import {Component} from '../Component.js';
 import {ContentRow} from './ContentRow';
 
 /**
@@ -41,12 +41,12 @@ export enum ContentColSize {
 /**
  * ContentCol
  */
-export class ContentCol extends Element {
+export class ContentCol extends Component {
 
     /**
-     * constructor
-     * @param contentRow
-     * @param size
+     * Constructor
+     * @param {ContentRow} contentRow
+     * @param {ContentColSize} size
      */
     public constructor(contentRow: ContentRow, size: ContentColSize) {
         super();

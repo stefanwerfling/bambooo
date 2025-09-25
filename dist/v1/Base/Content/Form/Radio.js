@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Radio = void 0;
-const Element_js_1 = require("./../../Element.js");
+const Component_js_1 = require("../../Component.js");
 /**
  * Radio
  */
-class Radio extends Element_js_1.Element {
+class Radio extends Component_js_1.Component {
     /**
      * input radio
      * @protected
@@ -18,10 +18,10 @@ class Radio extends Element_js_1.Element {
     _label = null;
     /**
      * Constructor
-     * @param {JQuery<HTMLElement>|any} element
+     * @param {ComponentType} element
      * @param {string} radionName
      * @param {string} radioValue
-     * @param {string|LangText|JQuery<HTMLElement>|null} label
+     * @param {string|LangText|JQuery|null} label
      * @param {boolean} checked
      */
     constructor(element, radionName, radioValue, label = null, checked = false) {
@@ -37,7 +37,7 @@ class Radio extends Element_js_1.Element {
     /**
      * Create the label object element
      * @protected
-     * @return {JQuery<HTMLElement>}
+     * @return {JQuery}
      */
     _getLabel() {
         if (this._label === null) {
@@ -47,7 +47,7 @@ class Radio extends Element_js_1.Element {
     }
     /**
      * setLabel
-     * @param {string|JQuery<HTMLElement>|LangText} label
+     * @param {string|JQuery|LangText} label
      */
     setLabel(label) {
         const tlabel = this._getAnyElement(label);
@@ -55,7 +55,7 @@ class Radio extends Element_js_1.Element {
     }
     /**
      * getLabelElement
-     * @returns {JQuery<HTMLElement>}
+     * @returns {JQuery}
      */
     getLabelElement() {
         return this._getLabel();

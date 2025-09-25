@@ -8,26 +8,27 @@ export declare class ContentWrapper {
      * element
      * @private
      */
-    private _element;
+    protected _element: JQuery;
     /**
      * content header
      * @private
      */
-    private _contentHeader;
+    protected _contentHeader: ContentHeader;
     /**
      * content
      * @private
      */
-    private _content;
+    protected _content: Content;
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {JQuery} element
      */
-    constructor(element?: any);
+    constructor(element?: JQuery);
     /**
      * getElement
+     * @return {JQuery}
      */
-    getElement(): any;
+    getElement(): JQuery;
     /**
      * getContentHeader
      */

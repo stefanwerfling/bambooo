@@ -1,15 +1,23 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 /**
  * PieChart
  */
-export declare class PieChart extends Element {
-    protected _height: string;
-    protected _width: string;
+export declare class PieChart extends Component {
     /**
-     * constructor
-     * @param element
+     * Height
+     * @protected
      */
-    constructor(element: any);
+    protected _height: number;
+    /**
+     * Width
+     * @protected
+     */
+    protected _width: number;
+    /**
+     * Constructor
+     * @param {ComponentType} element
+     */
+    constructor(element: ComponentType);
     /**
      * _changeCanvasSize
      * @protected
@@ -19,5 +27,5 @@ export declare class PieChart extends Element {
      * _getContext
      * @protected
      */
-    protected _getContext(): any;
+    protected _getContext(): CanvasRenderingContext2D | null;
 }

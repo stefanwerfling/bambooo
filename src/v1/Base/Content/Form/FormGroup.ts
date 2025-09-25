@@ -1,23 +1,23 @@
-import {Element} from './../../Element.js';
+import {Component, ComponentType} from '../../Component.js';
 import {LangText} from './../../../Lang/LangText.js';
 
 /**
  * FormGroup
  */
-export class FormGroup extends Element {
+export class FormGroup extends Component {
 
     /**
      * label
      * @protected
      */
-    protected _label: JQuery<HTMLElement>|null = null;
+    protected _label: JQuery|null = null;
 
     /**
      * constructor
-     * @param {JQuery<HTMLElement>} element
-     * @param {string|JQuery<HTMLElement>|LangText} label
+     * @param {ComponentType} element
+     * @param {string|JQuery|LangText} label
      */
-    public constructor(element: JQuery<HTMLElement>|Element, label?: string|JQuery<HTMLElement>|LangText) {
+    public constructor(element: ComponentType, label?: string|JQuery|LangText) {
         super();
 
         const telement = this._getAnyElement(element);
@@ -32,9 +32,9 @@ export class FormGroup extends Element {
     /**
      * Create the label object element
      * @protected
-     * @return {JQuery<HTMLElement>}
+     * @return {JQuery}
      */
-    protected _getLabel(): JQuery<HTMLElement> {
+    protected _getLabel(): JQuery {
         if (this._label === null) {
             this._label = jQuery('<label/>').appendTo(this._element);
         }
@@ -44,18 +44,18 @@ export class FormGroup extends Element {
 
     /**
      * setLabel
-     * @param {string|JQuery<HTMLElement>|LangText} label
+     * @param {string|JQuery|LangText} label
      */
-    public setLabel(label: string|JQuery<HTMLElement>|LangText): void {
+    public setLabel(label: string|JQuery|LangText): void {
         const tlabel = this._getAnyElement(label);
         this._getLabel().empty().append(tlabel);
     }
 
     /**
      * getLabelElement
-     * @returns {JQuery<HTMLElement>}
+     * @returns {JQuery}
      */
-    public getLabelElement(): JQuery<HTMLElement> {
+    public getLabelElement(): JQuery {
         return this._getLabel();
     }
 

@@ -1,4 +1,4 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 import {Icon, IconFa} from '../Icon/Icon';
 
 /**
@@ -23,33 +23,33 @@ export enum InfoBoxMb {
 /**
  * InfoBox
  */
-export class InfoBox extends Element {
+export class InfoBox extends Component {
 
     /**
      * infobox content element
      * @protected
      */
-    protected _contentElement: any|null = null;
+    protected _contentElement: JQuery|null = null;
 
     /**
      * infobox text element
      * @protected
      */
-    protected _textElement: any|null = null;
+    protected _textElement: JQuery|null = null;
 
     /**
      * infobox number element
      * @protected
      */
-    protected _numberElement: any|null = null;
+    protected _numberElement: JQuery|null = null;
 
     /**
      * constructor
-     * @param {Element|any} element
+     * @param {Component|any} element
      * @param {InfoBoxBg} bg
      * @param {InfoBoxMb} mb
      */
-    public constructor(element: Element|any, bg: InfoBoxBg = InfoBoxBg.light, mb: InfoBoxMb = InfoBoxMb.none) {
+    public constructor(element: Component|any, bg: InfoBoxBg = InfoBoxBg.light, mb: InfoBoxMb = InfoBoxMb.none) {
         super();
 
         const telement = this._getAnyElement(element);
@@ -68,9 +68,10 @@ export class InfoBox extends Element {
     }
 
     /**
-     * getContentElement
+     * Return the content element
+     * @return {JQuery}
      */
-    public getContentElement(): any {
+    public getContentElement(): JQuery {
         if (this._contentElement === null) {
             this._contentElement = jQuery('<div class="info-box-content"></div>').appendTo(this._element);
         }
@@ -79,9 +80,10 @@ export class InfoBox extends Element {
     }
 
     /**
-     * getTextElement
+     * Return the text element
+     * @return {JQuery}
      */
-    public getTextElement(): any {
+    public getTextElement(): JQuery {
         if (this._textElement === null) {
             this._textElement = jQuery('<span class="info-box-text"></span>').appendTo(this.getContentElement());
         }
@@ -90,9 +92,10 @@ export class InfoBox extends Element {
     }
 
     /**
-     * getNumberElement
+     * Get number element
+     * @return {JQuery}
      */
-    public getNumberElement(): any {
+    public getNumberElement(): JQuery {
         if (this._numberElement === null) {
             this._numberElement = jQuery('<span class="info-box-number"></span>').appendTo(this.getContentElement());
         }

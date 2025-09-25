@@ -1,25 +1,25 @@
-import { Element } from './Element';
+import { Component, ComponentType } from './Component.js';
 import { LeftNavbar } from './Navbar/LeftNavbar';
 import { RightNavbar } from './Navbar/RightNavbar';
 /**
  * Navbar
  */
-export declare class Navbar extends Element {
+export declare class Navbar extends Component {
     /**
      * left navbar
      * @private
      */
-    private _leftNavbar;
+    protected _leftNavbar: LeftNavbar;
     /**
      * right navbar
      * @private
      */
-    private _rightNavbar;
+    protected _rightNavbar: RightNavbar | null;
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {ComponentType} element
      */
-    constructor(element?: any);
+    constructor(element?: ComponentType);
     /**
      * getLeftNavbar
      */

@@ -1,4 +1,4 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 /**
  * SwitchChangeFn
  */
@@ -6,46 +6,47 @@ export type SwitchChangeFn = (value: boolean) => void;
 /**
  * Switch
  */
-export declare class Switch extends Element {
+export declare class Switch extends Component {
     /**
      * input
      * @protected
      */
-    protected _input: any;
+    protected _input: JQuery;
     /**
      * label
      * @protected
      */
-    protected _label: any;
+    protected _label: JQuery;
     /**
      * constructor
-     * @param element
-     * @param id
-     * @param label
+     * @param {ComponentType} element
+     * @param {string} id
+     * @param {JQuery|string} label
      */
-    constructor(element: any, id: string, label?: any);
+    constructor(element: ComponentType, id: string, label?: JQuery | string);
     /**
      * setLabel
-     * @param label
+     * @param {JQuery|string} label
      */
-    setLabel(label: any): void;
+    setLabel(label: JQuery | string): void;
     /**
      * setEnable
-     * @param enable
+     * @param {boolean} enable
      */
     setEnable(enable: boolean): void;
     /**
      * isEnable
+     * @return {boolean}
      */
     isEnable(): boolean;
     /**
      * setChangeFn
-     * @param onChangeFn
+     * @param {SwitchChangeFn} onChangeFn
      */
     setChangeFn(onChangeFn: SwitchChangeFn): void;
     /**
      * setInativ
-     * @param inactiv
+     * @param {boolean} inactiv
      */
     setInativ(inactiv: boolean): void;
 }

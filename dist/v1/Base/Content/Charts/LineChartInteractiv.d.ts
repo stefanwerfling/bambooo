@@ -1,13 +1,13 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 /**
  * LineChartInteractiv
  */
-export declare class LineChartInteractiv extends Element {
+export declare class LineChartInteractiv extends Component {
     /**
      * height
      * @protected
      */
-    protected _height: string;
+    protected _height: number;
     /**
      * data
      * @protected
@@ -24,10 +24,10 @@ export declare class LineChartInteractiv extends Element {
      */
     protected _plot: any;
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {ComponentType} element
      */
-    constructor(element: any);
+    constructor(element: ComponentType);
     /**
      * _changeSize
      * @protected

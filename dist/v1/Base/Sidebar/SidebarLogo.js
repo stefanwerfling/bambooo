@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SidebarLogo = void 0;
+const Component_js_1 = require("../Component.js");
 /**
  * SidebarLogo
  */
@@ -21,12 +22,12 @@ class SidebarLogo {
      */
     _title = '';
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {ComponentType} element
      */
     constructor(element) {
         if (element) {
-            this._element = element;
+            this._element = Component_js_1.Component.getAnyElement(element);
         }
         else {
             throw Error('sidebar logo element not found!');
@@ -34,13 +35,14 @@ class SidebarLogo {
     }
     /**
      * getElement
+     * @return {JQuery}
      */
     getElement() {
         return this._element;
     }
     /**
      * setImage
-     * @param url
+     * @param {string} url
      */
     setImage(url) {
         this._image = url;
@@ -48,7 +50,7 @@ class SidebarLogo {
     }
     /**
      * setTitle
-     * @param title
+     * @param {string} title
      */
     setTitle(title) {
         this._title = title;

@@ -129,9 +129,9 @@ export class Lang {
 
     /**
      * lAll - Translate all elements to the current selected lang
-     * @param {[any]} aElement - Start by Element or body element
+     * @param {[JQuery|HTMLElement]} aElement - Start by Element or body element
      */
-    public lAll(aElement?: any): void {
+    public lAll(aElement?: JQuery|HTMLElement): void {
         let eElement: any| undefined;
 
         if (aElement === undefined) {

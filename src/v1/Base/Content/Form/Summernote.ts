@@ -1,3 +1,4 @@
+import {ComponentType} from '../../Component.js';
 import {Textarea} from './Textarea';
 
 /**
@@ -13,24 +14,30 @@ export class Summernote extends Textarea {
 
     /**
      * Constructor for Summernote element.
-     * @param {Element|HTMLElement} element - A element to append the Textarea element.
+     * @param {ComponentType} element - A element to append the Textarea element.
      * @param {[string]} placeholder - Optional, placeholder for textarea.
      * @param {number} rows - Textarea rows.
      */
-    public constructor(element: any, placeholder?: string, rows: number = 3) {
+    public constructor(element: ComponentType, placeholder?: string, rows: number = 3) {
         super(element, placeholder, rows);
 
         this.create(false);
     }
 
     protected create(focus: boolean): void {
-        this._element.summernote({
-            focus: focus
-        });
+        if (typeof (this._element as any).summernote === 'function') {
+            (this._element as any).summernote({
+                focus: focus
+            });
+        } else {
+            console.log('Summernote: Summernote plugin not found!');
+        }
     }
 
     public destroy(): void {
-        this._element.summernote('destroy');
+        if (typeof (this._element as any).summernote === 'function') {
+            (this._element as any).summernote('destroy');
+        }
     }
 
     /**
@@ -38,7 +45,13 @@ export class Summernote extends Textarea {
      * @returns {string}
      */
     public override getValue(): string {
-        return this._element.summernote('code');
+        if (typeof (this._element as any).summernote === 'function') {
+            return (this._element as any).summernote('code');
+        } else {
+            console.log('Summernote: Summernote plugin not found!');
+        }
+
+        return '';
     }
 
     /**
@@ -46,28 +59,47 @@ export class Summernote extends Textarea {
      * @param {string} value
      */
     public override setValue(value: string): void {
-        this._element.summernote('pasteHTML', value);
-
+        if (typeof (this._element as any).summernote === 'function') {
+            (this._element as any).summernote('pasteHTML', value);
+        }
     }
 
     public focus(): void {
-        this._element.summernote('focus');
+        if (typeof (this._element as any).summernote === 'function') {
+            (this._element as any).summernote('focus');
+        }
     }
 
     public fullscreen(): void {
-        return this._element.summernote('fullscreen.toggle');
+        if (typeof (this._element as any).summernote === 'function') {
+            (this._element as any).summernote('fullscreen.toggle');
+        }
     }
 
     public isFullscreen(): boolean {
-        return this._element.summernote('fullscreen.isFullscreen');
+        if (typeof (this._element as any).summernote === 'function') {
+            return (this._element as any).summernote('fullscreen.isFullscreen');
+        } else {
+            console.log('Summernote: Summernote plugin not found!');
+        }
+
+        return false;
     }
 
     public isEmpty(): boolean {
-        return this._element.summernote('isEmpty');
+        if (typeof (this._element as any).summernote === 'function') {
+            return (this._element as any).summernote('isEmpty');
+        } else {
+            console.log('Summernote: Summernote plugin not found!');
+        }
+
+        return false;
     }
 
     public reset(): void {
-        return this._element.summernote('reset');
+        if (typeof (this._element as any).summernote === 'function') {
+            (this._element as any).summernote('reset');
+        }
     }
 
     /**
@@ -75,14 +107,16 @@ export class Summernote extends Textarea {
      * @param {boolean} enable
      */
     public setEnable(enable: boolean): void {
-        this._isEnable = enable;
+        if (typeof (this._element as any).summernote === 'function') {
+            this._isEnable = enable;
 
-        if (this._isEnable) {
-            this._element.summernote('enable');
-            return;
+            if (this._isEnable) {
+                (this._element as any).summernote('enable');
+                return;
+            }
+
+            (this._element as any).summernote('disable');
         }
-
-        this._element.summernote('disable');
     }
 
     /**

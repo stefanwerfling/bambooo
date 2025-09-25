@@ -14,7 +14,7 @@ export class SidebarUserPanel {
      * div element
      * @private
      */
-    private _divElement: any;
+    private _divElement: JQuery;
 
     /**
      * image
@@ -29,8 +29,8 @@ export class SidebarUserPanel {
     private _username: string = '';
 
     /**
-     * constructor
-     * @param sidebar
+     * Constructor
+     * @param {Sidebar} sidebar
      */
     public constructor(sidebar: Sidebar) {
         this._divElement = jQuery('<div class="user-panel mt-3 pb-3 mb-3 d-flex" />').prependTo(sidebar.getElement());
@@ -38,7 +38,7 @@ export class SidebarUserPanel {
 
     /**
      * setImage
-     * @param url
+     * @param {string} url
      */
     public setImage(url: string): void {
         this._image = url;
@@ -47,7 +47,7 @@ export class SidebarUserPanel {
 
     /**
      * setUsername
-     * @param username
+     * @param {string} username
      */
     public setUsername(username: string): void {
         this._username = username;

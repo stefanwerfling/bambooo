@@ -1,4 +1,4 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 import {ButtonClass} from '../Button/ButtonClass.js';
 
 /**
@@ -29,7 +29,7 @@ export type ButtonClickFn = () => void;
 /**
  * Button
  */
-export class Button extends Element {
+export class Button extends Component {
 
     /**
      * click enable
@@ -38,8 +38,8 @@ export class Button extends Element {
     protected _clickEnable = true;
 
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {ButtonType} type
      * @param {ButtonClass} bnClass
      * @param {ButtonShape|string} shape
@@ -47,7 +47,7 @@ export class Button extends Element {
      * @param {string} moreAttr
      */
     public constructor(
-        element: any,
+        element: ComponentType,
         type: ButtonType = ButtonType.default,
         bnClass: ButtonClass = ButtonClass.default,
         shape: ButtonShape|string = ButtonShape.none,

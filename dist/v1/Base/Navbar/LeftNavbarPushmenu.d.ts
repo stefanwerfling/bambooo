@@ -1,6 +1,21 @@
 import { LeftNavbar } from './LeftNavbar';
+/**
+ * Left navbar pushmenu
+ */
 export declare class LeftNavbarPushmenu {
-    private _li;
+    /**
+     * Li
+     * @protected
+     */
+    protected _li: JQuery;
+    /**
+     * Constructor
+     * @param {LeftNavbar} leftNavbar
+     */
     constructor(leftNavbar: LeftNavbar);
-    getLiElement(): any;
+    /**
+     * Get Li element
+     * @return {JQuery}
+     */
+    getLiElement(): JQuery;
 }

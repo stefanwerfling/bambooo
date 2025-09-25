@@ -7,13 +7,13 @@ export class ControlSidebar {
      * element
      * @private
      */
-    private _element: any;
+    protected _element: JQuery;
 
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {JQuery} element
      */
-    public constructor(element?: any) {
+    public constructor(element?: JQuery) {
         if (element) {
             this._element = element;
         } else {
@@ -27,8 +27,9 @@ export class ControlSidebar {
 
     /**
      * getElement
+     * @return {JQuery}
      */
-    public getElement(): any {
+    public getElement(): JQuery {
         return this._element;
     }
 

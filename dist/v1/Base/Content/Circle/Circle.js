@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Circle = exports.CircleColor = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * CircleColor
  */
@@ -19,16 +19,14 @@ var CircleColor;
 /**
  * Circle
  */
-class Circle extends Element_1.Element {
+class Circle extends Component_js_1.Component {
     /**
-     * constructor
-     * @param element
-     * @param color
+     * Constructor
+     * @param {ComponentType} element
+     * @param {CircleColor|string} color
      */
     constructor(element, color) {
-        super();
-        const telement = this._getAnyElement(element);
-        this._element = jQuery(`<i class="fas fa-circle fa-1x ${color}"></i>`).appendTo(telement);
+        super(jQuery(`<i class="fas fa-circle fa-1x ${color}"></i>`).appendTo(Component_js_1.Component.getAnyElement(element)));
     }
 }
 exports.Circle = Circle;

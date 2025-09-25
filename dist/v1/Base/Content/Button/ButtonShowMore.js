@@ -1,20 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ButtonShowMore = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * ButtonShowMore
  */
-class ButtonShowMore extends Element_1.Element {
+class ButtonShowMore extends Component_js_1.Component {
     /**
      * constructor
-     * @param element
-     * @param showContent
-     * @param hideContent
+     * @param {ComponentType} element
+     * @param {JQuery} showContent
+     * @param {JQuery} hideContent
      */
     constructor(element, showContent, hideContent) {
-        super();
-        this._element = jQuery('<table/>').appendTo(element);
+        super(jQuery('<table/>').appendTo(Component_js_1.Component.getAnyElement(element)));
         this._element.css({});
         const trln1 = jQuery('<tr/>').appendTo(this._element);
         const tdbtn = jQuery('<td/>').appendTo(trln1);

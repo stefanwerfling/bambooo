@@ -1,16 +1,16 @@
-import {Element} from './Element';
+import {Component, ComponentType} from './Component.js';
 
 /**
  * ColumnContent
  */
-export class ColumnContent extends Element {
+export class ColumnContent extends Component {
 
     /**
-     * constructor
-     * @param {[any[]]} elements
-     * @param {[any]} toElement
+     * Constructor
+     * @param {[ComponentType[]]} elements
+     * @param {[JQuery]} toElement
      */
-    public constructor(elements?: any[], toElement?: any) {
+    public constructor(elements?: ComponentType[], toElement?: JQuery) {
         super();
 
         if (toElement) {
@@ -28,14 +28,14 @@ export class ColumnContent extends Element {
 
     /**
      * add
-     * @param {any} element
+     * @param {ComponentType} element
      */
-    public add(element: any) {
-        if (!Element.isEmpty(this._element)) {
+    public add(element: ComponentType) {
+        if (!Component.isEmpty(this._element)) {
             this._element.append('<br>');
         }
 
-        const telement = Element.getAnyElement(element);
+        const telement = Component.getAnyElement(element);
 
         this._element.append(telement);
     }

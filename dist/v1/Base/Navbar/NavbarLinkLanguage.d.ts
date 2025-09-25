@@ -1,5 +1,5 @@
 import { LangDefine } from '../../Lang/LangDefine.js';
-import { Element } from '../Element.js';
+import { Component, ComponentType } from '../Component.js';
 /**
  * ChangeLangClickFn
  */
@@ -7,22 +7,22 @@ export type ChangeLangClickFn = (lang: LangDefine) => void;
 /**
  * NavbarLinkLanguage
  */
-export declare class NavbarLinkLanguage extends Element {
+export declare class NavbarLinkLanguage extends Component {
     /**
      * link
      * @protected
      */
-    protected _a: JQuery<HTMLElement>;
+    protected _a: JQuery;
     /**
      * lang menu
      * @protected
      */
-    protected _menu: JQuery<HTMLElement>;
+    protected _menu: JQuery;
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {ComponentType} element
      */
-    constructor(element: any);
+    constructor(element: ComponentType);
     /**
      * addLang
      * @param {LangDefine} lang

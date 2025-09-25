@@ -1,5 +1,5 @@
 import 'jquery';
-import { Element } from '../../Element.js';
+import { Component, ComponentType } from '../../Component.js';
 export interface SearchWidgetSelect2AjaxParams {
     data: any;
     url: string;
@@ -52,7 +52,7 @@ type SearchWidgetSelectOptions = {
 /**
  * Search widget
  */
-export declare class SearchWidget extends Element {
+export declare class SearchWidget extends Component {
     /**
      * Select2 object
      * @protected
@@ -65,9 +65,9 @@ export declare class SearchWidget extends Element {
     protected _selectOptions: SearchWidgetSelectOptions;
     /**
      * Contructor
-     * @param {Element|any} element
+     * @param {ComponentType} element
      */
-    constructor(element: Element | any);
+    constructor(element: ComponentType);
     /**
      * Update the select
      * @protected
@@ -92,6 +92,7 @@ export declare class SearchWidget extends Element {
      * Set request transport
      * @param {SearchWidgetSelect2AjaxTransportExt} cTransport
      * @param {[T]} options
+     * @template T
      */
     setRequestTransport<T>(cTransport: SearchWidgetSelect2AjaxTransportExt<T>, options?: T): void;
     /**

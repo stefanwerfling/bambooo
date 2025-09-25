@@ -1,6 +1,6 @@
 import {BClass} from '../../../../Core/BTypes.js';
 import {ButtonClass} from '../../Content/Button/ButtonClass.js';
-import {Element} from '../../Element.js';
+import {Component, ComponentType} from '../../Component.js';
 import {ButtonDefault, ButtonDefaultType} from '../../Content/Button/ButtonDefault.js';
 import {ICollectionEntryWidget} from './CollectionEntryWidget.js';
 
@@ -21,7 +21,7 @@ export type CollectionWidgetOnUpdate<T> = (event: CollectionWidgetOnUpdateEvent,
 /**
  * Collection Widget
  */
-export class CollectionWidget<T extends ICollectionEntryWidget, E extends Element> {
+export class CollectionWidget<T extends ICollectionEntryWidget, E extends Component> {
 
     /**
      * Element
@@ -58,10 +58,10 @@ export class CollectionWidget<T extends ICollectionEntryWidget, E extends Elemen
      * @param {} opts
      */
     public constructor(opts: {
-        element: Element|any,
+        element: ComponentType,
         editable: boolean,
-        onContainerObject: (element: Element) => E,
-        onBindAddBtn: (element: E) => Element|any,
+        onContainerObject: (element: ComponentType) => E,
+        onBindAddBtn: (element: E) => ComponentType,
         entryClass: BClass<T>
         onUpdate?: CollectionWidgetOnUpdate<T>
     }) {
@@ -77,7 +77,7 @@ export class CollectionWidget<T extends ICollectionEntryWidget, E extends Elemen
         }
     }
 
-    protected _createAddBtn(element: Element): void {
+    protected _createAddBtn(element: ComponentType): void {
         const addBtn = new ButtonDefault(
             element,
             '',

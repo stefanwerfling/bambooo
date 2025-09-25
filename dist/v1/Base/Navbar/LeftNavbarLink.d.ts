@@ -13,12 +13,12 @@ export declare class LeftNavbarLink {
      * list element
      * @private
      */
-    private _liElement;
+    protected _liElement: JQuery;
     /**
      * link element
      * @private
      */
-    private _aElement;
+    protected _aElement: JQuery;
     /**
      * constructor
      * @param {LeftNavbar} leftNavbar
@@ -30,12 +30,12 @@ export declare class LeftNavbarLink {
     constructor(leftNavbar: LeftNavbar, title: string | LangText, onClickFn?: LeftNavbarLinkFn | null, linkClass?: string, icon?: IconFa | string | null);
     /**
      * getLiElement
-     * @return {any}
+     * @return {JQuery}
      */
-    getLiElement(): any;
+    getLiElement(): JQuery;
     /**
      * getAElement
-     * @return {any}
+     * @return {JQuery}
      */
-    getAElement(): any;
+    getAElement(): JQuery;
 }

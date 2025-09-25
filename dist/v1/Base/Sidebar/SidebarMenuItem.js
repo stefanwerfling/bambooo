@@ -37,7 +37,7 @@ class SidebarMenuItem {
      */
     _iconClass = 'fa-circle';
     /**
-     * constructor
+     * Constructor
      * @param {SidebarMenu|SidebarMenuTree} sidebar
      * @param {boolean} isSubItem
      */
@@ -97,14 +97,14 @@ class SidebarMenuItem {
     }
     /**
      * getLiElement
-     * @return {any}
+     * @return {JQuery}
      */
     getLiElement() {
         return this._liElement;
     }
     /**
      * getPElement
-     * @return {any}
+     * @return {JQuery}
      */
     getPElement() {
         return this._pElement;

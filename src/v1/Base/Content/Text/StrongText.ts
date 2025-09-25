@@ -1,17 +1,17 @@
-import {Element} from './../../Element.js';
+import {Component, ComponentType} from '../../Component.js';
 import {LangText} from './../../../Lang/LangText.js';
 
 /**
  * StrongText
  */
-export class StrongText extends Element {
+export class StrongText extends Component {
 
     /**
      * constructor
-     * @param {any|Element} element
-     * @param {string|JQuery<HTMLElement>|LangText} text
+     * @param {ComponentType} element
+     * @param {string|JQuery|LangText} text
      */
-    public constructor(element: any|Element, text?: string|JQuery<HTMLElement>|LangText) {
+    public constructor(element: ComponentType, text?: string|JQuery|LangText) {
         super();
 
         const telement = this._getAnyElement(element);
@@ -24,9 +24,9 @@ export class StrongText extends Element {
 
     /**
      * Add Text
-     * @param {string|JQuery<HTMLElement>|LangText} text
+     * @param {string|JQuery|LangText} text
      */
-    public addText(text: string|JQuery<HTMLElement>|LangText): void {
+    public addText(text: string|JQuery|LangText): void {
         const ttext = this._getAnyElement(text);
         this._element.append(ttext);
     }

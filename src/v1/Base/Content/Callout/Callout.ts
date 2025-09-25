@@ -1,5 +1,8 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 
+/**
+ * Callout type
+ */
 export enum CalloutType {
     warning = 'callout-warning',
     danger = 'callout-danger',
@@ -11,25 +14,33 @@ export enum CalloutType {
 /**
  * Callout
  */
-export class Callout extends Element {
+export class Callout extends Component {
 
-    protected _mainElement: any;
-    protected _title: any;
+    /**
+     * Main Element
+     * @protected
+     */
+    protected _mainElement: JQuery;
+
+    /**
+     * Title
+     * @protected
+     */
+    protected _title: JQuery;
 
     /**
      * constructor
-     * @param {any|Element} element
+     * @param {ComponentType} element
      * @param {CalloutType} type
      */
-    public constructor(element: any|Element, type: CalloutType = CalloutType.info) {
-        super();
+    public constructor(element: ComponentType, type: CalloutType = CalloutType.info) {
+        const mainElement = jQuery(`<div class="callout ${type}" />`).appendTo(Component.getAnyElement(element));
+        const title = jQuery('<h5/>').appendTo(mainElement);
 
-        const telement = this._getAnyElement(element);
+        super(jQuery('<p/>').appendTo(mainElement));
 
-        this._mainElement = jQuery(`<div class="callout ${type}" />`).appendTo(telement);
-
-        this._title = jQuery('<h5/>').appendTo(this._mainElement);
-        this._element = jQuery('<p/>').appendTo(this._mainElement);
+        this._mainElement = mainElement;
+        this._title = title;
     }
 
     /**
@@ -42,9 +53,9 @@ export class Callout extends Element {
 
     /**
      * Return the main Element
-     * @returns {any}
+     * @returns {JQuery}
      */
-    public getMainElement(): any {
+    public getMainElement(): JQuery {
         return this._mainElement;
     }
 

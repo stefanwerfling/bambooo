@@ -1,4 +1,4 @@
-import {Element} from './../../Element.js';
+import {Component, ComponentType} from '../../Component.js';
 import {LangText} from './../../../Lang/LangText.js';
 import {CardType} from './../Card/Card.js';
 import {KanbanCard} from './KanbanCard.js';
@@ -6,20 +6,20 @@ import {KanbanCard} from './KanbanCard.js';
 /**
  * Kanban Board
  */
-export class KanbanBoard extends Element {
+export class KanbanBoard extends Component {
 
     /**
      * Container
      * @protected
      */
-    protected _container: any;
+    protected _container: JQuery;
 
     /**
      * Constructor
-     * @param {any} element
+     * @param {ComponentType} element
      * @param {number} heightPercent
      */
-    public constructor(element: any, heightPercent: number = 100) {
+    public constructor(element: ComponentType, heightPercent: number = 100) {
         super();
 
         const telement = this._getAnyElement(element);

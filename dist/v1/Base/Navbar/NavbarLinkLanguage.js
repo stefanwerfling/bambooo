@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NavbarLinkLanguage = void 0;
-const Element_js_1 = require("../Element.js");
+const Component_js_1 = require("../Component.js");
 /**
  * NavbarLinkLanguage
  */
-class NavbarLinkLanguage extends Element_js_1.Element {
+class NavbarLinkLanguage extends Component_js_1.Component {
     /**
      * link
      * @protected
@@ -17,8 +17,8 @@ class NavbarLinkLanguage extends Element_js_1.Element {
      */
     _menu;
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {ComponentType} element
      */
     constructor(element) {
         super();

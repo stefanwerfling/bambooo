@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Button = exports.ButtonShape = exports.ButtonType = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 const ButtonClass_js_1 = require("../Button/ButtonClass.js");
 /**
  * ButtonType
@@ -26,15 +26,15 @@ var ButtonShape;
 /**
  * Button
  */
-class Button extends Element_1.Element {
+class Button extends Component_js_1.Component {
     /**
      * click enable
      * @protected
      */
     _clickEnable = true;
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {ButtonType} type
      * @param {ButtonClass} bnClass
      * @param {ButtonShape|string} shape

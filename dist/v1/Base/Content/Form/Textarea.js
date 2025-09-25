@@ -1,14 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Textarea = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * Textarea form element.
  */
-class Textarea extends Element_1.Element {
+class Textarea extends Component_js_1.Component {
     /**
      * Constructor for Textarea element.
-     * @param {Element|HTMLElement} element - A element to append the Textarea element.
+     * @param {ComponentType} element - A element to append the Textarea element.
      * @param {[string]} placeholder - Optional, placeholder for textarea.
      * @param {number} rows - Textarea rows.
      */

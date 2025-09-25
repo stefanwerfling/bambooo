@@ -1,4 +1,4 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 
 /**
  * CaretType
@@ -12,16 +12,14 @@ export enum CaretType {
 /**
  * Caret
  */
-export class Caret extends Element {
+export class Caret extends Component {
 
     /**
-     * constructor
-     * @param element
-     * @param type
+     * Constructor
+     * @param {ComponentType} element
+     * @param {CaretType} type
      */
-    public constructor(element: any, type: CaretType = CaretType.up) {
-        super();
-
+    public constructor(element: ComponentType, type: CaretType = CaretType.up) {
         let dp = '';
 
         switch (type) {
@@ -38,14 +36,16 @@ export class Caret extends Element {
                 break;
         }
 
-        this._element = jQuery(`<span class="description-percentage ${dp}"><i class="fas ${type}"></i> </span>`).appendTo(element);
+        super(jQuery(`<span class="description-percentage ${dp}"><i class="fas ${type}"></i> </span>`).appendTo(
+            Component.getAnyElement(element)
+        ));
     }
 
     /**
      * addValue
-     * @param value
+     * @param {JQuery|string} value
      */
-    public addValue(value: any): void {
+    public addValue(value: JQuery|string): void {
         this._element.append(value);
     }
 

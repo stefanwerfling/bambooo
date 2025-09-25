@@ -1,14 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HeadText = void 0;
-const Element_js_1 = require("./../../Element.js");
+const Component_js_1 = require("../../Component.js");
 /**
  * H Head element
  */
-class HeadText extends Element_js_1.Element {
+class HeadText extends Component_js_1.Component {
     /**
-     * constructor
-     * @param {any|Element} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {number} hnum
      * @param {string|LangText} title
      */
@@ -20,7 +20,7 @@ class HeadText extends Element_js_1.Element {
     }
     /**
      * Set title
-     * @param {string|JQuery<HTMLElement>|LangText} title
+     * @param {string|JQuery|LangText} title
      */
     setTitle(title) {
         const ttitle = this._getAnyElement(title);

@@ -1,7 +1,7 @@
 "use strict";
 // Core ----------------------------------------------------------------------------------------------------------------
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.LineChart = exports.CaretType = exports.Caret = exports.CardShape = exports.CardBodyType = exports.CardLine = exports.CardType = exports.Card = exports.CalloutType = exports.Callout = exports.ButtonShowMore = exports.ButtonListAddress = exports.ButtonGroup = exports.ButtonDefaultPosition = exports.ButtonDefault = exports.ButtonDefaultType = exports.ButtonClass = exports.ButtonBorderless = exports.SmallBox = exports.SmallBoxBg = exports.InfoBox = exports.InfoBoxMb = exports.InfoBoxBg = exports.Badge = exports.BadgeType = exports.ArrowSimple = exports.ArrowSimpleDirection = exports.ContentRow = exports.ContentRowClass = exports.ContentDisable = exports.ContentCol = exports.ContentColSize = exports.Wrapper = exports.Preloader = exports.Navbar = exports.MainSidebar = exports.Footer = exports.Element = exports.ControlSidebar = exports.ContentWrapper = exports.ContentHeader = exports.Content = exports.ColumnContent = exports.NetFetch = exports.Response = exports.InternalError = exports.UnknownResponse = exports.SchemaError = exports.UnauthorizedError = exports.HttpError = void 0;
+exports.LineChart = exports.CaretType = exports.Caret = exports.CardShape = exports.CardBodyType = exports.CardLine = exports.CardType = exports.Card = exports.CalloutType = exports.Callout = exports.ButtonShowMore = exports.ButtonListAddress = exports.ButtonGroup = exports.ButtonDefaultPosition = exports.ButtonDefault = exports.ButtonDefaultType = exports.ButtonClass = exports.ButtonBorderless = exports.SmallBox = exports.SmallBoxBg = exports.InfoBox = exports.InfoBoxMb = exports.InfoBoxBg = exports.Badge = exports.BadgeType = exports.ArrowSimple = exports.ArrowSimpleDirection = exports.ContentRow = exports.ContentRowClass = exports.ContentDisable = exports.ContentCol = exports.ContentColSize = exports.Wrapper = exports.Preloader = exports.Navbar = exports.MainSidebar = exports.Footer = exports.ControlSidebar = exports.ContentWrapper = exports.ContentHeader = exports.Content = exports.ColumnContent = exports.Component = exports.NetFetch = exports.Response = exports.InternalError = exports.UnknownResponse = exports.SchemaError = exports.UnauthorizedError = exports.HttpError = void 0;
 exports.StepperLinear = exports.Progressbar = exports.ProgressbarColor = exports.ProgressbarStyle = exports.KanbanEntryCard = exports.KanbanBoard = exports.KanbanCard = exports.ImageCoin = exports.ImageType = exports.ImageArt = exports.Image = exports.IconFa = exports.Icon = exports.CheckBox = exports.Textarea = exports.SwitchTimer = exports.Switch = exports.Summernote = exports.SelectBottemBorderOnly2 = exports.RadioInput = exports.Radio = exports.Multiple = exports.InputBottemBorderOnly2 = exports.InputType = exports.FormRowColType = exports.FormRow = exports.FormGroupButton = exports.FormGroup = exports.Form = exports.ButtonMenuPosition = exports.ButtonMenu = exports.ButtonShape = exports.ButtonType = exports.Button = exports.BlockButtonType = exports.BlockButton = exports.DialogError = exports.DialogInfo = exports.DialogConfirm = exports.DescriptionList = exports.DescriptionListType = exports.DescriptionListEntry = exports.DescriptionListEntryType = exports.DescriptionBlockBorder = exports.DescriptionBlock = exports.CircleColor = exports.Circle = exports.SparkLine = exports.PieChart = exports.LineChartInteractiv = void 0;
 exports.Widget2 = exports.Component2 = exports.UtilRedirect = exports.UtilNumber = exports.UtilShorname = exports.UtilDownload = exports.UtilAvatarGenerator = exports.UtilColor = exports.SearchWidget = exports.CollectionCardWidget = exports.CollectionWidget = exports.CollectionWidgetOnUpdateEvent = exports.Beep = exports.SidebarUserPanel = exports.SidebarMenuTree = exports.SidebarMenuItemBadge = exports.SidebarMenuItem = exports.SidebarMenu = exports.SidebarLogo = exports.Sidebar = exports.RightNavbar = exports.NavbarLinkLanguage = exports.NavbarLinkFullsize = exports.NavbarLinkButton = exports.LeftNavbarPushmenu = exports.LeftNavbarLink = exports.LeftNavbar = exports.ModalDialogType = exports.ModalDialog = exports.Lang = exports.LangText2 = exports.LangText = exports.TooltipInfo = exports.Tooltip = exports.TextAlignment = exports.Text = exports.StrongText = exports.PTextType = exports.PText = exports.HeadText = exports.Tr = exports.Th = exports.Td = exports.Table = exports.NavTab = void 0;
 // ## Net --------------------------------------------------------------------------------------------------------------
@@ -21,6 +21,8 @@ var NetFetch_js_1 = require("./Core/Net/NetFetch.js");
 Object.defineProperty(exports, "NetFetch", { enumerable: true, get: function () { return NetFetch_js_1.NetFetch; } });
 // V1 ------------------------------------------------------------------------------------------------------------------
 // ## Base imports
+var Component_js_1 = require("./v1/Base/Component.js");
+Object.defineProperty(exports, "Component", { enumerable: true, get: function () { return Component_js_1.Component; } });
 var ColumnContent_js_1 = require("./v1/Base/ColumnContent.js");
 Object.defineProperty(exports, "ColumnContent", { enumerable: true, get: function () { return ColumnContent_js_1.ColumnContent; } });
 var Content_js_1 = require("./v1/Base/Content.js");
@@ -31,8 +33,6 @@ var ContentWrapper_js_1 = require("./v1/Base/ContentWrapper.js");
 Object.defineProperty(exports, "ContentWrapper", { enumerable: true, get: function () { return ContentWrapper_js_1.ContentWrapper; } });
 var ControlSidebar_js_1 = require("./v1/Base/ControlSidebar.js");
 Object.defineProperty(exports, "ControlSidebar", { enumerable: true, get: function () { return ControlSidebar_js_1.ControlSidebar; } });
-var Element_js_1 = require("./v1/Base/Element.js");
-Object.defineProperty(exports, "Element", { enumerable: true, get: function () { return Element_js_1.Element; } });
 var Footer_js_1 = require("./v1/Base/Footer.js");
 Object.defineProperty(exports, "Footer", { enumerable: true, get: function () { return Footer_js_1.Footer; } });
 var MainSidebar_js_1 = require("./v1/Base/MainSidebar.js");
@@ -287,7 +287,7 @@ Object.defineProperty(exports, "UtilNumber", { enumerable: true, get: function (
 var UtilRedirect_js_1 = require("./v1/Base/Utils/UtilRedirect.js");
 Object.defineProperty(exports, "UtilRedirect", { enumerable: true, get: function () { return UtilRedirect_js_1.UtilRedirect; } });
 // V2 ------------------------------------------------------------------------------------------------------------------
-var Component_js_1 = require("./v2/Base/Component.js");
-Object.defineProperty(exports, "Component2", { enumerable: true, get: function () { return Component_js_1.Component; } });
+var Component_js_2 = require("./v2/Base/Component.js");
+Object.defineProperty(exports, "Component2", { enumerable: true, get: function () { return Component_js_2.Component; } });
 var Widget_js_1 = require("./v2/Base/Widget.js");
 Object.defineProperty(exports, "Widget2", { enumerable: true, get: function () { return Widget_js_1.Widget; } });

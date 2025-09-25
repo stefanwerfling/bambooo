@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ButtonBorderless = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * ButtonBorderless
  */
-class ButtonBorderless extends Element_1.Element {
+class ButtonBorderless extends Component_js_1.Component {
     /**
      * title
      * @protected
@@ -23,22 +23,19 @@ class ButtonBorderless extends Element_1.Element {
     _clickEnable = true;
     /**
      * constructor
-     * @param element
-     * @param title
-     * @param icon
-     * @param bnClass
-     * @param bnType
+     * @param {ComponentType} element
+     * @param {string} title
+     * @param {icon} icon
      */
     constructor(element, title, icon) {
-        super();
-        const telement = this._getAnyElement(element);
-        this._element = jQuery(`<a href="#" class="text-muted"/>`).appendTo(telement);
+        const telement = Component_js_1.Component.getAnyElement(element);
+        super(jQuery(`<a href="#" class="text-muted"/>`).appendTo(telement));
         this.setValue(title, icon);
     }
     /**
-     * setValue
-     * @param title
-     * @param icon
+     * Set value
+     * @param {string} title
+     * @param {string} icon
      */
     setValue(title, icon) {
         if (title) {
@@ -60,7 +57,7 @@ class ButtonBorderless extends Element_1.Element {
     }
     /**
      * setOnClickFn
-     * @param onClick
+     * @param {ButtonDefaultClickFn} onClick
      */
     setOnClickFn(onClick) {
         this._element.unbind().on('click', () => {
@@ -71,7 +68,7 @@ class ButtonBorderless extends Element_1.Element {
     }
     /**
      * setClickEnable
-     * @param enable
+     * @param {boolean} enable
      */
     setClickEnable(enable) {
         this._clickEnable = enable;

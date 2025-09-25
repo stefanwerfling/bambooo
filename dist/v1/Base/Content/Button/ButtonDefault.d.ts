@@ -1,4 +1,5 @@
 import { LangText } from '../../../Lang/LangText';
+import { ComponentType } from '../../Component.js';
 import { Button, ButtonShape } from '../Form/Button.js';
 import { ButtonClass } from './ButtonClass';
 /**
@@ -39,8 +40,8 @@ export declare class ButtonDefault extends Button {
      */
     protected _icon: string;
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {string|LangText} title
      * @param {string} icon
      * @param {ButtonClass} bnClass
@@ -48,16 +49,16 @@ export declare class ButtonDefault extends Button {
      * @param {string} moreAttr
      * @param {ButtonDefaultPosition} position
      */
-    constructor(element: any, title?: string | LangText, icon?: string, bnClass?: ButtonClass, bnType?: ButtonDefaultType | ButtonShape, moreAttr?: string, position?: ButtonDefaultPosition);
+    constructor(element: ComponentType, title?: string | LangText, icon?: string, bnClass?: ButtonClass, bnType?: ButtonDefaultType | ButtonShape, moreAttr?: string, position?: ButtonDefaultPosition);
     /**
-     * setValue
+     * Set value
      * @param {string|LangText} title
      * @param {string} icon
      */
     setValue(title?: string | LangText, icon?: string): void;
     /**
-     * setClass
-     * @param bnClass
+     * Set class
+     * @param {ButtonClass} bnClass
      */
     setClass(bnClass?: ButtonClass): void;
 }

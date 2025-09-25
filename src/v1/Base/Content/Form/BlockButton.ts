@@ -1,4 +1,4 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 
 export enum BlockButtonType {
     Block,
@@ -13,11 +13,14 @@ export type BlockButtonClickFn = () => void;
 /**
  * BlockButton
  */
-export class BlockButton extends Element {
+export class BlockButton extends Component {
 
-    public constructor(element: any, blocktype: BlockButtonType = BlockButtonType.Block) {
-        super();
-
+    /**
+     * Constructor
+     * @param {ComponentType} element
+     * @param {BlockButtonType} blocktype
+     */
+    public constructor(element: ComponentType, blocktype: BlockButtonType = BlockButtonType.Block) {
         let bclass = 'btn-default btn-block';
 
         switch (blocktype) {
@@ -38,13 +41,17 @@ export class BlockButton extends Element {
                 break;
         }
 
-        this._element = jQuery(
+        super(jQuery(
             `<button type="button" class="btn ${bclass}"></button>`
         ).appendTo(
-            this._getAnyElement(element)
-        );
+            Component.getAnyElement(element)
+        ));
     }
 
+    /**
+     * Set on click
+     * @param {BlockButtonClickFn} onClick
+     */
     public setOnClickFn(onClick: BlockButtonClickFn): void {
         this._element.unbind().on('click', (): void => {
             onClick();

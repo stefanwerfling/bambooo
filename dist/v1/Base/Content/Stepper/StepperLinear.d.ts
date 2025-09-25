@@ -1,4 +1,4 @@
-import { Element } from './../../Element.js';
+import { Component, ComponentType } from '../../Component.js';
 import { LangText } from './../../../Lang/LangText.js';
 import Stepper from 'bs-stepper';
 /**
@@ -8,17 +8,17 @@ export type StepperLinearStepEventFn = (indexStep: number) => void;
 /**
  * Stepper linear
  */
-export declare class StepperLinear extends Element {
+export declare class StepperLinear extends Component {
     /**
      * Header
      * @protected
      */
-    protected _header: any;
+    protected _header: JQuery;
     /**
      * Content
      * @protected
      */
-    protected _content: any;
+    protected _content: JQuery;
     /**
      * Stepper
      * @protected
@@ -26,14 +26,14 @@ export declare class StepperLinear extends Element {
     protected _stepper: Stepper | null;
     /**
      * Constructor
-     * @param {Element|any} element
+     * @param {ComponentType} element
      */
-    constructor(element: Element | any);
+    constructor(element: ComponentType);
     /**
      * Add a Step
      * @param {string|LangText} label
      * @param {number} stepNumber
-     * @returns {any}
+     * @returns {JQuery}
      */
     addStep(label: string | LangText, stepNumber: number): any;
     /**

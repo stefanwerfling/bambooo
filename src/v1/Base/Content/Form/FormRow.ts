@@ -1,4 +1,4 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 
 export enum FormRowColType {
     none = 0,
@@ -10,14 +10,14 @@ export enum FormRowColType {
 /**
  * FormRow
  */
-export class FormRow extends Element {
+export class FormRow extends Component {
 
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {string} style
      */
-    public constructor(element: any, style: string = '') {
+    public constructor(element: ComponentType, style: string = '') {
         super();
 
         const telement = this._getAnyElement(element);
@@ -29,9 +29,9 @@ export class FormRow extends Element {
      * @param {number} size
      * @param {FormRowColType} colType
      * @param {[string]} addClass
-     * @returns {any}
+     * @returns {JQuery}
      */
-    public createCol(size: number, colType: FormRowColType = FormRowColType.sm, addClass?: string): any {
+    public createCol(size: number, colType: FormRowColType = FormRowColType.sm, addClass?: string): JQuery {
         let tclass = `col`;
         let tsize = size;
 
@@ -67,9 +67,9 @@ export class FormRow extends Element {
     /**
      * Create auto col element
      * @param {string} addClass
-     * @returns {any}
+     * @returns {JQuery}
      */
-    public createAutoCol(addClass?: string): any {
+    public createAutoCol(addClass?: string): JQuery {
         return this.createCol(0, FormRowColType.auto, addClass);
     }
 

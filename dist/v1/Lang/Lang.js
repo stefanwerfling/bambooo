@@ -108,7 +108,7 @@ class Lang {
     }
     /**
      * lAll - Translate all elements to the current selected lang
-     * @param {[any]} aElement - Start by Element or body element
+     * @param {[JQuery|HTMLElement]} aElement - Start by Element or body element
      */
     lAll(aElement) {
         let eElement;

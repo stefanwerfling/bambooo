@@ -1,4 +1,4 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 import {ModalDialog, ModalDialogType} from '../../Modal/ModalDialog';
 import {ButtonClass} from '../Button/ButtonClass';
 
@@ -16,13 +16,13 @@ export class DialogConfirm extends ModalDialog {
      * body card
      * @protected
      */
-    protected _bodyCard: any;
+    protected _bodyCard: JQuery;
 
     /**
      * button ok
      * @protected
      */
-    protected _btnOk: any;
+    protected _btnOk: JQuery;
 
     /**
      * ok click function
@@ -37,13 +37,13 @@ export class DialogConfirm extends ModalDialog {
     protected _cancelFn: DialogConfirmClickFn|null = null;
 
     /**
-     * constructor
-     * @param elementObject
-     * @param idname
-     * @param modalType
-     * @param buttonType
+     * Constructor
+     * @param {ComponentType} elementObject
+     * @param {string} idname
+     * @param {ModalDialogType} modalType
+     * @param {ButtonClass} buttonType
      */
-    public constructor(elementObject: Element|any, idname: string, modalType: ModalDialogType, buttonType: ButtonClass = ButtonClass.primary) {
+    public constructor(elementObject: ComponentType, idname: string, modalType: ModalDialogType, buttonType: ButtonClass = ButtonClass.primary) {
         super(elementObject, idname, modalType);
 
         this._bodyCard = jQuery('<div class="card-body"/>').appendTo(this._body);
@@ -66,9 +66,9 @@ export class DialogConfirm extends ModalDialog {
 
     /**
      * setMessage
-     * @param message
+     * @param {JQuery|string} message
      */
-    public setMessage(message: any): void {
+    public setMessage(message: JQuery|string): void {
         this._bodyCard.empty();
         this._bodyCard.append(message);
     }
@@ -102,7 +102,7 @@ export class DialogConfirm extends ModalDialog {
      * @param {string} id
      * @param {ModalDialogType} modalType
      * @param {string} title
-     * @param {any} message
+     * @param {JQuery|string} message
      * @param {DialogConfirmClickFn} clickOk
      * @param {DialogConfirmClickFn} clickCancel
      * @param {string} buttonOktitle
@@ -112,7 +112,7 @@ export class DialogConfirm extends ModalDialog {
         id: string,
         modalType: ModalDialogType,
         title: string,
-        message: any,
+        message: JQuery|string,
         clickOk: DialogConfirmClickFn,
         clickCancel?: DialogConfirmClickFn,
         buttonOktitle?: string,

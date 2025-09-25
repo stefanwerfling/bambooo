@@ -1,18 +1,18 @@
-import { Element } from './Element';
+import { Component } from './Component.js';
 /**
  * Content
  */
-export declare class Content extends Element {
+export declare class Content extends Component {
     /**
      * content fluid element
      * @private
      */
-    private _contentFluidElement;
+    protected _contentFluidElement: JQuery;
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {JQuery} element
      */
-    constructor(element?: any);
+    constructor(element?: JQuery);
     /**
      * getContentFluidElement
      * @return {any}

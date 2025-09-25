@@ -1,21 +1,28 @@
 /**
- * Element
+ * Component type
  */
-export class Element {
+export type ComponentType = unknown|Component|JQuery|HTMLElement;
+
+/**
+ * Component
+ */
+export class Component {
 
     /**
      * element (jquery)
      * @protected
      */
-    protected _element: any;
+    protected _element: JQuery;
 
     /**
-     * constructor
-     * @param aelement
+     * Constructor
+     * @param {ComponentType} aElement
      */
-    public constructor(aelement?: any) {
-        if (aelement) {
-            this._element = this._getAnyElement(aelement);
+    public constructor(aElement?: ComponentType) {
+        if (aElement) {
+            this._element = this._getAnyElement(aElement);
+        } else {
+            this._element = jQuery('');
         }
     }
 
@@ -29,32 +36,37 @@ export class Element {
     }
 
     /**
-     * getElement
-     * return the main enclosed element
+     * Return the main enclosed element
+     * @return {JQuery}
      */
-    public getElement(): any {
+    public getElement(): JQuery {
         return this._element;
     }
 
     /**
      * getAnyElement
      * helper for giving an element as any (by jquery)
-     * @param aelement
+     * @param {ComponentType} aelement
+     * @return {JQuery}
      * @protected
      */
-    public static getAnyElement(aelement?: any): any {
-        if (aelement instanceof Element) {
+    public static getAnyElement(aelement?: ComponentType): JQuery {
+        if (aelement instanceof Component) {
             return aelement.getElement();
         }
 
-        return aelement;
+        if (aelement instanceof jQuery) {
+            return aelement as JQuery;
+        }
+
+        return jQuery(aelement as any);
     }
 
     /**
      * isEmpty
      * @param el
      */
-    public static isEmpty(el: any) {
+    public static isEmpty(el: JQuery): Boolean {
         if (el.has('*').length > 0) {
             return false;
         }
@@ -67,11 +79,12 @@ export class Element {
     /**
      * _getAnyElement
      * helper for giving an element as any (by jquery)
-     * @param aelement
+     * @param {unknown|JQuery} aelement
+     * @return {JQuery}
      * @protected
      */
-    protected _getAnyElement(aelement?: any): any {
-        return Element.getAnyElement(aelement);
+    protected _getAnyElement(aelement?: ComponentType): JQuery {
+        return Component.getAnyElement(aelement);
     }
 
     /**
@@ -92,8 +105,8 @@ export class Element {
      * appendTo
      * @param telement
      */
-    public appendTo(telement: Element|string): void {
-        if (telement instanceof Element) {
+    public appendTo(telement: Component|string): void {
+        if (telement instanceof Component) {
             this._element.appendTo(telement.getElement());
         } else {
             this._element.appendTo(telement);
@@ -104,8 +117,8 @@ export class Element {
      * append
      * @param telement
      */
-    public append(telement: Element|string): void {
-        if (telement instanceof Element) {
+    public append(telement: Component|string): void {
+        if (telement instanceof Component) {
             this._element.append(telement.getElement());
         } else {
             this._element.append(telement);
@@ -136,9 +149,9 @@ export class Element {
 
     /**
      * setCss
-     * @param css
+     * @param {Record<string, string | number>} css
      */
-    public setCss(css: object): void {
+    public setCss(css: Record<string, string | number>): void {
         this._element.css(css);
     }
 

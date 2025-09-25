@@ -1,20 +1,27 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PieChart = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * PieChart
  */
-class PieChart extends Element_1.Element {
-    _height = '350';
-    _width = '350';
+class PieChart extends Component_js_1.Component {
     /**
-     * constructor
-     * @param element
+     * Height
+     * @protected
+     */
+    _height = 350;
+    /**
+     * Width
+     * @protected
+     */
+    _width = 350;
+    /**
+     * Constructor
+     * @param {ComponentType} element
      */
     constructor(element) {
-        super();
-        this._element = jQuery('<canvas />').appendTo(element);
+        super(jQuery('<canvas />').appendTo(Component_js_1.Component.getAnyElement(element)));
         this._changeCanvasSize();
     }
     /**
@@ -36,7 +43,8 @@ class PieChart extends Element_1.Element {
      * @protected
      */
     _getContext() {
-        return this._element.get(0).getContext('2d');
+        const canvas = this._element.get(0);
+        return canvas?.getContext('2d') ?? null;
     }
 }
 exports.PieChart = PieChart;

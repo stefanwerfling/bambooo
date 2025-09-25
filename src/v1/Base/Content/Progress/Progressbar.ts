@@ -1,4 +1,4 @@
-import {Element} from './../../Element.js';
+import {Component, ComponentType} from '../../Component.js';
 import {LangText} from './../../../Lang/LangText.js';
 
 /**
@@ -24,35 +24,35 @@ export enum ProgressbarColor {
 /**
  * Progressbar
  */
-export class Progressbar extends Element {
+export class Progressbar extends Component {
 
     /**
      * Progressbar div
      * @protected
      */
-    protected _progressbarDiv: any;
+    protected _progressbarDiv: JQuery;
 
     /**
      * Label percent
      * @protected
      */
-    protected _labelPercent: any|null = null;
+    protected _labelPercent: JQuery|null = null;
 
     /**
      * Label
      * @protected
      */
-    protected _label: any|null = null;
+    protected _label: JQuery|null = null;
 
     /**
      * Constructor
-     * @param {JQuery<HTMLElement>|any} element
+     * @param {ComponentType} element
      * @param {ProgressbarStyle} style
      * @param {ProgressbarColor} color
      * @param {string|null|LangText} label
      */
     public constructor(
-        element: JQuery<HTMLElement>|any,
+        element: ComponentType,
         style: ProgressbarStyle = ProgressbarStyle.sm,
         color: ProgressbarColor = ProgressbarColor.green,
         label: string|null|LangText = new LangText('Complete')

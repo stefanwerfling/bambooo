@@ -1,17 +1,17 @@
-import { Element } from './Element';
+import { Component, ComponentType } from './Component.js';
 /**
  * ColumnContent
  */
-export declare class ColumnContent extends Element {
+export declare class ColumnContent extends Component {
     /**
-     * constructor
-     * @param {[any[]]} elements
-     * @param {[any]} toElement
+     * Constructor
+     * @param {[ComponentType[]]} elements
+     * @param {[JQuery]} toElement
      */
-    constructor(elements?: any[], toElement?: any);
+    constructor(elements?: ComponentType[], toElement?: JQuery);
     /**
      * add
-     * @param {any} element
+     * @param {ComponentType} element
      */
-    add(element: any): void;
+    add(element: ComponentType): void;
 }

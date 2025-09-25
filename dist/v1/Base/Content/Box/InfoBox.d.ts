@@ -1,4 +1,4 @@
-import { Element } from '../../Element';
+import { Component } from '../../Component.js';
 import { IconFa } from '../Icon/Icon';
 /**
  * InfoBoxBg
@@ -20,29 +20,29 @@ export declare enum InfoBoxMb {
 /**
  * InfoBox
  */
-export declare class InfoBox extends Element {
+export declare class InfoBox extends Component {
     /**
      * infobox content element
      * @protected
      */
-    protected _contentElement: any | null;
+    protected _contentElement: JQuery | null;
     /**
      * infobox text element
      * @protected
      */
-    protected _textElement: any | null;
+    protected _textElement: JQuery | null;
     /**
      * infobox number element
      * @protected
      */
-    protected _numberElement: any | null;
+    protected _numberElement: JQuery | null;
     /**
      * constructor
-     * @param {Element|any} element
+     * @param {Component|any} element
      * @param {InfoBoxBg} bg
      * @param {InfoBoxMb} mb
      */
-    constructor(element: Element | any, bg?: InfoBoxBg, mb?: InfoBoxMb);
+    constructor(element: Component | any, bg?: InfoBoxBg, mb?: InfoBoxMb);
     /**
      * setIcon
      * @param symbole
@@ -50,15 +50,18 @@ export declare class InfoBox extends Element {
      */
     setIcon(symbole: IconFa, bg: InfoBoxBg): void;
     /**
-     * getContentElement
+     * Return the content element
+     * @return {JQuery}
      */
-    getContentElement(): any;
+    getContentElement(): JQuery;
     /**
-     * getTextElement
+     * Return the text element
+     * @return {JQuery}
      */
-    getTextElement(): any;
+    getTextElement(): JQuery;
     /**
-     * getNumberElement
+     * Get number element
+     * @return {JQuery}
      */
-    getNumberElement(): any;
+    getNumberElement(): JQuery;
 }

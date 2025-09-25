@@ -28,8 +28,8 @@ class ButtonMenu extends Button_js_1.Button {
      */
     _divDropDownMenu;
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {IconFa|string|null} icon
      * @param {boolean} positonRight
      * @param {ButtonType} type

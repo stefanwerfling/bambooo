@@ -40,7 +40,7 @@ export declare class SidebarMenuItem {
      */
     private _iconClass;
     /**
-     * constructor
+     * Constructor
      * @param {SidebarMenu|SidebarMenuTree} sidebar
      * @param {boolean} isSubItem
      */
@@ -72,14 +72,14 @@ export declare class SidebarMenuItem {
     setClick(onClickFn: SidebarMenuItemClickFn): void;
     /**
      * getLiElement
-     * @return {any}
+     * @return {JQuery}
      */
-    getLiElement(): any;
+    getLiElement(): JQuery;
     /**
      * getPElement
-     * @return {any}
+     * @return {JQuery}
      */
-    getPElement(): any;
+    getPElement(): JQuery;
     /**
      * setName
      * @param {string} name

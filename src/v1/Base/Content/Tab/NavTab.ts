@@ -1,4 +1,4 @@
-import {Element} from './../../Element.js';
+import {Component, ComponentType} from '../../Component.js';
 import {LangText} from './../../../Lang/LangText.js';
 import Event = JQuery.Event;
 
@@ -7,35 +7,35 @@ import Event = JQuery.Event;
  */
 export type NavTabElements = {
     id: string;
-    tab: any;
-    title: any;
-    body: any;
+    tab: JQuery;
+    title: JQuery;
+    body: JQuery;
 }
 
 /**
  * NavTabOnLoad
  */
 export type NavTabOnLoad = (event: Event, ui: {
-    tab: any;
-    panel: any;
+    tab: JQuery;
+    panel: JQuery;
 }) => void;
 
 /**
  * NavTab
  */
-export class NavTab extends Element {
+export class NavTab extends Component {
 
     /**
      * nav
      * @protected
      */
-    protected _nav: any;
+    protected _nav: JQuery;
 
     /**
      * body
      * @protected
      */
-    protected _body: any;
+    protected _body: JQuery;
 
     /**
      * tab ids
@@ -44,11 +44,11 @@ export class NavTab extends Element {
     protected _tabIds: string[] = [];
 
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {[string]} id
      */
-    public constructor(element: any, id?: string) {
+    public constructor(element: ComponentType, id?: string) {
         super();
 
         let aId;
@@ -93,7 +93,7 @@ export class NavTab extends Element {
         const li = jQuery('<li class="nav-item" />').appendTo(this._nav);
         const etitle = jQuery(`<a class="nav-link ${activ}" id="${aId}-tab" data-toggle="pill" href="#${aId}-content" role="tab" aria-controls="${aId}-content" aria-selected="true"></a>`).appendTo(li);
 
-        const telement = Element.getAnyElement(title);
+        const telement = Component.getAnyElement(title);
 
         etitle.append(telement);
 

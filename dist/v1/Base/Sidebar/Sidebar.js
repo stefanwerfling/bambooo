@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Sidebar = void 0;
+const Component_js_1 = require("../Component.js");
 const SidebarMenu_1 = require("./SidebarMenu");
 const SidebarUserPanel_1 = require("./SidebarUserPanel");
 /**
@@ -23,12 +24,12 @@ class Sidebar {
      */
     _menu = null;
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {ComponentType} element
      */
     constructor(element) {
         if (element) {
-            this._element = element;
+            this._element = Component_js_1.Component.getAnyElement(element);
         }
         else {
             throw Error('sidebar element not found!');
@@ -36,6 +37,7 @@ class Sidebar {
     }
     /**
      * getMenu
+     * @return {SidebarMenu}
      */
     getMenu() {
         if (this._menu === null) {
@@ -45,6 +47,7 @@ class Sidebar {
     }
     /**
      * getUserPanel
+     * @return {SidebarUserPanel}
      */
     getUserPanel() {
         if (this._userPanel === null) {
@@ -54,6 +57,7 @@ class Sidebar {
     }
     /**
      * getElement
+     * @return {JQuery}
      */
     getElement() {
         return this._element;

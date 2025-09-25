@@ -1,4 +1,4 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 
 /**
  * SelectOption
@@ -17,7 +17,7 @@ export type SelectChangeFn = (value: any) => void;
 /**
  * SelectBottemBorderOnly2
  */
-export class SelectBottemBorderOnly2 extends Element {
+export class SelectBottemBorderOnly2 extends Component {
 
     /**
      * selected value
@@ -26,10 +26,10 @@ export class SelectBottemBorderOnly2 extends Element {
     protected _selectedValue: string = '';
 
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {ComponentType} element
      */
-    public constructor(element: any) {
+    public constructor(element: ComponentType) {
         super();
 
         const telement = this._getAnyElement(element);
@@ -94,7 +94,7 @@ export class SelectBottemBorderOnly2 extends Element {
      */
     public setChangeFn(onChangeFn: SelectChangeFn): void {
         this._element.unbind().on('change', (): void => {
-            this._selectedValue = this._element.val();
+            this._selectedValue = this._element.val() as string;
             onChangeFn(this._selectedValue);
         });
     }

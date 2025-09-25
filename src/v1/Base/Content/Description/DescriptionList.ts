@@ -1,4 +1,4 @@
-import {Element} from '../../Element.js';
+import {Component, ComponentType} from '../../Component.js';
 import {DescriptionListEntry, DescriptionListEntryType} from './DescriptionListEntry.js';
 
 export enum DescriptionListType {
@@ -9,23 +9,23 @@ export enum DescriptionListType {
 /**
  * Description List
  */
-export class DescriptionList extends Element {
+export class DescriptionList extends Component {
 
+    /**
+     * Type
+     * @protected
+     */
     protected _type: DescriptionListType;
 
     /**
-     * constructor
-     * @param {Element|any} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {DescriptionListType} type
      */
-    public constructor(element: Element|any, type: DescriptionListType = DescriptionListType.none) {
-        super();
+    public constructor(element: ComponentType, type: DescriptionListType = DescriptionListType.none) {
+        super(jQuery('<dl />').appendTo(Component.getAnyElement(element)));
 
         this._type = type;
-
-        const telement = this._getAnyElement(element);
-
-        this._element = jQuery('<dl />').appendTo(telement);
 
         switch (this._type) {
             case DescriptionListType.horizontal:

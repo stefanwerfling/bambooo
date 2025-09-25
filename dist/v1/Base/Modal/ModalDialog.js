@@ -7,7 +7,7 @@ exports.ModalDialog = exports.ModalDialogType = void 0;
 const mobile_detect_1 = __importDefault(require("mobile-detect"));
 const ButtonClass_js_1 = require("../Content/Button/ButtonClass.js");
 const ButtonDefault_js_1 = require("../Content/Button/ButtonDefault.js");
-const Element_js_1 = require("../Element.js");
+const Component_js_1 = require("../Component.js");
 const LangText_js_1 = require("../../Lang/LangText.js");
 /**
  * ModalDialogType
@@ -21,7 +21,7 @@ var ModalDialogType;
 /**
  * ModalDialog
  */
-class ModalDialog extends Element_js_1.Element {
+class ModalDialog extends Component_js_1.Component {
     /**
      * main element
      * @protected
@@ -83,8 +83,8 @@ class ModalDialog extends Element_js_1.Element {
      */
     _onHidden = null;
     /**
-     * constructor
-     * @param {Element|any} elementObject
+     * Constructor
+     * @param {ComponentType} elementObject
      * @param {string} idname
      * @param {ModalDialogType} modalType
      * @param {boolean} backdrop
@@ -161,7 +161,9 @@ class ModalDialog extends Element_js_1.Element {
      * show
      */
     show() {
-        this._mainElement.modal('show');
+        if (typeof this._mainElement.modal === 'function') {
+            this._mainElement.modal('show');
+        }
     }
     /**
      * hide
@@ -171,7 +173,9 @@ class ModalDialog extends Element_js_1.Element {
         if (onHidden) {
             this.setOnHidden(onHidden);
         }
-        this._mainElement.modal('hide');
+        if (typeof this._mainElement.modal === 'function') {
+            this._mainElement.modal('hide');
+        }
     }
     /**
      * resetValues
@@ -274,7 +278,9 @@ class ModalDialog extends Element_js_1.Element {
         };
         if (this._mainElement.hasClass('show')) {
             this._mainElement.one('hidden.bs.modal', removeIfNoOtherModal);
-            this._mainElement.modal('hide');
+            if (typeof this._mainElement.modal === 'function') {
+                this._mainElement.modal('hide');
+            }
         }
         else {
             removeIfNoOtherModal();

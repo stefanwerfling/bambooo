@@ -1,44 +1,44 @@
-import { Element } from './../../Element.js';
+import { Component, ComponentType } from '../../Component.js';
 import { LangText } from './../../../Lang/LangText.js';
 /**
  * Radio
  */
-export declare class Radio extends Element {
+export declare class Radio extends Component {
     /**
      * input radio
      * @protected
      */
-    protected _inputRadio: JQuery<HTMLElement>;
+    protected _inputRadio: JQuery;
     /**
      * label
      * @protected
      */
-    protected _label: JQuery<HTMLElement> | null;
+    protected _label: JQuery | null;
     /**
      * Constructor
-     * @param {JQuery<HTMLElement>|any} element
+     * @param {ComponentType} element
      * @param {string} radionName
      * @param {string} radioValue
-     * @param {string|LangText|JQuery<HTMLElement>|null} label
+     * @param {string|LangText|JQuery|null} label
      * @param {boolean} checked
      */
-    constructor(element: JQuery<HTMLElement> | any, radionName: string, radioValue: string, label?: string | LangText | JQuery<HTMLElement> | null, checked?: boolean);
+    constructor(element: ComponentType, radionName: string, radioValue: string, label?: string | LangText | JQuery | null, checked?: boolean);
     /**
      * Create the label object element
      * @protected
-     * @return {JQuery<HTMLElement>}
+     * @return {JQuery}
      */
-    protected _getLabel(): JQuery<HTMLElement>;
+    protected _getLabel(): JQuery;
     /**
      * setLabel
-     * @param {string|JQuery<HTMLElement>|LangText} label
+     * @param {string|JQuery|LangText} label
      */
-    setLabel(label: string | JQuery<HTMLElement> | LangText): void;
+    setLabel(label: string | JQuery | LangText): void;
     /**
      * getLabelElement
-     * @returns {JQuery<HTMLElement>}
+     * @returns {JQuery}
      */
-    getLabelElement(): JQuery<HTMLElement>;
+    getLabelElement(): JQuery;
     /**
      * is box checked
      * @returns {boolean}

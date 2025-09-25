@@ -20,7 +20,7 @@ class DialogError {
         }
         catch (e) {
             const parsend = await parseError(e);
-            DialogInfo_1.DialogInfo.info('errorDialog', ModalDialog_1.ModalDialogType.large, 'Error', (modal) => {
+            DialogInfo_1.DialogInfo.info('errorDialog', ModalDialog_1.ModalDialogType.large, 'Error', async (modal) => {
                 const bcard = modal.getBodyCardElement();
                 bcard.empty();
                 bcard.append(`<h3><i class="fas fa-exclamation-triangle text-danger"></i> ${parsend.msg}</h3>`);

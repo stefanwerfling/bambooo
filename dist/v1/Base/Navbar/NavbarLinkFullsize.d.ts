@@ -1,11 +1,11 @@
-import { Element } from '../Element';
+import { Component, ComponentType } from '../Component.js';
 /**
  * NavbarLinkFullsize
  */
-export declare class NavbarLinkFullsize extends Element {
+export declare class NavbarLinkFullsize extends Component {
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {ComponentType} element
      */
-    constructor(element: any);
+    constructor(element: ComponentType);
 }

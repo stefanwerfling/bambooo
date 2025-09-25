@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NavTab = void 0;
-const Element_js_1 = require("./../../Element.js");
+const Component_js_1 = require("../../Component.js");
 /**
  * NavTab
  */
-class NavTab extends Element_js_1.Element {
+class NavTab extends Component_js_1.Component {
     /**
      * nav
      * @protected
@@ -22,8 +22,8 @@ class NavTab extends Element_js_1.Element {
      */
     _tabIds = [];
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {[string]} id
      */
     constructor(element, id) {
@@ -62,7 +62,7 @@ class NavTab extends Element_js_1.Element {
         this._tabIds.push(aId);
         const li = jQuery('<li class="nav-item" />').appendTo(this._nav);
         const etitle = jQuery(`<a class="nav-link ${activ}" id="${aId}-tab" data-toggle="pill" href="#${aId}-content" role="tab" aria-controls="${aId}-content" aria-selected="true"></a>`).appendTo(li);
-        const telement = Element_js_1.Element.getAnyElement(title);
+        const telement = Component_js_1.Component.getAnyElement(title);
         etitle.append(telement);
         const body = jQuery(`<div class="tab-pane fade ${activ} ${show}" id="${aId}-content" role="tabpanel" aria-labelledby="${aId}-tab"/>`).appendTo(this._body);
         return {

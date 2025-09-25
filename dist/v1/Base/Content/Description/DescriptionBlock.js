@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DescriptionBlock = exports.DescriptionBlockBorder = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 const LangText_js_1 = require("../../../Lang/LangText.js");
 /**
  * DescriptionBlockBorder
@@ -14,7 +14,7 @@ var DescriptionBlockBorder;
 /**
  * DescriptionBlock
  */
-class DescriptionBlock extends Element_1.Element {
+class DescriptionBlock extends Component_js_1.Component {
     /**
      * h5
      * @protected
@@ -26,14 +26,12 @@ class DescriptionBlock extends Element_1.Element {
      */
     _span;
     /**
-     * constructor
-     * @param element
-     * @param border
+     * Constructor
+     * @param {ComponentType} element
+     * @param {DescriptionBlockBorder} border
      */
     constructor(element, border = DescriptionBlockBorder.right) {
-        super();
-        const telement = this._getAnyElement(element);
-        this._element = jQuery(`<div class="description-block ${border}" />`).appendTo(telement);
+        super(jQuery(`<div class="description-block ${border}" />`).appendTo(Component_js_1.Component.getAnyElement(element)));
         this._h5 = jQuery('<h5 class="description-header" />').appendTo(this._element);
         this._span = jQuery('<span class="description-text" />').appendTo(this._element);
     }
@@ -52,7 +50,8 @@ class DescriptionBlock extends Element_1.Element {
         LangText_js_1.LangText.addLangText(this._span.empty(), str);
     }
     /**
-     * getTextElement
+     * Get text element
+     * @return {JQuery}
      */
     getTextElement() {
         return this._span;

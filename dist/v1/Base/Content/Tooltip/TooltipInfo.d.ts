@@ -1,17 +1,17 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 /**
  * TooltipInfo
  */
-export declare class TooltipInfo extends Element {
+export declare class TooltipInfo extends Component {
     /**
-     * constructor
-     * @param element
-     * @param tooltipText
+     * Constructor
+     * @param {ComponentType} element
+     * @param {string} tooltipText
      */
-    constructor(element: any, tooltipText?: string);
+    constructor(element: ComponentType, tooltipText?: string);
     /**
      * setTooltipText
-     * @param tooltipText
+     * @param {string} tooltipText
      */
     setTooltipText(tooltipText: string): void;
 }

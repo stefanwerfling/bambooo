@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.KanbanBoard = void 0;
-const Element_js_1 = require("./../../Element.js");
+const Component_js_1 = require("../../Component.js");
 const Card_js_1 = require("./../Card/Card.js");
 const KanbanCard_js_1 = require("./KanbanCard.js");
 /**
  * Kanban Board
  */
-class KanbanBoard extends Element_js_1.Element {
+class KanbanBoard extends Component_js_1.Component {
     /**
      * Container
      * @protected
@@ -15,7 +15,7 @@ class KanbanBoard extends Element_js_1.Element {
     _container;
     /**
      * Constructor
-     * @param {any} element
+     * @param {ComponentType} element
      * @param {number} heightPercent
      */
     constructor(element, heightPercent = 100) {

@@ -1,22 +1,25 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Element = void 0;
+exports.Component = void 0;
 /**
- * Element
+ * Component
  */
-class Element {
+class Component {
     /**
      * element (jquery)
      * @protected
      */
     _element;
     /**
-     * constructor
-     * @param aelement
+     * Constructor
+     * @param {ComponentType} aElement
      */
-    constructor(aelement) {
-        if (aelement) {
-            this._element = this._getAnyElement(aelement);
+    constructor(aElement) {
+        if (aElement) {
+            this._element = this._getAnyElement(aElement);
+        }
+        else {
+            this._element = jQuery('');
         }
     }
     /**
@@ -28,8 +31,8 @@ class Element {
         return `${id}`;
     }
     /**
-     * getElement
-     * return the main enclosed element
+     * Return the main enclosed element
+     * @return {JQuery}
      */
     getElement() {
         return this._element;
@@ -37,14 +40,18 @@ class Element {
     /**
      * getAnyElement
      * helper for giving an element as any (by jquery)
-     * @param aelement
+     * @param {ComponentType} aelement
+     * @return {JQuery}
      * @protected
      */
     static getAnyElement(aelement) {
-        if (aelement instanceof Element) {
+        if (aelement instanceof Component) {
             return aelement.getElement();
         }
-        return aelement;
+        if (aelement instanceof jQuery) {
+            return aelement;
+        }
+        return jQuery(aelement);
     }
     /**
      * isEmpty
@@ -60,11 +67,12 @@ class Element {
     /**
      * _getAnyElement
      * helper for giving an element as any (by jquery)
-     * @param aelement
+     * @param {unknown|JQuery} aelement
+     * @return {JQuery}
      * @protected
      */
     _getAnyElement(aelement) {
-        return Element.getAnyElement(aelement);
+        return Component.getAnyElement(aelement);
     }
     /**
      * hide
@@ -83,7 +91,7 @@ class Element {
      * @param telement
      */
     appendTo(telement) {
-        if (telement instanceof Element) {
+        if (telement instanceof Component) {
             this._element.appendTo(telement.getElement());
         }
         else {
@@ -95,7 +103,7 @@ class Element {
      * @param telement
      */
     append(telement) {
-        if (telement instanceof Element) {
+        if (telement instanceof Component) {
             this._element.append(telement.getElement());
         }
         else {
@@ -125,10 +133,10 @@ class Element {
     }
     /**
      * setCss
-     * @param css
+     * @param {Record<string, string | number>} css
      */
     setCss(css) {
         this._element.css(css);
     }
 }
-exports.Element = Element;
+exports.Component = Component;

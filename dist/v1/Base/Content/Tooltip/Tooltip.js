@@ -1,16 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Tooltip = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * Tooltip
  * read more https://getbootstrap.com/docs/4.1/components/tooltips/
  */
-class Tooltip extends Element_1.Element {
+class Tooltip extends Component_js_1.Component {
     /**
-     * constructor
-     * @param element
-     * @param tooltipText
+     * Constructor
+     * @param {ComponentType} element
+     * @param {string} tooltipText
      */
     constructor(element, tooltipText) {
         super();

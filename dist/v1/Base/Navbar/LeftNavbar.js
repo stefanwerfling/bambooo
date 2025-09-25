@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LeftNavbar = void 0;
+const Component_js_1 = require("../Component.js");
 /**
  * LeftNavbar
  */
@@ -21,19 +22,20 @@ class LeftNavbar {
      */
     _element;
     /**
-     * constructor
+     * Constructor
      * @param element
      */
     constructor(element) {
         if (element) {
-            this._element = jQuery('<ul class="navbar-nav" />').appendTo(element);
+            this._element = jQuery('<ul class="navbar-nav" />').appendTo(Component_js_1.Component.getAnyElement(element));
         }
         else {
             throw Error('left navbar element not found!');
         }
     }
     /**
-     * getElement
+     * Get element
+     * @return {JQuery}
      */
     getElement() {
         return this._element;

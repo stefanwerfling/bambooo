@@ -1,4 +1,4 @@
-import {Element} from '../Base/Element.js';
+import {Component} from '../Base/Component.js';
 import {Lang} from './Lang.js';
 
 /**
@@ -10,7 +10,7 @@ export type LangTextDefaultClickFn = (langText: LangText) => void;
 /**
  * LangText
  */
-export class LangText extends Element {
+export class LangText extends Component {
 
     /**
      * class
@@ -51,7 +51,7 @@ export class LangText extends Element {
      * @param {LangText|string} atext
      */
     public static addLangText(element: any, atext: LangText|string): void {
-        const telement = Element.getAnyElement(element);
+        const telement = Component.getAnyElement(element);
 
         if (atext instanceof LangText) {
             telement.empty().append(atext.getElement());

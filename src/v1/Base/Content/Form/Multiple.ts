@@ -1,10 +1,10 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 import {SelectOption} from './SelectBottemBorderOnly2';
 
 /**
  * Multiple
  */
-export class Multiple extends Element {
+export class Multiple extends Component {
 
     /**
      * Limit
@@ -13,11 +13,11 @@ export class Multiple extends Element {
     protected _limit: number = 0;
 
     /**
-     * constructor
-     * @param element
-     * @param id
+     * Constructor
+     * @param {ComponentType} element
+     * @param {string} id
      */
-    public constructor(element: any, id?: string) {
+    public constructor(element: ComponentType, id?: string) {
         super();
 
         const telement = this._getAnyElement(element);
@@ -36,10 +36,14 @@ export class Multiple extends Element {
      * @protected
      */
     protected _reload(): void {
-        this._element.select2({
-            theme: 'bootstrap4',
-            maximumSelectionLength: this._limit
-        });
+        if (typeof (this._element as any).select2 === 'function') {
+            (this._element as any).select2({
+                theme: 'bootstrap4',
+                maximumSelectionLength: this._limit
+            });
+        } else {
+            console.log('Multiple: Select2 plugin not found!');
+        }
     }
 
     /**
@@ -70,18 +74,29 @@ export class Multiple extends Element {
 
     /**
      * setValue
-     * @param {any[]} values
+     * @param {string[]} values
      */
-    public setValue(values: any[]): void {
+    public setValue(values: string[]): void {
         this._element.val(values);
         this._element.trigger('change');
     }
 
     /**
      * getValue
+     * @return {string[]}
      */
-    public getValue(): any[] {
-        return this._element.val();
+    public getValue(): string[] {
+        const val = this._element.val();
+
+        if (Array.isArray(val)) {
+            return val as string[];
+        }
+
+        if (val == null) {
+            return [];
+        }
+
+        return [String(val)];
     }
 
 }

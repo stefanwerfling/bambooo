@@ -1,4 +1,4 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 export declare enum FormRowColType {
     none = 0,
     sm = 1,
@@ -8,25 +8,25 @@ export declare enum FormRowColType {
 /**
  * FormRow
  */
-export declare class FormRow extends Element {
+export declare class FormRow extends Component {
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {string} style
      */
-    constructor(element: any, style?: string);
+    constructor(element: ComponentType, style?: string);
     /**
      * create a col element
      * @param {number} size
      * @param {FormRowColType} colType
      * @param {[string]} addClass
-     * @returns {any}
+     * @returns {JQuery}
      */
-    createCol(size: number, colType?: FormRowColType, addClass?: string): any;
+    createCol(size: number, colType?: FormRowColType, addClass?: string): JQuery;
     /**
      * Create auto col element
      * @param {string} addClass
-     * @returns {any}
+     * @returns {JQuery}
      */
-    createAutoCol(addClass?: string): any;
+    createAutoCol(addClass?: string): JQuery;
 }

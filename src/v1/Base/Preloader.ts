@@ -7,25 +7,25 @@ export class Preloader {
      * element
      * @private
      */
-    private _element: any;
+    protected _element: JQuery;
 
     /**
      * title
      * @private
      */
-    private _title: string = '';
+    protected _title: string = '';
 
     /**
      * imgeurl
      * @private
      */
-    private _imageUrl: string = '';
+    protected _imageUrl: string = '';
 
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {JQuery} element
      */
-    public constructor(element?: any) {
+    public constructor(element?: JQuery) {
         if (element) {
             this._element = element;
         } else {
@@ -35,8 +35,9 @@ export class Preloader {
 
     /**
      * getElement
+     * @return {JQuery}
      */
-    public getElement(): any {
+    public getElement(): JQuery {
         return this._element;
     }
 

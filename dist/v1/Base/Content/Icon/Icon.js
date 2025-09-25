@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Icon = exports.IconFa = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * IconFa
  */
@@ -33,11 +33,11 @@ var IconFa;
 /**
  * Icon
  */
-class Icon extends Element_1.Element {
+class Icon extends Component_js_1.Component {
     /**
-     * constructor
-     * @param element
-     * @param symbol
+     * Constructor
+     * @param {ComponentType} element
+     * @param {IconFa|string} symbol
      */
     constructor(element, symbol) {
         super();

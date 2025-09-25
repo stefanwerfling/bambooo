@@ -1,15 +1,15 @@
-import {Element} from '../Element';
+import {Component, ComponentType} from '../Component.js';
 
 /**
  * RightNavbar
  */
-export class RightNavbar extends Element {
+export class RightNavbar extends Component {
 
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {ComponentType} element
      */
-    public constructor(element?: any) {
+    public constructor(element?: ComponentType) {
         super();
 
         const telement = this._getAnyElement(element);

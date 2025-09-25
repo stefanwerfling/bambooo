@@ -1,4 +1,4 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 
 export enum ImageArt {
     base = '',
@@ -13,17 +13,17 @@ export enum ImageType {
 /**
  * Image
  */
-export class Image extends Element {
+export class Image extends Component {
 
     /**
-     * constructor
-     * @param element
-     * @param url
-     * @param art
-     * @param type
-     * @param alt
+     * Constructor
+     * @param {ComponentType} element
+     * @param {string} url
+     * @param {ImageArt} art
+     * @param {ImageType} type
+     * @param {string} alt
      */
-    public constructor(element: any, url: string, art: ImageArt = ImageArt.base, type: ImageType = ImageType.none,  alt?: string) {
+    public constructor(element: ComponentType, url: string, art: ImageArt = ImageArt.base, type: ImageType = ImageType.none,  alt?: string) {
         super();
 
         const telement = this._getAnyElement(element);

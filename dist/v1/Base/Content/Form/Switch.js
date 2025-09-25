@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Switch = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * Switch
  */
-class Switch extends Element_1.Element {
+class Switch extends Component_js_1.Component {
     /**
      * input
      * @protected
@@ -18,9 +18,9 @@ class Switch extends Element_1.Element {
     _label;
     /**
      * constructor
-     * @param element
-     * @param id
-     * @param label
+     * @param {ComponentType} element
+     * @param {string} id
+     * @param {JQuery|string} label
      */
     constructor(element, id, label = '') {
         super();
@@ -33,14 +33,14 @@ class Switch extends Element_1.Element {
     }
     /**
      * setLabel
-     * @param label
+     * @param {JQuery|string} label
      */
     setLabel(label) {
         this._label.empty().append(label);
     }
     /**
      * setEnable
-     * @param enable
+     * @param {boolean} enable
      */
     setEnable(enable) {
         this._input.prop('checked', enable);
@@ -48,13 +48,14 @@ class Switch extends Element_1.Element {
     }
     /**
      * isEnable
+     * @return {boolean}
      */
     isEnable() {
         return this._input.is(':checked');
     }
     /**
      * setChangeFn
-     * @param onChangeFn
+     * @param {SwitchChangeFn} onChangeFn
      */
     setChangeFn(onChangeFn) {
         this._input.unbind().on('change', () => {
@@ -63,11 +64,11 @@ class Switch extends Element_1.Element {
     }
     /**
      * setInativ
-     * @param inactiv
+     * @param {boolean} inactiv
      */
     setInativ(inactiv) {
         if (inactiv) {
-            this._input.attr('disabled', true);
+            this._input.attr('disabled', 1);
         }
         else {
             this._input.removeAttr('disabled');

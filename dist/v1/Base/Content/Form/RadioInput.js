@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RadioInput = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * RadioInput
  */
-class RadioInput extends Element_1.Element {
+class RadioInput extends Component_js_1.Component {
     /**
      * input radio
      * @protected
@@ -18,7 +18,7 @@ class RadioInput extends Element_1.Element {
     _input;
     /**
      * Constructor
-     * @param {any} element
+     * @param {ComponentType} element
      * @param {string} radionName
      * @param {string} radioValue
      * @param {string} nameInput

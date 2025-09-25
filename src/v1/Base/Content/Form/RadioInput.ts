@@ -1,4 +1,4 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 
 /**
  * RadioInputClickFn
@@ -8,30 +8,30 @@ export type RadioInputClickFn = () => void;
 /**
  * RadioInput
  */
-export class RadioInput extends Element {
+export class RadioInput extends Component {
 
     /**
      * input radio
      * @protected
      */
-    protected _inputRadio: any;
+    protected _inputRadio: JQuery;
 
     /**
      * input
      * @protected
      */
-    protected _input: any;
+    protected _input: JQuery;
 
     /**
      * Constructor
-     * @param {any} element
+     * @param {ComponentType} element
      * @param {string} radionName
      * @param {string} radioValue
      * @param {string} nameInput
      * @param {string} inputValue
      * @param {string} checked
      */
-    public constructor(element: any, radionName: string, radioValue: string, nameInput: string, inputValue: string, checked: boolean = false) {
+    public constructor(element: ComponentType, radionName: string, radioValue: string, nameInput: string, inputValue: string, checked: boolean = false) {
         super();
 
         const telement = this._getAnyElement(element);
@@ -56,7 +56,7 @@ export class RadioInput extends Element {
      * @returns {string}
      */
     public getInputValue(): string {
-        return this._input.val();
+        return this._input.val() as string;
     }
 
     /**

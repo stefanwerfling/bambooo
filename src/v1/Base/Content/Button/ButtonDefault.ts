@@ -1,4 +1,5 @@
 import {LangText} from '../../../Lang/LangText';
+import {ComponentType} from '../../Component.js';
 import {Button, ButtonShape, ButtonType} from '../Form/Button.js';
 import {ButtonClass} from './ButtonClass';
 
@@ -47,8 +48,8 @@ export class ButtonDefault extends Button {
     protected _icon = '';
 
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {string|LangText} title
      * @param {string} icon
      * @param {ButtonClass} bnClass
@@ -57,7 +58,7 @@ export class ButtonDefault extends Button {
      * @param {ButtonDefaultPosition} position
      */
     public constructor(
-        element: any,
+        element: ComponentType,
         title?: string|LangText,
         icon?: string,
         bnClass: ButtonClass = ButtonClass.default,
@@ -72,7 +73,7 @@ export class ButtonDefault extends Button {
     }
 
     /**
-     * setValue
+     * Set value
      * @param {string|LangText} title
      * @param {string} icon
      */
@@ -103,8 +104,8 @@ export class ButtonDefault extends Button {
     }
 
     /**
-     * setClass
-     * @param bnClass
+     * Set class
+     * @param {ButtonClass} bnClass
      */
     public setClass(bnClass: ButtonClass = ButtonClass.default): void {
         this._element.removeClass(this._class).addClass(bnClass);

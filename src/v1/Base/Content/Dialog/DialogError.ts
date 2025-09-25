@@ -33,7 +33,7 @@ export class DialogError {
                 'errorDialog',
                 ModalDialogType.large,
                 'Error',
-                (modal: DialogInfo) => {
+                async(modal: DialogInfo): Promise<void> => {
                     const bcard = modal.getBodyCardElement();
                     bcard.empty();
 

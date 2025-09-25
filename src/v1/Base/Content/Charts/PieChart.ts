@@ -1,21 +1,28 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 
 /**
  * PieChart
  */
-export class PieChart extends Element {
-
-    protected _height: string = '350';
-    protected _width: string = '350';
+export class PieChart extends Component {
 
     /**
-     * constructor
-     * @param element
+     * Height
+     * @protected
      */
-    public constructor(element: any) {
-        super();
+    protected _height: number = 350;
 
-        this._element = jQuery('<canvas />').appendTo(element);
+    /**
+     * Width
+     * @protected
+     */
+    protected _width: number = 350;
+
+    /**
+     * Constructor
+     * @param {ComponentType} element
+     */
+    public constructor(element: ComponentType) {
+        super(jQuery('<canvas />').appendTo(Component.getAnyElement(element)));
         this._changeCanvasSize();
     }
 
@@ -38,8 +45,9 @@ export class PieChart extends Element {
      * _getContext
      * @protected
      */
-    protected _getContext(): any {
-        return this._element.get(0).getContext('2d');
+    protected _getContext(): CanvasRenderingContext2D | null {
+        const canvas = this._element.get(0) as HTMLCanvasElement | undefined;
+        return canvas?.getContext('2d') ?? null;
     }
 
 }

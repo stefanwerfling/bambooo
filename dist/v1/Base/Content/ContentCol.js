@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ContentCol = exports.ContentColSize = void 0;
-const Element_1 = require("../Element");
+const Component_js_1 = require("../Component.js");
 /**
  * ContentColSize
  */
@@ -37,11 +37,11 @@ var ContentColSize;
 /**
  * ContentCol
  */
-class ContentCol extends Element_1.Element {
+class ContentCol extends Component_js_1.Component {
     /**
-     * constructor
-     * @param contentRow
-     * @param size
+     * Constructor
+     * @param {ContentRow} contentRow
+     * @param {ContentColSize} size
      */
     constructor(contentRow, size) {
         super();

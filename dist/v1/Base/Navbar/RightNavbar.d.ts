@@ -1,11 +1,11 @@
-import { Element } from '../Element';
+import { Component, ComponentType } from '../Component.js';
 /**
  * RightNavbar
  */
-export declare class RightNavbar extends Element {
+export declare class RightNavbar extends Component {
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {ComponentType} element
      */
-    constructor(element?: any);
+    constructor(element?: ComponentType);
 }

@@ -1,17 +1,17 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 
 /**
  * Tooltip
  * read more https://getbootstrap.com/docs/4.1/components/tooltips/
  */
-export class Tooltip extends Element {
+export class Tooltip extends Component {
 
     /**
-     * constructor
-     * @param element
-     * @param tooltipText
+     * Constructor
+     * @param {ComponentType} element
+     * @param {string} tooltipText
      */
-    public constructor(element: any, tooltipText?: string) {
+    public constructor(element: ComponentType, tooltipText?: string) {
         super();
 
         const telement = this._getAnyElement(element);

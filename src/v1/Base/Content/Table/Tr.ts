@@ -1,15 +1,16 @@
-import {Element} from '../../Element';
+import {Component} from '../../Component.js';
+import {Table} from './Table.js';
 
 /**
  * Tr
  */
-export class Tr extends Element {
+export class Tr extends Component {
 
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {Table} element
      */
-    public constructor(element: any) {
+    public constructor(element: Table) {
         super();
 
         const telement = this._getAnyElement(element);

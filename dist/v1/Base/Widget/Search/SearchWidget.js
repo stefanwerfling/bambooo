@@ -2,11 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SearchWidget = void 0;
 require("jquery");
-const Element_js_1 = require("../../Element.js");
+const Component_js_1 = require("../../Component.js");
 /**
  * Search widget
  */
-class SearchWidget extends Element_js_1.Element {
+class SearchWidget extends Component_js_1.Component {
     /**
      * Select2 object
      * @protected
@@ -32,7 +32,7 @@ class SearchWidget extends Element_js_1.Element {
     };
     /**
      * Contructor
-     * @param {Element|any} element
+     * @param {ComponentType} element
      */
     constructor(element) {
         super(element);
@@ -79,6 +79,7 @@ class SearchWidget extends Element_js_1.Element {
      * Set request transport
      * @param {SearchWidgetSelect2AjaxTransportExt} cTransport
      * @param {[T]} options
+     * @template T
      */
     setRequestTransport(cTransport, options) {
         this._selectOptions.ajax = {

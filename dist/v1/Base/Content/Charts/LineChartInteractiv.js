@@ -1,16 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LineChartInteractiv = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * LineChartInteractiv
  */
-class LineChartInteractiv extends Element_1.Element {
+class LineChartInteractiv extends Component_js_1.Component {
     /**
      * height
      * @protected
      */
-    _height = '120';
+    _height = 120;
     /**
      * data
      * @protected
@@ -27,13 +27,11 @@ class LineChartInteractiv extends Element_1.Element {
      */
     _plot;
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {ComponentType} element
      */
     constructor(element) {
-        super();
-        const telement = this._getAnyElement(element);
-        this._element = jQuery('<div></div>').appendTo(telement);
+        super(jQuery('<div></div>').appendTo(Component_js_1.Component.getAnyElement(element)));
         this._changeSize();
         // @ts-ignore
         this._plot = jQuery.plot(this._element, [

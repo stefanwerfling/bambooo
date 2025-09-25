@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FormGroupButton = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * FormGroupButton
  */
-class FormGroupButton extends Element_1.Element {
+class FormGroupButton extends Component_js_1.Component {
     /**
      * _subElement
      * @protected
@@ -22,8 +22,8 @@ class FormGroupButton extends Element_1.Element {
      */
     _click;
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {ComponentType} element
      */
     constructor(element) {
         super();
@@ -42,19 +42,21 @@ class FormGroupButton extends Element_1.Element {
     }
     /**
      * getButtonElement
+     * @return {JQuery}
      */
     getButtonElement() {
         return this._subElement;
     }
     /**
      * getIconElement
+     * @return {JQuery}
      */
     getIconElement() {
         return this._iconElement;
     }
     /**
      * setOnClickFn
-     * @param onClick
+     * @param {FormGroupButtonClickFn} onClick
      */
     setOnClickFn(onClick) {
         this._click = onClick;

@@ -1,6 +1,6 @@
 import {Content} from '../Content';
 import {ContentWrapper} from '../ContentWrapper';
-import {Element} from '../Element';
+import {Component} from '../Component.js';
 import {Wrapper} from '../Wrapper';
 
 /**
@@ -14,11 +14,12 @@ export enum ContentRowClass {
 /**
  * ContentRow
  */
-export class ContentRow extends Element {
+export class ContentRow extends Component {
 
     /**
-     * constructor
-     * @param content
+     * Constructor
+     * @param {Content|Wrapper|ContentWrapper} content
+     * @param {ContentRowClass} rowclass
      */
     public constructor(content: Content|Wrapper|ContentWrapper, rowclass?: ContentRowClass) {
         super();

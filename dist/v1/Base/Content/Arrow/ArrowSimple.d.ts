@@ -1,19 +1,22 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 export declare enum ArrowSimpleDirection {
     up = "up",
     down = "down",
     left = "left",
     right = "right"
 }
-export declare class ArrowSimple extends Element {
+/**
+ * Arrow Simple
+ */
+export declare class ArrowSimple extends Component {
     /**
-     * constructor
-     * @param {any|Element} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {ArrowSimpleDirection} direction
      * @param {string} color
      * @param {number} sizePx
      */
-    constructor(element: any | Element, direction: ArrowSimpleDirection, color: string, sizePx?: number);
+    constructor(element: ComponentType, direction: ArrowSimpleDirection, color: string, sizePx?: number);
     /**
      * Set options
      * @param {ArrowSimpleDirection} direction

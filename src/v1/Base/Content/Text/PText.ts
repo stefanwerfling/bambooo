@@ -1,4 +1,4 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 import {TextAlignment} from './Text';
 
 export enum PTextType {
@@ -13,15 +13,15 @@ export enum PTextType {
 /**
  * PText
  */
-export class PText extends Element {
+export class PText extends Component {
 
     /**
      * constructor
-     * @param {any|Element} element
+     * @param {ComponentType} element
      * @param {PTextType} type
      * @param {TextAlignment} align
      */
-    public constructor(element: any|Element, type: PTextType = PTextType.muted, align: TextAlignment = TextAlignment.none) {
+    public constructor(element: ComponentType, type: PTextType = PTextType.muted, align: TextAlignment = TextAlignment.none) {
         super();
 
         const telement = this._getAnyElement(element);
@@ -32,9 +32,9 @@ export class PText extends Element {
 
     /**
      * Add value
-     * @param {any|Element} value
+     * @param {ComponentType} value
      */
-    public addValue(value: any|Element): void {
+    public addValue(value: ComponentType): void {
         const telement = this._getAnyElement(value);
 
         this._element.append(telement);

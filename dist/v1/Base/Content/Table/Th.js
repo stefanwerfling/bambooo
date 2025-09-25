@@ -1,15 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Th = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * Th
  */
-class Th extends Element_1.Element {
+class Th extends Component_js_1.Component {
     /**
      * constructor
-     * @param atr
-     * @param avalue
+     * @param {Tr} atr
+     * @param {ComponentType} avalue
+     * @param {width} width
      */
     constructor(atr, avalue, width) {
         super();
@@ -25,10 +26,10 @@ class Th extends Element_1.Element {
     }
     /**
      * addValue
-     * @param avalue
+     * @param {ComponentType} avalue
      */
     addValue(avalue) {
-        const telement = Element_1.Element.getAnyElement(avalue);
+        const telement = Component_js_1.Component.getAnyElement(avalue);
         this._element.append(telement);
     }
 }

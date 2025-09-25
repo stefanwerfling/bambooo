@@ -4,13 +4,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StepperLinear = void 0;
-const Element_js_1 = require("./../../Element.js");
+const Component_js_1 = require("../../Component.js");
 const LangText_js_1 = require("./../../../Lang/LangText.js");
 const bs_stepper_1 = __importDefault(require("bs-stepper"));
 /**
  * Stepper linear
  */
-class StepperLinear extends Element_js_1.Element {
+class StepperLinear extends Component_js_1.Component {
     /**
      * Header
      * @protected
@@ -28,7 +28,7 @@ class StepperLinear extends Element_js_1.Element {
     _stepper = null;
     /**
      * Constructor
-     * @param {Element|any} element
+     * @param {ComponentType} element
      */
     constructor(element) {
         super();
@@ -41,7 +41,7 @@ class StepperLinear extends Element_js_1.Element {
      * Add a Step
      * @param {string|LangText} label
      * @param {number} stepNumber
-     * @returns {any}
+     * @returns {JQuery}
      */
     addStep(label, stepNumber) {
         const unid = this._uniqId();

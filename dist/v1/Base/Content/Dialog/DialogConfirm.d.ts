@@ -1,4 +1,4 @@
-import { Element } from '../../Element';
+import { ComponentType } from '../../Component.js';
 import { ModalDialog, ModalDialogType } from '../../Modal/ModalDialog';
 import { ButtonClass } from '../Button/ButtonClass';
 /**
@@ -13,12 +13,12 @@ export declare class DialogConfirm extends ModalDialog {
      * body card
      * @protected
      */
-    protected _bodyCard: any;
+    protected _bodyCard: JQuery;
     /**
      * button ok
      * @protected
      */
-    protected _btnOk: any;
+    protected _btnOk: JQuery;
     /**
      * ok click function
      * @protected
@@ -30,18 +30,18 @@ export declare class DialogConfirm extends ModalDialog {
      */
     protected _cancelFn: DialogConfirmClickFn | null;
     /**
-     * constructor
-     * @param elementObject
-     * @param idname
-     * @param modalType
-     * @param buttonType
+     * Constructor
+     * @param {ComponentType} elementObject
+     * @param {string} idname
+     * @param {ModalDialogType} modalType
+     * @param {ButtonClass} buttonType
      */
-    constructor(elementObject: Element | any, idname: string, modalType: ModalDialogType, buttonType?: ButtonClass);
+    constructor(elementObject: ComponentType, idname: string, modalType: ModalDialogType, buttonType?: ButtonClass);
     /**
      * setMessage
-     * @param message
+     * @param {JQuery|string} message
      */
-    setMessage(message: any): void;
+    setMessage(message: JQuery | string): void;
     /**
      * setClickOk
      * @param click
@@ -62,11 +62,11 @@ export declare class DialogConfirm extends ModalDialog {
      * @param {string} id
      * @param {ModalDialogType} modalType
      * @param {string} title
-     * @param {any} message
+     * @param {JQuery|string} message
      * @param {DialogConfirmClickFn} clickOk
      * @param {DialogConfirmClickFn} clickCancel
      * @param {string} buttonOktitle
      * @param {ButtonClass} buttonType
      */
-    static confirm(id: string, modalType: ModalDialogType, title: string, message: any, clickOk: DialogConfirmClickFn, clickCancel?: DialogConfirmClickFn, buttonOktitle?: string, buttonType?: ButtonClass): void;
+    static confirm(id: string, modalType: ModalDialogType, title: string, message: JQuery | string, clickOk: DialogConfirmClickFn, clickCancel?: DialogConfirmClickFn, buttonOktitle?: string, buttonType?: ButtonClass): void;
 }

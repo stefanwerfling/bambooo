@@ -21,8 +21,8 @@ class Preloader {
      */
     _imageUrl = '';
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {JQuery} element
      */
     constructor(element) {
         if (element) {
@@ -34,6 +34,7 @@ class Preloader {
     }
     /**
      * getElement
+     * @return {JQuery}
      */
     getElement() {
         return this._element;

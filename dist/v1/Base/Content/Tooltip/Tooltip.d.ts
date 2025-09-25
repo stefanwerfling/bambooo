@@ -1,15 +1,15 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 /**
  * Tooltip
  * read more https://getbootstrap.com/docs/4.1/components/tooltips/
  */
-export declare class Tooltip extends Element {
+export declare class Tooltip extends Component {
     /**
-     * constructor
-     * @param element
-     * @param tooltipText
+     * Constructor
+     * @param {ComponentType} element
+     * @param {string} tooltipText
      */
-    constructor(element: any, tooltipText?: string);
+    constructor(element: ComponentType, tooltipText?: string);
     /**
      * setTooltipText
      * @param tooltipText

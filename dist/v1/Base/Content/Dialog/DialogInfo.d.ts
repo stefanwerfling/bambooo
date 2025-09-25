@@ -1,4 +1,4 @@
-import { Element } from '../../Element';
+import { ComponentType } from '../../Component.js';
 import { ModalDialog, ModalDialogType } from '../../Modal/ModalDialog';
 import { ButtonClass } from '../Button/ButtonClass';
 /**
@@ -17,30 +17,30 @@ export declare class DialogInfo extends ModalDialog {
      * body card
      * @protected
      */
-    protected _bodyCard: any;
+    protected _bodyCard: JQuery;
     /**
      * button ok
      * @protected
      */
-    protected _btnOk: any;
+    protected _btnOk: JQuery;
     /**
      * ok click function
      * @protected
      */
     protected _okFn: DialogInfoClickFn | null;
     /**
-     * constructor
-     * @param elementObject
-     * @param idname
-     * @param modalType
-     * @param buttonType
+     * Constructor
+     * @param {ComponentType} elementObject
+     * @param {string} idname
+     * @param {ModalDialogType} modalType
+     * @param {ButtonClass} buttonType
      */
-    constructor(elementObject: Element | any, idname: string, modalType: ModalDialogType, buttonType?: ButtonClass);
+    constructor(elementObject: ComponentType, idname: string, modalType: ModalDialogType, buttonType?: ButtonClass);
     /**
      * setMessage
-     * @param {any} message
+     * @param {JQuery|string} message
      */
-    setMessage(message: any): void;
+    setMessage(message: JQuery | string): void;
     /**
      * Return the body card element
      * @returns {any}
@@ -61,10 +61,10 @@ export declare class DialogInfo extends ModalDialog {
      * @param {string} id
      * @param {ModalDialogType} modalType
      * @param {string} title
-     * @param {any|DialogInfoOnContent} content (Message/Elements)
+     * @param {JQuery|string|DialogInfoOnContent} content (Message/Elements)
      * @param {DialogInfoClickFn} clickOk
      * @param buttonOktitle
      * @param buttonType
      */
-    static info(id: string, modalType: ModalDialogType, title: string, content: any | DialogInfoOnContent, clickOk?: DialogInfoClickFn, buttonOktitle?: string, buttonType?: ButtonClass): void;
+    static info(id: string, modalType: ModalDialogType, title: string, content: JQuery | string | DialogInfoOnContent, clickOk?: DialogInfoClickFn, buttonOktitle?: string, buttonType?: ButtonClass): void;
 }

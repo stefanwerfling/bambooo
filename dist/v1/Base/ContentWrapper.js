@@ -23,8 +23,8 @@ class ContentWrapper {
      */
     _content;
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {JQuery} element
      */
     constructor(element) {
         if (element) {
@@ -43,6 +43,7 @@ class ContentWrapper {
     }
     /**
      * getElement
+     * @return {JQuery}
      */
     getElement() {
         return this._element;

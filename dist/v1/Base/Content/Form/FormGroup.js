@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FormGroup = void 0;
-const Element_js_1 = require("./../../Element.js");
+const Component_js_1 = require("../../Component.js");
 /**
  * FormGroup
  */
-class FormGroup extends Element_js_1.Element {
+class FormGroup extends Component_js_1.Component {
     /**
      * label
      * @protected
@@ -13,8 +13,8 @@ class FormGroup extends Element_js_1.Element {
     _label = null;
     /**
      * constructor
-     * @param {JQuery<HTMLElement>} element
-     * @param {string|JQuery<HTMLElement>|LangText} label
+     * @param {ComponentType} element
+     * @param {string|JQuery|LangText} label
      */
     constructor(element, label) {
         super();
@@ -27,7 +27,7 @@ class FormGroup extends Element_js_1.Element {
     /**
      * Create the label object element
      * @protected
-     * @return {JQuery<HTMLElement>}
+     * @return {JQuery}
      */
     _getLabel() {
         if (this._label === null) {
@@ -37,7 +37,7 @@ class FormGroup extends Element_js_1.Element {
     }
     /**
      * setLabel
-     * @param {string|JQuery<HTMLElement>|LangText} label
+     * @param {string|JQuery|LangText} label
      */
     setLabel(label) {
         const tlabel = this._getAnyElement(label);
@@ -45,7 +45,7 @@ class FormGroup extends Element_js_1.Element {
     }
     /**
      * getLabelElement
-     * @returns {JQuery<HTMLElement>}
+     * @returns {JQuery}
      */
     getLabelElement() {
         return this._getLabel();

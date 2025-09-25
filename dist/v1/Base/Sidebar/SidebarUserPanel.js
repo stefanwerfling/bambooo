@@ -21,15 +21,15 @@ class SidebarUserPanel {
      */
     _username = '';
     /**
-     * constructor
-     * @param sidebar
+     * Constructor
+     * @param {Sidebar} sidebar
      */
     constructor(sidebar) {
         this._divElement = jQuery('<div class="user-panel mt-3 pb-3 mb-3 d-flex" />').prependTo(sidebar.getElement());
     }
     /**
      * setImage
-     * @param url
+     * @param {string} url
      */
     setImage(url) {
         this._image = url;
@@ -37,7 +37,7 @@ class SidebarUserPanel {
     }
     /**
      * setUsername
-     * @param username
+     * @param {string} username
      */
     setUsername(username) {
         this._username = username;

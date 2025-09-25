@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PText = exports.PTextType = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 const Text_1 = require("./Text");
 var PTextType;
 (function (PTextType) {
@@ -15,10 +15,10 @@ var PTextType;
 /**
  * PText
  */
-class PText extends Element_1.Element {
+class PText extends Component_js_1.Component {
     /**
      * constructor
-     * @param {any|Element} element
+     * @param {ComponentType} element
      * @param {PTextType} type
      * @param {TextAlignment} align
      */
@@ -30,7 +30,7 @@ class PText extends Element_1.Element {
     }
     /**
      * Add value
-     * @param {any|Element} value
+     * @param {ComponentType} value
      */
     addValue(value) {
         const telement = this._getAnyElement(value);

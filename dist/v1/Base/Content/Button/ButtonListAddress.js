@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ButtonListAddress = void 0;
-const Element_1 = require("../../Element");
+const Component_js_1 = require("../../Component.js");
 /**
  * ButtonListAddress
  */
-class ButtonListAddress extends Element_1.Element {
+class ButtonListAddress extends Component_js_1.Component {
 }
 exports.ButtonListAddress = ButtonListAddress;

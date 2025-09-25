@@ -13,7 +13,7 @@ class Summernote extends Textarea_1.Textarea {
     _isEnable = true;
     /**
      * Constructor for Summernote element.
-     * @param {Element|HTMLElement} element - A element to append the Textarea element.
+     * @param {ComponentType} element - A element to append the Textarea element.
      * @param {[string]} placeholder - Optional, placeholder for textarea.
      * @param {number} rows - Textarea rows.
      */
@@ -22,53 +22,88 @@ class Summernote extends Textarea_1.Textarea {
         this.create(false);
     }
     create(focus) {
-        this._element.summernote({
-            focus: focus
-        });
+        if (typeof this._element.summernote === 'function') {
+            this._element.summernote({
+                focus: focus
+            });
+        }
+        else {
+            console.log('Summernote: Summernote plugin not found!');
+        }
     }
     destroy() {
-        this._element.summernote('destroy');
+        if (typeof this._element.summernote === 'function') {
+            this._element.summernote('destroy');
+        }
     }
     /**
      * Get value
      * @returns {string}
      */
     getValue() {
-        return this._element.summernote('code');
+        if (typeof this._element.summernote === 'function') {
+            return this._element.summernote('code');
+        }
+        else {
+            console.log('Summernote: Summernote plugin not found!');
+        }
+        return '';
     }
     /**
      * Set value
      * @param {string} value
      */
     setValue(value) {
-        this._element.summernote('pasteHTML', value);
+        if (typeof this._element.summernote === 'function') {
+            this._element.summernote('pasteHTML', value);
+        }
     }
     focus() {
-        this._element.summernote('focus');
+        if (typeof this._element.summernote === 'function') {
+            this._element.summernote('focus');
+        }
     }
     fullscreen() {
-        return this._element.summernote('fullscreen.toggle');
+        if (typeof this._element.summernote === 'function') {
+            this._element.summernote('fullscreen.toggle');
+        }
     }
     isFullscreen() {
-        return this._element.summernote('fullscreen.isFullscreen');
+        if (typeof this._element.summernote === 'function') {
+            return this._element.summernote('fullscreen.isFullscreen');
+        }
+        else {
+            console.log('Summernote: Summernote plugin not found!');
+        }
+        return false;
     }
     isEmpty() {
-        return this._element.summernote('isEmpty');
+        if (typeof this._element.summernote === 'function') {
+            return this._element.summernote('isEmpty');
+        }
+        else {
+            console.log('Summernote: Summernote plugin not found!');
+        }
+        return false;
     }
     reset() {
-        return this._element.summernote('reset');
+        if (typeof this._element.summernote === 'function') {
+            this._element.summernote('reset');
+        }
     }
     /**
      * setEnable
      * @param {boolean} enable
      */
     setEnable(enable) {
-        this._isEnable = enable;
-        if (this._isEnable) {
-            this._element.summernote('enable');
-            return;
+        if (typeof this._element.summernote === 'function') {
+            this._isEnable = enable;
+            if (this._isEnable) {
+                this._element.summernote('enable');
+                return;
+            }
+            this._element.summernote('disable');
         }
-        this._element.summernote('disable');
     }
     /**
      * isEnable

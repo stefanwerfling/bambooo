@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CheckBox = void 0;
-const Element_js_1 = require("../../Element.js");
+const Component_js_1 = require("../../Component.js");
 /**
  * Check Box
  */
-class CheckBox extends Element_js_1.Element {
+class CheckBox extends Component_js_1.Component {
     /**
      * input
      * @protected
@@ -18,7 +18,7 @@ class CheckBox extends Element_js_1.Element {
     _label;
     /**
      * Constructor
-     * @param {JQuery<HTMLElement>|Element} element
+     * @param {ComponentType} element
      * @param {string|JQuery<HTMLElement>|LangText} label
      */
     constructor(element, label = '') {
@@ -31,7 +31,7 @@ class CheckBox extends Element_js_1.Element {
     }
     /**
      * setLabel
-     * @param {string|JQuery<HTMLElement>|LangText} label
+     * @param {string|JQuery|LangText} label
      */
     setLabel(label) {
         const tlabel = this._getAnyElement(label);

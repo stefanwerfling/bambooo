@@ -6,26 +6,27 @@ export declare class Preloader {
      * element
      * @private
      */
-    private _element;
+    protected _element: JQuery;
     /**
      * title
      * @private
      */
-    private _title;
+    protected _title: string;
     /**
      * imgeurl
      * @private
      */
-    private _imageUrl;
+    protected _imageUrl: string;
     /**
-     * constructor
-     * @param element
+     * Constructor
+     * @param {JQuery} element
      */
-    constructor(element?: any);
+    constructor(element?: JQuery);
     /**
      * getElement
+     * @return {JQuery}
      */
-    getElement(): any;
+    getElement(): JQuery;
     /**
      * setImage
      * @param url

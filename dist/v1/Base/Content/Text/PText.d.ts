@@ -1,4 +1,4 @@
-import { Element } from '../../Element';
+import { Component, ComponentType } from '../../Component.js';
 import { TextAlignment } from './Text';
 export declare enum PTextType {
     success = "text-success",
@@ -11,17 +11,17 @@ export declare enum PTextType {
 /**
  * PText
  */
-export declare class PText extends Element {
+export declare class PText extends Component {
     /**
      * constructor
-     * @param {any|Element} element
+     * @param {ComponentType} element
      * @param {PTextType} type
      * @param {TextAlignment} align
      */
-    constructor(element: any | Element, type?: PTextType, align?: TextAlignment);
+    constructor(element: ComponentType, type?: PTextType, align?: TextAlignment);
     /**
      * Add value
-     * @param {any|Element} value
+     * @param {ComponentType} value
      */
-    addValue(value: any | Element): void;
+    addValue(value: ComponentType): void;
 }

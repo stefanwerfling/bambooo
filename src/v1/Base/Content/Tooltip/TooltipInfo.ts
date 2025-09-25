@@ -1,16 +1,16 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 
 /**
  * TooltipInfo
  */
-export class TooltipInfo extends Element {
+export class TooltipInfo extends Component {
 
     /**
-     * constructor
-     * @param element
-     * @param tooltipText
+     * Constructor
+     * @param {ComponentType} element
+     * @param {string} tooltipText
      */
-    public constructor(element: any, tooltipText?: string) {
+    public constructor(element: ComponentType, tooltipText?: string) {
         super();
 
         const telement = this._getAnyElement(element);
@@ -25,7 +25,7 @@ export class TooltipInfo extends Element {
 
     /**
      * setTooltipText
-     * @param tooltipText
+     * @param {string} tooltipText
      */
     public setTooltipText(tooltipText: string): void {
         this._element.attr('data-original-title', tooltipText);

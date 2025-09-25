@@ -2,12 +2,22 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SwitchTimer = void 0;
 const Switch_1 = require("./Switch");
+/**
+ * Switch timer
+ */
 class SwitchTimer extends Switch_1.Switch {
     _timeoutSec;
     _counter = 0;
-    _intervalId;
+    _intervalId = null;
     _labelValue;
     _timeoutFn = null;
+    /**
+     * Constructor
+     * @param {ComponentType} element
+     * @param {string} id
+     * @param {number} timeoutSec
+     * @param {string} label
+     */
     constructor(element, id, timeoutSec, label = '') {
         super(element, id, label);
         this._timeoutSec = timeoutSec;

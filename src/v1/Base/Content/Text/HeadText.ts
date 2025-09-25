@@ -1,18 +1,18 @@
-import {Element} from './../../Element.js';
+import {Component, ComponentType} from '../../Component.js';
 import {LangText} from './../../../Lang/LangText.js';
 
 /**
  * H Head element
  */
-export class HeadText extends Element {
+export class HeadText extends Component {
 
     /**
-     * constructor
-     * @param {any|Element} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {number} hnum
      * @param {string|LangText} title
      */
-    public constructor(element: any|Element, hnum: number, title: string|LangText = '') {
+    public constructor(element: ComponentType, hnum: number, title: string|LangText = '') {
         super();
 
         const telement = this._getAnyElement(element);
@@ -24,9 +24,9 @@ export class HeadText extends Element {
 
     /**
      * Set title
-     * @param {string|JQuery<HTMLElement>|LangText} title
+     * @param {string|JQuery|LangText} title
      */
-    public setTitle(title: string|JQuery<HTMLElement>|LangText): void {
+    public setTitle(title: string|JQuery|LangText): void {
         const ttitle = this._getAnyElement(title);
 
         this._element.empty().append(ttitle);

@@ -1,4 +1,5 @@
 import {LangText} from '../../../Lang/LangText.js';
+import {ComponentType} from '../../Component.js';
 import {ButtonClass} from '../Button/ButtonClass.js';
 import {Icon, IconFa} from '../Icon/Icon.js';
 import {Button, ButtonClickFn, ButtonShape, ButtonType} from './Button.js';
@@ -20,17 +21,17 @@ export class ButtonMenu extends Button {
      * div group
      * @protected
      */
-    protected _divGrp: any;
+    protected _divGrp: JQuery;
 
     /**
      * div drop down menu
      * @protected
      */
-    protected _divDropDownMenu: any;
+    protected _divDropDownMenu: JQuery;
 
     /**
-     * constructor
-     * @param {any} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {IconFa|string|null} icon
      * @param {boolean} positonRight
      * @param {ButtonType} type
@@ -39,7 +40,7 @@ export class ButtonMenu extends Button {
      * @param {ButtonShape|string} shape
      */
     public constructor(
-        element: any,
+        element: ComponentType,
         icon: IconFa|string|null = null,
         positonRight: boolean = false,
         type: ButtonType = ButtonType.default,

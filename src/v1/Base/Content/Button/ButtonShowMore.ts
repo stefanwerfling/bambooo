@@ -1,20 +1,19 @@
-import {Element} from '../../Element';
+import {Component, ComponentType} from '../../Component.js';
 
 /**
  * ButtonShowMore
  */
-export class ButtonShowMore extends Element {
+export class ButtonShowMore extends Component {
 
     /**
      * constructor
-     * @param element
-     * @param showContent
-     * @param hideContent
+     * @param {ComponentType} element
+     * @param {JQuery} showContent
+     * @param {JQuery} hideContent
      */
-    public constructor(element: any, showContent: any, hideContent: any) {
-        super();
+    public constructor(element: ComponentType, showContent: JQuery|string, hideContent: JQuery|string) {
+        super(jQuery('<table/>').appendTo(Component.getAnyElement(element)));
 
-        this._element = jQuery('<table/>').appendTo(element);
         this._element.css({});
 
         const trln1 = jQuery('<tr/>').appendTo(this._element);
