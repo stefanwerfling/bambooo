@@ -20,11 +20,11 @@ export type SearchWidgetData = {
 /**
  * Transform data for selection list, return a jquery object
  */
-export type SearchWidgetOnTemplateResult = (entryData: SearchWidgetData) => any | null;
+export type SearchWidgetOnTemplateResult = (entryData: SearchWidgetData) => string | JQuery | null;
 /**
  * Transform data for selection
  */
-export type SearchWidgetOnTemplateSelection = (entryData: SearchWidgetData) => any;
+export type SearchWidgetOnTemplateSelection = (entryData: SearchWidgetData) => string | JQuery;
 /**
  * On event
  */
