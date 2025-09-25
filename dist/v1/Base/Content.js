@@ -30,7 +30,7 @@ class Content extends Component_js_1.Component {
     }
     /**
      * getContentFluidElement
-     * @return {any}
+     * @return {JQuery}
      */
     getContentFluidElement() {
         return this._contentFluidElement;

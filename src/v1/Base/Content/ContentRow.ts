@@ -1,6 +1,6 @@
 import {Content} from '../Content';
 import {ContentWrapper} from '../ContentWrapper';
-import {Component} from '../Component.js';
+import {Component, ComponentType} from '../Component.js';
 import {Wrapper} from '../Wrapper';
 
 /**
@@ -18,13 +18,13 @@ export class ContentRow extends Component {
 
     /**
      * Constructor
-     * @param {Content|Wrapper|ContentWrapper} content
+     * @param {Content|Wrapper|ContentWrapper|ComponentType} content
      * @param {ContentRowClass} rowclass
      */
-    public constructor(content: Content|Wrapper|ContentWrapper, rowclass?: ContentRowClass) {
+    public constructor(content: Content|Wrapper|ContentWrapper|ComponentType, rowclass?: ContentRowClass) {
         super();
 
-        let tcontent: Content|null;
+        let tcontent: Content|ComponentType|null;
 
         if (content instanceof Wrapper) {
             tcontent = content.getContentWrapper().getContent();
@@ -34,10 +34,10 @@ export class ContentRow extends Component {
             tcontent = content;
         }
 
-        if (typeof tcontent.getContentFluidElement === 'function') {
-            this._element = jQuery('<div class="row" />').appendTo(tcontent.getContentFluidElement());
+        if (typeof (this._element as any).getContentFluidElement === 'function') {
+            this._element = jQuery('<div class="row" />').appendTo((tcontent as Content).getContentFluidElement());
         } else {
-            this._element = jQuery('<div class="row" />').appendTo(tcontent as any);
+            this._element = jQuery('<div class="row" />').appendTo(Component.getAnyElement(tcontent));
         }
 
         if (rowclass) {

@@ -18,7 +18,7 @@ var ContentRowClass;
 class ContentRow extends Component_js_1.Component {
     /**
      * Constructor
-     * @param {Content|Wrapper|ContentWrapper} content
+     * @param {Content|Wrapper|ContentWrapper|ComponentType} content
      * @param {ContentRowClass} rowclass
      */
     constructor(content, rowclass) {
@@ -33,11 +33,11 @@ class ContentRow extends Component_js_1.Component {
         else {
             tcontent = content;
         }
-        if (typeof tcontent.getContentFluidElement === 'function') {
+        if (typeof this._element.getContentFluidElement === 'function') {
             this._element = jQuery('<div class="row" />').appendTo(tcontent.getContentFluidElement());
         }
         else {
-            this._element = jQuery('<div class="row" />').appendTo(tcontent);
+            this._element = jQuery('<div class="row" />').appendTo(Component_js_1.Component.getAnyElement(tcontent));
         }
         if (rowclass) {
             this._element.addClass(`${rowclass}`);

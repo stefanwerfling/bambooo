@@ -33,9 +33,9 @@ export class Content extends Component {
 
     /**
      * getContentFluidElement
-     * @return {any}
+     * @return {JQuery}
      */
-    public getContentFluidElement(): any {
+    public getContentFluidElement(): JQuery {
         return this._contentFluidElement;
     }
 

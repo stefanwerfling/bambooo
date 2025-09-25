@@ -15,9 +15,9 @@ export declare class Content extends Component {
     constructor(element?: JQuery);
     /**
      * getContentFluidElement
-     * @return {any}
+     * @return {JQuery}
      */
-    getContentFluidElement(): any;
+    getContentFluidElement(): JQuery;
     /**
      * empty
      */
