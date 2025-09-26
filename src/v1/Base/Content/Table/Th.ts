@@ -29,12 +29,31 @@ export class Th extends Component {
     }
 
     /**
-     * addValue
-     * @param {ComponentType} avalue
+     * Add a value
+     * @param {ComponentType|string} avalue
      */
-    public addValue(avalue: ComponentType): void {
-        const telement = Component.getAnyElement(avalue);
-        this._element.append(telement);
+    public addValue(avalue: ComponentType|string): void {
+        if (typeof avalue === 'string') {
+            this.addText(avalue);
+        } else {
+            this.addComponent(avalue);
+        }
+    }
+
+    /**
+     * Add a text
+     * @param {string} text
+     */
+    public addText(text: string): void {
+        this._element.append(text);
+    }
+
+    /**
+     * Add component
+     * @param {ComponentType} component
+     */
+    public addComponent(component: ComponentType): void {
+        this._element.append(this._getAnyElement(component));
     }
 
 }

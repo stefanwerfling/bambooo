@@ -12,8 +12,18 @@ export declare class Th extends Component {
      */
     constructor(atr: Tr, avalue?: ComponentType, width?: string);
     /**
-     * addValue
-     * @param {ComponentType} avalue
+     * Add a value
+     * @param {ComponentType|string} avalue
      */
-    addValue(avalue: ComponentType): void;
+    addValue(avalue: ComponentType | string): void;
+    /**
+     * Add a text
+     * @param {string} text
+     */
+    addText(text: string): void;
+    /**
+     * Add component
+     * @param {ComponentType} component
+     */
+    addComponent(component: ComponentType): void;
 }

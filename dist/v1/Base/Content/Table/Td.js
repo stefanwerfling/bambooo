@@ -24,12 +24,30 @@ class Td extends Component_js_1.Component {
         }
     }
     /**
-     * addValue
-     * @param {ComponentType} avalue
+     * Add a value
+     * @param {ComponentType|string} avalue
      */
     addValue(avalue) {
-        const element = this._getAnyElement(avalue);
-        this._element.append(element);
+        if (typeof avalue === 'string') {
+            this.addText(avalue);
+        }
+        else {
+            this.addComponent(avalue);
+        }
+    }
+    /**
+     * Add a text
+     * @param {string} text
+     */
+    addText(text) {
+        this._element.append(text);
+    }
+    /**
+     * Add component
+     * @param {ComponentType} component
+     */
+    addComponent(component) {
+        this._element.append(this._getAnyElement(component));
     }
 }
 exports.Td = Td;
