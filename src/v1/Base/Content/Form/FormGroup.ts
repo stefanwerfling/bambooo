@@ -47,8 +47,13 @@ export class FormGroup extends Component {
      * @param {string|JQuery|LangText} label
      */
     public setLabel(label: string|JQuery|LangText): void {
-        const tlabel = this._getAnyElement(label);
-        this._getLabel().empty().append(tlabel);
+        const l = this._getLabel().empty();
+
+        if (typeof label === 'string') {
+            l.append(label);
+        } else {
+            l.append(this._getAnyElement(label));
+        }
     }
 
     /**

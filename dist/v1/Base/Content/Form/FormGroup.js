@@ -40,8 +40,13 @@ class FormGroup extends Component_js_1.Component {
      * @param {string|JQuery|LangText} label
      */
     setLabel(label) {
-        const tlabel = this._getAnyElement(label);
-        this._getLabel().empty().append(tlabel);
+        const l = this._getLabel().empty();
+        if (typeof label === 'string') {
+            l.append(label);
+        }
+        else {
+            l.append(this._getAnyElement(label));
+        }
     }
     /**
      * getLabelElement
