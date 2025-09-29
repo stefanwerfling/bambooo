@@ -73,8 +73,12 @@ class ButtonDefault extends Button_js_1.Button {
             if (this._icon !== '') {
                 this._element.append(' ');
             }
-            const tTitle = this._getAnyElement(this._title);
-            this._element.append(tTitle);
+            if (typeof this._title === 'string') {
+                this._element.append(this._title);
+            }
+            else {
+                this._element.append(this._getAnyElement(this._title));
+            }
         }
     }
     /**
