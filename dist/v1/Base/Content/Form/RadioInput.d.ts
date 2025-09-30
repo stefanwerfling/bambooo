@@ -6,17 +6,17 @@ export type RadioInputClickFn = () => void;
 /**
  * RadioInput
  */
-export declare class RadioInput extends Component {
+export declare class RadioInput extends Component<HTMLDivElement> {
     /**
      * input radio
      * @protected
      */
-    protected _inputRadio: JQuery;
+    protected _inputRadio: JQuery<HTMLInputElement>;
     /**
      * input
      * @protected
      */
-    protected _input: JQuery;
+    protected _input: JQuery<HTMLInputElement>;
     /**
      * Constructor
      * @param {ComponentType} element

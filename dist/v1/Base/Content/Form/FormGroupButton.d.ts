@@ -6,17 +6,17 @@ export type FormGroupButtonClickFn = () => void;
 /**
  * FormGroupButton
  */
-export declare class FormGroupButton extends Component {
+export declare class FormGroupButton extends Component<HTMLDivElement> {
     /**
      * _subElement
      * @protected
      */
-    protected _subElement: JQuery;
+    protected _subElement: JQuery<HTMLDivElement>;
     /**
      * icon element
      * @protected
      */
-    protected _iconElement: JQuery;
+    protected _iconElement: JQuery<HTMLDivElement>;
     /**
      * _click
      * @protected
@@ -31,12 +31,12 @@ export declare class FormGroupButton extends Component {
      * getButtonElement
      * @return {JQuery}
      */
-    getButtonElement(): JQuery;
+    getButtonElement(): JQuery<HTMLDivElement>;
     /**
      * getIconElement
      * @return {JQuery}
      */
-    getIconElement(): JQuery;
+    getIconElement(): JQuery<HTMLDivElement>;
     /**
      * setOnClickFn
      * @param {FormGroupButtonClickFn} onClick

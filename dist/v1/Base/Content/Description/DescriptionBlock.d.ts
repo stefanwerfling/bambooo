@@ -10,17 +10,17 @@ export declare enum DescriptionBlockBorder {
 /**
  * DescriptionBlock
  */
-export declare class DescriptionBlock extends Component {
+export declare class DescriptionBlock extends Component<HTMLDivElement> {
     /**
      * h5
      * @protected
      */
-    protected _h5: JQuery;
+    protected _h5: JQuery<HTMLHeadingElement>;
     /**
      * span
      * @protected
      */
-    protected _span: JQuery;
+    protected _span: JQuery<HTMLSpanElement>;
     /**
      * Constructor
      * @param {ComponentType} element
@@ -41,5 +41,5 @@ export declare class DescriptionBlock extends Component {
      * Get text element
      * @return {JQuery}
      */
-    getTextElement(): JQuery;
+    getTextElement(): JQuery<HTMLSpanElement>;
 }

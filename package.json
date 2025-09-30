@@ -21,7 +21,8 @@
   "homepage": "https://github.com/stefanwerfling/bambooo#readme",
   "keywords": [],
   "devDependencies": {
-    "@types/jquery": "^3.5.32",
+    "@types/jquery": "^3.5.33",
+    "@types/select2": "^4.0.63",
     "@types/sprintf-js": "^1.1.4",
     "npm-check-updates": "^18.0.1",
     "typescript": "^5.7.3"

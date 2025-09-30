@@ -24,7 +24,7 @@ export declare enum BadgeType {
 /**
  * Badge
  */
-export declare class Badge extends Component {
+export declare class Badge extends Component<HTMLSpanElement> {
     /**
      * constructor
      * @param {ComponentType} element

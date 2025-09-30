@@ -3,17 +3,17 @@ import { LangText } from './../../../Lang/LangText.js';
 /**
  * Radio
  */
-export declare class Radio extends Component {
+export declare class Radio extends Component<HTMLDivElement> {
     /**
      * input radio
      * @protected
      */
-    protected _inputRadio: JQuery;
+    protected _inputRadio: JQuery<HTMLInputElement>;
     /**
      * label
      * @protected
      */
-    protected _label: JQuery | null;
+    protected _label: JQuery<HTMLLabelElement> | null;
     /**
      * Constructor
      * @param {ComponentType} element
@@ -28,7 +28,7 @@ export declare class Radio extends Component {
      * @protected
      * @return {JQuery}
      */
-    protected _getLabel(): JQuery;
+    protected _getLabel(): JQuery<HTMLLabelElement>;
     /**
      * setLabel
      * @param {string|JQuery|LangText} label
@@ -36,9 +36,9 @@ export declare class Radio extends Component {
     setLabel(label: string | JQuery | LangText): void;
     /**
      * getLabelElement
-     * @returns {JQuery}
+     * @returns {JQuery<HTMLLabelElement>}
      */
-    getLabelElement(): JQuery;
+    getLabelElement(): JQuery<HTMLLabelElement>;
     /**
      * is box checked
      * @returns {boolean}

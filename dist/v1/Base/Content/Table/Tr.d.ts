@@ -3,7 +3,7 @@ import { Table } from './Table.js';
 /**
  * Tr
  */
-export declare class Tr extends Component {
+export declare class Tr extends Component<HTMLTableRowElement> {
     /**
      * Constructor
      * @param {Table|JQuery} element

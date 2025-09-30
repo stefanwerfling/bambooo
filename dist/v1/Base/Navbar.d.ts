@@ -4,7 +4,7 @@ import { RightNavbar } from './Navbar/RightNavbar';
 /**
  * Navbar
  */
-export declare class Navbar extends Component {
+export declare class Navbar extends Component<HTMLElement> {
     /**
      * left navbar
      * @private

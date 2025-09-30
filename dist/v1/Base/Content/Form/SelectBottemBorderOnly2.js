@@ -67,7 +67,7 @@ class SelectBottemBorderOnly2 extends Component_js_1.Component {
      * @param {SelectChangeFn} onChangeFn
      */
     setChangeFn(onChangeFn) {
-        this._element.unbind().on('change', () => {
+        this._element.off('change').on('change', () => {
             this._selectedValue = this._element.val();
             onChangeFn(this._selectedValue);
         });
@@ -78,7 +78,7 @@ class SelectBottemBorderOnly2 extends Component_js_1.Component {
      */
     setSelectedValue(value) {
         this._selectedValue = value;
-        this._element.val(value).prop('selected', true).change();
+        this._element.val(value).trigger('change');
     }
     /**
      * getSelectedValue

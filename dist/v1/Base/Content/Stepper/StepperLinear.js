@@ -41,7 +41,7 @@ class StepperLinear extends Component_js_1.Component {
      * Add a Step
      * @param {string|LangText} label
      * @param {number} stepNumber
-     * @returns {JQuery}
+     * @returns {jQuery<HTMLDivElement>}
      */
     addStep(label, stepNumber) {
         const unid = this._uniqId();

@@ -2,7 +2,7 @@ import { Component, ComponentType } from '../../Component.js';
 /**
  * ImageCoin
  */
-export declare class ImageCoin extends Component {
+export declare class ImageCoin extends Component<HTMLImageElement> {
     /**
      * constructor
      * @param {ComponentType} element

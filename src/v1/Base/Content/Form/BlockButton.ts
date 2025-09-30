@@ -13,7 +13,7 @@ export type BlockButtonClickFn = () => void;
 /**
  * BlockButton
  */
-export class BlockButton extends Component {
+export class BlockButton extends Component<HTMLButtonElement> {
 
     /**
      * Constructor
@@ -41,7 +41,7 @@ export class BlockButton extends Component {
                 break;
         }
 
-        super(jQuery(
+        super(jQuery<HTMLButtonElement>(
             `<button type="button" class="btn ${bclass}"></button>`
         ).appendTo(
             Component.getAnyElement(element)
@@ -53,7 +53,7 @@ export class BlockButton extends Component {
      * @param {BlockButtonClickFn} onClick
      */
     public setOnClickFn(onClick: BlockButtonClickFn): void {
-        this._element.unbind().on('click', (): void => {
+        this._element.off('click').on('click', (): void => {
             onClick();
         });
     }

@@ -4,7 +4,7 @@ import {Table} from './Table.js';
 /**
  * Tr
  */
-export class Tr extends Component {
+export class Tr extends Component<HTMLTableRowElement> {
 
     /**
      * Constructor
@@ -14,7 +14,7 @@ export class Tr extends Component {
         super();
 
         const telement = this._getAnyElement(element);
-        this._element = jQuery('<tr />').appendTo(telement);
+        this._element = jQuery<HTMLTableRowElement>('<tr />').appendTo(telement);
     }
 
 }

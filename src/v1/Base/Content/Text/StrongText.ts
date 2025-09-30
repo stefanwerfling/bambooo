@@ -4,7 +4,7 @@ import {LangText} from './../../../Lang/LangText.js';
 /**
  * StrongText
  */
-export class StrongText extends Component {
+export class StrongText extends Component<HTMLElement> {
 
     /**
      * constructor

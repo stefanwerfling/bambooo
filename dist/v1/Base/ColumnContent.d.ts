@@ -2,7 +2,7 @@ import { Component, ComponentType } from './Component.js';
 /**
  * ColumnContent
  */
-export declare class ColumnContent extends Component {
+export declare class ColumnContent extends Component<HTMLSpanElement> {
     /**
      * Constructor
      * @param {[ComponentType[]]} elements

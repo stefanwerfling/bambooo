@@ -16,52 +16,47 @@ export type ModalDialogEventFn = (dialog: ModalDialog) => Promise<void>;
 /**
  * ModalDialog
  */
-export declare class ModalDialog extends Component {
-    /**
-     * main element
-     * @protected
-     */
-    protected _mainElement: JQuery;
+export declare class ModalDialog extends Component<HTMLDivElement> {
     /**
      * inner element
      * @protected
      */
-    protected _innerElement: JQuery;
+    protected _innerElement: JQuery<HTMLDivElement>;
     /**
      * modal content
      * @protected
      */
-    protected _modalContent: JQuery;
+    protected _modalContent: JQuery<HTMLDivElement>;
     /**
      * overload
      * @protected
      */
-    protected _overload: JQuery;
+    protected _overload: JQuery<HTMLDivElement>;
     /**
      * header
      * @protected
      */
-    protected _header: JQuery;
+    protected _header: JQuery<HTMLDivElement>;
     /**
      * header title
      * @protected
      */
-    protected _header_title: JQuery;
+    protected _header_title: JQuery<HTMLHeadingElement>;
     /**
      * header button
      * @protected
      */
-    protected _header_button: JQuery;
+    protected _header_button: JQuery<HTMLButtonElement>;
     /**
      * body
      * @protected
      */
-    protected _body: JQuery;
+    protected _body: JQuery<HTMLDivElement>;
     /**
      * footer
      * @protected
      */
-    protected _footer: JQuery;
+    protected _footer: JQuery<HTMLDivElement>;
     /**
      * on close event
      * @protected
@@ -92,14 +87,14 @@ export declare class ModalDialog extends Component {
     setTitle(title: string | LangText): void;
     /**
      * getBody
-     * @return {any}
+     * @return {JQuery<HTMLDivElement>}
      */
-    getBody(): any;
+    getBody(): JQuery<HTMLDivElement>;
     /**
      * getFooter
-     * @return {any}
+     * @return {JQuery<HTMLDivElement>}
      */
-    getFooter(): any;
+    getFooter(): JQuery<HTMLDivElement>;
     /**
      * show
      */

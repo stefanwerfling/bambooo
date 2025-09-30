@@ -31,7 +31,7 @@ export type InputTypeOptions = {
 /**
  * InputBottemBorderOnly2
  */
-export declare class InputBottemBorderOnly2 extends Component {
+export declare class InputBottemBorderOnly2 extends Component<HTMLInputElement> {
     /**
      * type
      * @protected
@@ -46,7 +46,7 @@ export declare class InputBottemBorderOnly2 extends Component {
      * input group
      * @protected
      */
-    protected _inputGroup: JQuery | null;
+    protected _inputGroup: JQuery<HTMLDivElement> | null;
     /**
      * Constructor
      * @param {ComponentType} element

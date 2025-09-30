@@ -21,7 +21,7 @@ export type CollectionWidgetOnUpdate<T> = (event: CollectionWidgetOnUpdateEvent,
 /**
  * Collection Widget
  */
-export class CollectionWidget<T extends ICollectionEntryWidget, E extends Component> {
+export class CollectionWidget<T extends ICollectionEntryWidget, E extends Component<HTMLElement>> {
 
     /**
      * Element

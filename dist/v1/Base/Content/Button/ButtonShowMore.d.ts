@@ -2,7 +2,7 @@ import { Component, ComponentType } from '../../Component.js';
 /**
  * ButtonShowMore
  */
-export declare class ButtonShowMore extends Component {
+export declare class ButtonShowMore extends Component<HTMLTableElement> {
     /**
      * constructor
      * @param {ComponentType} element

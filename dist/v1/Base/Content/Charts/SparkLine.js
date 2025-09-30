@@ -22,7 +22,7 @@ class SparkLine extends Component_js_1.Component {
      */
     _data = [];
     /**
-     * constructor
+     * Constructor
      * @param {ComponentType} element
      */
     constructor(element) {

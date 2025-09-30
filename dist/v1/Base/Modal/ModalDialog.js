@@ -23,11 +23,6 @@ var ModalDialogType;
  */
 class ModalDialog extends Component_js_1.Component {
     /**
-     * main element
-     * @protected
-     */
-    _mainElement;
-    /**
      * inner element
      * @protected
      */
@@ -96,8 +91,8 @@ class ModalDialog extends Component_js_1.Component {
         if (backdrop) {
             modalBackdrop = 'data-backdrop="static"';
         }
-        this._mainElement = jQuery(`<div class="modal fade" id="${idname}" ${modalBackdrop}/>`).appendTo(aElement);
-        this._innerElement = jQuery(`<div class="modal-dialog ${modalType}" />`).appendTo(this._mainElement);
+        this._element = jQuery(`<div class="modal fade" id="${idname}" ${modalBackdrop}/>`).appendTo(aElement);
+        this._innerElement = jQuery(`<div class="modal-dialog ${modalType}" />`).appendTo(this._element);
         this._modalContent = jQuery('<div class="modal-content">').appendTo(this._innerElement);
         this._overload = jQuery('<div class="overlay"><i class="fas fa-2x fa-sync-alt fa-spin"></i></div>').appendTo(this._modalContent);
         this._overload.hide();
@@ -114,7 +109,7 @@ class ModalDialog extends Component_js_1.Component {
         });
         this._body = jQuery('<div class="modal-body" />').appendTo(this._modalContent);
         this._footer = jQuery('<div class="modal-footer justify-content-between">').appendTo(this._modalContent);
-        this._mainElement.on('hidden.bs.modal', async () => {
+        this._element.on('hidden.bs.modal', async () => {
             if (this._onHidden !== null) {
                 await this._onHidden(this);
             }
@@ -145,14 +140,14 @@ class ModalDialog extends Component_js_1.Component {
     }
     /**
      * getBody
-     * @return {any}
+     * @return {JQuery<HTMLDivElement>}
      */
     getBody() {
         return this._body;
     }
     /**
      * getFooter
-     * @return {any}
+     * @return {JQuery<HTMLDivElement>}
      */
     getFooter() {
         return this._footer;
@@ -161,8 +156,8 @@ class ModalDialog extends Component_js_1.Component {
      * show
      */
     show() {
-        if (typeof this._mainElement.modal === 'function') {
-            this._mainElement.modal('show');
+        if (typeof this._element.modal === 'function') {
+            this._element.modal('show');
         }
     }
     /**
@@ -173,8 +168,8 @@ class ModalDialog extends Component_js_1.Component {
         if (onHidden) {
             this.setOnHidden(onHidden);
         }
-        if (typeof this._mainElement.modal === 'function') {
-            this._mainElement.modal('hide');
+        if (typeof this._element.modal === 'function') {
+            this._element.modal('hide');
         }
     }
     /**
@@ -274,12 +269,12 @@ class ModalDialog extends Component_js_1.Component {
                     .removeClass('modal-open')
                     .css('padding-right', '');
             }
-            this._mainElement.remove();
+            this._element.remove();
         };
-        if (this._mainElement.hasClass('show')) {
-            this._mainElement.one('hidden.bs.modal', removeIfNoOtherModal);
-            if (typeof this._mainElement.modal === 'function') {
-                this._mainElement.modal('hide');
+        if (this._element.hasClass('show')) {
+            this._element.one('hidden.bs.modal', removeIfNoOtherModal);
+            if (typeof this._element.modal === 'function') {
+                this._element.modal('hide');
             }
         }
         else {

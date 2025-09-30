@@ -9,7 +9,7 @@ export type CheckBoxClickFn = () => void;
 /**
  * Check Box
  */
-export class CheckBox extends Component {
+export class CheckBox extends Component<HTMLDivElement> {
 
     /**
      * input
@@ -26,13 +26,13 @@ export class CheckBox extends Component {
     /**
      * Constructor
      * @param {ComponentType} element
-     * @param {string|JQuery<HTMLElement>|LangText} label
+     * @param {string|JQuery|LangText} label
      */
     public constructor(element: ComponentType, label: string|JQuery|LangText = '') {
         super();
 
         const telement = this._getAnyElement(element);
-        this._element = jQuery('<div class="form-check" />').appendTo(telement);
+        this._element = jQuery<HTMLDivElement>('<div class="form-check" />').appendTo(telement);
 
         this._input = jQuery(`<input type="checkbox" class="form-check-input">`).appendTo(this._element);
         this._label = jQuery(`<label class="form-check-label">`).appendTo(this._element);
@@ -95,7 +95,7 @@ export class CheckBox extends Component {
      * @param {CheckBoxClickFn} fn
      */
     public setOnClickFn(fn: CheckBoxClickFn): void {
-        this._input.unbind().on('click', (): void => {
+        this._input.off('click').on('click', (): void => {
             fn();
         });
     }

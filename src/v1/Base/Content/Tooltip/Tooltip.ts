@@ -4,7 +4,7 @@ import {Component, ComponentType} from '../../Component.js';
  * Tooltip
  * read more https://getbootstrap.com/docs/4.1/components/tooltips/
  */
-export class Tooltip extends Component {
+export class Tooltip extends Component<HTMLDivElement> {
 
     /**
      * Constructor
@@ -16,7 +16,7 @@ export class Tooltip extends Component {
 
         const telement = this._getAnyElement(element);
 
-        this._element = jQuery('<div class="d-inline-block" tabindex="0" data-toggle="tooltip" title=""/>').appendTo(telement);
+        this._element = jQuery<HTMLDivElement>('<div class="d-inline-block" tabindex="0" data-toggle="tooltip" title=""/>').appendTo(telement);
 
         if (tooltipText) {
             this.setTooltipText(tooltipText);

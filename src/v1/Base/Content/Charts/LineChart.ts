@@ -3,7 +3,7 @@ import {Component, ComponentType} from '../../Component.js';
 /**
  * LineChart
  */
-export class LineChart extends Component {
+export class LineChart extends Component<HTMLCanvasElement> {
 
     /**
      * Height
@@ -16,7 +16,7 @@ export class LineChart extends Component {
      * @param {ComponentType} element
      */
     public constructor(element: ComponentType) {
-        super(jQuery('<canvas style="max-width: 100%;" />').appendTo(Component.getAnyElement(element)));
+        super(jQuery<HTMLCanvasElement>('<canvas style="max-width: 100%;" />').appendTo(Component.getAnyElement(element)));
         this._changeCanvasSize();
     }
 

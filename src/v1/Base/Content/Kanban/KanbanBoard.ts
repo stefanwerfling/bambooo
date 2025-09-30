@@ -6,13 +6,13 @@ import {KanbanCard} from './KanbanCard.js';
 /**
  * Kanban Board
  */
-export class KanbanBoard extends Component {
+export class KanbanBoard extends Component<HTMLDivElement> {
 
     /**
      * Container
      * @protected
      */
-    protected _container: JQuery;
+    protected _container: JQuery<HTMLDivElement>;
 
     /**
      * Constructor
@@ -24,12 +24,12 @@ export class KanbanBoard extends Component {
 
         const telement = this._getAnyElement(element);
 
-        this._element = jQuery('<div class="content-wrapper kanban">').appendTo(telement);
+        this._element = jQuery<HTMLDivElement>('<div class="content-wrapper kanban">').appendTo(telement);
         this._element.css({
             height: '100%'
         });
 
-        this._container = jQuery(`<div class="container-fluid h-${heightPercent}" />`).appendTo(this._element);
+        this._container = jQuery<HTMLDivElement>(`<div class="container-fluid h-${heightPercent}" />`).appendTo(this._element);
     }
 
     /**

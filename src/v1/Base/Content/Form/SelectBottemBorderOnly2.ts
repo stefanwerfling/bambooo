@@ -17,7 +17,7 @@ export type SelectChangeFn = (value: any) => void;
 /**
  * SelectBottemBorderOnly2
  */
-export class SelectBottemBorderOnly2 extends Component {
+export class SelectBottemBorderOnly2 extends Component<HTMLSelectElement> {
 
     /**
      * selected value
@@ -34,7 +34,7 @@ export class SelectBottemBorderOnly2 extends Component {
 
         const telement = this._getAnyElement(element);
 
-        this._element = jQuery('<select class="custom-select form-control-border border-width-2" />').appendTo(telement);
+        this._element = jQuery<HTMLSelectElement>('<select class="custom-select form-control-border border-width-2" />').appendTo(telement);
 
         // set empty function
         this.setChangeFn(() => {});
@@ -93,7 +93,7 @@ export class SelectBottemBorderOnly2 extends Component {
      * @param {SelectChangeFn} onChangeFn
      */
     public setChangeFn(onChangeFn: SelectChangeFn): void {
-        this._element.unbind().on('change', (): void => {
+        this._element.off('change').on('change', () => {
             this._selectedValue = this._element.val() as string;
             onChangeFn(this._selectedValue);
         });
@@ -105,7 +105,7 @@ export class SelectBottemBorderOnly2 extends Component {
      */
     public setSelectedValue(value: string): void {
         this._selectedValue = value;
-        this._element.val(value).prop('selected', true).change();
+        this._element.val(value).trigger('change');
     }
 
     /**

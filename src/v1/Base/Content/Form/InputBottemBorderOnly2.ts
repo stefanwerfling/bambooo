@@ -38,7 +38,7 @@ export type InputTypeOptions = {
 /**
  * InputBottemBorderOnly2
  */
-export class InputBottemBorderOnly2 extends Component {
+export class InputBottemBorderOnly2 extends Component<HTMLInputElement> {
 
     /**
      * type
@@ -56,7 +56,7 @@ export class InputBottemBorderOnly2 extends Component {
      * input group
      * @protected
      */
-    protected _inputGroup: JQuery|null = null;
+    protected _inputGroup: JQuery<HTMLDivElement>|null = null;
 
     /**
      * Constructor
@@ -104,11 +104,11 @@ export class InputBottemBorderOnly2 extends Component {
         }
 
         if (useInputGroup) {
-            this._inputGroup = jQuery(`<div class="input-group ${useInputGroup}" id="${tid}g" data-target-input="nearest"></div>`).appendTo(telement);
+            this._inputGroup = jQuery<HTMLDivElement>(`<div class="input-group ${useInputGroup}" id="${tid}g" data-target-input="nearest"></div>`).appendTo(telement);
             telement = this._inputGroup;
         }
 
-        this._element = jQuery(`<input type="${ttype}" class="form-control form-control-border border-width-2 ${iclasses}" ${aid} ${dataTarget} placeholder="">`);
+        this._element = jQuery<HTMLInputElement>(`<input type="${ttype}" class="form-control form-control-border border-width-2 ${iclasses}" ${aid} ${dataTarget} placeholder="">`);
 
         if (element instanceof FormGroupButton) {
             this._element.prependTo(telement);

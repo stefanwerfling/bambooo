@@ -10,19 +10,19 @@ export type StepperLinearStepEventFn = (indexStep: number) => void;
 /**
  * Stepper linear
  */
-export class StepperLinear extends Component {
+export class StepperLinear extends Component<HTMLDivElement> {
 
     /**
      * Header
      * @protected
      */
-    protected _header: JQuery
+    protected _header: JQuery<HTMLDivElement>;
 
     /**
      * Content
      * @protected
      */
-    protected _content: JQuery;
+    protected _content: JQuery<HTMLDivElement>;
 
     /**
      * Stepper
@@ -39,18 +39,18 @@ export class StepperLinear extends Component {
 
         const telement = this._getAnyElement(element);
 
-        this._element = jQuery('<div class="bs-stepper linear" />').appendTo(telement);
-        this._header = jQuery('<div class="bs-stepper-header" role="tablist" />').appendTo(this._element);
-        this._content = jQuery('<div class="bs-stepper-content" />').appendTo(this._element);
+        this._element = jQuery<HTMLDivElement>('<div class="bs-stepper linear" />').appendTo(telement);
+        this._header = jQuery<HTMLDivElement>('<div class="bs-stepper-header" role="tablist" />').appendTo(this._element);
+        this._content = jQuery<HTMLDivElement>('<div class="bs-stepper-content" />').appendTo(this._element);
     }
 
     /**
      * Add a Step
      * @param {string|LangText} label
      * @param {number} stepNumber
-     * @returns {JQuery}
+     * @returns {jQuery<HTMLDivElement>}
      */
-    public addStep(label: string|LangText, stepNumber: number): any {
+    public addStep(label: string|LangText, stepNumber: number): JQuery<HTMLDivElement> {
         const unid = this._uniqId();
         const id = `step-${unid}`;
         const idTrigger = `${id}-trigger`;
@@ -59,15 +59,15 @@ export class StepperLinear extends Component {
             this._header.append('<div class="line"></div>');
         }
 
-        const stepHead = jQuery(`<div class="step" data-target="#${id}" />`).appendTo(this._header);
-        const stepBtn = jQuery(`<button type="button" class="step-trigger" role="tab" aria-controls="${id}" id="${idTrigger}" />`).appendTo(stepHead);
+        const stepHead = jQuery<HTMLDivElement>(`<div class="step" data-target="#${id}" />`).appendTo(this._header);
+        const stepBtn = jQuery<HTMLButtonElement>(`<button type="button" class="step-trigger" role="tab" aria-controls="${id}" id="${idTrigger}" />`).appendTo(stepHead);
 
         jQuery(`<span class="bs-stepper-circle">${stepNumber}</span>`).appendTo(stepBtn);
-        const spanLabel = jQuery(`<span class="bs-stepper-label" />`).appendTo(stepBtn);
+        const spanLabel = jQuery<HTMLSpanElement>(`<span class="bs-stepper-label" />`).appendTo(stepBtn);
 
         LangText.addLangText(spanLabel, label);
 
-        const content = jQuery(`<div id="${id}" class="content" role="tabpanel" aria-labelledby="${idTrigger}" />`);
+        const content = jQuery<HTMLDivElement>(`<div id="${id}" class="content" role="tabpanel" aria-labelledby="${idTrigger}" />`);
 
         content.appendTo(this._content);
 

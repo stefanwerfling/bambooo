@@ -42,7 +42,7 @@ class BlockButton extends Component_js_1.Component {
      * @param {BlockButtonClickFn} onClick
      */
     setOnClickFn(onClick) {
-        this._element.unbind().on('click', () => {
+        this._element.off('click').on('click', () => {
             onClick();
         });
     }

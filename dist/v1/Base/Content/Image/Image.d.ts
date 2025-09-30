@@ -10,7 +10,7 @@ export declare enum ImageType {
 /**
  * Image
  */
-export declare class Image extends Component {
+export declare class Image extends Component<HTMLImageElement> {
     /**
      * Constructor
      * @param {ComponentType} element

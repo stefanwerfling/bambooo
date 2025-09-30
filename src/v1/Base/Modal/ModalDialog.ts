@@ -21,61 +21,55 @@ export type ModalDialogEventFn = (dialog: ModalDialog) => Promise<void>;
 /**
  * ModalDialog
  */
-export class ModalDialog extends Component {
-
-    /**
-     * main element
-     * @protected
-     */
-    protected _mainElement: JQuery;
+export class ModalDialog extends Component<HTMLDivElement> {
 
     /**
      * inner element
      * @protected
      */
-    protected _innerElement: JQuery;
+    protected _innerElement: JQuery<HTMLDivElement>;
 
     /**
      * modal content
      * @protected
      */
-    protected _modalContent: JQuery;
+    protected _modalContent: JQuery<HTMLDivElement>;
 
     /**
      * overload
      * @protected
      */
-    protected _overload: JQuery;
+    protected _overload: JQuery<HTMLDivElement>;
 
     /**
      * header
      * @protected
      */
-    protected _header: JQuery;
+    protected _header: JQuery<HTMLDivElement>;
 
     /**
      * header title
      * @protected
      */
-    protected _header_title: JQuery;
+    protected _header_title: JQuery<HTMLHeadingElement>;
 
     /**
      * header button
      * @protected
      */
-    protected _header_button: JQuery;
+    protected _header_button: JQuery<HTMLButtonElement>;
 
     /**
      * body
      * @protected
      */
-    protected _body: JQuery;
+    protected _body: JQuery<HTMLDivElement>;
 
     /**
      * footer
      * @protected
      */
-    protected _footer: JQuery;
+    protected _footer: JQuery<HTMLDivElement>;
 
     /**
      * on close event
@@ -113,15 +107,15 @@ export class ModalDialog extends Component {
             modalBackdrop = 'data-backdrop="static"';
         }
 
-        this._mainElement = jQuery(`<div class="modal fade" id="${idname}" ${modalBackdrop}/>`).appendTo(aElement);
-        this._innerElement = jQuery(`<div class="modal-dialog ${modalType}" />`).appendTo(this._mainElement);
-        this._modalContent = jQuery('<div class="modal-content">').appendTo(this._innerElement);
-        this._overload = jQuery('<div class="overlay"><i class="fas fa-2x fa-sync-alt fa-spin"></i></div>').appendTo(this._modalContent);
+        this._element = jQuery<HTMLDivElement>(`<div class="modal fade" id="${idname}" ${modalBackdrop}/>`).appendTo(aElement);
+        this._innerElement = jQuery<HTMLDivElement>(`<div class="modal-dialog ${modalType}" />`).appendTo(this._element);
+        this._modalContent = jQuery<HTMLDivElement>('<div class="modal-content">').appendTo(this._innerElement);
+        this._overload = jQuery<HTMLDivElement>('<div class="overlay"><i class="fas fa-2x fa-sync-alt fa-spin"></i></div>').appendTo(this._modalContent);
         this._overload.hide();
 
-        this._header = jQuery('<div class="modal-header"/>').appendTo(this._modalContent);
-        this._header_title = jQuery('<h4 class="modal-title" />').appendTo(this._header);
-        this._header_button = jQuery(
+        this._header = jQuery<HTMLDivElement>('<div class="modal-header"/>').appendTo(this._modalContent);
+        this._header_title = jQuery<HTMLHeadingElement>('<h4 class="modal-title" />').appendTo(this._header);
+        this._header_button = jQuery<HTMLButtonElement>(
             '<button type="button" class="close" data-dismiss="modal" aria-label="Close">' +
             '<span aria-hidden="true">×</span>' +
             '</button>'
@@ -135,10 +129,10 @@ export class ModalDialog extends Component {
             }
         });
 
-        this._body = jQuery('<div class="modal-body" />').appendTo(this._modalContent);
-        this._footer = jQuery('<div class="modal-footer justify-content-between">').appendTo(this._modalContent);
+        this._body = jQuery<HTMLDivElement>('<div class="modal-body" />').appendTo(this._modalContent);
+        this._footer = jQuery<HTMLDivElement>('<div class="modal-footer justify-content-between">').appendTo(this._modalContent);
 
-        this._mainElement.on('hidden.bs.modal', async () => {
+        this._element.on('hidden.bs.modal', async () => {
             if (this._onHidden !== null) {
                 await this._onHidden(this);
             }
@@ -174,17 +168,17 @@ export class ModalDialog extends Component {
 
     /**
      * getBody
-     * @return {any}
+     * @return {JQuery<HTMLDivElement>}
      */
-    public getBody(): any {
+    public getBody(): JQuery<HTMLDivElement> {
         return this._body;
     }
 
     /**
      * getFooter
-     * @return {any}
+     * @return {JQuery<HTMLDivElement>}
      */
-    public getFooter(): any {
+    public getFooter(): JQuery<HTMLDivElement> {
         return this._footer;
     }
 
@@ -192,8 +186,8 @@ export class ModalDialog extends Component {
      * show
      */
     public show(): void {
-        if (typeof (this._mainElement as any).modal === 'function') {
-            (this._mainElement as any).modal('show');
+        if (typeof (this._element as any).modal === 'function') {
+            (this._element as any).modal('show');
         }
     }
 
@@ -206,8 +200,8 @@ export class ModalDialog extends Component {
             this.setOnHidden(onHidden);
         }
 
-        if (typeof (this._mainElement as any).modal === 'function') {
-            (this._mainElement as any).modal('hide');
+        if (typeof (this._element as any).modal === 'function') {
+            (this._element as any).modal('hide');
         }
     }
 
@@ -339,14 +333,14 @@ export class ModalDialog extends Component {
                     .css('padding-right', '');
             }
 
-            this._mainElement.remove();
+            this._element.remove();
         };
 
-        if (this._mainElement.hasClass('show')) {
-            this._mainElement.one('hidden.bs.modal', removeIfNoOtherModal);
+        if (this._element.hasClass('show')) {
+            this._element.one('hidden.bs.modal', removeIfNoOtherModal);
 
-            if (typeof (this._mainElement as any).modal === 'function') {
-                (this._mainElement as any).modal('hide');
+            if (typeof (this._element as any).modal === 'function') {
+                (this._element as any).modal('hide');
             }
         } else {
             removeIfNoOtherModal();

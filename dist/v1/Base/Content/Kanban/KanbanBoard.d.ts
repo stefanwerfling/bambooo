@@ -5,12 +5,12 @@ import { KanbanCard } from './KanbanCard.js';
 /**
  * Kanban Board
  */
-export declare class KanbanBoard extends Component {
+export declare class KanbanBoard extends Component<HTMLDivElement> {
     /**
      * Container
      * @protected
      */
-    protected _container: JQuery;
+    protected _container: JQuery<HTMLDivElement>;
     /**
      * Constructor
      * @param {ComponentType} element

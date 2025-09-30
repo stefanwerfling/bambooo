@@ -12,7 +12,7 @@ export enum CaretType {
 /**
  * Caret
  */
-export class Caret extends Component {
+export class Caret extends Component<HTMLSpanElement> {
 
     /**
      * Constructor
@@ -36,7 +36,7 @@ export class Caret extends Component {
                 break;
         }
 
-        super(jQuery(`<span class="description-percentage ${dp}"><i class="fas ${type}"></i> </span>`).appendTo(
+        super(jQuery<HTMLSpanElement>(`<span class="description-percentage ${dp}"><i class="fas ${type}"></i> </span>`).appendTo(
             Component.getAnyElement(element)
         ));
     }

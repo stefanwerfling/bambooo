@@ -3,7 +3,7 @@ import {Component, ComponentType} from '../../Component.js';
 /**
  * LineChartInteractiv
  */
-export class LineChartInteractiv extends Component {
+export class LineChartInteractiv extends Component<HTMLDivElement> {
 
     /**
      * height
@@ -34,7 +34,7 @@ export class LineChartInteractiv extends Component {
      * @param {ComponentType} element
      */
     public constructor(element: ComponentType) {
-        super(jQuery('<div></div>').appendTo(Component.getAnyElement(element)));
+        super(jQuery<HTMLDivElement>('<div></div>').appendTo(Component.getAnyElement(element)));
         this._changeSize();
 
         // @ts-ignore

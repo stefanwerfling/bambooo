@@ -10,7 +10,7 @@ export enum ArrowSimpleDirection {
 /**
  * Arrow Simple
  */
-export class ArrowSimple extends Component {
+export class ArrowSimple extends Component<HTMLDivElement> {
 
     /**
      * Constructor
@@ -23,7 +23,7 @@ export class ArrowSimple extends Component {
         super();
 
         const telement = this._getAnyElement(element);
-        this._element = jQuery('<div />').appendTo(telement);
+        this._element = jQuery<HTMLDivElement>('<div />').appendTo(telement);
 
         this.setOptions(direction, color, sizePx);
     }

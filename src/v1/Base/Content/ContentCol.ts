@@ -41,7 +41,7 @@ export enum ContentColSize {
 /**
  * ContentCol
  */
-export class ContentCol extends Component {
+export class ContentCol extends Component<HTMLDivElement> {
 
     /**
      * Constructor
@@ -51,7 +51,7 @@ export class ContentCol extends Component {
     public constructor(contentRow: ContentRow, size: ContentColSize) {
         super();
 
-        this._element = jQuery('<div />').appendTo(contentRow.getElement());
+        this._element = jQuery<HTMLDivElement>('<div />').appendTo(contentRow.getElement());
         this._element.addClass(`${size}`);
     }
 

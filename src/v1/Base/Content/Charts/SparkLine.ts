@@ -3,7 +3,7 @@ import {Component, ComponentType} from '../../Component.js';
 /**
  * SparkLine
  */
-export class SparkLine extends Component {
+export class SparkLine extends Component<HTMLDivElement> {
 
     /**
      * Height
@@ -24,11 +24,11 @@ export class SparkLine extends Component {
     protected _data: number[] = [];
 
     /**
-     * constructor
+     * Constructor
      * @param {ComponentType} element
      */
     public constructor(element: ComponentType) {
-        super(jQuery('<div />').appendTo(Component.getAnyElement(element)));
+        super(jQuery<HTMLDivElement>('<div />').appendTo(Component.getAnyElement(element)));
     }
 
     public addData(value: number): void {

@@ -3,7 +3,7 @@ import {Component, ComponentType} from '../../Component.js';
 /**
  * ButtonShowMore
  */
-export class ButtonShowMore extends Component {
+export class ButtonShowMore extends Component<HTMLTableElement> {
 
     /**
      * constructor
@@ -12,7 +12,7 @@ export class ButtonShowMore extends Component {
      * @param {JQuery} hideContent
      */
     public constructor(element: ComponentType, showContent: JQuery|string, hideContent: JQuery|string) {
-        super(jQuery('<table/>').appendTo(Component.getAnyElement(element)));
+        super(jQuery<HTMLTableElement>('<table/>').appendTo(Component.getAnyElement(element)));
 
         this._element.css({});
 

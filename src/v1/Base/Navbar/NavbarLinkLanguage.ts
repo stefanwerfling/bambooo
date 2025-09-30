@@ -9,19 +9,19 @@ export type ChangeLangClickFn = (lang: LangDefine) => void;
 /**
  * NavbarLinkLanguage
  */
-export class NavbarLinkLanguage extends Component {
+export class NavbarLinkLanguage extends Component<HTMLLIElement> {
 
     /**
      * link
      * @protected
      */
-    protected _a: JQuery;
+    protected _a: JQuery<HTMLAnchorElement>;
 
     /**
      * lang menu
      * @protected
      */
-    protected _menu: JQuery;
+    protected _menu: JQuery<HTMLDivElement>;
 
     /**
      * Constructor
@@ -32,10 +32,10 @@ export class NavbarLinkLanguage extends Component {
 
         const telement = this._getAnyElement(element);
 
-        this._element = jQuery('<li class="nav-item" />').appendTo(telement);
+        this._element = jQuery<HTMLLIElement>('<li class="nav-item" />').appendTo(telement);
 
-        this._a = jQuery('<a class="nav-link" data-toggle="dropdown" href="#" />').appendTo(this._element);
-        this._menu = jQuery('<div class="dropdown-menu dropdown-menu-right p-0" />').appendTo(this._element);
+        this._a = jQuery<HTMLAnchorElement>('<a class="nav-link" data-toggle="dropdown" href="#" />').appendTo(this._element);
+        this._menu = jQuery<HTMLDivElement>('<div class="dropdown-menu dropdown-menu-right p-0" />').appendTo(this._element);
     }
 
     /**

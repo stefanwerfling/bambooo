@@ -8,17 +8,17 @@ export type StepperLinearStepEventFn = (indexStep: number) => void;
 /**
  * Stepper linear
  */
-export declare class StepperLinear extends Component {
+export declare class StepperLinear extends Component<HTMLDivElement> {
     /**
      * Header
      * @protected
      */
-    protected _header: JQuery;
+    protected _header: JQuery<HTMLDivElement>;
     /**
      * Content
      * @protected
      */
-    protected _content: JQuery;
+    protected _content: JQuery<HTMLDivElement>;
     /**
      * Stepper
      * @protected
@@ -33,9 +33,9 @@ export declare class StepperLinear extends Component {
      * Add a Step
      * @param {string|LangText} label
      * @param {number} stepNumber
-     * @returns {JQuery}
+     * @returns {jQuery<HTMLDivElement>}
      */
-    addStep(label: string | LangText, stepNumber: number): any;
+    addStep(label: string | LangText, stepNumber: number): JQuery<HTMLDivElement>;
     /**
      * load
      */

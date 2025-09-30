@@ -69,7 +69,7 @@ class NavTab extends Component_js_1.Component {
             id: aId,
             tab: li,
             title: etitle,
-            body
+            body: body
         };
     }
     /**
@@ -79,8 +79,10 @@ class NavTab extends Component_js_1.Component {
     setTabSelect(index) {
         this._nav.find('a').each((tindex, telement) => {
             if (index === tindex) {
-                // @ts-ignore
-                jQuery(telement).tab('show');
+                const tabElement = jQuery(telement);
+                if (typeof tabElement.tab === 'function') {
+                    tabElement.tab('show');
+                }
             }
         });
     }

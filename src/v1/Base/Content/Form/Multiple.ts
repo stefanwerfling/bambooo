@@ -4,7 +4,7 @@ import {SelectOption} from './SelectBottemBorderOnly2';
 /**
  * Multiple
  */
-export class Multiple extends Component {
+export class Multiple extends Component<HTMLSelectElement> {
 
     /**
      * Limit
@@ -28,7 +28,7 @@ export class Multiple extends Component {
             aid = id;
         }
 
-        this._element = jQuery(`<select class="select2bs4" id="${aid}" multiple="multiple" data-placeholder="Select a State" style="width: 100%;" />`).appendTo(telement);
+        this._element = jQuery<HTMLSelectElement>(`<select class="select2bs4" id="${aid}" multiple="multiple" data-placeholder="Select a State" style="width: 100%;" />`).appendTo(telement);
     }
 
     /**

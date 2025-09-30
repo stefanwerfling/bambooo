@@ -4,7 +4,7 @@ import {Tr} from './Tr';
 /**
  * Th
  */
-export class Th extends Component {
+export class Th extends Component<HTMLTableCellElement> {
 
     /**
      * constructor
@@ -15,7 +15,7 @@ export class Th extends Component {
     public constructor(atr: Tr, avalue?: ComponentType, width?: string) {
         super();
 
-        this._element = jQuery('<th/>').appendTo(atr.getElement());
+        this._element = jQuery<HTMLTableCellElement>('<th/>').appendTo(atr.getElement());
 
         if (width) {
             this._element.css({

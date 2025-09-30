@@ -48,7 +48,7 @@ export class ButtonMenu extends Button {
         bnClass: ButtonClass = ButtonClass.default,
         shape: ButtonShape|string = ButtonShape.none
     ) {
-        const divGrp = jQuery('<div class="btn-group"/>');
+        const divGrp = jQuery<HTMLDivElement>('<div class="btn-group"/>');
         divGrp.css('position', `${position}`);
 
         super(divGrp, type, bnClass, shape);

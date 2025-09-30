@@ -14,7 +14,7 @@ export declare enum CircleColor {
 /**
  * Circle
  */
-export declare class Circle extends Component {
+export declare class Circle extends Component<HTMLElement> {
     /**
      * Constructor
      * @param {ComponentType} element

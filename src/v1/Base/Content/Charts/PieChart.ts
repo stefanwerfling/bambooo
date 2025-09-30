@@ -3,7 +3,7 @@ import {Component, ComponentType} from '../../Component.js';
 /**
  * PieChart
  */
-export class PieChart extends Component {
+export class PieChart extends Component<HTMLCanvasElement> {
 
     /**
      * Height
@@ -22,7 +22,7 @@ export class PieChart extends Component {
      * @param {ComponentType} element
      */
     public constructor(element: ComponentType) {
-        super(jQuery('<canvas />').appendTo(Component.getAnyElement(element)));
+        super(jQuery<HTMLCanvasElement>('<canvas />').appendTo(Component.getAnyElement(element)));
         this._changeCanvasSize();
     }
 

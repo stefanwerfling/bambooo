@@ -14,7 +14,7 @@ export type SelectChangeFn = (value: any) => void;
 /**
  * SelectBottemBorderOnly2
  */
-export declare class SelectBottemBorderOnly2 extends Component {
+export declare class SelectBottemBorderOnly2 extends Component<HTMLSelectElement> {
     /**
      * selected value
      * @protected

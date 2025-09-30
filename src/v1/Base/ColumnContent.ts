@@ -3,7 +3,7 @@ import {Component, ComponentType} from './Component.js';
 /**
  * ColumnContent
  */
-export class ColumnContent extends Component {
+export class ColumnContent extends Component<HTMLSpanElement> {
 
     /**
      * Constructor
@@ -16,7 +16,7 @@ export class ColumnContent extends Component {
         if (toElement) {
             this._element = toElement;
         } else {
-            this._element = jQuery('<span />');
+            this._element = jQuery<HTMLSpanElement>('<span />');
         }
 
         if (elements) {

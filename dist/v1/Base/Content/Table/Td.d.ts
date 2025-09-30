@@ -3,7 +3,7 @@ import { Tr } from './Tr';
 /**
  * Td
  */
-export declare class Td extends Component {
+export declare class Td extends Component<HTMLTableCellElement> {
     /**
      * Constructor
      * @param {Tr} atr

@@ -4,7 +4,7 @@ import {Tr} from './Tr';
 /**
  * Td
  */
-export class Td extends Component {
+export class Td extends Component<HTMLTableCellElement> {
 
     /**
      * Constructor
@@ -21,7 +21,7 @@ export class Td extends Component {
             params = `${params} colspan="${colspan}"`;
         }
 
-        this._element = jQuery(`<td ${params}/>`).appendTo(atr.getElement());
+        this._element = jQuery<HTMLTableCellElement>(`<td ${params}/>`).appendTo(atr.getElement());
 
         if (avalue) {
             this.addValue(avalue);

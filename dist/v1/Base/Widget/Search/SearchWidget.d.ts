@@ -1,4 +1,5 @@
 import 'jquery';
+import 'select2';
 import { Component, ComponentType } from '../../Component.js';
 export interface SearchWidgetSelect2AjaxParams {
     data: any;
@@ -52,12 +53,12 @@ type SearchWidgetSelectOptions = {
 /**
  * Search widget
  */
-export declare class SearchWidget extends Component {
+export declare class SearchWidget extends Component<HTMLElement> {
     /**
      * Select2 object
      * @protected
      */
-    protected _select: any;
+    protected _select: JQuery<HTMLSelectElement>;
     /**
      * Select options
      * @protected

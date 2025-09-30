@@ -3,7 +3,7 @@ import { LangText } from './../../../Lang/LangText.js';
 /**
  * H Head element
  */
-export declare class HeadText extends Component {
+export declare class HeadText extends Component<HTMLHeadingElement> {
     /**
      * Constructor
      * @param {ComponentType} element

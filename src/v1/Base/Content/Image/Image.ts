@@ -13,7 +13,7 @@ export enum ImageType {
 /**
  * Image
  */
-export class Image extends Component {
+export class Image extends Component<HTMLImageElement> {
 
     /**
      * Constructor
@@ -28,7 +28,7 @@ export class Image extends Component {
 
         const telement = this._getAnyElement(element);
 
-        this._element = jQuery('<img  alt=""/>').appendTo(telement);
+        this._element = jQuery<HTMLImageElement>('<img  alt=""/>').appendTo(telement);
         this._element.attr('src', url);
 
         if (alt) {

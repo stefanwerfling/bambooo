@@ -13,7 +13,7 @@ export enum PTextType {
 /**
  * PText
  */
-export class PText extends Component {
+export class PText extends Component<HTMLElement> {
 
     /**
      * constructor

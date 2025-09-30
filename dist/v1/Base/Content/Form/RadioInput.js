@@ -91,7 +91,7 @@ class RadioInput extends Component_js_1.Component {
      * @param {RadioInputClickFn} fn
      */
     setOnClickFnRadio(fn) {
-        this._inputRadio.unbind().on('click', () => {
+        this._inputRadio.off('click').on('click', () => {
             fn();
         });
     }

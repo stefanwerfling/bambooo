@@ -3,7 +3,7 @@ import {Component, ComponentType} from '../../Component.js';
 /**
  * Textarea form element.
  */
-export class Textarea extends Component {
+export class Textarea extends Component<HTMLTextAreaElement> {
 
     /**
      * Constructor for Textarea element.
@@ -21,7 +21,7 @@ export class Textarea extends Component {
             tplaceholder = `placeholder="${placeholder}"`;
         }
 
-        this._element = jQuery(`<textarea class="form-control" rows="${rows}" ${tplaceholder}>`);
+        this._element = jQuery<HTMLTextAreaElement>(`<textarea class="form-control" rows="${rows}" ${tplaceholder}>`);
         this._element.appendTo(telement);
     }
 

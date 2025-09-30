@@ -26,7 +26,7 @@ export enum BadgeType {
 /**
  * Badge
  */
-export class Badge extends Component {
+export class Badge extends Component<HTMLSpanElement> {
 
     /**
      * constructor
@@ -51,7 +51,7 @@ export class Badge extends Component {
         }
 
         const telement = this._getAnyElement(element);
-        this._element = jQuery(`<span class="badge ${strType}">${text}</span>`).appendTo(telement);
+        this._element = jQuery<HTMLSpanElement>(`<span class="badge ${strType}">${text}</span>`).appendTo(telement);
 
         if (aColor !== undefined) {
             this._element.css({

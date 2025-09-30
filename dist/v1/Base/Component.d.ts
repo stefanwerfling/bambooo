@@ -1,16 +1,16 @@
 /**
  * Component type
  */
-export type ComponentType = unknown | Component | JQuery | HTMLElement;
+export type ComponentType = unknown | Component<any> | JQuery | HTMLElement;
 /**
  * Component
  */
-export declare class Component {
+export declare class Component<T extends HTMLElement> {
     /**
      * element (jquery)
      * @protected
      */
-    protected _element: JQuery;
+    protected _element: JQuery<T>;
     /**
      * Constructor
      * @param {ComponentType} aElement
@@ -25,7 +25,7 @@ export declare class Component {
      * Return the main enclosed element
      * @return {JQuery}
      */
-    getElement(): JQuery;
+    getElement(): JQuery<T>;
     /**
      * getAnyElement
      * helper for giving an element as any (by jquery)
@@ -33,7 +33,7 @@ export declare class Component {
      * @return {JQuery}
      * @protected
      */
-    static getAnyElement(aelement?: ComponentType): JQuery;
+    static getAnyElement<E extends HTMLElement>(aelement?: ComponentType): JQuery<E>;
     /**
      * isEmpty
      * @param el
@@ -46,7 +46,7 @@ export declare class Component {
      * @return {JQuery}
      * @protected
      */
-    protected _getAnyElement(aelement?: ComponentType): JQuery;
+    protected _getAnyElement<T extends HTMLElement>(aelement?: ComponentType): JQuery<T>;
     /**
      * hide
      */
@@ -59,12 +59,12 @@ export declare class Component {
      * appendTo
      * @param telement
      */
-    appendTo(telement: Component | string): void;
+    appendTo(telement: Component<any> | string): void;
     /**
      * append
      * @param telement
      */
-    append(telement: Component | string): void;
+    append(telement: Component<any> | string): void;
     /**
      * Helper bool class, add or remove a class
      * @param {string} classname

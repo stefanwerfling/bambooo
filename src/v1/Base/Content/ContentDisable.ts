@@ -3,7 +3,7 @@ import {Component, ComponentType} from '../Component.js';
 /**
  * ContentDisable
  */
-export class ContentDisable extends Component {
+export class ContentDisable extends Component<HTMLDivElement> {
 
     /**
      * Constructor
@@ -14,7 +14,7 @@ export class ContentDisable extends Component {
 
         const telement = this._getAnyElement(element);
 
-        this._element = jQuery('<div class="overlay dark"></div>').appendTo(telement);
+        this._element = jQuery<HTMLDivElement>('<div class="overlay dark"></div>').appendTo(telement);
     }
 
 }

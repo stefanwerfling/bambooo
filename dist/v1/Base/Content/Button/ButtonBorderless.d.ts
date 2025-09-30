@@ -3,7 +3,7 @@ import { ButtonDefaultClickFn } from './ButtonDefault';
 /**
  * ButtonBorderless
  */
-export declare class ButtonBorderless extends Component {
+export declare class ButtonBorderless extends Component<HTMLAnchorElement> {
     /**
      * title
      * @protected

@@ -37,37 +37,37 @@ export declare enum CardShape {
 /**
  * Card
  */
-export declare class Card extends Component {
+export declare class Card extends Component<HTMLDivElement> {
     /**
      * header element
      * @private
      */
-    protected _header: JQuery;
+    protected _header: JQuery<HTMLDivElement>;
     /**
      * title element
      * @private
      */
-    protected _title: JQuery;
+    protected _title: JQuery<HTMLHeadingElement>;
     /**
      * tools element
      * @private
      */
-    protected _tools: JQuery;
+    protected _tools: JQuery<HTMLDivElement>;
     /**
      * body element
      * @private
      */
-    protected _body: JQuery;
+    protected _body: JQuery<HTMLDivElement>;
     /**
      * footer element
      * @private
      */
-    protected _footer: JQuery | null;
+    protected _footer: JQuery<HTMLDivElement> | null;
     /**
      * overload element
      * @private
      */
-    protected _overload: JQuery;
+    protected _overload: JQuery<HTMLDivElement>;
     /**
      * Constructor
      * @param {ComponentType} elementObject
@@ -79,9 +79,9 @@ export declare class Card extends Component {
     constructor(elementObject: ComponentType, bodyType?: CardBodyType, cardType?: CardType, cardLine?: CardLine, cardShape?: CardShape);
     /**
      * getMainElement
-     * @return {JQuery}
+     * @return {JQuery<HTMLDivElement>}
      */
-    getMainElement(): JQuery;
+    getMainElement(): JQuery<HTMLDivElement>;
     /**
      * setTitle
      * @param {string|LangText} title
@@ -89,24 +89,24 @@ export declare class Card extends Component {
     setTitle(title: string | LangText): void;
     /**
      * getHeaderElement
-     * @return {JQuery}
+     * @return {JQuery<HTMLDivElement>}
      */
-    getHeaderElement(): JQuery;
+    getHeaderElement(): JQuery<HTMLDivElement>;
     /**
      * getTitleElement
-     * @return {JQuery}
+     * @return {JQuery<HTMLHeadingElement>}
      */
-    getTitleElement(): JQuery;
+    getTitleElement(): JQuery<HTMLHeadingElement>;
     /**
      * getToolsElement
-     * @return {JQuery}
+     * @return {JQuery<HTMLDivElement>}
      */
-    getToolsElement(): JQuery;
+    getToolsElement(): JQuery<HTMLDivElement>;
     /**
      * getElement
-     * @return {JQuery}
+     * @return {JQuery<HTMLDivElement>}
      */
-    getElement(): JQuery;
+    getElement(): JQuery<HTMLDivElement>;
     /**
      * showLoading
      */
@@ -121,16 +121,16 @@ export declare class Card extends Component {
     hideHeader(): void;
     /**
      * getBodyElement
-     * @return {any}
+     * @return {JQuery<HTMLDivElement>}
      */
-    getBodyElement(): any;
+    getBodyElement(): JQuery<HTMLDivElement>;
     /**
      * emptyBody
      */
     emptyBody(): void;
     /**
      * Return the footer element
-     * @returns {JQuery}
+     * @returns {JQuery<HTMLDivElement>}
      */
-    getFooterElement(): JQuery;
+    getFooterElement(): JQuery<HTMLDivElement>;
 }

@@ -44,7 +44,7 @@ class DescriptionListEntry extends Component_js_1.Component {
     }
     /**
      * Return the label element
-     * @return {JQuery}
+     * @return {JQuery<HTMLElement>}
      */
     getLabelElement() {
         return this._label;

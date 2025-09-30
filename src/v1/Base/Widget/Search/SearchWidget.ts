@@ -1,4 +1,5 @@
 import 'jquery';
+import 'select2';
 import {Component, ComponentType} from '../../Component.js';
 
 export interface SearchWidgetSelect2AjaxParams {
@@ -66,13 +67,13 @@ type SearchWidgetSelectOptions = {
 /**
  * Search widget
  */
-export class SearchWidget extends Component {
+export class SearchWidget extends Component<HTMLElement> {
 
     /**
      * Select2 object
      * @protected
      */
-    protected _select: any;
+    protected _select: JQuery<HTMLSelectElement>;
 
     /**
      * Select options
@@ -100,7 +101,7 @@ export class SearchWidget extends Component {
     public constructor(element: ComponentType) {
         super(element);
 
-        this._select = jQuery('<select class="select2bs4" multiple="multiple" style="width: 100%;">').appendTo(this._element);
+        this._select = jQuery<HTMLSelectElement>('<select class="select2bs4" multiple="multiple" style="width: 100%;">').appendTo(this._element);
         this._updateSelect();
     }
 
@@ -109,7 +110,7 @@ export class SearchWidget extends Component {
      * @protected
      */
     protected _updateSelect(): void {
-        this._select.select2(this._selectOptions);
+        this._select.select2(this._selectOptions as any);
     }
 
     /**
@@ -215,15 +216,18 @@ export class SearchWidget extends Component {
      * @param {SearchWidgetOnEvent} on
      */
     public setOnSelect(on: SearchWidgetOnEvent): void {
-        this._select.unbind('select2:select').on('select2:select', on);
+        this._select.off('select2:select');
+        (this._select as any).on('select2:select', on);
     }
 
     public setOnUnselect(on: SearchWidgetOnEvent): void {
-        this._select.unbind('select2:unselect').on('select2:unselect', on);
+        this._select.off('select2:unselect');
+        (this._select as any).on('select2:unselect', on);
     }
 
     public setOnSelecting(on: SearchWidgetOnEvent): void {
-        this._select.unbind('select2:selecting').on('select2:selecting', on);
+        this._select.off('select2:selecting');
+        (this._select as any).on('select2:selecting', on);
     }
 
     public override addClass(aclass: string): void {
@@ -294,7 +298,7 @@ export class SearchWidget extends Component {
                 params: {
                     data: values
                 }
-            });
+            } as any);
         }
     }
 
@@ -302,7 +306,7 @@ export class SearchWidget extends Component {
      * Clear selects
      */
     public clear(): void {
-        this._select.val(null).trigger('change');
+        this._select.val(null as any).trigger('change');
     }
 
 }

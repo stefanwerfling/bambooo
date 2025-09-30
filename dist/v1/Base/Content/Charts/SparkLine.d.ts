@@ -2,7 +2,7 @@ import { Component, ComponentType } from '../../Component.js';
 /**
  * SparkLine
  */
-export declare class SparkLine extends Component {
+export declare class SparkLine extends Component<HTMLDivElement> {
     /**
      * Height
      * @protected
@@ -19,7 +19,7 @@ export declare class SparkLine extends Component {
      */
     protected _data: number[];
     /**
-     * constructor
+     * Constructor
      * @param {ComponentType} element
      */
     constructor(element: ComponentType);

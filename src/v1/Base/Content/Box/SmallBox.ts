@@ -10,7 +10,7 @@ export enum SmallBoxBg {
 /**
  * Smallbox
  */
-export class SmallBox extends Component {
+export class SmallBox extends Component<HTMLDivElement> {
 
     /**
      * Small box background
@@ -22,34 +22,39 @@ export class SmallBox extends Component {
      * Inner element
      * @protected
      */
-    protected _innerElement: JQuery;
+    protected _innerElement: JQuery<HTMLDivElement>;
 
     /**
      * Icon element
      * @protected
      */
-    protected _iconElement: JQuery;
+    protected _iconElement: JQuery<HTMLDivElement>;
 
     /**
      * Footer element
      * @protected
      */
-    protected _footerElement: JQuery;
+    protected _footerElement: JQuery<HTMLAnchorElement>;
 
     /**
      * h3 Element
      * @protected
      */
-    protected _h3Element: JQuery;
+    protected _h3Element: JQuery<HTMLHeadingElement>;
 
     /**
      * p Element
      * @protected
      */
-    protected _pElement: JQuery;
+    protected _pElement: JQuery<HTMLElement>;
 
-    public constructor(elementObject: Component, bg?: SmallBoxBg) {
-        super(jQuery('<div class="small-box" />').appendTo(elementObject.getElement()));
+    /**
+     * Constructor
+     * @param {Component} elementObject
+     * @param {SmallBoxBg} bg
+     */
+    public constructor(elementObject: Component<any>, bg?: SmallBoxBg) {
+        super(jQuery<HTMLDivElement>('<div class="small-box" />').appendTo(elementObject.getElement()));
 
         if (bg) {
             this.setBoxBg(bg);
@@ -57,11 +62,11 @@ export class SmallBox extends Component {
             this.setBoxBg(SmallBoxBg.info);
         }
 
-        this._innerElement = jQuery('<div class="inner" />').appendTo(this._element);
-        this._h3Element = jQuery('<h3 />').appendTo(this._innerElement);
-        this._pElement = jQuery('<p />').appendTo(this._innerElement);
-        this._iconElement = jQuery('<div class="icon" />').appendTo(this._element);
-        this._footerElement = jQuery('<a href="#" class="small-box-footer"/>').appendTo(this._element);
+        this._innerElement = jQuery<HTMLDivElement>('<div class="inner" />').appendTo(this._element);
+        this._h3Element = jQuery<HTMLHeadingElement>('<h3 />').appendTo(this._innerElement);
+        this._pElement = jQuery<HTMLElement>('<p />').appendTo(this._innerElement);
+        this._iconElement = jQuery<HTMLDivElement>('<div class="icon" />').appendTo(this._element);
+        this._footerElement = jQuery<HTMLAnchorElement>('<a href="#" class="small-box-footer"/>').appendTo(this._element);
     }
 
     /**

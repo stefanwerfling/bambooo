@@ -4,19 +4,19 @@ import {LangText} from './../../../Lang/LangText.js';
 /**
  * Radio
  */
-export class Radio extends Component {
+export class Radio extends Component<HTMLDivElement> {
 
     /**
      * input radio
      * @protected
      */
-    protected _inputRadio: JQuery;
+    protected _inputRadio: JQuery<HTMLInputElement>;
 
     /**
      * label
      * @protected
      */
-    protected _label: JQuery|null = null;
+    protected _label: JQuery<HTMLLabelElement>|null = null;
 
     /**
      * Constructor
@@ -36,9 +36,9 @@ export class Radio extends Component {
         super();
 
         const telement = this._getAnyElement(element);
-        this._element = jQuery('<div class="form-check" />').appendTo(telement);
+        this._element = jQuery<HTMLDivElement>('<div class="form-check" />').appendTo(telement);
 
-        this._inputRadio = jQuery(`<input class="form-check-input" type="radio" name="${radionName}" value="${radioValue}">`).appendTo(this._element);
+        this._inputRadio = jQuery<HTMLInputElement>(`<input class="form-check-input" type="radio" name="${radionName}" value="${radioValue}">`).appendTo(this._element);
 
         if (label !== null) {
             this.setLabel(label);
@@ -52,9 +52,9 @@ export class Radio extends Component {
      * @protected
      * @return {JQuery}
      */
-    protected _getLabel(): JQuery {
+    protected _getLabel(): JQuery<HTMLLabelElement> {
         if (this._label === null) {
-            this._label = jQuery('<label class="form-check-label"/>').appendTo(this._element);
+            this._label = jQuery<HTMLLabelElement>('<label class="form-check-label"/>').appendTo(this._element);
         }
 
         return this._label;
@@ -71,9 +71,9 @@ export class Radio extends Component {
 
     /**
      * getLabelElement
-     * @returns {JQuery}
+     * @returns {JQuery<HTMLLabelElement>}
      */
-    public getLabelElement(): JQuery {
+    public getLabelElement(): JQuery<HTMLLabelElement> {
         return this._getLabel();
     }
 

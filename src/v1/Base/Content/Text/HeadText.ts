@@ -4,7 +4,7 @@ import {LangText} from './../../../Lang/LangText.js';
 /**
  * H Head element
  */
-export class HeadText extends Component {
+export class HeadText extends Component<HTMLHeadingElement> {
 
     /**
      * Constructor
@@ -17,7 +17,7 @@ export class HeadText extends Component {
 
         const telement = this._getAnyElement(element);
 
-        this._element = jQuery(`<h${hnum}/>`).appendTo(telement);
+        this._element = jQuery<HTMLHeadingElement>(`<h${hnum}/>`).appendTo(telement);
 
         this.setTitle(title);
     }

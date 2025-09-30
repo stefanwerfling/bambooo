@@ -24,25 +24,25 @@ export enum ProgressbarColor {
 /**
  * Progressbar
  */
-export class Progressbar extends Component {
+export class Progressbar extends Component<HTMLSpanElement> {
 
     /**
      * Progressbar div
      * @protected
      */
-    protected _progressbarDiv: JQuery;
+    protected _progressbarDiv: JQuery<HTMLDivElement>;
 
     /**
      * Label percent
      * @protected
      */
-    protected _labelPercent: JQuery|null = null;
+    protected _labelPercent: JQuery<HTMLElement>|null = null;
 
     /**
      * Label
      * @protected
      */
-    protected _label: JQuery|null = null;
+    protected _label: JQuery<HTMLElement>|null = null;
 
     /**
      * Constructor
@@ -60,10 +60,10 @@ export class Progressbar extends Component {
         super();
 
         const telement = this._getAnyElement(element);
-        this._element = jQuery('<span></span>').appendTo(telement);
+        this._element = jQuery<HTMLSpanElement>('<span></span>').appendTo(telement);
 
         const progress = jQuery(`<div class="progress ${style}" />`).appendTo(this._element);
-        this._progressbarDiv = jQuery(`<div class="progress-bar ${color}" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"> </div>`).appendTo(progress);
+        this._progressbarDiv = jQuery<HTMLDivElement>(`<div class="progress-bar ${color}" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"> </div>`).appendTo(progress);
         this._progressbarDiv.css({
             width: '0%'
         });
@@ -79,10 +79,10 @@ export class Progressbar extends Component {
      * @protected
      */
     protected _createLabel(label: string|LangText): void {
-        this._labelPercent = jQuery('<small>').appendTo(this._element);
+        this._labelPercent = jQuery<HTMLElement>('<small>').appendTo(this._element);
         this._labelPercent.append('0%');
 
-        this._label = jQuery('<small>').appendTo(this._element);
+        this._label = jQuery<HTMLElement>('<small>').appendTo(this._element);
 
         const tlabel = this._getAnyElement(label);
         this._label.append(tlabel);

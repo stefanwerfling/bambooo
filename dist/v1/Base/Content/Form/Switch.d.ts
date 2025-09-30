@@ -6,17 +6,17 @@ export type SwitchChangeFn = (value: boolean) => void;
 /**
  * Switch
  */
-export declare class Switch extends Component {
+export declare class Switch extends Component<HTMLDivElement> {
     /**
      * input
      * @protected
      */
-    protected _input: JQuery;
+    protected _input: JQuery<HTMLInputElement>;
     /**
      * label
      * @protected
      */
-    protected _label: JQuery;
+    protected _label: JQuery<HTMLLabelElement>;
     /**
      * constructor
      * @param {ComponentType} element

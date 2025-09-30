@@ -1,4 +1,4 @@
-import { Component } from '../../Component.js';
+import { Component, ComponentType } from '../../Component.js';
 import { IconFa } from '../Icon/Icon';
 /**
  * InfoBoxBg
@@ -20,29 +20,29 @@ export declare enum InfoBoxMb {
 /**
  * InfoBox
  */
-export declare class InfoBox extends Component {
+export declare class InfoBox extends Component<HTMLDivElement> {
     /**
      * infobox content element
      * @protected
      */
-    protected _contentElement: JQuery | null;
+    protected _contentElement: JQuery<HTMLDivElement> | null;
     /**
      * infobox text element
      * @protected
      */
-    protected _textElement: JQuery | null;
+    protected _textElement: JQuery<HTMLSpanElement> | null;
     /**
      * infobox number element
      * @protected
      */
-    protected _numberElement: JQuery | null;
+    protected _numberElement: JQuery<HTMLSpanElement> | null;
     /**
-     * constructor
-     * @param {Component|any} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {InfoBoxBg} bg
      * @param {InfoBoxMb} mb
      */
-    constructor(element: Component | any, bg?: InfoBoxBg, mb?: InfoBoxMb);
+    constructor(element: ComponentType, bg?: InfoBoxBg, mb?: InfoBoxMb);
     /**
      * setIcon
      * @param symbole
@@ -51,17 +51,17 @@ export declare class InfoBox extends Component {
     setIcon(symbole: IconFa, bg: InfoBoxBg): void;
     /**
      * Return the content element
-     * @return {JQuery}
+     * @return {JQuery<HTMLDivElement>}
      */
-    getContentElement(): JQuery;
+    getContentElement(): JQuery<HTMLDivElement>;
     /**
      * Return the text element
-     * @return {JQuery}
+     * @return {JQuery<HTMLSpanElement>}
      */
-    getTextElement(): JQuery;
+    getTextElement(): JQuery<HTMLSpanElement>;
     /**
      * Get number element
-     * @return {JQuery}
+     * @return {JQuery<HTMLSpanElement>}
      */
-    getNumberElement(): JQuery;
+    getNumberElement(): JQuery<HTMLSpanElement>;
 }

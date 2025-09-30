@@ -8,7 +8,7 @@ export type NavbarLinkButtonFn = (event: any) => void;
 /**
  * NavbarLinkButton
  */
-export class NavbarLinkButton extends Component {
+export class NavbarLinkButton extends Component<HTMLLIElement> {
 
     /**
      * Constructor
@@ -21,7 +21,7 @@ export class NavbarLinkButton extends Component {
 
         const telement = this._getAnyElement(element);
 
-        this._element = jQuery('<li class="nav-item" />').appendTo(telement);
+        this._element = jQuery<HTMLLIElement>('<li class="nav-item" />').appendTo(telement);
         const a = jQuery('<a class="nav-link" href="#" role="button" />').appendTo(this._element);
         jQuery(`<i class="fas ${icon}" />`).appendTo(a);
 

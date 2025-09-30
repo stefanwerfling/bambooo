@@ -94,7 +94,7 @@ class Card extends Component_js_1.Component {
     }
     /**
      * getMainElement
-     * @return {JQuery}
+     * @return {JQuery<HTMLDivElement>}
      */
     getMainElement() {
         return this._element;
@@ -108,28 +108,28 @@ class Card extends Component_js_1.Component {
     }
     /**
      * getHeaderElement
-     * @return {JQuery}
+     * @return {JQuery<HTMLDivElement>}
      */
     getHeaderElement() {
         return this._header;
     }
     /**
      * getTitleElement
-     * @return {JQuery}
+     * @return {JQuery<HTMLHeadingElement>}
      */
     getTitleElement() {
         return this._title;
     }
     /**
      * getToolsElement
-     * @return {JQuery}
+     * @return {JQuery<HTMLDivElement>}
      */
     getToolsElement() {
         return this._tools;
     }
     /**
      * getElement
-     * @return {JQuery}
+     * @return {JQuery<HTMLDivElement>}
      */
     getElement() {
         return this._body;
@@ -154,7 +154,7 @@ class Card extends Component_js_1.Component {
     }
     /**
      * getBodyElement
-     * @return {any}
+     * @return {JQuery<HTMLDivElement>}
      */
     getBodyElement() {
         return this._body;
@@ -167,7 +167,7 @@ class Card extends Component_js_1.Component {
     }
     /**
      * Return the footer element
-     * @returns {JQuery}
+     * @returns {JQuery<HTMLDivElement>}
      */
     getFooterElement() {
         if (this._footer === null) {

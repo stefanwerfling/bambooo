@@ -14,7 +14,7 @@ export enum ContentRowClass {
 /**
  * ContentRow
  */
-export class ContentRow extends Component {
+export class ContentRow extends Component<HTMLElement|HTMLDivElement> {
 
     /**
      * Constructor
@@ -35,9 +35,9 @@ export class ContentRow extends Component {
         }
 
         if (typeof (this._element as any).getContentFluidElement === 'function') {
-            this._element = jQuery('<div class="row" />').appendTo((tcontent as Content).getContentFluidElement());
+            this._element = jQuery<HTMLDivElement>('<div class="row" />').appendTo((tcontent as Content).getContentFluidElement());
         } else {
-            this._element = jQuery('<div class="row" />').appendTo(Component.getAnyElement(tcontent));
+            this._element = jQuery<HTMLDivElement>('<div class="row" />').appendTo(Component.getAnyElement(tcontent));
         }
 
         if (rowclass) {

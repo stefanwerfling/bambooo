@@ -4,7 +4,7 @@ import {ButtonDefaultClickFn} from './ButtonDefault';
 /**
  * ButtonBorderless
  */
-export class ButtonBorderless extends Component {
+export class ButtonBorderless extends Component<HTMLAnchorElement> {
 
     /**
      * title
@@ -37,7 +37,7 @@ export class ButtonBorderless extends Component {
     ) {
         const telement = Component.getAnyElement(element);
 
-        super(jQuery(`<a href="#" class="text-muted"/>`).appendTo(telement));
+        super(jQuery<HTMLAnchorElement>(`<a href="#" class="text-muted"/>`).appendTo(telement));
 
         this.setValue(title, icon);
     }
@@ -76,7 +76,7 @@ export class ButtonBorderless extends Component {
      * @param {ButtonDefaultClickFn} onClick
      */
     public setOnClickFn(onClick: ButtonDefaultClickFn): void {
-        this._element.unbind().on('click', (): void => {
+        this._element.off('click').on('click', (): void => {
             if (this._clickEnable) {
                 onClick();
             }

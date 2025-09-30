@@ -12,7 +12,7 @@ export declare enum ContentRowClass {
 /**
  * ContentRow
  */
-export declare class ContentRow extends Component {
+export declare class ContentRow extends Component<HTMLElement | HTMLDivElement> {
     /**
      * Constructor
      * @param {Content|Wrapper|ContentWrapper|ComponentType} content

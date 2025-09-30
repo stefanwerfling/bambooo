@@ -48,7 +48,7 @@ class Callout extends Component_js_1.Component {
     }
     /**
      * Return the main Element
-     * @returns {JQuery}
+     * @returns {JQuery<HTMLDivElement>}
      */
     getMainElement() {
         return this._mainElement;

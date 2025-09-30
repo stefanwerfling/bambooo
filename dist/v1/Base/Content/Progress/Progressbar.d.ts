@@ -21,22 +21,22 @@ export declare enum ProgressbarColor {
 /**
  * Progressbar
  */
-export declare class Progressbar extends Component {
+export declare class Progressbar extends Component<HTMLSpanElement> {
     /**
      * Progressbar div
      * @protected
      */
-    protected _progressbarDiv: JQuery;
+    protected _progressbarDiv: JQuery<HTMLDivElement>;
     /**
      * Label percent
      * @protected
      */
-    protected _labelPercent: JQuery | null;
+    protected _labelPercent: JQuery<HTMLElement> | null;
     /**
      * Label
      * @protected
      */
-    protected _label: JQuery | null;
+    protected _label: JQuery<HTMLElement> | null;
     /**
      * Constructor
      * @param {ComponentType} element

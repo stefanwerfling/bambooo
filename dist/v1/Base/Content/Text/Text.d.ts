@@ -9,7 +9,7 @@ export declare enum TextAlignment {
 /**
  * Text
  */
-export declare class Text extends Component {
+export declare class Text extends Component<HTMLDivElement> {
     /**
      * constructor
      * @param {ComponentType} element

@@ -25,7 +25,7 @@ export type ButtonClickFn = () => void;
 /**
  * Button
  */
-export declare class Button extends Component {
+export declare class Button extends Component<HTMLAnchorElement | HTMLButtonElement> {
     /**
      * click enable
      * @protected

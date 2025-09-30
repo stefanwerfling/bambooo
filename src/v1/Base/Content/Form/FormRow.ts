@@ -10,7 +10,7 @@ export enum FormRowColType {
 /**
  * FormRow
  */
-export class FormRow extends Component {
+export class FormRow extends Component<HTMLDivElement> {
 
     /**
      * Constructor
@@ -21,7 +21,7 @@ export class FormRow extends Component {
         super();
 
         const telement = this._getAnyElement(element);
-        this._element = jQuery(`<div class="row ${style}" />`).appendTo(telement);
+        this._element = jQuery<HTMLDivElement>(`<div class="row ${style}" />`).appendTo(telement);
     }
 
     /**
@@ -29,9 +29,9 @@ export class FormRow extends Component {
      * @param {number} size
      * @param {FormRowColType} colType
      * @param {[string]} addClass
-     * @returns {JQuery}
+     * @returns {JQuery<HTMLDivElement>}
      */
-    public createCol(size: number, colType: FormRowColType = FormRowColType.sm, addClass?: string): JQuery {
+    public createCol(size: number, colType: FormRowColType = FormRowColType.sm, addClass?: string): JQuery<HTMLDivElement> {
         let tclass = `col`;
         let tsize = size;
 
@@ -61,15 +61,15 @@ export class FormRow extends Component {
             tclass = `${tclass} ${addClass}`;
         }
 
-        return jQuery(`<div class="${tclass}">`).appendTo(this._element);
+        return jQuery<HTMLDivElement>(`<div class="${tclass}">`).appendTo(this._element);
     }
 
     /**
      * Create auto col element
      * @param {string} addClass
-     * @returns {JQuery}
+     * @returns {JQuery<HTMLDivElement>}
      */
-    public createAutoCol(addClass?: string): JQuery {
+    public createAutoCol(addClass?: string): JQuery<HTMLDivElement> {
         return this.createCol(0, FormRowColType.auto, addClass);
     }
 

@@ -55,7 +55,7 @@ class Radio extends Component_js_1.Component {
     }
     /**
      * getLabelElement
-     * @returns {JQuery}
+     * @returns {JQuery<HTMLLabelElement>}
      */
     getLabelElement() {
         return this._getLabel();

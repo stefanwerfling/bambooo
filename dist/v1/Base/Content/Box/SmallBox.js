@@ -43,6 +43,11 @@ class SmallBox extends Component_js_1.Component {
      * @protected
      */
     _pElement;
+    /**
+     * Constructor
+     * @param {Component} elementObject
+     * @param {SmallBoxBg} bg
+     */
     constructor(elementObject, bg) {
         super(jQuery('<div class="small-box" />').appendTo(elementObject.getElement()));
         if (bg) {

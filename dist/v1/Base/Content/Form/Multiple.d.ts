@@ -3,7 +3,7 @@ import { SelectOption } from './SelectBottemBorderOnly2';
 /**
  * Multiple
  */
-export declare class Multiple extends Component {
+export declare class Multiple extends Component<HTMLSelectElement> {
     /**
      * Limit
      * @protected

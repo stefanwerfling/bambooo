@@ -1,18 +1,18 @@
 /**
  * Component type
  */
-export type ComponentType = unknown|Component|JQuery|HTMLElement;
+export type ComponentType = unknown|Component<any>|JQuery|HTMLElement;
 
 /**
  * Component
  */
-export class Component {
+export class Component<T extends HTMLElement> {
 
     /**
      * element (jquery)
      * @protected
      */
-    protected _element: JQuery;
+    protected _element: JQuery<T>;
 
     /**
      * Constructor
@@ -39,7 +39,7 @@ export class Component {
      * Return the main enclosed element
      * @return {JQuery}
      */
-    public getElement(): JQuery {
+    public getElement(): JQuery<T> {
         return this._element;
     }
 
@@ -50,16 +50,16 @@ export class Component {
      * @return {JQuery}
      * @protected
      */
-    public static getAnyElement(aelement?: ComponentType): JQuery {
+    public static getAnyElement<E extends HTMLElement>(aelement?: ComponentType): JQuery<E> {
         if (aelement instanceof Component) {
             return aelement.getElement();
         }
 
         if (aelement instanceof jQuery) {
-            return aelement as JQuery;
+            return aelement as JQuery<E>;
         }
 
-        return jQuery(aelement as any);
+        return jQuery<E>(aelement as any);
     }
 
     /**
@@ -83,8 +83,8 @@ export class Component {
      * @return {JQuery}
      * @protected
      */
-    protected _getAnyElement(aelement?: ComponentType): JQuery {
-        return Component.getAnyElement(aelement);
+    protected _getAnyElement<T extends HTMLElement>(aelement?: ComponentType): JQuery<T> {
+        return Component.getAnyElement<T>(aelement);
     }
 
     /**
@@ -105,7 +105,7 @@ export class Component {
      * appendTo
      * @param telement
      */
-    public appendTo(telement: Component|string): void {
+    public appendTo(telement: Component<any>|string): void {
         if (telement instanceof Component) {
             this._element.appendTo(telement.getElement());
         } else {
@@ -117,7 +117,7 @@ export class Component {
      * append
      * @param telement
      */
-    public append(telement: Component|string): void {
+    public append(telement: Component<any>|string): void {
         if (telement instanceof Component) {
             this._element.append(telement.getElement());
         } else {

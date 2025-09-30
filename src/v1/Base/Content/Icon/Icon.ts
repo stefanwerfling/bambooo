@@ -37,7 +37,7 @@ export enum IconFa {
 /**
  * Icon
  */
-export class Icon extends Component {
+export class Icon extends Component<HTMLElement> {
 
     /**
      * Constructor

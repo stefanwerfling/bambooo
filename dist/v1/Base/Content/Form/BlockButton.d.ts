@@ -10,7 +10,7 @@ export type BlockButtonClickFn = () => void;
 /**
  * BlockButton
  */
-export declare class BlockButton extends Component {
+export declare class BlockButton extends Component<HTMLButtonElement> {
     /**
      * Constructor
      * @param {ComponentType} element

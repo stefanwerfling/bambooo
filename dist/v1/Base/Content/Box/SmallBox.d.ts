@@ -8,7 +8,7 @@ export declare enum SmallBoxBg {
 /**
  * Smallbox
  */
-export declare class SmallBox extends Component {
+export declare class SmallBox extends Component<HTMLDivElement> {
     /**
      * Small box background
      * @protected
@@ -18,28 +18,33 @@ export declare class SmallBox extends Component {
      * Inner element
      * @protected
      */
-    protected _innerElement: JQuery;
+    protected _innerElement: JQuery<HTMLDivElement>;
     /**
      * Icon element
      * @protected
      */
-    protected _iconElement: JQuery;
+    protected _iconElement: JQuery<HTMLDivElement>;
     /**
      * Footer element
      * @protected
      */
-    protected _footerElement: JQuery;
+    protected _footerElement: JQuery<HTMLAnchorElement>;
     /**
      * h3 Element
      * @protected
      */
-    protected _h3Element: JQuery;
+    protected _h3Element: JQuery<HTMLHeadingElement>;
     /**
      * p Element
      * @protected
      */
-    protected _pElement: JQuery;
-    constructor(elementObject: Component, bg?: SmallBoxBg);
+    protected _pElement: JQuery<HTMLElement>;
+    /**
+     * Constructor
+     * @param {Component} elementObject
+     * @param {SmallBoxBg} bg
+     */
+    constructor(elementObject: Component<any>, bg?: SmallBoxBg);
     /**
      * Set box background
      * @param {SmallBoxBg} bg

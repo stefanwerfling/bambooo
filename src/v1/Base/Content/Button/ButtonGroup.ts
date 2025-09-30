@@ -3,7 +3,7 @@ import {Component, ComponentType} from '../../Component.js';
 /**
  * ButtonGroup
  */
-export class ButtonGroup extends Component {
+export class ButtonGroup extends Component<HTMLDivElement> {
 
     /**
      * constructor
@@ -17,7 +17,7 @@ export class ButtonGroup extends Component {
             tclass = `${tclass} ${addClass}`;
         }
 
-        super(jQuery(
+        super(jQuery<HTMLDivElement>(
             `<div class="btn-group ${tclass}" />`
         ).appendTo(
             Component.getAnyElement(element)

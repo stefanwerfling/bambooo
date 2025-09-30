@@ -28,7 +28,7 @@ class FormRow extends Component_js_1.Component {
      * @param {number} size
      * @param {FormRowColType} colType
      * @param {[string]} addClass
-     * @returns {JQuery}
+     * @returns {JQuery<HTMLDivElement>}
      */
     createCol(size, colType = FormRowColType.sm, addClass) {
         let tclass = `col`;
@@ -58,7 +58,7 @@ class FormRow extends Component_js_1.Component {
     /**
      * Create auto col element
      * @param {string} addClass
-     * @returns {JQuery}
+     * @returns {JQuery<HTMLDivElement>}
      */
     createAutoCol(addClass) {
         return this.createCol(0, FormRowColType.auto, addClass);

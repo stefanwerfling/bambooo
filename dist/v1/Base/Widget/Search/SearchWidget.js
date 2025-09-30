@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SearchWidget = void 0;
 require("jquery");
+require("select2");
 const Component_js_1 = require("../../Component.js");
 /**
  * Search widget
@@ -141,13 +142,16 @@ class SearchWidget extends Component_js_1.Component {
      * @param {SearchWidgetOnEvent} on
      */
     setOnSelect(on) {
-        this._select.unbind('select2:select').on('select2:select', on);
+        this._select.off('select2:select');
+        this._select.on('select2:select', on);
     }
     setOnUnselect(on) {
-        this._select.unbind('select2:unselect').on('select2:unselect', on);
+        this._select.off('select2:unselect');
+        this._select.on('select2:unselect', on);
     }
     setOnSelecting(on) {
-        this._select.unbind('select2:selecting').on('select2:selecting', on);
+        this._select.off('select2:selecting');
+        this._select.on('select2:selecting', on);
     }
     addClass(aclass) {
         jQuery(this._select.data('select2').$container).addClass(aclass);

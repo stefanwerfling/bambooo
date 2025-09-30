@@ -11,12 +11,12 @@ export declare enum DescriptionListEntryType {
 /**
  * DescriptionListEntry
  */
-export declare class DescriptionListEntry extends Component {
+export declare class DescriptionListEntry extends Component<HTMLElement> {
     /**
      * Label Element
      * @protected
      */
-    protected _label: JQuery;
+    protected _label: JQuery<HTMLElement>;
     /**
      * Constructor
      * @param {ComponentType} element
@@ -25,9 +25,9 @@ export declare class DescriptionListEntry extends Component {
     constructor(element: ComponentType, type?: DescriptionListEntryType);
     /**
      * Return the label element
-     * @return {JQuery}
+     * @return {JQuery<HTMLElement>}
      */
-    getLabelElement(): JQuery;
+    getLabelElement(): JQuery<HTMLElement>;
     /**
      * Set the label
      * @param {string|LangText} str

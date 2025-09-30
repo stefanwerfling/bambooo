@@ -3,7 +3,7 @@ import { LangText } from './../../../Lang/LangText.js';
 /**
  * StrongText
  */
-export declare class StrongText extends Component {
+export declare class StrongText extends Component<HTMLElement> {
     /**
      * constructor
      * @param {ComponentType} element

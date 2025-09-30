@@ -12,17 +12,17 @@ export declare enum CalloutType {
 /**
  * Callout
  */
-export declare class Callout extends Component {
+export declare class Callout extends Component<HTMLElement> {
     /**
      * Main Element
      * @protected
      */
-    protected _mainElement: JQuery;
+    protected _mainElement: JQuery<HTMLDivElement>;
     /**
      * Title
      * @protected
      */
-    protected _title: JQuery;
+    protected _title: JQuery<HTMLHeadingElement>;
     /**
      * constructor
      * @param {ComponentType} element
@@ -36,7 +36,7 @@ export declare class Callout extends Component {
     setTitle(title: string): void;
     /**
      * Return the main Element
-     * @returns {JQuery}
+     * @returns {JQuery<HTMLDivElement>}
      */
-    getMainElement(): JQuery;
+    getMainElement(): JQuery<HTMLDivElement>;
 }

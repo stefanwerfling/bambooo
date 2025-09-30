@@ -3,13 +3,13 @@ import {Component} from './Component.js';
 /**
  * Content
  */
-export class Content extends Component {
+export class Content extends Component<HTMLElement> {
 
     /**
      * content fluid element
      * @private
      */
-    protected _contentFluidElement: JQuery;
+    protected _contentFluidElement: JQuery<HTMLDivElement>;
 
     /**
      * Constructor
@@ -21,21 +21,21 @@ export class Content extends Component {
         if (element) {
             this._element = element;
         } else {
-            this._element = jQuery('.content-wrapper');
+            this._element = jQuery<HTMLElement>('.content-wrapper');
         }
 
         if (this._element.length === 0) {
             throw Error('content element not found!');
         }
 
-        this._contentFluidElement = jQuery('<div class="container-fluid"/>').appendTo(this._element);
+        this._contentFluidElement = jQuery<HTMLDivElement>('<div class="container-fluid"/>').appendTo(this._element);
     }
 
     /**
      * getContentFluidElement
      * @return {JQuery}
      */
-    public getContentFluidElement(): JQuery {
+    public getContentFluidElement(): JQuery<HTMLDivElement> {
         return this._contentFluidElement;
     }
 

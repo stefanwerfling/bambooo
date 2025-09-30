@@ -2,7 +2,7 @@ import { Component, ComponentType } from '../../Component.js';
 /**
  * LineChart
  */
-export declare class LineChart extends Component {
+export declare class LineChart extends Component<HTMLCanvasElement> {
     /**
      * Height
      * @protected

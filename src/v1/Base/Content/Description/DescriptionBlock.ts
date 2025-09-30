@@ -12,19 +12,19 @@ export enum DescriptionBlockBorder {
 /**
  * DescriptionBlock
  */
-export class DescriptionBlock extends Component {
+export class DescriptionBlock extends Component<HTMLDivElement> {
 
     /**
      * h5
      * @protected
      */
-    protected _h5: JQuery;
+    protected _h5: JQuery<HTMLHeadingElement>;
 
     /**
      * span
      * @protected
      */
-    protected _span: JQuery;
+    protected _span: JQuery<HTMLSpanElement>;
 
     /**
      * Constructor
@@ -32,9 +32,9 @@ export class DescriptionBlock extends Component {
      * @param {DescriptionBlockBorder} border
      */
     public constructor(element: ComponentType, border: DescriptionBlockBorder = DescriptionBlockBorder.right) {
-        super(jQuery(`<div class="description-block ${border}" />`).appendTo(Component.getAnyElement(element)));
-        this._h5 = jQuery('<h5 class="description-header" />').appendTo(this._element);
-        this._span = jQuery('<span class="description-text" />').appendTo(this._element);
+        super(jQuery<HTMLDivElement>(`<div class="description-block ${border}" />`).appendTo(Component.getAnyElement(element)));
+        this._h5 = jQuery<HTMLHeadingElement>('<h5 class="description-header" />').appendTo(this._element);
+        this._span = jQuery<HTMLSpanElement>('<span class="description-text" />').appendTo(this._element);
     }
 
     /**
@@ -57,7 +57,7 @@ export class DescriptionBlock extends Component {
      * Get text element
      * @return {JQuery}
      */
-    public getTextElement(): JQuery {
+    public getTextElement(): JQuery<HTMLSpanElement> {
         return this._span;
     }
 

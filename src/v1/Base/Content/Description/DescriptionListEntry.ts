@@ -13,13 +13,13 @@ export enum DescriptionListEntryType {
 /**
  * DescriptionListEntry
  */
-export class DescriptionListEntry extends Component {
+export class DescriptionListEntry extends Component<HTMLElement> {
 
     /**
      * Label Element
      * @protected
      */
-    protected _label: JQuery;
+    protected _label: JQuery<HTMLElement>;
 
     /**
      * Constructor
@@ -29,9 +29,9 @@ export class DescriptionListEntry extends Component {
     public constructor(element: ComponentType, type: DescriptionListEntryType = DescriptionListEntryType.none) {
         const telement = Component.getAnyElement(element);
 
-        const label = jQuery('<dt />').appendTo(telement);
+        const label = jQuery<HTMLElement>('<dt />').appendTo(telement);
 
-        super(jQuery('<dd> /').appendTo(telement));
+        super(jQuery<HTMLElement>('<dd> /').appendTo(telement));
 
         this._label = label;
 
@@ -50,9 +50,9 @@ export class DescriptionListEntry extends Component {
 
     /**
      * Return the label element
-     * @return {JQuery}
+     * @return {JQuery<HTMLElement>}
      */
-    public getLabelElement(): JQuery {
+    public getLabelElement(): JQuery<HTMLElement> {
         return this._label;
     }
 

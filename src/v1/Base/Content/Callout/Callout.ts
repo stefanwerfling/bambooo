@@ -14,19 +14,19 @@ export enum CalloutType {
 /**
  * Callout
  */
-export class Callout extends Component {
+export class Callout extends Component<HTMLElement> {
 
     /**
      * Main Element
      * @protected
      */
-    protected _mainElement: JQuery;
+    protected _mainElement: JQuery<HTMLDivElement>;
 
     /**
      * Title
      * @protected
      */
-    protected _title: JQuery;
+    protected _title: JQuery<HTMLHeadingElement>;
 
     /**
      * constructor
@@ -34,10 +34,10 @@ export class Callout extends Component {
      * @param {CalloutType} type
      */
     public constructor(element: ComponentType, type: CalloutType = CalloutType.info) {
-        const mainElement = jQuery(`<div class="callout ${type}" />`).appendTo(Component.getAnyElement(element));
-        const title = jQuery('<h5/>').appendTo(mainElement);
+        const mainElement = jQuery<HTMLDivElement>(`<div class="callout ${type}" />`).appendTo(Component.getAnyElement(element));
+        const title = jQuery<HTMLHeadingElement>('<h5/>').appendTo(mainElement);
 
-        super(jQuery('<p/>').appendTo(mainElement));
+        super(jQuery<HTMLElement>('<p/>').appendTo(mainElement));
 
         this._mainElement = mainElement;
         this._title = title;
@@ -53,9 +53,9 @@ export class Callout extends Component {
 
     /**
      * Return the main Element
-     * @returns {JQuery}
+     * @returns {JQuery<HTMLDivElement>}
      */
-    public getMainElement(): JQuery {
+    public getMainElement(): JQuery<HTMLDivElement> {
         return this._mainElement;
     }
 

@@ -42,8 +42,8 @@ class InfoBox extends Component_js_1.Component {
      */
     _numberElement = null;
     /**
-     * constructor
-     * @param {Component|any} element
+     * Constructor
+     * @param {ComponentType} element
      * @param {InfoBoxBg} bg
      * @param {InfoBoxMb} mb
      */
@@ -63,7 +63,7 @@ class InfoBox extends Component_js_1.Component {
     }
     /**
      * Return the content element
-     * @return {JQuery}
+     * @return {JQuery<HTMLDivElement>}
      */
     getContentElement() {
         if (this._contentElement === null) {
@@ -73,7 +73,7 @@ class InfoBox extends Component_js_1.Component {
     }
     /**
      * Return the text element
-     * @return {JQuery}
+     * @return {JQuery<HTMLSpanElement>}
      */
     getTextElement() {
         if (this._textElement === null) {
@@ -83,7 +83,7 @@ class InfoBox extends Component_js_1.Component {
     }
     /**
      * Get number element
-     * @return {JQuery}
+     * @return {JQuery<HTMLSpanElement>}
      */
     getNumberElement() {
         if (this._numberElement === null) {

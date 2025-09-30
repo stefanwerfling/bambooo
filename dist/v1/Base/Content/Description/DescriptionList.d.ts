@@ -7,7 +7,7 @@ export declare enum DescriptionListType {
 /**
  * Description List
  */
-export declare class DescriptionList extends Component {
+export declare class DescriptionList extends Component<HTMLElement> {
     /**
      * Type
      * @protected

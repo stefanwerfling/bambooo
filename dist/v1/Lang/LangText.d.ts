@@ -6,7 +6,7 @@ export type LangTextDefaultClickFn = (langText: LangText) => void;
 /**
  * LangText
  */
-export declare class LangText extends Component {
+export declare class LangText extends Component<HTMLSpanElement> {
     /**
      * class
      * @protected

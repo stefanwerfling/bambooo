@@ -8,19 +8,19 @@ export type FormGroupButtonClickFn = () => void;
 /**
  * FormGroupButton
  */
-export class FormGroupButton extends Component {
+export class FormGroupButton extends Component<HTMLDivElement> {
 
     /**
      * _subElement
      * @protected
      */
-    protected _subElement: JQuery;
+    protected _subElement: JQuery<HTMLDivElement>;
 
     /**
      * icon element
      * @protected
      */
-    protected _iconElement: JQuery;
+    protected _iconElement: JQuery<HTMLDivElement>;
 
     /**
      * _click
@@ -37,8 +37,8 @@ export class FormGroupButton extends Component {
 
         const telement = this._getAnyElement(element);
 
-        this._element = jQuery('<div class="input-group"></div>').appendTo(telement);
-        this._subElement = jQuery('<div class="input-group-append"></div>').appendTo(this._element);
+        this._element = jQuery<HTMLDivElement>('<div class="input-group"></div>').appendTo(telement);
+        this._subElement = jQuery<HTMLDivElement>('<div class="input-group-append"></div>').appendTo(this._element);
         this._subElement.css({
             'cursor': 'pointer'
         });
@@ -49,14 +49,14 @@ export class FormGroupButton extends Component {
             }
         });
 
-        this._iconElement = jQuery('<div class="input-group-text"></div>').appendTo(this._subElement);
+        this._iconElement = jQuery<HTMLDivElement>('<div class="input-group-text"></div>').appendTo(this._subElement);
     }
 
     /**
      * getButtonElement
      * @return {JQuery}
      */
-    public getButtonElement(): JQuery {
+    public getButtonElement(): JQuery<HTMLDivElement> {
         return this._subElement;
     }
 
@@ -64,7 +64,7 @@ export class FormGroupButton extends Component {
      * getIconElement
      * @return {JQuery}
      */
-    public getIconElement(): JQuery {
+    public getIconElement(): JQuery<HTMLDivElement> {
         return this._iconElement;
     }
 

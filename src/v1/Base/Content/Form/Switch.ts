@@ -8,19 +8,19 @@ export type SwitchChangeFn = (value: boolean) => void;
 /**
  * Switch
  */
-export class Switch extends Component {
+export class Switch extends Component<HTMLDivElement> {
 
     /**
      * input
      * @protected
      */
-    protected _input: JQuery;
+    protected _input: JQuery<HTMLInputElement>;
 
     /**
      * label
      * @protected
      */
-    protected _label: JQuery;
+    protected _label: JQuery<HTMLLabelElement>;
 
     /**
      * constructor
@@ -32,12 +32,12 @@ export class Switch extends Component {
         super();
 
         const telement = this._getAnyElement(element);
-        this._element = jQuery('<div class="form-group" />').appendTo(telement);
+        this._element = jQuery<HTMLDivElement>('<div class="form-group" />').appendTo(telement);
 
         const control = jQuery('<div class="custom-control custom-switch" />').appendTo(this._element);
 
-        this._input = jQuery(`<input type="checkbox" class="custom-control-input"  id="${id}" />`).appendTo(control);
-        this._label = jQuery(`<label class="custom-control-label" for="${id}" />`).appendTo(control);
+        this._input = jQuery<HTMLInputElement>(`<input type="checkbox" class="custom-control-input"  id="${id}" />`).appendTo(control);
+        this._label = jQuery<HTMLLabelElement>(`<label class="custom-control-label" for="${id}" />`).appendTo(control);
 
         this.setLabel(label);
     }

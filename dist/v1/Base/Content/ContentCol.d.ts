@@ -34,7 +34,7 @@ export declare enum ContentColSize {
 /**
  * ContentCol
  */
-export declare class ContentCol extends Component {
+export declare class ContentCol extends Component<HTMLDivElement> {
     /**
      * Constructor
      * @param {ContentRow} contentRow

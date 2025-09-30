@@ -2,7 +2,7 @@ import { Component, ComponentType } from '../../Component.js';
 /**
  * TooltipInfo
  */
-export declare class TooltipInfo extends Component {
+export declare class TooltipInfo extends Component<HTMLElement> {
     /**
      * Constructor
      * @param {ComponentType} element

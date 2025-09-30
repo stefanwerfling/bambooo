@@ -16,7 +16,7 @@ export enum CircleColor {
 /**
  * Circle
  */
-export class Circle extends Component {
+export class Circle extends Component<HTMLElement> {
 
     /**
      * Constructor
@@ -24,6 +24,6 @@ export class Circle extends Component {
      * @param {CircleColor|string} color
      */
     public constructor(element: ComponentType, color: CircleColor|string) {
-        super(jQuery(`<i class="fas fa-circle fa-1x ${color}"></i>`).appendTo(Component.getAnyElement(element)));
+        super(jQuery<HTMLElement>(`<i class="fas fa-circle fa-1x ${color}"></i>`).appendTo(Component.getAnyElement(element)));
     }
 }

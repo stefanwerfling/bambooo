@@ -4,13 +4,13 @@ import {LangText} from './../../../Lang/LangText.js';
 /**
  * FormGroup
  */
-export class FormGroup extends Component {
+export class FormGroup extends Component<HTMLDivElement> {
 
     /**
      * label
      * @protected
      */
-    protected _label: JQuery|null = null;
+    protected _label: JQuery<HTMLLabelElement>|null = null;
 
     /**
      * constructor
@@ -22,7 +22,7 @@ export class FormGroup extends Component {
 
         const telement = this._getAnyElement(element);
 
-        this._element = jQuery('<div class="form-group" />').appendTo(telement);
+        this._element = jQuery<HTMLDivElement>('<div class="form-group" />').appendTo(telement);
 
         if (label) {
             this.setLabel(label);
@@ -32,11 +32,11 @@ export class FormGroup extends Component {
     /**
      * Create the label object element
      * @protected
-     * @return {JQuery}
+     * @return {JQuery<HTMLLabelElement>}
      */
-    protected _getLabel(): JQuery {
+    protected _getLabel(): JQuery<HTMLLabelElement> {
         if (this._label === null) {
-            this._label = jQuery('<label/>').appendTo(this._element);
+            this._label = jQuery<HTMLLabelElement>('<label/>').appendTo(this._element);
         }
 
         return this._label;
@@ -58,9 +58,9 @@ export class FormGroup extends Component {
 
     /**
      * getLabelElement
-     * @returns {JQuery}
+     * @returns {JQuery<HTMLLabelElement>}
      */
-    public getLabelElement(): JQuery {
+    public getLabelElement(): JQuery<HTMLLabelElement> {
         return this._getLabel();
     }
 

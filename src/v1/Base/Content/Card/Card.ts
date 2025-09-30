@@ -42,43 +42,43 @@ export enum CardShape {
 /**
  * Card
  */
-export class Card extends Component {
+export class Card extends Component<HTMLDivElement> {
 
     /**
      * header element
      * @private
      */
-    protected _header: JQuery;
+    protected _header: JQuery<HTMLDivElement>;
 
     /**
      * title element
      * @private
      */
-    protected _title: JQuery;
+    protected _title: JQuery<HTMLHeadingElement>;
 
     /**
      * tools element
      * @private
      */
-    protected _tools: JQuery;
+    protected _tools: JQuery<HTMLDivElement>;
 
     /**
      * body element
      * @private
      */
-    protected _body: JQuery;
+    protected _body: JQuery<HTMLDivElement>;
 
     /**
      * footer element
      * @private
      */
-    protected _footer: JQuery|null = null;
+    protected _footer: JQuery<HTMLDivElement>|null = null;
 
     /**
      * overload element
      * @private
      */
-    protected _overload: JQuery;
+    protected _overload: JQuery<HTMLDivElement>;
 
     /**
      * Constructor
@@ -95,22 +95,22 @@ export class Card extends Component {
         cardLine: CardLine = CardLine.none,
         cardShape: CardShape = CardShape.none
     ) {
-        super(jQuery(`<div class="card ${cardShape} ${cardType} ${cardLine}" />`).appendTo(Component.getAnyElement(elementObject)));
+        super(jQuery<HTMLDivElement>(`<div class="card ${cardShape} ${cardType} ${cardLine}" />`).appendTo(Component.getAnyElement(elementObject)));
 
-        this._header = jQuery('<div class="card-header"/>').appendTo(this._element);
-        this._title = jQuery('<h3 class="card-title"/>').appendTo(this._header);
-        this._tools = jQuery('<div class="card-tools"/>').appendTo(this._header);
-        this._body = jQuery(`<div class="card-body ${bodyType}" />`).appendTo(this._element);
-        this._overload = jQuery('<div class="overlay"><i class="fas fa-2x fa-sync-alt fa-spin"></i></div>').appendTo(this._element);
+        this._header = jQuery<HTMLDivElement>('<div class="card-header"/>').appendTo(this._element);
+        this._title = jQuery<HTMLHeadingElement>('<h3 class="card-title"/>').appendTo(this._header);
+        this._tools = jQuery<HTMLDivElement>('<div class="card-tools"/>').appendTo(this._header);
+        this._body = jQuery<HTMLDivElement>(`<div class="card-body ${bodyType}" />`).appendTo(this._element);
+        this._overload = jQuery<HTMLDivElement>('<div class="overlay"><i class="fas fa-2x fa-sync-alt fa-spin"></i></div>').appendTo(this._element);
 
         this.hideLoading();
     }
 
     /**
      * getMainElement
-     * @return {JQuery}
+     * @return {JQuery<HTMLDivElement>}
      */
-    public getMainElement(): JQuery {
+    public getMainElement(): JQuery<HTMLDivElement> {
         return this._element;
     }
 
@@ -124,33 +124,33 @@ export class Card extends Component {
 
     /**
      * getHeaderElement
-     * @return {JQuery}
+     * @return {JQuery<HTMLDivElement>}
      */
-    public getHeaderElement(): JQuery {
+    public getHeaderElement(): JQuery<HTMLDivElement> {
         return this._header;
     }
 
     /**
      * getTitleElement
-     * @return {JQuery}
+     * @return {JQuery<HTMLHeadingElement>}
      */
-    public getTitleElement(): JQuery {
+    public getTitleElement(): JQuery<HTMLHeadingElement> {
         return this._title;
     }
 
     /**
      * getToolsElement
-     * @return {JQuery}
+     * @return {JQuery<HTMLDivElement>}
      */
-    public getToolsElement(): JQuery {
+    public getToolsElement(): JQuery<HTMLDivElement> {
         return this._tools;
     }
 
     /**
      * getElement
-     * @return {JQuery}
+     * @return {JQuery<HTMLDivElement>}
      */
-    public getElement(): JQuery {
+    public getElement(): JQuery<HTMLDivElement> {
         return this._body;
     }
 
@@ -177,9 +177,9 @@ export class Card extends Component {
 
     /**
      * getBodyElement
-     * @return {any}
+     * @return {JQuery<HTMLDivElement>}
      */
-    public getBodyElement(): any {
+    public getBodyElement(): JQuery<HTMLDivElement> {
         return this._body;
     }
 
@@ -192,11 +192,11 @@ export class Card extends Component {
 
     /**
      * Return the footer element
-     * @returns {JQuery}
+     * @returns {JQuery<HTMLDivElement>}
      */
-    public getFooterElement(): JQuery {
+    public getFooterElement(): JQuery<HTMLDivElement> {
         if (this._footer === null) {
-            this._footer = jQuery('<div class="card-footer"></div>').appendTo(this._element);
+            this._footer = jQuery<HTMLDivElement>('<div class="card-footer"></div>').appendTo(this._element);
         }
 
         return this._footer;

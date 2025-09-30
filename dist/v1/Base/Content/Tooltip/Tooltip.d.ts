@@ -3,7 +3,7 @@ import { Component, ComponentType } from '../../Component.js';
  * Tooltip
  * read more https://getbootstrap.com/docs/4.1/components/tooltips/
  */
-export declare class Tooltip extends Component {
+export declare class Tooltip extends Component<HTMLDivElement> {
     /**
      * Constructor
      * @param {ComponentType} element

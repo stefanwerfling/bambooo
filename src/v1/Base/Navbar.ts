@@ -5,7 +5,7 @@ import {RightNavbar} from './Navbar/RightNavbar';
 /**
  * Navbar
  */
-export class Navbar extends Component {
+export class Navbar extends Component<HTMLElement> {
 
     /**
      * left navbar

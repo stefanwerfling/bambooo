@@ -10,22 +10,22 @@ export type TableOptions = {
 /**
  * Table
  */
-export declare class Table extends Component {
+export declare class Table extends Component<HTMLTableElement> {
     /**
      * _thead
      * @private
      */
-    protected _thead: JQuery;
+    protected _thead: JQuery<HTMLTableSectionElement>;
     /**
      * _tbody
      * @private
      */
-    protected _tbody: JQuery;
+    protected _tbody: JQuery<HTMLTableSectionElement>;
     /**
      * _tfoot
      * @private
      */
-    protected _tfoot: JQuery | null;
+    protected _tfoot: JQuery<HTMLTableSectionElement> | null;
     /**
      * Constructor
      * @param {ComponentType} element
@@ -51,15 +51,15 @@ export declare class Table extends Component {
      * getThead
      * @return {JQuery}
      */
-    getThead(): JQuery;
+    getThead(): JQuery<HTMLTableSectionElement>;
     /**
      * getTbody
      * @return {JQuery}
      */
-    getTbody(): JQuery;
+    getTbody(): JQuery<HTMLTableSectionElement>;
     /**
      * getFoot
      * @return {JQuery}
      */
-    getFoot(): JQuery;
+    getFoot(): JQuery<HTMLTableSectionElement>;
 }

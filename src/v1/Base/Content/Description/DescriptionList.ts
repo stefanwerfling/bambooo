@@ -9,7 +9,7 @@ export enum DescriptionListType {
 /**
  * Description List
  */
-export class DescriptionList extends Component {
+export class DescriptionList extends Component<HTMLElement> {
 
     /**
      * Type

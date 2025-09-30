@@ -11,7 +11,7 @@ export enum TextAlignment {
 /**
  * Text
  */
-export class Text extends Component {
+export class Text extends Component<HTMLDivElement> {
 
     /**
      * constructor
@@ -23,7 +23,7 @@ export class Text extends Component {
 
         const telement = this._getAnyElement(element);
 
-        this._element = jQuery('<div />').appendTo(telement);
+        this._element = jQuery<HTMLDivElement>('<div />').appendTo(telement);
         this._element.addClass(`${align}`);
     }
 }

@@ -2,7 +2,7 @@ import { Component, ComponentType } from '../../Component.js';
 /**
  * Textarea form element.
  */
-export declare class Textarea extends Component {
+export declare class Textarea extends Component<HTMLTextAreaElement> {
     /**
      * Constructor for Textarea element.
      * @param {ComponentType} element - A element to append the Textarea element.

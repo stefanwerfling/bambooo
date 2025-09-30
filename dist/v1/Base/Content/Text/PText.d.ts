@@ -11,7 +11,7 @@ export declare enum PTextType {
 /**
  * PText
  */
-export declare class PText extends Component {
+export declare class PText extends Component<HTMLElement> {
     /**
      * constructor
      * @param {ComponentType} element

@@ -6,7 +6,7 @@ export type NavbarLinkButtonFn = (event: any) => void;
 /**
  * NavbarLinkButton
  */
-export declare class NavbarLinkButton extends Component {
+export declare class NavbarLinkButton extends Component<HTMLLIElement> {
     /**
      * Constructor
      * @param {ComponentType} element

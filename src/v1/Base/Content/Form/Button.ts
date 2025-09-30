@@ -29,7 +29,7 @@ export type ButtonClickFn = () => void;
 /**
  * Button
  */
-export class Button extends Component {
+export class Button extends Component<HTMLAnchorElement|HTMLButtonElement> {
 
     /**
      * click enable
@@ -60,15 +60,15 @@ export class Button extends Component {
 
         switch (type) {
             case ButtonType.borderless:
-                this._element = jQuery(`<a href="#" class="text-muted"/>`).appendTo(telement);
+                this._element = jQuery<HTMLAnchorElement>(`<a href="#" class="text-muted"/>`).appendTo(telement);
                 break;
 
             case ButtonType.cardCollapse:
-                this._element = jQuery(`<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>`).appendTo(telement);
+                this._element = jQuery<HTMLButtonElement>(`<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>`).appendTo(telement);
                 break;
 
             default:
-                this._element = jQuery(`<button type="button" class="btn ${bnClass} ${shape} ${moreClass}" ${moreAttr} />`).appendTo(telement);
+                this._element = jQuery<HTMLButtonElement>(`<button type="button" class="btn ${bnClass} ${shape} ${moreClass}" ${moreAttr} />`).appendTo(telement);
         }
     }
 
@@ -77,7 +77,7 @@ export class Button extends Component {
      * @param {ButtonClickFn} onClick
      */
     public setOnClickFn(onClick: ButtonClickFn): void {
-        this._element.unbind().on('click', (): void => {
+        this._element.off('click').on('click', (): void => {
             if (this._clickEnable) {
                 onClick();
             }

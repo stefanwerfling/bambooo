@@ -60,7 +60,7 @@ class Button extends Component_js_1.Component {
      * @param {ButtonClickFn} onClick
      */
     setOnClickFn(onClick) {
-        this._element.unbind().on('click', () => {
+        this._element.off('click').on('click', () => {
             if (this._clickEnable) {
                 onClick();
             }

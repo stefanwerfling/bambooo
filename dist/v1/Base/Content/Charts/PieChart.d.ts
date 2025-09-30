@@ -2,7 +2,7 @@ import { Component, ComponentType } from '../../Component.js';
 /**
  * PieChart
  */
-export declare class PieChart extends Component {
+export declare class PieChart extends Component<HTMLCanvasElement> {
     /**
      * Height
      * @protected

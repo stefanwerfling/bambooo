@@ -10,7 +10,7 @@ export type LangTextDefaultClickFn = (langText: LangText) => void;
 /**
  * LangText
  */
-export class LangText extends Component {
+export class LangText extends Component<HTMLSpanElement> {
 
     /**
      * class
@@ -31,7 +31,7 @@ export class LangText extends Component {
     ) {
         super();
 
-        this._element = jQuery('<span />');
+        this._element = jQuery<HTMLSpanElement>('<span />');
         this._element.attr('lang', '1');
         this._element.attr('lang-value', text);
         this._element.append(text);

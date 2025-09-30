@@ -10,7 +10,7 @@ export declare enum CaretType {
 /**
  * Caret
  */
-export declare class Caret extends Component {
+export declare class Caret extends Component<HTMLSpanElement> {
     /**
      * Constructor
      * @param {ComponentType} element

@@ -6,9 +6,9 @@ import Event = JQuery.Event;
  */
 export type NavTabElements = {
     id: string;
-    tab: JQuery;
-    title: JQuery;
-    body: JQuery;
+    tab: JQuery<HTMLLIElement>;
+    title: JQuery<HTMLAnchorElement>;
+    body: JQuery<HTMLDivElement>;
 };
 /**
  * NavTabOnLoad
@@ -20,17 +20,17 @@ export type NavTabOnLoad = (event: Event, ui: {
 /**
  * NavTab
  */
-export declare class NavTab extends Component {
+export declare class NavTab extends Component<HTMLElement> {
     /**
      * nav
      * @protected
      */
-    protected _nav: JQuery;
+    protected _nav: JQuery<HTMLUListElement>;
     /**
      * body
      * @protected
      */
-    protected _body: JQuery;
+    protected _body: JQuery<HTMLDivElement>;
     /**
      * tab ids
      * @protected

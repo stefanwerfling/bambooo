@@ -8,7 +8,7 @@ export declare enum FormRowColType {
 /**
  * FormRow
  */
-export declare class FormRow extends Component {
+export declare class FormRow extends Component<HTMLDivElement> {
     /**
      * Constructor
      * @param {ComponentType} element
@@ -20,13 +20,13 @@ export declare class FormRow extends Component {
      * @param {number} size
      * @param {FormRowColType} colType
      * @param {[string]} addClass
-     * @returns {JQuery}
+     * @returns {JQuery<HTMLDivElement>}
      */
-    createCol(size: number, colType?: FormRowColType, addClass?: string): JQuery;
+    createCol(size: number, colType?: FormRowColType, addClass?: string): JQuery<HTMLDivElement>;
     /**
      * Create auto col element
      * @param {string} addClass
-     * @returns {JQuery}
+     * @returns {JQuery<HTMLDivElement>}
      */
-    createAutoCol(addClass?: string): JQuery;
+    createAutoCol(addClass?: string): JQuery<HTMLDivElement>;
 }

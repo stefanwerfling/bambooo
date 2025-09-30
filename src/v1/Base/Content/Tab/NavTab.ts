@@ -7,9 +7,9 @@ import Event = JQuery.Event;
  */
 export type NavTabElements = {
     id: string;
-    tab: JQuery;
-    title: JQuery;
-    body: JQuery;
+    tab: JQuery<HTMLLIElement>;
+    title: JQuery<HTMLAnchorElement>;
+    body: JQuery<HTMLDivElement>;
 }
 
 /**
@@ -23,19 +23,19 @@ export type NavTabOnLoad = (event: Event, ui: {
 /**
  * NavTab
  */
-export class NavTab extends Component {
+export class NavTab extends Component<HTMLElement> {
 
     /**
      * nav
      * @protected
      */
-    protected _nav: JQuery;
+    protected _nav: JQuery<HTMLUListElement>;
 
     /**
      * body
      * @protected
      */
-    protected _body: JQuery;
+    protected _body: JQuery<HTMLDivElement>;
 
     /**
      * tab ids
@@ -61,8 +61,8 @@ export class NavTab extends Component {
 
         const aelement = this._getAnyElement(element);
 
-        this._nav = jQuery(`<ul class="nav nav-tabs" id="${aId}" role="tablist" />`).appendTo(aelement);
-        this._body = jQuery(`<div class="tab-content" id="${aId}-tabContent" />`).appendTo(aelement);
+        this._nav = jQuery<HTMLUListElement>(`<ul class="nav nav-tabs" id="${aId}" role="tablist" />`).appendTo(aelement);
+        this._body = jQuery<HTMLDivElement>(`<div class="tab-content" id="${aId}-tabContent" />`).appendTo(aelement);
     }
 
     /**
@@ -90,20 +90,20 @@ export class NavTab extends Component {
 
         this._tabIds.push(aId);
 
-        const li = jQuery('<li class="nav-item" />').appendTo(this._nav);
-        const etitle = jQuery(`<a class="nav-link ${activ}" id="${aId}-tab" data-toggle="pill" href="#${aId}-content" role="tab" aria-controls="${aId}-content" aria-selected="true"></a>`).appendTo(li);
+        const li = jQuery<HTMLLIElement>('<li class="nav-item" />').appendTo(this._nav);
+        const etitle = jQuery<HTMLAnchorElement>(`<a class="nav-link ${activ}" id="${aId}-tab" data-toggle="pill" href="#${aId}-content" role="tab" aria-controls="${aId}-content" aria-selected="true"></a>`).appendTo(li);
 
         const telement = Component.getAnyElement(title);
 
         etitle.append(telement);
 
-        const body = jQuery(`<div class="tab-pane fade ${activ} ${show}" id="${aId}-content" role="tabpanel" aria-labelledby="${aId}-tab"/>`).appendTo(this._body);
+        const body = jQuery<HTMLDivElement>(`<div class="tab-pane fade ${activ} ${show}" id="${aId}-content" role="tabpanel" aria-labelledby="${aId}-tab"/>`).appendTo(this._body);
 
         return {
             id: aId,
             tab: li,
             title: etitle,
-            body
+            body: body
         };
     }
 
@@ -112,10 +112,13 @@ export class NavTab extends Component {
      * @param {number} index
      */
     public setTabSelect(index: number): void {
-        this._nav.find('a').each(( tindex: number, telement: any ) => {
+        this._nav.find('a').each(( tindex: number, telement: HTMLAnchorElement): void => {
             if (index === tindex) {
-                // @ts-ignore
-                jQuery(telement).tab('show');
+                const tabElement = jQuery<HTMLElement>(telement) as any;
+
+                if (typeof tabElement.tab === 'function') {
+                    tabElement.tab('show');
+                }
             }
         });
     }
@@ -125,8 +128,8 @@ export class NavTab extends Component {
      * @param {NavTabOnLoad} onload
      */
     public setOnLoad(onload: NavTabOnLoad): void {
-        this._nav.on('tabsload', (event: any, ui: any) => {
-            onload(event, ui);
+        this._nav.on('tabsload', (event: Event, ui: unknown) => {
+            onload(event, ui as any);
         });
     }
 

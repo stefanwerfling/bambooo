@@ -27,7 +27,7 @@ class FormGroup extends Component_js_1.Component {
     /**
      * Create the label object element
      * @protected
-     * @return {JQuery}
+     * @return {JQuery<HTMLLabelElement>}
      */
     _getLabel() {
         if (this._label === null) {
@@ -50,7 +50,7 @@ class FormGroup extends Component_js_1.Component {
     }
     /**
      * getLabelElement
-     * @returns {JQuery}
+     * @returns {JQuery<HTMLLabelElement>}
      */
     getLabelElement() {
         return this._getLabel();

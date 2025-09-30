@@ -7,17 +7,17 @@ export type ChangeLangClickFn = (lang: LangDefine) => void;
 /**
  * NavbarLinkLanguage
  */
-export declare class NavbarLinkLanguage extends Component {
+export declare class NavbarLinkLanguage extends Component<HTMLLIElement> {
     /**
      * link
      * @protected
      */
-    protected _a: JQuery;
+    protected _a: JQuery<HTMLAnchorElement>;
     /**
      * lang menu
      * @protected
      */
-    protected _menu: JQuery;
+    protected _menu: JQuery<HTMLDivElement>;
     /**
      * Constructor
      * @param {ComponentType} element

@@ -7,7 +7,7 @@ export type CheckBoxClickFn = () => void;
 /**
  * Check Box
  */
-export declare class CheckBox extends Component {
+export declare class CheckBox extends Component<HTMLDivElement> {
     /**
      * input
      * @protected
@@ -21,7 +21,7 @@ export declare class CheckBox extends Component {
     /**
      * Constructor
      * @param {ComponentType} element
-     * @param {string|JQuery<HTMLElement>|LangText} label
+     * @param {string|JQuery|LangText} label
      */
     constructor(element: ComponentType, label?: string | JQuery | LangText);
     /**

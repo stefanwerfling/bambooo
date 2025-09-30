@@ -2,7 +2,7 @@ import { Component, ComponentType } from '../../Component.js';
 /**
  * LineChartInteractiv
  */
-export declare class LineChartInteractiv extends Component {
+export declare class LineChartInteractiv extends Component<HTMLDivElement> {
     /**
      * height
      * @protected

@@ -8,19 +8,19 @@ export type RadioInputClickFn = () => void;
 /**
  * RadioInput
  */
-export class RadioInput extends Component {
+export class RadioInput extends Component<HTMLDivElement> {
 
     /**
      * input radio
      * @protected
      */
-    protected _inputRadio: JQuery;
+    protected _inputRadio: JQuery<HTMLInputElement>;
 
     /**
      * input
      * @protected
      */
-    protected _input: JQuery;
+    protected _input: JQuery<HTMLInputElement>;
 
     /**
      * Constructor
@@ -35,12 +35,12 @@ export class RadioInput extends Component {
         super();
 
         const telement = this._getAnyElement(element);
-        this._element = jQuery('<div class="input-group" />').appendTo(telement);
+        this._element = jQuery<HTMLDivElement>('<div class="input-group" />').appendTo(telement);
 
-        const prependGroup = jQuery('<div class="input-group-prepend" />').appendTo(this._element);
-        const spanInputGroup = jQuery('<span class="input-group-text" />').appendTo(prependGroup);
-        this._inputRadio = jQuery(`<input type="radio" name="${radionName}" value="${radioValue}" ${checked}>`).appendTo(spanInputGroup);
-        this._input = jQuery(`<input type="text" class="form-control" name="${nameInput}" value="${inputValue}">`).appendTo(prependGroup);
+        const prependGroup = jQuery<HTMLDivElement>('<div class="input-group-prepend" />').appendTo(this._element);
+        const spanInputGroup = jQuery<HTMLSpanElement>('<span class="input-group-text" />').appendTo(prependGroup);
+        this._inputRadio = jQuery<HTMLInputElement>(`<input type="radio" name="${radionName}" value="${radioValue}" ${checked}>`).appendTo(spanInputGroup);
+        this._input = jQuery<HTMLInputElement>(`<input type="text" class="form-control" name="${nameInput}" value="${inputValue}">`).appendTo(prependGroup);
     }
 
     /**
@@ -104,7 +104,7 @@ export class RadioInput extends Component {
      * @param {RadioInputClickFn} fn
      */
     public setOnClickFnRadio(fn: RadioInputClickFn): void {
-        this._inputRadio.unbind().on('click', (): void => {
+        this._inputRadio.off('click').on('click', (): void => {
             fn();
         });
     }

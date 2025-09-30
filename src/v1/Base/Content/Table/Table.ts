@@ -12,25 +12,25 @@ export type TableOptions = {
 /**
  * Table
  */
-export class Table extends Component {
+export class Table extends Component<HTMLTableElement> {
 
     /**
      * _thead
      * @private
      */
-    protected _thead: JQuery;
+    protected _thead: JQuery<HTMLTableSectionElement>;
 
     /**
      * _tbody
      * @private
      */
-    protected _tbody: JQuery;
+    protected _tbody: JQuery<HTMLTableSectionElement>;
 
     /**
      * _tfoot
      * @private
      */
-    protected _tfoot: JQuery|null = null;
+    protected _tfoot: JQuery<HTMLTableSectionElement>|null = null;
 
     /**
      * Constructor
@@ -42,7 +42,7 @@ export class Table extends Component {
 
         const telement = this._getAnyElement(element);
 
-        this._element = jQuery('<table class="table"/>').appendTo(telement);
+        this._element = jQuery<HTMLTableElement>('<table class="table"/>').appendTo(telement);
 
         this.setStyleHover(options.hover !== undefined ? options.hover :  true);
         this.setStyleTextNoWrap(options.nowrap !== undefined ? options.nowrap :  true);
@@ -51,8 +51,8 @@ export class Table extends Component {
             this.setStyleStriped(options.striped);
         }
 
-        this._thead = jQuery('<thead />').appendTo(this._element);
-        this._tbody = jQuery('<tbody />').appendTo(this._element);
+        this._thead = jQuery<HTMLTableSectionElement>('<thead />').appendTo(this._element);
+        this._tbody = jQuery<HTMLTableSectionElement>('<tbody />').appendTo(this._element);
     }
 
     /**
@@ -83,7 +83,7 @@ export class Table extends Component {
      * getThead
      * @return {JQuery}
      */
-    public getThead(): JQuery {
+    public getThead(): JQuery<HTMLTableSectionElement> {
         return this._thead;
     }
 
@@ -91,7 +91,7 @@ export class Table extends Component {
      * getTbody
      * @return {JQuery}
      */
-    public getTbody(): JQuery {
+    public getTbody(): JQuery<HTMLTableSectionElement> {
         return this._tbody;
     }
 
@@ -99,9 +99,9 @@ export class Table extends Component {
      * getFoot
      * @return {JQuery}
      */
-    public getFoot(): JQuery {
+    public getFoot(): JQuery<HTMLTableSectionElement> {
         if (this._tfoot === null) {
-            this._tfoot = jQuery('<tfoot />').appendTo(this._element);
+            this._tfoot = jQuery<HTMLTableSectionElement>('<tfoot />').appendTo(this._element);
         }
 
         return this._tfoot;

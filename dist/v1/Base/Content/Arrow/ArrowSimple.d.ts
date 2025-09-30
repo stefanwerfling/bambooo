@@ -8,7 +8,7 @@ export declare enum ArrowSimpleDirection {
 /**
  * Arrow Simple
  */
-export declare class ArrowSimple extends Component {
+export declare class ArrowSimple extends Component<HTMLDivElement> {
     /**
      * Constructor
      * @param {ComponentType} element

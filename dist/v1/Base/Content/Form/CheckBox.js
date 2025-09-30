@@ -19,7 +19,7 @@ class CheckBox extends Component_js_1.Component {
     /**
      * Constructor
      * @param {ComponentType} element
-     * @param {string|JQuery<HTMLElement>|LangText} label
+     * @param {string|JQuery|LangText} label
      */
     constructor(element, label = '') {
         super();
@@ -80,7 +80,7 @@ class CheckBox extends Component_js_1.Component {
      * @param {CheckBoxClickFn} fn
      */
     setOnClickFn(fn) {
-        this._input.unbind().on('click', () => {
+        this._input.off('click').on('click', () => {
             fn();
         });
     }
