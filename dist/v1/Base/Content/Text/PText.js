@@ -30,11 +30,29 @@ class PText extends Component_js_1.Component {
     }
     /**
      * Add value
-     * @param {ComponentType} value
+     * @param {ComponentType|string} value
      */
     addValue(value) {
-        const telement = this._getAnyElement(value);
-        this._element.append(telement);
+        if (typeof value === 'string') {
+            this.addText(value);
+        }
+        else {
+            this.addComponent(value);
+        }
+    }
+    /**
+     * Add a text
+     * @param {string} text
+     */
+    addText(text) {
+        this._element.append(text);
+    }
+    /**
+     * Add component
+     * @param {ComponentType} component
+     */
+    addComponent(component) {
+        this._element.append(this._getAnyElement(component));
     }
 }
 exports.PText = PText;

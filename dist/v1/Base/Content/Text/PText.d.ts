@@ -21,7 +21,17 @@ export declare class PText extends Component<HTMLElement> {
     constructor(element: ComponentType, type?: PTextType, align?: TextAlignment);
     /**
      * Add value
-     * @param {ComponentType} value
+     * @param {ComponentType|string} value
      */
-    addValue(value: ComponentType): void;
+    addValue(value: ComponentType | string): void;
+    /**
+     * Add a text
+     * @param {string} text
+     */
+    addText(text: string): void;
+    /**
+     * Add component
+     * @param {ComponentType} component
+     */
+    addComponent(component: ComponentType): void;
 }

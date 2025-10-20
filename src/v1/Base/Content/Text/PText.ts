@@ -32,12 +32,30 @@ export class PText extends Component<HTMLElement> {
 
     /**
      * Add value
-     * @param {ComponentType} value
+     * @param {ComponentType|string} value
      */
-    public addValue(value: ComponentType): void {
-        const telement = this._getAnyElement(value);
+    public addValue(value: ComponentType|string): void {
+        if (typeof value === 'string') {
+            this.addText(value);
+        } else {
+            this.addComponent(value);
+        }
+    }
 
-        this._element.append(telement);
+    /**
+     * Add a text
+     * @param {string} text
+     */
+    public addText(text: string): void {
+        this._element.append(text);
+    }
+
+    /**
+     * Add component
+     * @param {ComponentType} component
+     */
+    public addComponent(component: ComponentType): void {
+        this._element.append(this._getAnyElement(component));
     }
 
 }
