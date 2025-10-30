@@ -33,7 +33,7 @@ class ContentRow extends Component_js_1.Component {
         else {
             tcontent = content;
         }
-        if (typeof this._element.getContentFluidElement === 'function') {
+        if (typeof tcontent.getContentFluidElement === 'function') {
             this._element = jQuery('<div class="row" />').appendTo(tcontent.getContentFluidElement());
         }
         else {

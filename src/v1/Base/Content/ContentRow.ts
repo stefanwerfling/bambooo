@@ -34,7 +34,7 @@ export class ContentRow extends Component<HTMLElement|HTMLDivElement> {
             tcontent = content;
         }
 
-        if (typeof (this._element as any).getContentFluidElement === 'function') {
+        if (typeof (tcontent as any).getContentFluidElement === 'function') {
             this._element = jQuery<HTMLDivElement>('<div class="row" />').appendTo((tcontent as Content).getContentFluidElement());
         } else {
             this._element = jQuery<HTMLDivElement>('<div class="row" />').appendTo(Component.getAnyElement(tcontent));
