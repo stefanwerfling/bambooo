@@ -35,7 +35,13 @@ export class ColumnContent extends Component<HTMLSpanElement> {
             this._element.append('<br>');
         }
 
-        const telement = Component.getAnyElement(element);
+        let telement;
+
+        if (typeof element === 'string') {
+            telement = element;
+        } else {
+            telement = Component.getAnyElement(element);
+        }
 
         this._element.append(telement);
     }

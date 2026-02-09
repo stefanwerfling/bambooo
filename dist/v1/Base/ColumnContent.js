@@ -33,7 +33,13 @@ class ColumnContent extends Component_js_1.Component {
         if (!Component_js_1.Component.isEmpty(this._element)) {
             this._element.append('<br>');
         }
-        const telement = Component_js_1.Component.getAnyElement(element);
+        let telement;
+        if (typeof element === 'string') {
+            telement = element;
+        }
+        else {
+            telement = Component_js_1.Component.getAnyElement(element);
+        }
         this._element.append(telement);
     }
 }
