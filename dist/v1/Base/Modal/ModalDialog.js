@@ -63,6 +63,16 @@ class ModalDialog extends Component_js_1.Component {
      */
     _footer;
     /**
+     * Button close object
+     * @protected
+     */
+    _btnClose = null;
+    /**
+     * Button save object
+     * @protected
+     */
+    _btnSave = null;
+    /**
      * on close event
      * @protected
      */
@@ -178,6 +188,13 @@ class ModalDialog extends Component_js_1.Component {
      */
     resetValues() { }
     /**
+     * Return button close
+     * @return {ButtonDefault|null}
+     */
+    getButtonClose() {
+        return this._btnClose;
+    }
+    /**
      * add a close button on footer
      * @param {string|LangText|null} title
      * @returns {ButtonDefault}
@@ -186,14 +203,21 @@ class ModalDialog extends Component_js_1.Component {
         if (title === null) {
             title = new LangText_js_1.LangText('Close');
         }
-        const closeBtn = new ButtonDefault_js_1.ButtonDefault(this._footer, title, undefined, ButtonClass_js_1.ButtonClass.default, ButtonDefault_js_1.ButtonDefaultType.none, 'data-dismiss="modal"');
-        closeBtn.setOnClickFn(async () => {
+        this._btnClose = new ButtonDefault_js_1.ButtonDefault(this._footer, title, undefined, ButtonClass_js_1.ButtonClass.default, ButtonDefault_js_1.ButtonDefaultType.none, 'data-dismiss="modal"');
+        this._btnClose.setOnClickFn(async () => {
             this.hide();
             if (this._onClose !== null) {
                 await this._onClose(this);
             }
         });
-        return closeBtn;
+        return this._btnClose;
+    }
+    /**
+     * Return button save
+     * @return {ButtonDefault|null}
+     */
+    getButtonSave() {
+        return this._btnSave;
     }
     /**
      * add a save button on footer
@@ -205,8 +229,8 @@ class ModalDialog extends Component_js_1.Component {
         if (title === null) {
             title = new LangText_js_1.LangText('Save');
         }
-        const saveBtn = new ButtonDefault_js_1.ButtonDefault(this._footer, title, undefined, ButtonClass_js_1.ButtonClass.primary, ButtonDefault_js_1.ButtonDefaultType.none);
-        saveBtn.setOnClickFn(async () => {
+        this._btnSave = new ButtonDefault_js_1.ButtonDefault(this._footer, title, undefined, ButtonClass_js_1.ButtonClass.primary, ButtonDefault_js_1.ButtonDefaultType.none);
+        this._btnSave.setOnClickFn(async () => {
             if (this._onSave !== null) {
                 if (showLoading) {
                     this.showLoading();
@@ -222,7 +246,7 @@ class ModalDialog extends Component_js_1.Component {
                 }
             }
         });
-        return saveBtn;
+        return this._btnSave;
     }
     /**
      * showLoading

@@ -72,6 +72,18 @@ export class ModalDialog extends Component<HTMLDivElement> {
     protected _footer: JQuery<HTMLDivElement>;
 
     /**
+     * Button close object
+     * @protected
+     */
+    protected _btnClose: ButtonDefault|null = null;
+
+    /**
+     * Button save object
+     * @protected
+     */
+    protected _btnSave: ButtonDefault|null = null;
+
+    /**
      * on close event
      * @protected
      */
@@ -212,6 +224,14 @@ export class ModalDialog extends Component<HTMLDivElement> {
     public resetValues(): void {}
 
     /**
+     * Return button close
+     * @return {ButtonDefault|null}
+     */
+    public getButtonClose(): ButtonDefault|null {
+        return this._btnClose;
+    }
+
+    /**
      * add a close button on footer
      * @param {string|LangText|null} title
      * @returns {ButtonDefault}
@@ -221,7 +241,7 @@ export class ModalDialog extends Component<HTMLDivElement> {
             title = new LangText('Close');
         }
 
-        const closeBtn = new ButtonDefault(
+        this._btnClose = new ButtonDefault(
             this._footer,
             title,
             undefined,
@@ -230,7 +250,7 @@ export class ModalDialog extends Component<HTMLDivElement> {
             'data-dismiss="modal"'
             );
 
-        closeBtn.setOnClickFn(async() => {
+        this._btnClose.setOnClickFn(async() => {
             this.hide();
 
             if (this._onClose !== null) {
@@ -238,7 +258,15 @@ export class ModalDialog extends Component<HTMLDivElement> {
             }
         });
 
-        return closeBtn;
+        return this._btnClose;
+    }
+
+    /**
+     * Return button save
+     * @return {ButtonDefault|null}
+     */
+    public getButtonSave(): ButtonDefault|null {
+        return this._btnSave;
     }
 
     /**
@@ -247,12 +275,12 @@ export class ModalDialog extends Component<HTMLDivElement> {
      * @param {boolean} showLoading
      * @returns {ButtonDefault}
      */
-    public addButtonSave(title: string|LangText|null=null, showLoading: boolean=false): any {
+    public addButtonSave(title: string|LangText|null=null, showLoading: boolean=false): ButtonDefault {
         if (title === null) {
             title = new LangText('Save');
         }
 
-        const saveBtn = new ButtonDefault(
+        this._btnSave = new ButtonDefault(
             this._footer,
             title,
             undefined,
@@ -260,7 +288,7 @@ export class ModalDialog extends Component<HTMLDivElement> {
             ButtonDefaultType.none
         );
 
-        saveBtn.setOnClickFn(async () => {
+        this._btnSave.setOnClickFn(async () => {
             if (this._onSave !== null) {
                 if (showLoading) {
                     this.showLoading();
@@ -278,7 +306,7 @@ export class ModalDialog extends Component<HTMLDivElement> {
             }
         });
 
-        return saveBtn;
+        return this._btnSave;
     }
 
     /**

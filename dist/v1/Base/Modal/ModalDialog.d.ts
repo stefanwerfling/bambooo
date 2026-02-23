@@ -58,6 +58,16 @@ export declare class ModalDialog extends Component<HTMLDivElement> {
      */
     protected _footer: JQuery<HTMLDivElement>;
     /**
+     * Button close object
+     * @protected
+     */
+    protected _btnClose: ButtonDefault | null;
+    /**
+     * Button save object
+     * @protected
+     */
+    protected _btnSave: ButtonDefault | null;
+    /**
      * on close event
      * @protected
      */
@@ -110,18 +120,28 @@ export declare class ModalDialog extends Component<HTMLDivElement> {
      */
     resetValues(): void;
     /**
+     * Return button close
+     * @return {ButtonDefault|null}
+     */
+    getButtonClose(): ButtonDefault | null;
+    /**
      * add a close button on footer
      * @param {string|LangText|null} title
      * @returns {ButtonDefault}
      */
     addButtonClose(title?: string | LangText | null): ButtonDefault;
     /**
+     * Return button save
+     * @return {ButtonDefault|null}
+     */
+    getButtonSave(): ButtonDefault | null;
+    /**
      * add a save button on footer
      * @param {string|LangText|null} title
      * @param {boolean} showLoading
      * @returns {ButtonDefault}
      */
-    addButtonSave(title?: string | LangText | null, showLoading?: boolean): any;
+    addButtonSave(title?: string | LangText | null, showLoading?: boolean): ButtonDefault;
     /**
      * showLoading
      */
