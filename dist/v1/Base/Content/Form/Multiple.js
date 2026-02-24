@@ -85,5 +85,24 @@ class Multiple extends Component_js_1.Component {
         }
         return [String(val)];
     }
+    /**
+     * setReadOnly
+     * @param {boolean} readonly
+     */
+    setReadOnly(readonly) {
+        if (readonly) {
+            this._element.attr('disabled', 'disabled');
+        }
+        else {
+            this._element.removeAttr('disabled');
+        }
+    }
+    /**
+     * isReadOnly
+     * @return {boolean}
+     */
+    isReadOnly() {
+        return this._element.is('[disabled=disabled]');
+    }
 }
 exports.Multiple = Multiple;

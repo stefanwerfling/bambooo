@@ -1,9 +1,10 @@
+import { IReadOnly } from '../../../../Core/Interface/IReadOnly.js';
 import { ComponentType } from '../../Component.js';
 import { Textarea } from './Textarea';
 /**
  * Summernote
  */
-export declare class Summernote extends Textarea {
+export declare class Summernote extends Textarea implements IReadOnly {
     /**
      * Is Enable
      * @protected
@@ -16,6 +17,11 @@ export declare class Summernote extends Textarea {
      * @param {number} rows - Textarea rows.
      */
     constructor(element: ComponentType, placeholder?: string, rows?: number);
+    /**
+     * Create
+     * @param {boolean} focus
+     * @protected
+     */
     protected create(focus: boolean): void;
     destroy(): void;
     /**
@@ -28,10 +34,27 @@ export declare class Summernote extends Textarea {
      * @param {string} value
      */
     setValue(value: string): void;
+    /**
+     * Set the focus
+     */
     focus(): void;
+    /**
+     * Open to fullscreen
+     */
     fullscreen(): void;
+    /**
+     * Is fullscreen
+     * @return {boolean}
+     */
     isFullscreen(): boolean;
+    /**
+     * Is empty
+     * @return {boolean}
+     */
     isEmpty(): boolean;
+    /**
+     * reset
+     */
     reset(): void;
     /**
      * setEnable
@@ -42,4 +65,14 @@ export declare class Summernote extends Textarea {
      * isEnable
      */
     isEnable(): boolean;
+    /**
+     * Set read only
+     * @param {boolean} readonly
+     */
+    setReadOnly(readonly: boolean): void;
+    /**
+     * Is read only
+     * @return {boolean}
+     */
+    isReadOnly(): boolean;
 }

@@ -1,3 +1,4 @@
+import { IReadOnly } from '../../../../Core/Interface/IReadOnly.js';
 import { Component, ComponentType } from '../../Component.js';
 import { LangText } from '../../../Lang/LangText.js';
 /**
@@ -7,7 +8,7 @@ export type CheckBoxClickFn = () => void;
 /**
  * Check Box
  */
-export declare class CheckBox extends Component<HTMLDivElement> {
+export declare class CheckBox extends Component<HTMLDivElement> implements IReadOnly {
     /**
      * input
      * @protected

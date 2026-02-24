@@ -1,3 +1,4 @@
+import { IReadOnly } from '../../../../Core/Interface/IReadOnly.js';
 import { Component, ComponentType } from '../../Component.js';
 /**
  * SelectOption
@@ -14,7 +15,7 @@ export type SelectChangeFn = (value: any) => void;
 /**
  * SelectBottemBorderOnly2
  */
-export declare class SelectBottemBorderOnly2 extends Component<HTMLSelectElement> {
+export declare class SelectBottemBorderOnly2 extends Component<HTMLSelectElement> implements IReadOnly {
     /**
      * selected value
      * @protected
@@ -60,4 +61,14 @@ export declare class SelectBottemBorderOnly2 extends Component<HTMLSelectElement
      * @returns {string}
      */
     getSelectedValue(): string;
+    /**
+     * setReadOnly
+     * @param {boolean} readonly
+     */
+    setReadOnly(readonly: boolean): void;
+    /**
+     * isReadOnly
+     * @return {boolean}
+     */
+    isReadOnly(): boolean;
 }

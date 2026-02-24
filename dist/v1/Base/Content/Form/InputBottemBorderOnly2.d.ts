@@ -1,3 +1,4 @@
+import { IReadOnly } from '../../../../Core/Interface/IReadOnly.js';
 import { Component, ComponentType } from '../../Component.js';
 /**
  * InputType
@@ -31,7 +32,7 @@ export type InputTypeOptions = {
 /**
  * InputBottemBorderOnly2
  */
-export declare class InputBottemBorderOnly2 extends Component<HTMLInputElement> {
+export declare class InputBottemBorderOnly2 extends Component<HTMLInputElement> implements IReadOnly {
     /**
      * type
      * @protected

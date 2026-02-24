@@ -1,3 +1,4 @@
+import { IReadOnly } from '../../../../Core/Interface/IReadOnly.js';
 import { Component, ComponentType } from '../../Component.js';
 /**
  * SwitchChangeFn
@@ -6,7 +7,7 @@ export type SwitchChangeFn = (value: boolean) => void;
 /**
  * Switch
  */
-export declare class Switch extends Component<HTMLDivElement> {
+export declare class Switch extends Component<HTMLDivElement> implements IReadOnly {
     /**
      * input
      * @protected
@@ -49,4 +50,14 @@ export declare class Switch extends Component<HTMLDivElement> {
      * @param {boolean} inactiv
      */
     setInativ(inactiv: boolean): void;
+    /**
+     * setReadOnly
+     * @param {boolean} readonly
+     */
+    setReadOnly(readonly: boolean): void;
+    /**
+     * isReadOnly
+     * @return {boolean}
+     */
+    isReadOnly(): boolean;
 }

@@ -79,5 +79,24 @@ class Radio extends Component_js_1.Component {
             this._inputRadio.removeAttr('checked');
         }
     }
+    /**
+     * setReadOnly
+     * @param {boolean} readonly
+     */
+    setReadOnly(readonly) {
+        if (readonly) {
+            this._inputRadio.attr('disabled', 'disabled');
+        }
+        else {
+            this._inputRadio.removeAttr('disabled');
+        }
+    }
+    /**
+     * isReadOnly
+     * @return {boolean}
+     */
+    isReadOnly() {
+        return this._inputRadio.is('[disabled=disabled]');
+    }
 }
 exports.Radio = Radio;

@@ -68,11 +68,25 @@ class Switch extends Component_js_1.Component {
      */
     setInativ(inactiv) {
         if (inactiv) {
-            this._input.attr('disabled', 1);
+            this._input.attr('disabled', 'disabled');
         }
         else {
             this._input.removeAttr('disabled');
         }
+    }
+    /**
+     * setReadOnly
+     * @param {boolean} readonly
+     */
+    setReadOnly(readonly) {
+        this.setInativ(readonly);
+    }
+    /**
+     * isReadOnly
+     * @return {boolean}
+     */
+    isReadOnly() {
+        return this._input.is('[disabled=disabled]');
     }
 }
 exports.Switch = Switch;

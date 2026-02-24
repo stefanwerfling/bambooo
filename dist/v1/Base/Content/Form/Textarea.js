@@ -43,5 +43,24 @@ class Textarea extends Component_js_1.Component {
     getValue() {
         return this._element.val();
     }
+    /**
+     * setReadOnly
+     * @param {boolean} readonly
+     */
+    setReadOnly(readonly) {
+        if (readonly) {
+            this._element.attr('disabled', 'disabled');
+        }
+        else {
+            this._element.removeAttr('disabled');
+        }
+    }
+    /**
+     * isReadOnly
+     * @return {boolean}
+     */
+    isReadOnly() {
+        return this._element.is('[disabled=disabled]');
+    }
 }
 exports.Textarea = Textarea;

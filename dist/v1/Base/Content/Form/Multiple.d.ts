@@ -1,9 +1,10 @@
+import { IReadOnly } from '../../../../Core/Interface/IReadOnly.js';
 import { Component, ComponentType } from '../../Component.js';
 import { SelectOption } from './SelectBottemBorderOnly2';
 /**
  * Multiple
  */
-export declare class Multiple extends Component<HTMLSelectElement> {
+export declare class Multiple extends Component<HTMLSelectElement> implements IReadOnly {
     /**
      * Limit
      * @protected
@@ -44,4 +45,14 @@ export declare class Multiple extends Component<HTMLSelectElement> {
      * @return {string[]}
      */
     getValue(): string[];
+    /**
+     * setReadOnly
+     * @param {boolean} readonly
+     */
+    setReadOnly(readonly: boolean): void;
+    /**
+     * isReadOnly
+     * @return {boolean}
+     */
+    isReadOnly(): boolean;
 }

@@ -1,10 +1,11 @@
+import {IReadOnly} from '../../../../Core/Interface/IReadOnly.js';
 import {Component, ComponentType} from '../../Component.js';
 import {SelectOption} from './SelectBottemBorderOnly2';
 
 /**
  * Multiple
  */
-export class Multiple extends Component<HTMLSelectElement> {
+export class Multiple extends Component<HTMLSelectElement> implements IReadOnly {
 
     /**
      * Limit
@@ -28,7 +29,9 @@ export class Multiple extends Component<HTMLSelectElement> {
             aid = id;
         }
 
-        this._element = jQuery<HTMLSelectElement>(`<select class="select2bs4" id="${aid}" multiple="multiple" data-placeholder="Select a State" style="width: 100%;" />`).appendTo(telement);
+        this._element = jQuery<HTMLSelectElement>(`<select class="select2bs4" id="${
+            aid
+        }" multiple="multiple" data-placeholder="Select a State" style="width: 100%;" />`).appendTo(telement);
     }
 
     /**
@@ -97,6 +100,26 @@ export class Multiple extends Component<HTMLSelectElement> {
         }
 
         return [String(val)];
+    }
+
+    /**
+     * setReadOnly
+     * @param {boolean} readonly
+     */
+    public setReadOnly(readonly: boolean): void {
+        if (readonly) {
+            this._element.attr('disabled', 'disabled');
+        } else {
+            this._element.removeAttr('disabled');
+        }
+    }
+
+    /**
+     * isReadOnly
+     * @return {boolean}
+     */
+    public isReadOnly(): boolean {
+        return this._element.is('[disabled=disabled]');
     }
 
 }

@@ -27,6 +27,11 @@ class CollectionWidget {
      */
     _editable;
     /**
+     * Button add
+     * @protected
+     */
+    _btnAdd = null;
+    /**
      * Entry class for create object
      * @protected
      */
@@ -55,9 +60,14 @@ class CollectionWidget {
             this._createAddBtn(bindElement);
         }
     }
+    /**
+     * Create add button
+     * @param {ComponentType} element
+     * @protected
+     */
     _createAddBtn(element) {
-        const addBtn = new ButtonDefault_js_1.ButtonDefault(element, '', 'fa-plus', ButtonClass_js_1.ButtonClass.tool, ButtonDefault_js_1.ButtonDefaultType.none);
-        addBtn.setOnClickFn(() => {
+        this._btnAdd = new ButtonDefault_js_1.ButtonDefault(element, '', 'fa-plus', ButtonClass_js_1.ButtonClass.tool, ButtonDefault_js_1.ButtonDefaultType.none);
+        this._btnAdd.setOnClickFn(() => {
             this._onClickAdd();
         });
     }
@@ -141,6 +151,28 @@ class CollectionWidget {
         if (this._onUpdate) {
             this._onUpdate(CollectionWidgetOnUpdateEvent.removeAll);
         }
+    }
+    /**
+     * setReadOnly
+     * @param {boolean} readonly
+     */
+    setReadOnly(readonly) {
+        this._editable = !readonly;
+        if (this._btnAdd) {
+            this._btnAdd.setDisabled(readonly);
+            this._btnAdd.hide();
+        }
+        const objects = this._objects;
+        for (const object of objects) {
+            object.setReadOnly(readonly);
+        }
+    }
+    /**
+     * isReadOnly
+     * @return {boolean}
+     */
+    isReadOnly() {
+        return !this._editable;
     }
 }
 exports.CollectionWidget = CollectionWidget;

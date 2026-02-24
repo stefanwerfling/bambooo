@@ -1,9 +1,10 @@
+import {IReadOnly} from '../../../../Core/Interface/IReadOnly.js';
 import {Component, ComponentType} from '../../Component.js';
 
 /**
  * Textarea form element.
  */
-export class Textarea extends Component<HTMLTextAreaElement> {
+export class Textarea extends Component<HTMLTextAreaElement> implements IReadOnly {
 
     /**
      * Constructor for Textarea element.
@@ -47,6 +48,26 @@ export class Textarea extends Component<HTMLTextAreaElement> {
      */
     public getValue(): string {
         return this._element.val() as string;
+    }
+
+    /**
+     * setReadOnly
+     * @param {boolean} readonly
+     */
+    public setReadOnly(readonly: boolean): void {
+        if (readonly) {
+            this._element.attr('disabled', 'disabled');
+        } else {
+            this._element.removeAttr('disabled');
+        }
+    }
+
+    /**
+     * isReadOnly
+     * @return {boolean}
+     */
+    public isReadOnly(): boolean {
+        return this._element.is('[disabled=disabled]');
     }
 
 }

@@ -1,3 +1,4 @@
+import { IReadOnly } from '../../../Core/Interface/IReadOnly.js';
 import { ButtonDefault } from '../Content/Button/ButtonDefault.js';
 import { Component, ComponentType } from '../Component.js';
 import { LangText } from '../../Lang/LangText.js';
@@ -16,7 +17,7 @@ export type ModalDialogEventFn = (dialog: ModalDialog) => Promise<void>;
 /**
  * ModalDialog
  */
-export declare class ModalDialog extends Component<HTMLDivElement> {
+export declare class ModalDialog extends Component<HTMLDivElement> implements IReadOnly {
     /**
      * inner element
      * @protected
@@ -58,6 +59,11 @@ export declare class ModalDialog extends Component<HTMLDivElement> {
      */
     protected _footer: JQuery<HTMLDivElement>;
     /**
+     * Is modal dialog readonly
+     * @protected
+     */
+    protected _readOnly: boolean;
+    /**
      * Button close object
      * @protected
      */
@@ -91,17 +97,17 @@ export declare class ModalDialog extends Component<HTMLDivElement> {
      */
     constructor(elementObject: ComponentType, idname: string, modalType: ModalDialogType, backdrop?: boolean);
     /**
-     * setTitle
+     * Set title
      * @param {string|LangText} title
      */
     setTitle(title: string | LangText): void;
     /**
-     * getBody
+     * Get body
      * @return {JQuery<HTMLDivElement>}
      */
     getBody(): JQuery<HTMLDivElement>;
     /**
-     * getFooter
+     * Get footer
      * @return {JQuery<HTMLDivElement>}
      */
     getFooter(): JQuery<HTMLDivElement>;
@@ -169,4 +175,14 @@ export declare class ModalDialog extends Component<HTMLDivElement> {
      * Destroy
      */
     destroy(): void;
+    /**
+     * Set read only
+     * @param {boolean} readonly
+     */
+    setReadOnly(readonly: boolean): void;
+    /**
+     * Is read only
+     * @return {boolean}
+     */
+    isReadOnly(): boolean;
 }

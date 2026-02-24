@@ -1,4 +1,5 @@
 import MobileDetect from 'mobile-detect';
+import {IReadOnly} from '../../../Core/Interface/IReadOnly.js';
 import {ButtonClass} from '../Content/Button/ButtonClass.js';
 import {ButtonDefault, ButtonDefaultType} from '../Content/Button/ButtonDefault.js';
 import {Component, ComponentType} from '../Component.js';
@@ -21,7 +22,7 @@ export type ModalDialogEventFn = (dialog: ModalDialog) => Promise<void>;
 /**
  * ModalDialog
  */
-export class ModalDialog extends Component<HTMLDivElement> {
+export class ModalDialog extends Component<HTMLDivElement> implements IReadOnly {
 
     /**
      * inner element
@@ -70,6 +71,12 @@ export class ModalDialog extends Component<HTMLDivElement> {
      * @protected
      */
     protected _footer: JQuery<HTMLDivElement>;
+
+    /**
+     * Is modal dialog readonly
+     * @protected
+     */
+    protected _readOnly: boolean = false;
 
     /**
      * Button close object
@@ -171,7 +178,7 @@ export class ModalDialog extends Component<HTMLDivElement> {
     }
 
     /**
-     * setTitle
+     * Set title
      * @param {string|LangText} title
      */
     public setTitle(title: string|LangText): void {
@@ -179,7 +186,7 @@ export class ModalDialog extends Component<HTMLDivElement> {
     }
 
     /**
-     * getBody
+     * Get body
      * @return {JQuery<HTMLDivElement>}
      */
     public getBody(): JQuery<HTMLDivElement> {
@@ -187,7 +194,7 @@ export class ModalDialog extends Component<HTMLDivElement> {
     }
 
     /**
-     * getFooter
+     * Get footer
      * @return {JQuery<HTMLDivElement>}
      */
     public getFooter(): JQuery<HTMLDivElement> {
@@ -373,6 +380,26 @@ export class ModalDialog extends Component<HTMLDivElement> {
         } else {
             removeIfNoOtherModal();
         }
+    }
+
+    /**
+     * Set read only
+     * @param {boolean} readonly
+     */
+    public setReadOnly(readonly: boolean): void {
+        this._readOnly = readonly;
+
+        if (this._btnSave) {
+            this._btnSave.setDisabled(readonly);
+        }
+    }
+
+    /**
+     * Is read only
+     * @return {boolean}
+     */
+    public isReadOnly(): boolean {
+        return this._readOnly;
     }
 
 }

@@ -90,4 +90,5 @@ export class ButtonBorderless extends Component<HTMLAnchorElement> {
     public setClickEnable(enable: boolean): void {
         this._clickEnable = enable;
     }
+
 }

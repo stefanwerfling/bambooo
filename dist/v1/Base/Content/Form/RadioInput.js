@@ -95,5 +95,19 @@ class RadioInput extends Component_js_1.Component {
             fn();
         });
     }
+    /**
+     * setReadOnly
+     * @param {boolean} readonly
+     */
+    setReadOnly(readonly) {
+        this.setInputReadOnly(readonly);
+    }
+    /**
+     * isReadOnly
+     * @return {boolean}
+     */
+    isReadOnly() {
+        return this.isInputReadOnly();
+    }
 }
 exports.RadioInput = RadioInput;

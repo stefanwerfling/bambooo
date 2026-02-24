@@ -63,6 +63,11 @@ class ModalDialog extends Component_js_1.Component {
      */
     _footer;
     /**
+     * Is modal dialog readonly
+     * @protected
+     */
+    _readOnly = false;
+    /**
      * Button close object
      * @protected
      */
@@ -142,21 +147,21 @@ class ModalDialog extends Component_js_1.Component {
         }
     }
     /**
-     * setTitle
+     * Set title
      * @param {string|LangText} title
      */
     setTitle(title) {
         LangText_js_1.LangText.addLangText(this._header_title, title);
     }
     /**
-     * getBody
+     * Get body
      * @return {JQuery<HTMLDivElement>}
      */
     getBody() {
         return this._body;
     }
     /**
-     * getFooter
+     * Get footer
      * @return {JQuery<HTMLDivElement>}
      */
     getFooter() {
@@ -304,6 +309,23 @@ class ModalDialog extends Component_js_1.Component {
         else {
             removeIfNoOtherModal();
         }
+    }
+    /**
+     * Set read only
+     * @param {boolean} readonly
+     */
+    setReadOnly(readonly) {
+        this._readOnly = readonly;
+        if (this._btnSave) {
+            this._btnSave.setDisabled(readonly);
+        }
+    }
+    /**
+     * Is read only
+     * @return {boolean}
+     */
+    isReadOnly() {
+        return this._readOnly;
     }
 }
 exports.ModalDialog = ModalDialog;

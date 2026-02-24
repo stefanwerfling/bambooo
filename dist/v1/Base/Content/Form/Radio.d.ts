@@ -1,9 +1,10 @@
+import { IReadOnly } from '../../../../Core/Interface/IReadOnly.js';
 import { Component, ComponentType } from '../../Component.js';
 import { LangText } from './../../../Lang/LangText.js';
 /**
  * Radio
  */
-export declare class Radio extends Component<HTMLDivElement> {
+export declare class Radio extends Component<HTMLDivElement> implements IReadOnly {
     /**
      * input radio
      * @protected
@@ -49,4 +50,14 @@ export declare class Radio extends Component<HTMLDivElement> {
      * @param {boolean} checked
      */
     setChecked(checked: boolean): void;
+    /**
+     * setReadOnly
+     * @param {boolean} readonly
+     */
+    setReadOnly(readonly: boolean): void;
+    /**
+     * isReadOnly
+     * @return {boolean}
+     */
+    isReadOnly(): boolean;
 }

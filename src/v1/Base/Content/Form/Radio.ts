@@ -1,10 +1,11 @@
+import {IReadOnly} from '../../../../Core/Interface/IReadOnly.js';
 import {Component, ComponentType} from '../../Component.js';
 import {LangText} from './../../../Lang/LangText.js';
 
 /**
  * Radio
  */
-export class Radio extends Component<HTMLDivElement> {
+export class Radio extends Component<HTMLDivElement> implements IReadOnly {
 
     /**
      * input radio
@@ -38,7 +39,11 @@ export class Radio extends Component<HTMLDivElement> {
         const telement = this._getAnyElement(element);
         this._element = jQuery<HTMLDivElement>('<div class="form-check" />').appendTo(telement);
 
-        this._inputRadio = jQuery<HTMLInputElement>(`<input class="form-check-input" type="radio" name="${radionName}" value="${radioValue}">`).appendTo(this._element);
+        this._inputRadio = jQuery<HTMLInputElement>(`<input class="form-check-input" type="radio" name="${
+            radionName
+        }" value="${
+            radioValue
+        }">`).appendTo(this._element);
 
         if (label !== null) {
             this.setLabel(label);
@@ -96,4 +101,25 @@ export class Radio extends Component<HTMLDivElement> {
             this._inputRadio.removeAttr('checked');
         }
     }
+
+    /**
+     * setReadOnly
+     * @param {boolean} readonly
+     */
+    public setReadOnly(readonly: boolean): void {
+        if (readonly) {
+            this._inputRadio.attr('disabled', 'disabled');
+        } else {
+            this._inputRadio.removeAttr('disabled');
+        }
+    }
+
+    /**
+     * isReadOnly
+     * @return {boolean}
+     */
+    public isReadOnly(): boolean {
+        return this._inputRadio.is('[disabled=disabled]');
+    }
+
 }

@@ -1,5 +1,7 @@
 import { BClass } from '../../../../Core/BTypes.js';
+import { IReadOnly } from '../../../../Core/Interface/IReadOnly.js';
 import { Component, ComponentType } from '../../Component.js';
+import { ButtonDefault } from '../../Content/Button/ButtonDefault.js';
 import { ICollectionEntryWidget } from './CollectionEntryWidget.js';
 /**
  * Collection widget on update event
@@ -16,7 +18,7 @@ export type CollectionWidgetOnUpdate<T> = (event: CollectionWidgetOnUpdateEvent,
 /**
  * Collection Widget
  */
-export declare class CollectionWidget<T extends ICollectionEntryWidget, E extends Component<HTMLElement>> {
+export declare class CollectionWidget<T extends ICollectionEntryWidget, E extends Component<HTMLElement>> implements IReadOnly {
     /**
      * Element
      * @protected
@@ -27,6 +29,11 @@ export declare class CollectionWidget<T extends ICollectionEntryWidget, E extend
      * @protected
      */
     protected _editable: boolean;
+    /**
+     * Button add
+     * @protected
+     */
+    protected _btnAdd: ButtonDefault | null;
     /**
      * Entry class for create object
      * @protected
@@ -54,6 +61,11 @@ export declare class CollectionWidget<T extends ICollectionEntryWidget, E extend
         entryClass: BClass<T>;
         onUpdate?: CollectionWidgetOnUpdate<T>;
     });
+    /**
+     * Create add button
+     * @param {ComponentType} element
+     * @protected
+     */
     protected _createAddBtn(element: ComponentType): void;
     /**
      * On click add event
@@ -99,4 +111,14 @@ export declare class CollectionWidget<T extends ICollectionEntryWidget, E extend
      * removeAll
      */
     removeAll(): void;
+    /**
+     * setReadOnly
+     * @param {boolean} readonly
+     */
+    setReadOnly(readonly: boolean): void;
+    /**
+     * isReadOnly
+     * @return {boolean}
+     */
+    isReadOnly(): boolean;
 }

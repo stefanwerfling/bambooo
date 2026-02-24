@@ -1,4 +1,5 @@
 import {BClass} from '../../../../Core/BTypes.js';
+import {IReadOnly} from '../../../../Core/Interface/IReadOnly.js';
 import {ButtonClass} from '../../Content/Button/ButtonClass.js';
 import {Component, ComponentType} from '../../Component.js';
 import {ButtonDefault, ButtonDefaultType} from '../../Content/Button/ButtonDefault.js';
@@ -21,7 +22,7 @@ export type CollectionWidgetOnUpdate<T> = (event: CollectionWidgetOnUpdateEvent,
 /**
  * Collection Widget
  */
-export class CollectionWidget<T extends ICollectionEntryWidget, E extends Component<HTMLElement>> {
+export class CollectionWidget<T extends ICollectionEntryWidget, E extends Component<HTMLElement>> implements IReadOnly {
 
     /**
      * Element
@@ -34,6 +35,12 @@ export class CollectionWidget<T extends ICollectionEntryWidget, E extends Compon
      * @protected
      */
     protected _editable: boolean;
+
+    /**
+     * Button add
+     * @protected
+     */
+    protected _btnAdd: ButtonDefault|null = null;
 
     /**
      * Entry class for create object
@@ -77,8 +84,13 @@ export class CollectionWidget<T extends ICollectionEntryWidget, E extends Compon
         }
     }
 
+    /**
+     * Create add button
+     * @param {ComponentType} element
+     * @protected
+     */
     protected _createAddBtn(element: ComponentType): void {
-        const addBtn = new ButtonDefault(
+        this._btnAdd = new ButtonDefault(
             element,
             '',
             'fa-plus',
@@ -86,7 +98,7 @@ export class CollectionWidget<T extends ICollectionEntryWidget, E extends Compon
             ButtonDefaultType.none
         );
 
-        addBtn.setOnClickFn(() => {
+        this._btnAdd.setOnClickFn(() => {
             this._onClickAdd();
         });
     }
@@ -191,6 +203,33 @@ export class CollectionWidget<T extends ICollectionEntryWidget, E extends Compon
         if (this._onUpdate) {
             this._onUpdate(CollectionWidgetOnUpdateEvent.removeAll);
         }
+    }
+
+    /**
+     * setReadOnly
+     * @param {boolean} readonly
+     */
+    public setReadOnly(readonly: boolean): void {
+        this._editable = !readonly;
+
+        if (this._btnAdd) {
+            this._btnAdd.setDisabled(readonly);
+            this._btnAdd.hide();
+        }
+
+        const objects = this._objects;
+
+        for (const object of objects) {
+            object.setReadOnly(readonly);
+        }
+    }
+
+    /**
+     * isReadOnly
+     * @return {boolean}
+     */
+    public isReadOnly(): boolean {
+        return !this._editable;
     }
 
 }

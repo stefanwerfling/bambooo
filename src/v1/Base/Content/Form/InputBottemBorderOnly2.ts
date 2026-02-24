@@ -1,4 +1,5 @@
 import moment from 'moment';
+import {IReadOnly} from '../../../../Core/Interface/IReadOnly.js';
 import {Component, ComponentType} from '../../Component.js';
 import {Icon, IconFa} from '../Icon/Icon';
 import {FormGroupButton} from './FormGroupButton';
@@ -38,7 +39,7 @@ export type InputTypeOptions = {
 /**
  * InputBottemBorderOnly2
  */
-export class InputBottemBorderOnly2 extends Component<HTMLInputElement> {
+export class InputBottemBorderOnly2 extends Component<HTMLInputElement> implements IReadOnly {
 
     /**
      * type
@@ -282,4 +283,5 @@ export class InputBottemBorderOnly2 extends Component<HTMLInputElement> {
     public isReadOnly(): boolean {
         return this._element.is('[disabled=disabled]');
     }
+
 }

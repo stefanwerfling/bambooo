@@ -21,6 +21,11 @@ class Summernote extends Textarea_1.Textarea {
         super(element, placeholder, rows);
         this.create(false);
     }
+    /**
+     * Create
+     * @param {boolean} focus
+     * @protected
+     */
     create(focus) {
         if (typeof this._element.summernote === 'function') {
             this._element.summernote({
@@ -58,16 +63,26 @@ class Summernote extends Textarea_1.Textarea {
             this._element.summernote('pasteHTML', value);
         }
     }
+    /**
+     * Set the focus
+     */
     focus() {
         if (typeof this._element.summernote === 'function') {
             this._element.summernote('focus');
         }
     }
+    /**
+     * Open to fullscreen
+     */
     fullscreen() {
         if (typeof this._element.summernote === 'function') {
             this._element.summernote('fullscreen.toggle');
         }
     }
+    /**
+     * Is fullscreen
+     * @return {boolean}
+     */
     isFullscreen() {
         if (typeof this._element.summernote === 'function') {
             return this._element.summernote('fullscreen.isFullscreen');
@@ -77,6 +92,10 @@ class Summernote extends Textarea_1.Textarea {
         }
         return false;
     }
+    /**
+     * Is empty
+     * @return {boolean}
+     */
     isEmpty() {
         if (typeof this._element.summernote === 'function') {
             return this._element.summernote('isEmpty');
@@ -86,6 +105,9 @@ class Summernote extends Textarea_1.Textarea {
         }
         return false;
     }
+    /**
+     * reset
+     */
     reset() {
         if (typeof this._element.summernote === 'function') {
             this._element.summernote('reset');
@@ -110,6 +132,20 @@ class Summernote extends Textarea_1.Textarea {
      */
     isEnable() {
         return this._isEnable;
+    }
+    /**
+     * Set read only
+     * @param {boolean} readonly
+     */
+    setReadOnly(readonly) {
+        this.setEnable(!readonly);
+    }
+    /**
+     * Is read only
+     * @return {boolean}
+     */
+    isReadOnly() {
+        return !this.isEnable();
     }
 }
 exports.Summernote = Summernote;

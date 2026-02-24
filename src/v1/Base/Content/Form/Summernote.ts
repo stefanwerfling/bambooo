@@ -1,10 +1,11 @@
+import {IReadOnly} from '../../../../Core/Interface/IReadOnly.js';
 import {ComponentType} from '../../Component.js';
 import {Textarea} from './Textarea';
 
 /**
  * Summernote
  */
-export class Summernote extends Textarea {
+export class Summernote extends Textarea implements IReadOnly {
 
     /**
      * Is Enable
@@ -24,6 +25,11 @@ export class Summernote extends Textarea {
         this.create(false);
     }
 
+    /**
+     * Create
+     * @param {boolean} focus
+     * @protected
+     */
     protected create(focus: boolean): void {
         if (typeof (this._element as any).summernote === 'function') {
             (this._element as any).summernote({
@@ -64,18 +70,28 @@ export class Summernote extends Textarea {
         }
     }
 
+    /**
+     * Set the focus
+     */
     public focus(): void {
         if (typeof (this._element as any).summernote === 'function') {
             (this._element as any).summernote('focus');
         }
     }
 
+    /**
+     * Open to fullscreen
+     */
     public fullscreen(): void {
         if (typeof (this._element as any).summernote === 'function') {
             (this._element as any).summernote('fullscreen.toggle');
         }
     }
 
+    /**
+     * Is fullscreen
+     * @return {boolean}
+     */
     public isFullscreen(): boolean {
         if (typeof (this._element as any).summernote === 'function') {
             return (this._element as any).summernote('fullscreen.isFullscreen');
@@ -86,6 +102,10 @@ export class Summernote extends Textarea {
         return false;
     }
 
+    /**
+     * Is empty
+     * @return {boolean}
+     */
     public isEmpty(): boolean {
         if (typeof (this._element as any).summernote === 'function') {
             return (this._element as any).summernote('isEmpty');
@@ -96,6 +116,9 @@ export class Summernote extends Textarea {
         return false;
     }
 
+    /**
+     * reset
+     */
     public reset(): void {
         if (typeof (this._element as any).summernote === 'function') {
             (this._element as any).summernote('reset');
@@ -124,5 +147,21 @@ export class Summernote extends Textarea {
      */
     public isEnable(): boolean {
         return this._isEnable;
+    }
+
+    /**
+     * Set read only
+     * @param {boolean} readonly
+     */
+    public setReadOnly(readonly: boolean) {
+        this.setEnable(!readonly);
+    }
+
+    /**
+     * Is read only
+     * @return {boolean}
+     */
+    public isReadOnly(): boolean {
+        return !this.isEnable();
     }
 }

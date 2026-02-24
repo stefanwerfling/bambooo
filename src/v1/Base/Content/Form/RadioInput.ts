@@ -1,3 +1,4 @@
+import {IReadOnly} from '../../../../Core/Interface/IReadOnly.js';
 import {Component, ComponentType} from '../../Component.js';
 
 /**
@@ -8,7 +9,7 @@ export type RadioInputClickFn = () => void;
 /**
  * RadioInput
  */
-export class RadioInput extends Component<HTMLDivElement> {
+export class RadioInput extends Component<HTMLDivElement> implements IReadOnly {
 
     /**
      * input radio
@@ -107,6 +108,22 @@ export class RadioInput extends Component<HTMLDivElement> {
         this._inputRadio.off('click').on('click', (): void => {
             fn();
         });
+    }
+
+    /**
+     * setReadOnly
+     * @param {boolean} readonly
+     */
+    public setReadOnly(readonly: boolean): void {
+        this.setInputReadOnly(readonly);
+    }
+
+    /**
+     * isReadOnly
+     * @return {boolean}
+     */
+    public isReadOnly(): boolean {
+        return this.isInputReadOnly();
     }
 
 }
