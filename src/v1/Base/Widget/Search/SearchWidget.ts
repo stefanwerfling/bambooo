@@ -1,7 +1,11 @@
 import 'jquery';
 import 'select2';
+import {IReadOnly} from '../../../../Core/Interface/IReadOnly.js';
 import {Component, ComponentType} from '../../Component.js';
 
+/**
+ * Search widget select 2 ajax params
+ */
 export interface SearchWidgetSelect2AjaxParams {
     data: any;
     url: string;
@@ -9,12 +13,18 @@ export interface SearchWidgetSelect2AjaxParams {
     headers?: {[key: string]: string;};
 }
 
+/**
+ * Search widget select 2 ajax transport
+ */
 export type SearchWidgetSelect2AjaxTransport = (
     params: SearchWidgetSelect2AjaxParams,
     success: (data: any) => void,
     failure: (jqXHR: JQuery.jqXHR|undefined, textStatus: string, errorThrown: string) => void
 ) => Promise<void | JQuery.jqXHR>;
 
+/**
+ * Search widget select 2 ajax transport ext
+ */
 export type SearchWidgetSelect2AjaxTransportExt<T> = (
     params: SearchWidgetSelect2AjaxParams,
     success: (data: any) => void,
@@ -67,7 +77,7 @@ type SearchWidgetSelectOptions = {
 /**
  * Search widget
  */
-export class SearchWidget extends Component<HTMLElement> {
+export class SearchWidget extends Component<HTMLElement> implements IReadOnly {
 
     /**
      * Select2 object
@@ -103,6 +113,26 @@ export class SearchWidget extends Component<HTMLElement> {
 
         this._select = jQuery<HTMLSelectElement>('<select class="select2bs4" multiple="multiple" style="width: 100%;">').appendTo(this._element);
         this._updateSelect();
+    }
+
+    /**
+     * Set read only
+     * @param {boolean} readonly
+     */
+    public setReadOnly(readonly: boolean): void {
+        if (readonly) {
+            this._select.attr('disabled', 'disabled');
+        } else {
+            this._select.removeAttr('disabled');
+        }
+    }
+
+    /**
+     * Is read only
+     * @return {boolean}
+     */
+    public isReadOnly(): boolean {
+        return this._select.is('[disabled=disabled]');
     }
 
     /**
@@ -157,6 +187,7 @@ export class SearchWidget extends Component<HTMLElement> {
                 return cTransport(params, success, failure, options);
             }
         };
+
         this._selectOptions.data = null;
         this._updateSelect();
     }
@@ -220,20 +251,36 @@ export class SearchWidget extends Component<HTMLElement> {
         (this._select as any).on('select2:select', on);
     }
 
+    /**
+     * Set on unselect
+     * @param {SearchWidgetOnEvent} on
+     */
     public setOnUnselect(on: SearchWidgetOnEvent): void {
         this._select.off('select2:unselect');
         (this._select as any).on('select2:unselect', on);
     }
 
+    /**
+     * Set on selecting
+     * @param {SearchWidgetOnEvent} on
+     */
     public setOnSelecting(on: SearchWidgetOnEvent): void {
         this._select.off('select2:selecting');
         (this._select as any).on('select2:selecting', on);
     }
 
+    /**
+     * Add class
+     * @param {string} aclass
+     */
     public override addClass(aclass: string): void {
         jQuery(this._select.data('select2').$container).addClass(aclass);
     }
 
+    /**
+     * Remove class
+     * @param {string} aclass
+     */
     public removeClass(aclass: string): void {
         jQuery(this._select.data('select2').$container).removeClass(aclass);
     }

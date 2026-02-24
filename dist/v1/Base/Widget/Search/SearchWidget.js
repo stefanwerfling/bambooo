@@ -41,6 +41,25 @@ class SearchWidget extends Component_js_1.Component {
         this._updateSelect();
     }
     /**
+     * Set read only
+     * @param {boolean} readonly
+     */
+    setReadOnly(readonly) {
+        if (readonly) {
+            this._select.attr('disabled', 'disabled');
+        }
+        else {
+            this._select.removeAttr('disabled');
+        }
+    }
+    /**
+     * Is read only
+     * @return {boolean}
+     */
+    isReadOnly() {
+        return this._select.is('[disabled=disabled]');
+    }
+    /**
      * Update the select
      * @protected
      */
@@ -145,17 +164,33 @@ class SearchWidget extends Component_js_1.Component {
         this._select.off('select2:select');
         this._select.on('select2:select', on);
     }
+    /**
+     * Set on unselect
+     * @param {SearchWidgetOnEvent} on
+     */
     setOnUnselect(on) {
         this._select.off('select2:unselect');
         this._select.on('select2:unselect', on);
     }
+    /**
+     * Set on selecting
+     * @param {SearchWidgetOnEvent} on
+     */
     setOnSelecting(on) {
         this._select.off('select2:selecting');
         this._select.on('select2:selecting', on);
     }
+    /**
+     * Add class
+     * @param {string} aclass
+     */
     addClass(aclass) {
         jQuery(this._select.data('select2').$container).addClass(aclass);
     }
+    /**
+     * Remove class
+     * @param {string} aclass
+     */
     removeClass(aclass) {
         jQuery(this._select.data('select2').$container).removeClass(aclass);
     }

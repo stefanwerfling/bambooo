@@ -1,6 +1,10 @@
 import 'jquery';
 import 'select2';
+import { IReadOnly } from '../../../../Core/Interface/IReadOnly.js';
 import { Component, ComponentType } from '../../Component.js';
+/**
+ * Search widget select 2 ajax params
+ */
 export interface SearchWidgetSelect2AjaxParams {
     data: any;
     url: string;
@@ -9,7 +13,13 @@ export interface SearchWidgetSelect2AjaxParams {
         [key: string]: string;
     };
 }
+/**
+ * Search widget select 2 ajax transport
+ */
 export type SearchWidgetSelect2AjaxTransport = (params: SearchWidgetSelect2AjaxParams, success: (data: any) => void, failure: (jqXHR: JQuery.jqXHR | undefined, textStatus: string, errorThrown: string) => void) => Promise<void | JQuery.jqXHR>;
+/**
+ * Search widget select 2 ajax transport ext
+ */
 export type SearchWidgetSelect2AjaxTransportExt<T> = (params: SearchWidgetSelect2AjaxParams, success: (data: any) => void, failure: (jqXHR: JQuery.jqXHR | undefined, textStatus: string, errorThrown: string) => void, options?: T) => Promise<void | JQuery.jqXHR>;
 /**
  * Search widget data
@@ -53,7 +63,7 @@ type SearchWidgetSelectOptions = {
 /**
  * Search widget
  */
-export declare class SearchWidget extends Component<HTMLElement> {
+export declare class SearchWidget extends Component<HTMLElement> implements IReadOnly {
     /**
      * Select2 object
      * @protected
@@ -69,6 +79,16 @@ export declare class SearchWidget extends Component<HTMLElement> {
      * @param {ComponentType} element
      */
     constructor(element: ComponentType);
+    /**
+     * Set read only
+     * @param {boolean} readonly
+     */
+    setReadOnly(readonly: boolean): void;
+    /**
+     * Is read only
+     * @return {boolean}
+     */
+    isReadOnly(): boolean;
     /**
      * Update the select
      * @protected
@@ -121,9 +141,25 @@ export declare class SearchWidget extends Component<HTMLElement> {
      * @param {SearchWidgetOnEvent} on
      */
     setOnSelect(on: SearchWidgetOnEvent): void;
+    /**
+     * Set on unselect
+     * @param {SearchWidgetOnEvent} on
+     */
     setOnUnselect(on: SearchWidgetOnEvent): void;
+    /**
+     * Set on selecting
+     * @param {SearchWidgetOnEvent} on
+     */
     setOnSelecting(on: SearchWidgetOnEvent): void;
+    /**
+     * Add class
+     * @param {string} aclass
+     */
     addClass(aclass: string): void;
+    /**
+     * Remove class
+     * @param {string} aclass
+     */
     removeClass(aclass: string): void;
     /**
      * Return the value from selection
