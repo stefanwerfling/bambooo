@@ -112,6 +112,9 @@ export {KanbanEntryCard} from './v1/Base/Content/Kanban/KanbanEntryCard.js';
 // ## Content - Progress
 export {ProgressbarStyle, ProgressbarColor, Progressbar} from './v1/Base/Content/Progress/Progressbar.js';
 
+// ## Content - Sorting
+export {SortOrder, SortingColumn} from './v1/Base/Content/Sorting/SortingColumn.js';
+
 // ## Content - Stepper
 export {StepperLinearStepEventFn, StepperLinear} from './v1/Base/Content/Stepper/StepperLinear.js';
 

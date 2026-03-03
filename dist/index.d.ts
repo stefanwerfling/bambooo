@@ -69,6 +69,7 @@ export { KanbanCard } from './v1/Base/Content/Kanban/KanbanCard.js';
 export { KanbanBoard } from './v1/Base/Content/Kanban/KanbanBoard.js';
 export { KanbanEntryCard } from './v1/Base/Content/Kanban/KanbanEntryCard.js';
 export { ProgressbarStyle, ProgressbarColor, Progressbar } from './v1/Base/Content/Progress/Progressbar.js';
+export { SortOrder, SortingColumn } from './v1/Base/Content/Sorting/SortingColumn.js';
 export { StepperLinearStepEventFn, StepperLinear } from './v1/Base/Content/Stepper/StepperLinear.js';
 export { NavTabOnLoad, NavTabElements, NavTab } from './v1/Base/Content/Tab/NavTab.js';
 export { TableOptions, Table } from './v1/Base/Content/Table/Table.js';

@@ -82,11 +82,11 @@ class ButtonDefault extends Button_js_1.Button {
         }
     }
     /**
-     * Set class
+     * Set button class
      * @param {ButtonClass} bnClass
      */
-    setClass(bnClass = ButtonClass_1.ButtonClass.default) {
-        this._element.removeClass(this._class).addClass(bnClass);
+    setBtnClass(bnClass = ButtonClass_1.ButtonClass.default) {
+        this.setClass(bnClass, this._class);
         this._class = bnClass;
     }
 }

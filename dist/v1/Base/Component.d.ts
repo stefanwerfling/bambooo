@@ -78,6 +78,12 @@ export declare class Component<T extends HTMLElement> {
      */
     addClass(aclass: string): void;
     /**
+     * Remove all or given class and then add class
+     * @param {string} addClass
+     * @param {string} removeClass
+     */
+    setClass(addClass: string, removeClass?: string): void;
+    /**
      * setCss
      * @param {Record<string, string | number>} css
      */

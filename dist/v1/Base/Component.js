@@ -132,6 +132,20 @@ class Component {
         this._element.addClass(aclass);
     }
     /**
+     * Remove all or given class and then add class
+     * @param {string} addClass
+     * @param {string} removeClass
+     */
+    setClass(addClass, removeClass) {
+        if (removeClass) {
+            this._element.removeClass(removeClass);
+        }
+        else {
+            this._element.removeClass();
+        }
+        this._element.addClass(addClass);
+    }
+    /**
      * setCss
      * @param {Record<string, string | number>} css
      */

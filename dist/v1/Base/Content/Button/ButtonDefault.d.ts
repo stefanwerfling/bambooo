@@ -57,8 +57,8 @@ export declare class ButtonDefault extends Button {
      */
     setValue(title?: string | LangText, icon?: string): void;
     /**
-     * Set class
+     * Set button class
      * @param {ButtonClass} bnClass
      */
-    setClass(bnClass?: ButtonClass): void;
+    setBtnClass(bnClass?: ButtonClass): void;
 }

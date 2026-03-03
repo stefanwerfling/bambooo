@@ -106,11 +106,11 @@ export class ButtonDefault extends Button {
     }
 
     /**
-     * Set class
+     * Set button class
      * @param {ButtonClass} bnClass
      */
-    public setClass(bnClass: ButtonClass = ButtonClass.default): void {
-        this._element.removeClass(this._class).addClass(bnClass);
+    public setBtnClass(bnClass: ButtonClass = ButtonClass.default): void {
+        this.setClass(bnClass, this._class);
         this._class = bnClass;
     }
 

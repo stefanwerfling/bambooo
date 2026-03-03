@@ -148,6 +148,21 @@ export class Component<T extends HTMLElement> {
     }
 
     /**
+     * Remove all or given class and then add class
+     * @param {string} addClass
+     * @param {string} removeClass
+     */
+    public setClass(addClass: string, removeClass?: string): void {
+        if (removeClass) {
+            this._element.removeClass(removeClass);
+        } else {
+            this._element.removeClass();
+        }
+
+        this._element.addClass(addClass);
+    }
+
+    /**
      * setCss
      * @param {Record<string, string | number>} css
      */
