@@ -91,7 +91,7 @@ export class TableWrapper<T> extends Component<HTMLDivElement> {
             }
         }, {
             root: this._wrapper[0],
-            rootMargin: "200px"
+            rootMargin: "400px"
         });
 
         this._observer.observe(this._sentinel[0]);
@@ -147,6 +147,11 @@ export class TableWrapper<T> extends Component<HTMLDivElement> {
 
         this._page++;
         this._loading = false;
+
+        requestAnimationFrame(() => {
+            this._observer?.unobserve(this._sentinel[0]);
+            this._observer?.observe(this._sentinel[0]);
+        });
     }
 
     /**

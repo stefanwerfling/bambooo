@@ -77,7 +77,7 @@ class TableWrapper extends Component_js_1.Component {
             }
         }, {
             root: this._wrapper[0],
-            rootMargin: "200px"
+            rootMargin: "400px"
         });
         this._observer.observe(this._sentinel[0]);
     }
@@ -119,6 +119,10 @@ class TableWrapper extends Component_js_1.Component {
         }
         this._page++;
         this._loading = false;
+        requestAnimationFrame(() => {
+            this._observer?.unobserve(this._sentinel[0]);
+            this._observer?.observe(this._sentinel[0]);
+        });
     }
     /**
      * Return table
