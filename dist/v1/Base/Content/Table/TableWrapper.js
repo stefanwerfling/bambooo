@@ -72,12 +72,15 @@ class TableWrapper extends Component_js_1.Component {
      */
     _initObserver() {
         this._observer = new IntersectionObserver(entries => {
-            if (entries[0].isIntersecting) {
-                this._loadNext().then();
-            }
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    this._tryLoad().then();
+                }
+            });
         }, {
             root: this._wrapper[0],
-            rootMargin: "400px"
+            //rootMargin: "400px",
+            threshold: 1.0
         });
         this._observer.observe(this._sentinel[0]);
     }
@@ -86,25 +89,35 @@ class TableWrapper extends Component_js_1.Component {
      * @param {TableDataLoader<T>} loader
      * @param {TableRowRenderer<T>} renderer
      */
-    setDataSource(loader, renderer) {
+    setDataSource(loader, renderer, reset = true) {
         this._loader = loader;
         this._renderer = renderer;
-        this.reset();
-        this._loadNext().then();
+        if (reset) {
+            this.reset().then();
+        }
+        else {
+        }
     }
     /**
      * Reset
      */
-    reset() {
+    async reset() {
         this._page = 0;
         this._hasMore = true;
+        this._loading = false;
         this._table.getTbody().empty();
-        this._loadNext().then(() => {
-            if (this._observer) {
-                this._observer.unobserve(this._sentinel[0]);
-                this._observer.observe(this._sentinel[0]);
-            }
-        });
+        await this._loadNext();
+        this._observer?.unobserve(this._sentinel[0]);
+        this._observer?.observe(this._sentinel[0]);
+    }
+    /**
+     * Try load
+     * @protected
+     */
+    async _tryLoad() {
+        if (!this._loading && this._hasMore) {
+            await this._loadNext();
+        }
     }
     /**
      * Load next
@@ -115,16 +128,20 @@ class TableWrapper extends Component_js_1.Component {
             return;
         }
         this._loading = true;
-        const data = await this._loader(this._page);
-        if (!data || data.length === 0) {
-            this._hasMore = false;
-            return;
+        try {
+            const data = await this._loader(this._page);
+            if (!data || data.length === 0) {
+                this._hasMore = false;
+                return;
+            }
+            for (const item of data) {
+                this._renderer(this._table, item);
+            }
+            this._page++;
         }
-        for (const item of data) {
-            this._renderer(this._table, item);
+        finally {
+            this._loading = false;
         }
-        this._page++;
-        this._loading = false;
         requestAnimationFrame(() => {
             this._observer?.unobserve(this._sentinel[0]);
             this._observer?.observe(this._sentinel[0]);

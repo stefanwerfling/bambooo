@@ -86,13 +86,18 @@ export class TableWrapper<T> extends Component<HTMLDivElement> {
      */
     protected _initObserver(): void {
         this._observer = new IntersectionObserver(entries => {
-            if (entries[0].isIntersecting) {
-                this._loadNext().then();
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    this._tryLoad().then();
+                }
+            });
+            },
+            {
+                root: this._wrapper[0],
+                //rootMargin: "400px",
+                threshold: 1.0
             }
-        }, {
-            root: this._wrapper[0],
-            rootMargin: "400px"
-        });
+        );
 
         this._observer.observe(this._sentinel[0]);
     }
@@ -104,30 +109,44 @@ export class TableWrapper<T> extends Component<HTMLDivElement> {
      */
     public setDataSource(
         loader: TableDataLoader<T>,
-        renderer: TableRowRenderer<T>
+        renderer: TableRowRenderer<T>,
+        reset: boolean = true
     ): void {
 
         this._loader = loader;
         this._renderer = renderer;
 
-        this.reset();
-        this._loadNext().then();
+        if (reset) {
+            this.reset().then();
+        } else {
+
+        }
     }
 
     /**
      * Reset
      */
-    public reset(): void {
+    public async reset(): Promise<void> {
         this._page = 0;
         this._hasMore = true;
+        this._loading = false;
+
         this._table.getTbody().empty();
 
-        this._loadNext().then(() => {
-            if (this._observer) {
-                this._observer.unobserve(this._sentinel[0]);
-                this._observer.observe(this._sentinel[0]);
-            }
-        });
+        await this._loadNext();
+
+        this._observer?.unobserve(this._sentinel[0]);
+        this._observer?.observe(this._sentinel[0]);
+    }
+
+    /**
+     * Try load
+     * @protected
+     */
+    protected async _tryLoad(): Promise<void> {
+        if (!this._loading && this._hasMore) {
+            await this._loadNext();
+        }
     }
 
     /**
@@ -141,19 +160,23 @@ export class TableWrapper<T> extends Component<HTMLDivElement> {
 
         this._loading = true;
 
-        const data = await this._loader(this._page);
+        try {
+            const data = await this._loader(this._page);
 
-        if (!data || data.length === 0) {
-            this._hasMore = false;
-            return;
+            if (!data || data.length === 0) {
+                this._hasMore = false;
+                return;
+            }
+
+            for (const item of data) {
+                this._renderer(this._table, item);
+            }
+
+            this._page++;
+        } finally {
+            this._loading = false;
         }
 
-        for (const item of data) {
-            this._renderer(this._table, item);
-        }
-
-        this._page++;
-        this._loading = false;
 
         requestAnimationFrame(() => {
             this._observer?.unobserve(this._sentinel[0]);

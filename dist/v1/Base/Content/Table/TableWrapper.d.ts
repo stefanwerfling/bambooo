@@ -68,11 +68,16 @@ export declare class TableWrapper<T> extends Component<HTMLDivElement> {
      * @param {TableDataLoader<T>} loader
      * @param {TableRowRenderer<T>} renderer
      */
-    setDataSource(loader: TableDataLoader<T>, renderer: TableRowRenderer<T>): void;
+    setDataSource(loader: TableDataLoader<T>, renderer: TableRowRenderer<T>, reset?: boolean): void;
     /**
      * Reset
      */
-    reset(): void;
+    reset(): Promise<void>;
+    /**
+     * Try load
+     * @protected
+     */
+    protected _tryLoad(): Promise<void>;
     /**
      * Load next
      * @protected
