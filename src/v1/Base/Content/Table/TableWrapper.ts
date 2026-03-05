@@ -121,6 +121,13 @@ export class TableWrapper<T> extends Component<HTMLDivElement> {
         this._page = 0;
         this._hasMore = true;
         this._table.getTbody().empty();
+
+        this._loadNext().then(() => {
+            if (this._observer) {
+                this._observer.unobserve(this._sentinel[0]);
+                this._observer.observe(this._sentinel[0]);
+            }
+        });
     }
 
     /**
