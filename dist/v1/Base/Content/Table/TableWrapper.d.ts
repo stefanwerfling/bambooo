@@ -67,6 +67,7 @@ export declare class TableWrapper<T> extends Component<HTMLDivElement> {
      * Set data source
      * @param {TableDataLoader<T>} loader
      * @param {TableRowRenderer<T>} renderer
+     * @param {boolean} reset
      */
     setDataSource(loader: TableDataLoader<T>, renderer: TableRowRenderer<T>, reset?: boolean): void;
     /**

@@ -45,3 +45,8 @@
 .table-sentinel {
   height: 1px;
 }
+
+.table-wrapper {
+  max-height: 600px;
+  overflow-y: auto;
+}

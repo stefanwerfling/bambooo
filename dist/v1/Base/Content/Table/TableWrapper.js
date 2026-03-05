@@ -78,9 +78,9 @@ class TableWrapper extends Component_js_1.Component {
                 }
             });
         }, {
-            root: this._wrapper[0],
-            //rootMargin: "400px",
-            threshold: 1.0
+            root: null,
+            rootMargin: "200px",
+            threshold: 0
         });
         this._observer.observe(this._sentinel[0]);
     }
@@ -88,6 +88,7 @@ class TableWrapper extends Component_js_1.Component {
      * Set data source
      * @param {TableDataLoader<T>} loader
      * @param {TableRowRenderer<T>} renderer
+     * @param {boolean} reset
      */
     setDataSource(loader, renderer, reset = true) {
         this._loader = loader;
@@ -96,6 +97,7 @@ class TableWrapper extends Component_js_1.Component {
             this.reset().then();
         }
         else {
+            this._tryLoad().then();
         }
     }
     /**
@@ -142,10 +144,6 @@ class TableWrapper extends Component_js_1.Component {
         finally {
             this._loading = false;
         }
-        requestAnimationFrame(() => {
-            this._observer?.unobserve(this._sentinel[0]);
-            this._observer?.observe(this._sentinel[0]);
-        });
     }
     /**
      * Return table

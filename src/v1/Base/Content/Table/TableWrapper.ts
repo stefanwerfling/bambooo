@@ -93,9 +93,9 @@ export class TableWrapper<T> extends Component<HTMLDivElement> {
             });
             },
             {
-                root: this._wrapper[0],
-                //rootMargin: "400px",
-                threshold: 1.0
+                root: null,
+                rootMargin: "200px",
+                threshold: 0
             }
         );
 
@@ -106,20 +106,20 @@ export class TableWrapper<T> extends Component<HTMLDivElement> {
      * Set data source
      * @param {TableDataLoader<T>} loader
      * @param {TableRowRenderer<T>} renderer
+     * @param {boolean} reset
      */
     public setDataSource(
         loader: TableDataLoader<T>,
         renderer: TableRowRenderer<T>,
         reset: boolean = true
     ): void {
-
         this._loader = loader;
         this._renderer = renderer;
 
         if (reset) {
             this.reset().then();
         } else {
-
+            this._tryLoad().then();
         }
     }
 
@@ -177,11 +177,6 @@ export class TableWrapper<T> extends Component<HTMLDivElement> {
             this._loading = false;
         }
 
-
-        requestAnimationFrame(() => {
-            this._observer?.unobserve(this._sentinel[0]);
-            this._observer?.observe(this._sentinel[0]);
-        });
     }
 
     /**
