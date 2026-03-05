@@ -76,6 +76,7 @@ export { TableOptions, Table } from './v1/Base/Content/Table/Table.js';
 export { Td } from './v1/Base/Content/Table/Td.js';
 export { Th } from './v1/Base/Content/Table/Th.js';
 export { Tr } from './v1/Base/Content/Table/Tr.js';
+export { TableDataLoader, TableRowRenderer, TableWrapper } from './v1/Base/Content/Table/TableWrapper.js';
 export { HeadText } from './v1/Base/Content/Text/HeadText.js';
 export { PText, PTextType } from './v1/Base/Content/Text/PText.js';
 export { StrongText } from './v1/Base/Content/Text/StrongText.js';
