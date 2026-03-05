@@ -35,6 +35,9 @@ class Table extends Component_js_1.Component {
         if (options.striped !== undefined) {
             this.setStyleStriped(options.striped);
         }
+        if (options.head_fixed !== undefined) {
+            this.setHeadFixed(options.head_fixed);
+        }
         this._thead = jQuery('<thead />').appendTo(this._element);
         this._tbody = jQuery('<tbody />').appendTo(this._element);
     }
@@ -58,6 +61,13 @@ class Table extends Component_js_1.Component {
      */
     setStyleTextNoWrap(noWrap) {
         this._boolClass('text-nowrap', noWrap);
+    }
+    /**
+     * Set table fixed head
+     * @param {boolean} fixed
+     */
+    setHeadFixed(fixed) {
+        this._boolClass('table-head-fixed', fixed);
     }
     /**
      * getThead

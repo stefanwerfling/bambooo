@@ -6,6 +6,7 @@ export type TableOptions = {
     striped?: boolean;
     hover?: boolean;
     nowrap?: boolean;
+    head_fixed?: boolean;
 };
 /**
  * Table
@@ -47,6 +48,11 @@ export declare class Table extends Component<HTMLTableElement> {
      * @param {boolean} noWrap
      */
     setStyleTextNoWrap(noWrap: boolean): void;
+    /**
+     * Set table fixed head
+     * @param {boolean} fixed
+     */
+    setHeadFixed(fixed: boolean): void;
     /**
      * getThead
      * @return {JQuery}

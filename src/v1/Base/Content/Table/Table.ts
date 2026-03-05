@@ -7,6 +7,7 @@ export type TableOptions = {
     striped?: boolean;
     hover?: boolean;
     nowrap?: boolean;
+    head_fixed?: boolean;
 };
 
 /**
@@ -51,6 +52,10 @@ export class Table extends Component<HTMLTableElement> {
             this.setStyleStriped(options.striped);
         }
 
+        if (options.head_fixed !== undefined) {
+            this.setHeadFixed(options.head_fixed);
+        }
+
         this._thead = jQuery<HTMLTableSectionElement>('<thead />').appendTo(this._element);
         this._tbody = jQuery<HTMLTableSectionElement>('<tbody />').appendTo(this._element);
     }
@@ -77,6 +82,14 @@ export class Table extends Component<HTMLTableElement> {
      */
     public setStyleTextNoWrap(noWrap: boolean): void {
         this._boolClass('text-nowrap', noWrap);
+    }
+
+    /**
+     * Set table fixed head
+     * @param {boolean} fixed
+     */
+    public setHeadFixed(fixed: boolean): void {
+        this._boolClass('table-head-fixed', fixed);
     }
 
     /**
