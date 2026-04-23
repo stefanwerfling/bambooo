@@ -332,28 +332,32 @@ export class SearchWidget extends Component<HTMLElement> implements IReadOnly {
      * @param {SearchWidgetData[]|null} values
      */
     public setValues(values: SearchWidgetData[] | null): void {
-        if (values === null) {
-            this.clear();
-        } else {
-            for (const value of values) {
-                const option = new Option(value?.text, value?.id, true, true);
-                this._select.append(option).trigger('change');
-            }
+        this.clear();
 
-            this._select.trigger({
-                type: 'select2:select',
-                params: {
-                    data: values
-                }
-            } as any);
+        if (values === null || values.length === 0) {
+            return;
         }
+
+        for (const value of values) {
+            const option = new Option(value?.text, value?.id, true, true);
+            this._select.append(option);
+        }
+
+        this._select.trigger('change');
+
+        this._select.trigger({
+            type: 'select2:select',
+            params: {
+                data: values
+            }
+        } as any);
     }
 
     /**
      * Clear selects
      */
     public clear(): void {
-        this._select.val(null as any).trigger('change');
+        this._select.empty().trigger('change');
     }
 
 }

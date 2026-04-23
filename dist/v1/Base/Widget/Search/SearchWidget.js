@@ -234,27 +234,27 @@ class SearchWidget extends Component_js_1.Component {
      * @param {SearchWidgetData[]|null} values
      */
     setValues(values) {
-        if (values === null) {
-            this.clear();
+        this.clear();
+        if (values === null || values.length === 0) {
+            return;
         }
-        else {
-            for (const value of values) {
-                const option = new Option(value?.text, value?.id, true, true);
-                this._select.append(option).trigger('change');
+        for (const value of values) {
+            const option = new Option(value?.text, value?.id, true, true);
+            this._select.append(option);
+        }
+        this._select.trigger('change');
+        this._select.trigger({
+            type: 'select2:select',
+            params: {
+                data: values
             }
-            this._select.trigger({
-                type: 'select2:select',
-                params: {
-                    data: values
-                }
-            });
-        }
+        });
     }
     /**
      * Clear selects
      */
     clear() {
-        this._select.val(null).trigger('change');
+        this._select.empty().trigger('change');
     }
 }
 exports.SearchWidget = SearchWidget;
